@@ -1,8 +1,8 @@
 ---
-title: "Development"
+title: "작업목록"
 layout: archive
 permalink: categories/work
 author_profile: true
 ---
 {% assign posts = site.categories.work %}
-{% for post in posts %} {% include archive-single.html type=page.entries_layout %} {% endfor %}
+{% for post in posts %} {% include archive-single.html type="grid" %} {% endfor %}
