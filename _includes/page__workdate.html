@@ -1,0 +1,15 @@
+{% assign date_format = site.date_format | default: "%Y.%m.%d" %}
+<p class="work_date">
+  {% if post.due_date %}
+    <span class="due_date">
+      <i class="fas fa-fw fa-calendar-alt hidden" aria-hidden="true"></i> 
+      <time datetime="{{ post.due_date | date: '%Y.%m.%d' }}">{{ post.due_date | date: date_format }}</time>
+    </span>
+  {% endif %}
+  {% if post.start_date %}
+  <span class="start_date">
+    <i class="fas fa-fw fa-calendar-alt hidden" aria-hidden="true"></i> 
+    <time datetime="{{ post.start_date | date: '%Y.%m.%d' }}">{{ post.start_date | date: date_format }}</time>
+  </span>
+  {% endif %}
+</p>
