@@ -14,7 +14,7 @@
   animation: $intro-transition;
   -webkit-animation-delay: 0.45s;
   animation-delay: 0.45s;
-  background-color: $footer-background-color;
+  background-color: black;
 
   footer {
     @include clearfix;
@@ -23,6 +23,8 @@
     margin-top: 2em;
     max-width: 100%;
     padding: 0 1em 2em;
+    display: flex;
+    flex-wrap: wrap;
 
     @include breakpoint($x-large) {
       max-width: $x-large;
@@ -36,50 +38,81 @@
     &:hover {
       text-decoration: underline;
     }
+
+    i{
+      color: $muted-text-color;
+      font-size: 0;
+    }
   }
 
-  .fas,
-  .fab,
-  .far,
-  .fal {
-    color: $muted-text-color;
-  }
-}
-
-.page__footer-copyright {
-  font-family: $global-font-family;
-  font-size: $type-size-7;
-}
-
-.page__footer-follow {
   ul {
-    margin: 0;
     padding: 0;
-    list-style-type: none;
+    margin: 0;
+    li {
+      display: inline-block;
+    }
   }
 
-  li {
-    display: inline-block;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    font-family: $sans-serif-narrow;
-    font-size: $type-size-6;
-    text-transform: uppercase;
+  .work,
+  .social,
+  .email{
+    padding-left: 15px;
+
+    @include breakpoint($large) {
+      padding-left: 0;
+    }
+    h3{
+      font-size: $type-size-2;
+    }
+
+    a,
+    .label{
+      font-size: $type-size-2;
+      color: white;
+    }
   }
 
-  li + li:before {
-    content: "";
-    padding-right: 5px;
+  .page__footer-copyright {
+    width: 100%;
+    font-size: $type-size-4;
+    display: inline-flex;
+    align-items: center;
+
+    > a {
+      font-size: 0;
+      i{
+        font-size: $type-size-2;
+      }
+    }
+
+    span:last-of-type{
+      font-weight: lighter;
+      color: rgba($color: white, $alpha: 0.2);
+      margin-left: 0.5rem;
+    }
   }
 
-  a {
-    padding-right: 10px;
-    font-weight: bold;
-  }
+  .author__content{
+    flex: 1;
+    h3, address{
+      display: inline-block;
+    }
 
-  .social-icons {
-    a {
-      white-space: nowrap;
+    address {
+      color: rgba($color: white, $alpha: 0.2);
+      &::before{
+        content: ",";
+      }
+      i{
+        font-size: $type-size-3;
+        margin-right: -0.15rem;
+      }
+    }
+
+    p{
+      margin-top: 0.5rem;
+      font-size: $type-size-3;
     }
   }
 }
+
