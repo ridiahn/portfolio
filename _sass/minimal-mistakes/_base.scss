@@ -31,6 +31,12 @@ h6 {
   line-height: 1.2;
   font-family: $header-font-family;
   font-weight: bold;
+  word-break: keep-all;
+  word-wrap: break-word;
+  
+  a{
+    color: black !important;
+  }
 }
 
 h1 {
@@ -60,11 +66,13 @@ h6 {
 
 small,
 .small {
-  font-size: $type-size-6;
+  font-size: $h-size-3;
 }
 
 p {
   margin-bottom: 1.3em;
+  word-break: keep-all;
+  word-wrap: break-word;
 }
 
 u,
@@ -74,6 +82,10 @@ ins {
   a {
     color: inherit;
   }
+}
+
+a {
+  text-decoration: none;
 }
 
 del a {
@@ -188,6 +200,9 @@ hr {
 }
 
 /* lists */
+ul li{
+  list-style: none;
+}
 
 ul li,
 ol li {
@@ -265,7 +280,7 @@ figcaption {
   margin-bottom: 0.5em;
   color: $muted-text-color;
   font-family: $caption-font-family;
-  font-size: $type-size-6;
+  font-size: $h-size-3;
 
   a {
     -webkit-transition: $global-transition;
@@ -355,3 +370,4 @@ input[type="submit"],
   -webkit-transition: $global-transition;
   transition: $global-transition;
 }
+
