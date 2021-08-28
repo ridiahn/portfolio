@@ -2,8 +2,8 @@
 main:
   - title: "작업 목록"
     url: categories/work
-  # - title: "About"
-  #   url: https://mmistakes.github.io/minimal-mistakes/about/
+  - title: "자기소개"
+    url: /about/
   # - title: "Sample Posts"
   #   url: /year-archive/
   # - title: "Sample Collections"
