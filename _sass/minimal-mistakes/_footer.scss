@@ -94,15 +94,20 @@
 
   .author__content{
     flex: 1;
-    h3, address{
+
+    h3{
       display: inline-block;
+      font-size: $h-size-5;
     }
 
     address {
+      display: inline-block;
       color: rgba($color: white, $alpha: 0.2);
+      
       &::before{
         content: ",";
       }
+
       i{
         font-size: $type-size-3;
         margin-right: -0.15rem;
