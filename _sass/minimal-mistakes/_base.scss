@@ -138,6 +138,9 @@ blockquote {
 /* links */
 
 a {
+  word-break: keep-all;
+  word-wrap: break-word;
+  
   &:focus {
     @extend %tab-focus;
   }
