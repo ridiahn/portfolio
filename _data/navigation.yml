@@ -1,6 +1,6 @@
 # main links
 main:
-  - title: "작업 목록"
+  - title: "작업목록"
     url: categories/work
   - title: "자기소개"
     url: /about/
