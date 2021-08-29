@@ -20,8 +20,8 @@ layout: archive
   </div>
 
   <div class="entries-{{ entries_layout }} recent">
-    <h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_works | default: "최근 작업" }}</h3>
-    <a href="/categories/work/">더보기</a>
+    <h3 class="archive__subtitle title_bar">{{ site.data.ui-text[site.locale].recent_works | default: "최근 작업" }}</h3>
+    <a class="more" href="/categories/work/">더보기</a>
     {% for post in posts limit: 3 %}
       {% if post.top == none %}
         {% include archive-single.html type="grid" %}
@@ -33,9 +33,9 @@ layout: archive
   <section class="about">
     {% assign pageabout = site.pages | where: 'permalink', '/about/' %}
     {% for item in pageabout %}
-      <h2 class="hidden">{ item.title }}</h2>  
+      <h3 class="title_bar">{ item.title }}</h3>  
       <p>{{ item.excerpt }}</p>
-      <a href="/about/">더보기</a>
+      <a class="more" href="/about/">더보기</a>
     {% endfor %}
   </section>
 </body>

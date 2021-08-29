@@ -561,6 +561,10 @@ body {
 /*
    custom Pages
    ========================================================================== */
+.tags{
+  font-size: $type-size-3;
+  color: #999;
+}
 
 .layout--home{
   .archive{
@@ -568,10 +572,53 @@ body {
     padding: 0;
     display: flex;
     flex-direction: column;
+    margin-top: 20px;
   }
 
   .page__title{
     display: none;
+  }
+
+  a.more{
+    display: inline-block;
+    font-size: $type-size-3;
+    color: $muted-text-color;
+    font-weight: lighter;
+    position: relative;
+    background: linear-gradient(to right, #ccc, #ccc) no-repeat right 8px center;
+    background-size: 20px 1px;
+    width: 80px;
+    padding-right: 20px;
+    transition: 0.4s;
+  
+    &::after{
+      content: "";
+      display: inline-block;
+      position: absolute;
+      right: 2px;
+      top: calc( 50% - 4px );
+      width: 8px;
+      height: 8px;
+      border-right: solid 1px #999;
+      border-bottom: solid 1px #999;
+      transform: rotate(-45deg);
+    }
+  
+    &:hover{
+      width: 140px;
+      background-size: 80px 1px;
+    }
+  }
+  
+  .title_bar{
+    &::before{
+      content: "";
+      display: block;
+      width: 30px;
+      height: 1px;
+      background: black;
+      margin-bottom: 0.5rem;
+    }
   }
 
   .entries-list{
@@ -587,13 +634,15 @@ body {
       }
     }
 
-    p.work_date{
-      font-size: $h-size-3;
-      color: #999;
+    .work_date{
+      font-size: $type-size-5;
+      color: #ccc;
       font-weight: lighter;
       position: absolute;
       left: 0;
-      bottom: -2.5rem;
+      bottom: 0;
+      transform-origin: left bottom;
+      transform: rotate(-90deg);
 
       i{
         display: none;
@@ -607,6 +656,7 @@ body {
 
     &.main{
       width: 90%;
+      margin-bottom: $ms-size;
 
       > div{
         width: 100%;
@@ -619,7 +669,7 @@ body {
         .tags,
         h2{
           position: absolute;
-          left: 40%;
+          left: 45%;
         }
 
         .tags{
@@ -628,11 +678,11 @@ body {
 
         h2{
           z-index: 2;
-          top: 50%;
           width: 40%;
 
           a{
-          font-size: $h-size-1;
+            font-size: $h-size-1;
+            letter-spacing: 5px;
           }
         }
 
@@ -643,11 +693,16 @@ body {
           font-size: $type-size-3;
           font-weight: lighter;
         }
+
+        .work_date{
+          bottom: unset;
+        }
   
         .archive__item-teaser{
           max-height: unset;
           position: relative;
           overflow: hidden;
+          margin-left: $ms-size;
   
           &::before{
             content: "";
@@ -656,7 +711,7 @@ body {
           }
   
           @include breakpoint($large){
-            width: 45%
+            width: 40%
           }
   
           >img{
@@ -672,21 +727,98 @@ body {
 
     &.recent{
       width: 100%;
+      margin-bottom: $ms-size;
+      display: grid;
+      grid-template-columns: repeat( 10, 1fr );
 
-      .archive__subtitle{
+      h3{
         font-size: $h-size-2;
         color: black;
+        border-bottom: none;
+        grid-row: 2;
+        grid-column: 1 / span 2;
+        letter-spacing: 5px;
+        margin-top: 0;
       }
 
-      .archive__item{
-        p.archive__item-excerpt{
-          font-size: 0;
+      a.more{
+        grid-row: 2;
+        grid-column: 2 / span 2;
+        place-self: start start;
+        margin-left: -12px;
+        margin-top: calc( 2rem + #{$mt-size} );
+      }
+
+      .grid__item{
+        z-index: 0;
+        width: unset;
+
+        .archive__item{
+          position: relative;
+
+          .archive__item-teaser{
+            max-height: 300px;
+            max-width: 60%;
+            
+            img{
+              object-fit: contain;
+            }
+          }
+
+          .tags,
+          .archive__item-title {
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            white-space: nowrap;
+          }
+
+          .archive__item-title{
+            margin-top: 24px;
+          }
+
+          .archive__item-excerpt{
+            font-size: 0;
+          }
+
+          .work_date{
+            margin: 0;
+          }
+        }
+        
+        &:nth-of-type(1){
+          grid-column: 2 / span 3;
+          grid-row: 1;
         }
 
-      }
+        &:nth-of-type(2){
+          grid-column: 5 / span 3;
+          grid-row: 2;
+        }
 
+        &:nth-of-type(3){
+          grid-column: 1 / span 4;
+          grid-row: 3;
+        }
+      }
     }
   }
 
+  .about{
+    display: inline-flex;
+    flex-direction: column;
+    align-self: flex-end;
+    width: 70%;
 
+    h3{
+      font-size: 0;
+    }
+
+    p{
+      font-size: $h-size-3;
+      font-weight: lighter;
+      margin-top: 1rem;
+    }
+  }
 }
+
