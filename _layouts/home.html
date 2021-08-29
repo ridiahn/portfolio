@@ -11,23 +11,27 @@ layout: archive
   {% endif %}
 
   {% assign entries_layout = page.entries_layout | default: 'list' %}
-  <div class="entries-{{ entries_layout }} main">
-    <h3 class="archive__subtitle hidden">대표 작업</h3>
-    {% assign main-posts = posts | where: 'top', 'true' %}
-    {% for post in main-posts limit: 3 %}
-      {% include archive-single.html type="grid" %}
-    {% endfor %}
-  </div>
-
-  <div class="entries-{{ entries_layout }} recent">
-    <h3 class="archive__subtitle title_bar">{{ site.data.ui-text[site.locale].recent_works | default: "최근 작업" }}</h3>
-    <a class="more" href="/categories/work/">더보기</a>
-    {% for post in posts limit: 3 %}
-      {% if post.top == none %}
+  <section class="entries-{{ entries_layout }} main">
+    <h2 class="archive__subtitle hidden">대표 작업</h2>
+    <ul>
+      {% assign main-posts = posts | where: 'top', 'true' %}
+      {% for post in main-posts limit: 3 %}
         {% include archive-single.html type="grid" %}
-      {% endif %}
-    {% endfor %}
-  </div>
+      {% endfor %}
+    </ul>
+  </section>
+
+  <section class="entries-{{ entries_layout }} recent">
+    <h2 class="archive__subtitle title_bar">{{ site.data.ui-text[site.locale].recent_works | default: "최근 작업" }}</h2>
+    <a class="more" href="/categories/work/">더보기</a>
+    <ul>
+      {% for post in posts limit: 3 %}
+        {% if post.top == none %}
+          {% include archive-single.html type="grid" %}
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </section>
 
   <!-- {% include paginator.html %} -->
   <section class="about">
