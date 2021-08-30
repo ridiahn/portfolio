@@ -1,6 +1,6 @@
 ---
 title: "작업목록"
-layout: archive
+layout: category
 permalink: categories/work
 author_profile: true
 ---
