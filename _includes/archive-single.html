@@ -24,12 +24,12 @@
           <a href="{{ post.url | relative_url }}" rel="permalink">{{ title }}</a>
         {% endif %}
       </h3>
-    {% include page__workdate.html %}
     {% if post.tags.size > 0 %}
       <span class="tags"><strong class="hidden">{{ site.data.ui-text[site.locale].tags_label | default: "Tags:" }}</strong>{{ post.tags | sort | join: ", " }}</span>
     {% endif %}
     {% if post.excerpt %}
       <p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify | strip_html | truncate: 160 }}</p>
     {% endif %}
+    {% include page__workdate.html %}
   <!-- </div> -->
 </li>
