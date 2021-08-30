@@ -1,10 +1,63 @@
 ---
 layout: archive
 ---
+<ul>
+  {{ content }}
+</ul>
 
-{{ content }}
+{% assign tags_max = 0 %}
+{% for tag in site.tags %}
+  {% if tag[1].size > tags_max %}
+    {% assign tags_max = tag[1].size %}
+  {% endif %}
+{% endfor %}
 
-{% assign entries_layout = page.entries_layout | default: 'list' %}
+<ul class="taxonomy__index">
+  <li>
+    <button>
+      <strong>전체</strong><span class="taxonomy__count">{{ site.posts.size }}</span>
+    </button>
+  </li>
+  {% for i in (1..tags_max) reversed %}
+    {% for tag in site.tags %}
+      {% if tag[1].size == i %}
+        <li>
+          <button href="#{{ tag[0] | slugify }}">
+            <strong>{{ tag[0] }}</strong> <span class="taxonomy__count">{{ i }}</span>
+          </button>
+        </li>
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+</ul>
+
+<!-- {% assign entries_layout = page.entries_layout | default: 'list' %}
 <div class="entries-{{ entries_layout }}">
   {% include posts-category.html taxonomy=page.taxonomy type=entries_layout %}
-</div>
+</div> -->
+
+<script>
+  let tagitems = document.getElementsByClassName("taxonomy__index")[0].children;
+  let tag_all = tagitems[0];
+  
+  Array.from(tagitems).forEach( el =>{
+    el.onclick = function(){
+      filterWord = this.children[0].children[0].innerText;
+      reset_list(filterWord);
+    };
+  })
+
+  function reset_list(key){
+    let list = document.querySelectorAll(".archive > div");
+
+    Array.from(list).forEach( ( el, index ) =>{
+      let compareWord = el.querySelector("span.tags").innerText;
+      
+      if( key == tag_all.innerText ){
+        el.style.display = "";
+      }else if( compareWord.indexOf(key) == -1){
+        el.style.display = "none";
+      }
+    });
+  }
+</script>
