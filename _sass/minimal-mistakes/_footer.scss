@@ -56,13 +56,17 @@ footer {
   .work,
   .social,
   .email{
-    padding-left: 15px;
+    padding-right: 1rem;
+    margin-bottom: $m-24;
 
     @include breakpoint($large) {
-      padding-left: 0;
+      padding-right: 0;
     }
+
     h3{
       font-size: $type-size-2;
+      margin-bottom: 0.25rem;
+      font-weight: normal;
     }
 
     a,
@@ -96,12 +100,12 @@ footer {
     flex: 1;
 
     h3{
-      display: inline-block;
+      display: inline;
       font-size: $h-size-5;
     }
 
     address {
-      display: inline-block;
+      display: inline;
       color: rgba($color: white, $alpha: 0.2);
       
       &::before{
