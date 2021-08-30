@@ -1,0 +1,8 @@
+{% assign document = post | default: page %}
+
+<p>
+  {% if document.headcount %}
+    <strong><i class="fas fa-fw fa-user hidden" aria-hidden="true"></i> 작업인원</strong>
+    <span>{{ document.headcount }} 명</span>
+  {% endif %}
+</p>

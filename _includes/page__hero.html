@@ -19,10 +19,11 @@
 {% assign image_description = image_description | markdownify | strip_html | strip_newlines | escape_once %}
 
 <header class="page__hero{% if page.header.overlay_color or page.header.overlay_image %}--overlay{% endif %}"
-  style="{% if page.header.overlay_color %} background-color: {{ page.header.overlay_color | default: 'transparent' }};{% endif %} {% if overlay_img_path %}background-image: {% if overlay_filter %}{{ overlay_filter }}, {% endif %}url('{{ overlay_img_path }}');{% endif %}"
+  style="{% if page.header.overlay_color %}background-color:{{ page.header.overlay_color | default: 'transparent' }}{% endif %}; {% if overlay_img_path %}background-image: {% if overlay_filter %}{{ overlay_filter }}{% endif %}, url('{{ overlay_img_path }}'){% endif %};"
 >
   {% if page.header.overlay_color or page.header.overlay_image %}
     <article class="wrapper">
+      {% include tag-list.html %}
       <h1 id="page-title" class="page__title" itemprop="headline">
         {% if paginator and site.paginate_show_page_num %}
           {{ site.title }}{% unless paginator.page == 1 %} {{ site.data.ui-text[site.locale].page | default: "Page" }} {{ paginator.page }}{% endunless %}
@@ -36,8 +37,11 @@
         <p class="page__lead">{{ page.excerpt | markdownify | remove: "<p>" | remove: "</p>" }}</p>
       {% endif %}
 
-      <!-- {% include page__meta.html %} -->
-      {% include page__workdate.html %}
+      <div>
+        <!-- {% include page__meta.html %} -->
+        {% include page__workdate.html %}
+        {% include page__hadecount.html %}
+      </div>
 
       {% if page.header.cta_url %}
         <p><a href="{{ page.header.cta_url | relative_url }}" class="btn btn--light-outline btn--large">{{ page.header.cta_label | default: site.data.ui-text[site.locale].more_label | default: "Learn More" }}</a></p>
