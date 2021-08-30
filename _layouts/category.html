@@ -40,7 +40,7 @@ layout: archive
 </div> -->
 
 <script>
-  let tagitems = document.getElementsByClassName("taxonomy__index")[0].children;
+  let tagitems = document.getElementsByClassName("taxonomy__index")[0].getElementsByTagName("ul")[0].children;
   let tag_all = tagitems[0];
 
   Array.from(tagitems).forEach( el =>{
