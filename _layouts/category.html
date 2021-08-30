@@ -1,7 +1,7 @@
 ---
 layout: archive
 ---
-<ul>
+<ul class="list">
   {{ content }}
 </ul>
 
@@ -39,7 +39,7 @@ layout: archive
 <script>
   let tagitems = document.getElementsByClassName("taxonomy__index")[0].children;
   let tag_all = tagitems[0];
-  
+
   Array.from(tagitems).forEach( el =>{
     el.onclick = function(){
       filterWord = this.children[0].children[0].innerText;
@@ -48,12 +48,12 @@ layout: archive
   })
 
   function reset_list(key){
-    let list = document.querySelectorAll(".archive > div");
+    let list = document.querySelectorAll(".archive > ul.list > li");
 
     Array.from(list).forEach( ( el, index ) =>{
       let compareWord = el.querySelector("span.tags").innerText;
       
-      if( key == tag_all.innerText ){
+      if( key == tag_all.children[0].children[0].innerText ){
         el.style.display = "";
       }else if( compareWord.indexOf(key) == -1){
         el.style.display = "none";
