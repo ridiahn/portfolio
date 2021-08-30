@@ -1,6 +1,7 @@
 {% assign document = post | default: page %}
 {% assign date_format = site.date_format | default: "%Y.%m.%d" %}
 <p class="work_date">
+  <strong>작업기간</strong>
   {% if document.due_date %}
     <span class="due_date">
       <i class="fas fa-fw fa-calendar-alt hidden" aria-hidden="true"></i> 
