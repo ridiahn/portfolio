@@ -1107,6 +1107,9 @@ body {
   .masthead{
     position: absolute;
     width: 100%;
+    .greedy-nav{
+      color: rgba(white, 0.9);
+    }
   }
 }
 

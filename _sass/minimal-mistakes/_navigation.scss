@@ -250,11 +250,12 @@ $pageNav-height-lg : 54px;
   align-items: center;
   min-height: $nav-height;
   background: transparent;
+  color: black;
 
   a {
     display: block;
     margin: 0 1rem;
-    color: $masthead-link-color;
+    color: inherit;
     text-decoration: none;
     -webkit-transition: none;
     transition: none;
@@ -270,7 +271,6 @@ $pageNav-height-lg : 54px;
 
     &.site-title {
       margin-left: 0;
-      color: black;
       width: 150px;
       line-height: 1.25;
       letter-spacing: -0.5px;
