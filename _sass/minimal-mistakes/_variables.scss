@@ -10,7 +10,7 @@ $doc-font-size: 1rem !default;
 
 /* paragraph indention */
 $paragraph-indent: false !default; // true, false (default)
-$indent-var: 1.3em !default;
+$indent-var: 1.2em !default;
 
 /* system typefaces */
 $serif: Georgia, Times, serif !default;
@@ -113,9 +113,9 @@ $youtube-color: #bb0000 !default;
 $xing-color: #006567 !default;
 
 /* links */
-$link-color: mix(#000, $info-color, 20%) !default;
-$link-color-hover: mix(#000, $link-color, 25%) !default;
-$link-color-visited: mix(#fff, $link-color, 15%) !default;
+$link-color: #000 !default;
+$link-color-hover: mix(#fff, $link-color, 20%) !default;
+$link-color-visited: mix(#fff, $link-color, 45%) !default;
 $masthead-link-color: $primary-color !default;
 $masthead-link-color-hover: mix(#000, $primary-color, 25%) !default;
 $navicon-link-color-hover: mix(#fff, $primary-color, 75%) !default;
