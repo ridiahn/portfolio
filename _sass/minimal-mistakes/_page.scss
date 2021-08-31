@@ -841,7 +841,7 @@ body {
     h2,
     a.more{
       position: absolute;
-      top: 40%;
+      top: 35%;
     }
 
     h2{
@@ -850,8 +850,8 @@ body {
     }
     
     a.more{
-      margin-top: calc( 2rem + #{$m-54} );
-      margin-left: 96px;
+      margin-top: calc( 2.5rem + #{$m-54} );
+      margin-left: 92px;
     }
 
     ul{
@@ -924,6 +924,10 @@ body {
       font-size: $h-size-3;
       font-weight: lighter;
       margin-top: 1rem;
+    }
+
+    a{
+      margin-top: $m-54;
     }
   }
 }
