@@ -7,5 +7,5 @@ permalink: /about/
 layout: single
 ---
 
-자기소개
+페이지 준비중입니다
 
