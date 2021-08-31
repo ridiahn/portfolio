@@ -47,72 +47,105 @@
 }
 
 /*
-     Post pagination navigation links
-     ========================================================================== */
+  page__nav
+  ========================================================================== */
+$pageNav-height-lg : 54px;
+
+.page__nav{
+  width: 100%;
+  height: $pageNav-height-lg;
+  display: flex;
+  align-items: center;
+  background-color: rgba(white, 0.9);
+  visibility: hidden;
+  position: fixed;
+  top: -100px;
+  left: 0;
+  transition: top 0.5s;
+}
+
+.page__nav.on{
+  visibility: visible;
+  top: 0;
+}
+
+/*
+  Post pagination navigation links
+  ========================================================================== */
 
 .pagination {
   @include clearfix();
-  float: left;
-  margin-top: 1em;
-  padding-top: 1em;
-  width: 100%;
+  flex: 1;
+  border-bottom: solid 1px #efefef;
+  height: 100%;
 
-  ul {
-    margin: 0;
-    padding: 0;
-    list-style-type: none;
-    font-family: $sans-serif;
+  ul{
+    display: flex;
+    height: inherit;
   }
 
   li {
+    width: calc( 100% - 46px / 2 );
+
+    &:nth-of-type(1){
+      text-align: left;
+      flex: 1;
+    }
+
+    &:nth-of-type(2) {
+      text-align: right;
+      flex: 1;
+    }
+
+    &:nth-of-type(3) {
+      width: $pageNav-height-lg;
+      height: 100%;
+    }
+  }
+
+  li:nth-of-type(3) a{
+    font-size: 0;
+    justify-content: center;
+  }
+
+  
+  li a {
+    width: 100%;
+    box-sizing: border-box;
+    text-align: inherit;
     display: block;
-    float: left;
-    margin-left: -1px;
+    padding: 0.25em 1em;
+    font-size: $type-size-4;
+    line-height: 1.5;
+    text-decoration: none;
+    color: #ccc;
+    border-radius: 0;
 
-    a {
+    &.current,
+    &.current.disabled {
+      color: #fff;
+      background: $primary-color;
+    }
+
+    &.disabled {
+      color: rgba($muted-text-color, 0.5);
+      pointer-events: none;
+      cursor: not-allowed;
+    }
+
+    span{
       display: block;
-      margin-bottom: 0.25em;
-      padding: 0.5em 1em;
-      font-family: $sans-serif;
-      font-size: 14px;
-      font-weight: bold;
-      line-height: 1.5;
-      text-align: center;
-      text-decoration: none;
+      font-size: $type-size-2;
       color: $muted-text-color;
-      border: 1px solid mix(#000, $border-color, 25%);
-      border-radius: 0;
-
-      &:hover {
-        color: $link-color-hover;
-      }
-
-      &.current,
-      &.current.disabled {
-        color: #fff;
-        background: $primary-color;
-      }
-
-      &.disabled {
-        color: rgba($muted-text-color, 0.5);
-        pointer-events: none;
-        cursor: not-allowed;
-      }
     }
 
-    &:first-child {
-      margin-left: 0;
+    
+    &:hover {
+      background-color: rgba(#000, 0.05);
 
-      a {
-        border-top-left-radius: $border-radius;
-        border-bottom-left-radius: $border-radius;
-      }
-    }
-
-    &:last-child {
-      a {
-        border-top-right-radius: $border-radius;
-        border-bottom-right-radius: $border-radius;
+      span{
+        color: black;
+        text-decoration: underline;
       }
     }
   }
@@ -120,32 +153,18 @@
   /* next/previous buttons */
   &--pager {
     display: block;
-    padding: 1em 2em;
+    padding: 0.5rem 1.5rem;
+    box-sizing: border-box;
+    height: 100%;
     float: left;
     width: 50%;
-    font-family: $sans-serif;
-    font-size: $h-size-3;
-    font-weight: bold;
+    font-size: $type-size-4;
     text-align: center;
     text-decoration: none;
-    color: $muted-text-color;
-    border: 1px solid mix(#000, $border-color, 25%);
-    border-radius: $border-radius;
+    color: #ccc;
+    border-right: 1px solid rgba(#000, 0.1);
+    
 
-    &:hover {
-      @include yiq-contrasted($muted-text-color);
-    }
-
-    &:first-child {
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-    }
-
-    &:last-child {
-      margin-left: -1px;
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-    }
 
     &.disabled {
       color: rgba($muted-text-color, 0.5);
@@ -155,13 +174,66 @@
   }
 }
 
-.page__content + .pagination,
-.page__meta + .pagination,
-.page__share + .pagination,
-.page__comments + .pagination {
-  margin-top: 2em;
-  padding-top: 2em;
-  border-top: 1px solid $border-color;
+
+/*
+   Social sharing
+   ========================================================================== */
+
+.page__share {
+  border-right: 1px solid rgba(#000, 0.1);
+  height: 100%;
+}
+
+.page__share-title {
+  font-size: 0;
+  height: inherit;
+  width: $pageNav-height-lg;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-sizing: border-box;
+
+  i{
+    font-size: $type-size-1;
+    color:#ccc ;   
+  }
+}
+
+.page__share ul{
+  position: absolute;
+  background: white;
+  border-radius: $border-radius;
+  overflow: hidden;
+  border: solid 1px #efefef;
+  margin-left: 1rem;
+  margin-top: 0.5rem;
+  top: -100px;
+  opacity: 0;
+  visibility: hidden;
+
+  li{
+    margin-bottom: 0;
+  }
+
+  a{
+    display: block;
+    font-size: $type-size-2;
+    font-weight: normal;
+    color: $muted-text-color;
+    background-color: transparent;
+    border-radius: 0;
+    margin-bottom: 0;
+    padding: 0.5rem 1rem;
+    text-align: left;
+  }
+}  
+
+.page__share ul.show{
+  top: unset;
+  opacity: 1;
+  visibility: visible;
+  transition: top 0.25s, opacity 0.5s;
 }
 
 /*
@@ -177,7 +249,7 @@
   -ms-flex-align: center;
   align-items: center;
   min-height: $nav-height;
-  background: $background-color;
+  background: transparent;
 
   a {
     display: block;
@@ -202,7 +274,7 @@
       width: 150px;
       line-height: 1.25;
       letter-spacing: -0.5px;
-      margin-top: 1rem;
+      margin: 1rem 0;
     }
   }
   
@@ -485,46 +557,58 @@
      ========================================================================== */
 
 .toc {
-  font-family: $sans-serif-narrow;
   color: $gray;
-  background-color: $background-color;
-  border: 1px solid $border-color;
-  border-radius: $border-radius;
-  -webkit-box-shadow: $box-shadow;
-  box-shadow: $box-shadow;
+  text-align: right;
 
   .nav__title {
-    color: #fff;
-    font-size: $type-size-1;
-    background: $primary-color;
-    border-top-left-radius: $border-radius;
-    border-top-right-radius: $border-radius;
+    font-size: $type-size-4;
+    padding: 0;
+    font-weight: lighter;
+    margin-bottom: 0.75rem;
+
+    i{
+      font-size: 0;
+    }
   }
 
   // Scrollspy marks toc items as .active when they are in focus
   .active a {
-    @include yiq-contrasted($active-color);
+    //@include yiq-contrasted($active-color);
+    margin: 0.5rem 0;
+    color: black;
+    position: relative;
+    font-size: $type-size-3;
+
+    &::after{
+      content: "";
+      display: inline-block;
+      position: absolute;
+      top: 50%;
+      width: 24px;
+      height: 1px;
+      background: black;
+      right: -1 * $m-36;
+    }
   }
 }
 
 .toc__menu {
   margin: 0;
-  padding: 0;
+  padding-left: 1rem;
   width: 100%;
   list-style: none;
-  font-size: $type-size-1;
+  font-size: $type-size-4;
 
   @include breakpoint($large) {
-    font-size: $h-size-3;
+    //font-size: $h-size-3;
   }
 
   a {
     display: block;
-    padding: 0.25rem 0.75rem;
-    color: $muted-text-color;
-    font-weight: bold;
+    padding-top: 0.1rem;
+    padding-bottom: 0.1rem;
+    color: #999;
     line-height: 1.5;
-    border-bottom: 1px solid $border-color;
 
     &:hover {
       color: $text-color;
@@ -532,23 +616,24 @@
   }
 
   li ul > li a {
-    padding-left: 1.25rem;
+    padding-right: 1.25rem;
     font-weight: normal;
   }
 
   li ul li ul > li a {
-    padding-left: 1.75rem;
+    padding-right: 1.75rem;
   }
 
   li ul li ul li ul > li a {
-    padding-left: 2.25rem;
+    padding-right: 2.25rem;
   }
 
   li ul li ul li ul li ul > li a {
-    padding-left: 2.75rem;
+    padding-right: 2.75rem;
   }
 
   li ul li ul li ul li ul li ul > li a {
     padding-left: 3.25rem
   }
 }
+

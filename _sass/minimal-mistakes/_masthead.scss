@@ -112,34 +112,40 @@
 
   &:first-of-type{
     order: 2;
-
     a{
-      display: inline-flex;
-      align-items: center;
       padding: 0.15rem 0.5rem;
       margin: 0;
       color: rgba(white, 0.8);
-      background-color: black;
       line-height: 20px;
-      transition: 0.4s;
-      
-      &::before{
-        content: url(../img/ico_hreum.svg) !important;
-        display: inline-block;
-        padding-right: 0.25rem;
-        width: 20px;
-        height: 20px;
-        position: relative;
-        transform: none;
-      }
-      
-      &:hover{
-        color: rgba(white, 1);
-      }
     }
   }
   
   &:not(:first-of-type){
     order: 1;
+  }
+}
+
+
+.pagination ul li:nth-of-type(3) a,
+.masthead__menu-item:first-of-type a{
+  background-color: black;
+  transition: 0.4s;
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  
+  &::before{
+    content: url(../img/ico_hreum.svg) !important;
+    display: inline-block;
+    padding-right: 0.25rem;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    transform: none;
+  }
+
+  &:hover{
+    color: rgba(white, 1);
   }
 }
