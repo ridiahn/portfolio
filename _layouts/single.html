@@ -17,7 +17,7 @@ layout: default
 <div id="main" role="main">
   {% include sidebar.html %}
 
-  <section class="page page__inner-wrap" itemscope itemtype="https://schema.org/CreativeWork">
+  <section class="page" itemscope itemtype="https://schema.org/CreativeWork">
     {% if page.title %}<meta itemprop="headline" content="{{ page.title | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
     {% if page.excerpt %}<meta itemprop="description" content="{{ page.excerpt | markdownify | strip_html | strip_newlines | escape_once }}">{% endif %}
     {% if page.date %}<meta itemprop="datePublished" content="{{ page.date | date_to_xmlschema }}">{% endif %}
@@ -35,18 +35,20 @@ layout: default
         </header>
       {% endunless %}
 
-      <article class="page__content" itemprop="text">
+      <section class="page__content" itemprop="text">
         {% if page.toc %}
-          <aside class="sidebar__right {% if page.toc_sticky %}sticky{% endif %}">
-            <nav class="toc">
+          <aside class="sidebar__right">
+            <nav class="toc {% if page.toc_sticky %}sticky{% endif %}">
               <header><h4 class="nav__title"><i class="fas fa-{{ page.toc_icon | default: 'file-alt' }}"></i> {{ page.toc_label | default: site.data.ui-text[site.locale].toc_label | default: "On this page" }}</h4></header>
               {% include toc.html sanitize=true html=content h_min=1 h_max=6 class="toc__menu" skip_no_ids=true %}
             </nav>
           </aside>
         {% endif %}
-        {{ content }}
+        <article>
+          {{ content }}
+        </article>
         {% if page.link %}<div><a href="{{ page.link }}" class="btn btn--primary">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
-      </article>
+      </section>
 
       <footer class="page__meta">
         {% if site.data.ui-text[site.locale].meta_label %}
@@ -60,11 +62,11 @@ layout: default
     {% include post_pagination.html %}
   </aside>
 
-  <section>
   {% if jekyll.environment == 'production' and site.comments.provider and page.comments %}
+  <section>
     {% include comments.html %}
-  {% endif %}
   </section>
+  {% endif %}
 
   {% comment %}
     {% include page_related.html %}
@@ -72,5 +74,39 @@ layout: default
 </div>
 
 <script>
+let pageNav = document.getElementsByClassName("page__nav")[0];
+let gnb = document.querySelector("#site-nav > ul");
+var menuWorklist = gnb.children[0];
+let chpoint = document.getElementsByClassName("initial-content")[0].getElementsByTagName("header")[0].offsetHeight;
+
+window.onscroll = function(){
+  let y =  Math.floor(window.scrollY || document.documentElement.scrollTop);
+  
+//특정 위치에서 페이지 네비게이션 나타내고, 작업목록으로 가는 메뉴추가
+  if( y > chpoint / 2 ){
+    pageNav.classList.add("on");
+    pageNav.querySelector(".pagination ul").append(menuWorklist);
+  }else{
+    pageNav.classList.remove("on");
+    gnb.prepend(menuWorklist);
+  }
+}
+
+//공유하기 버튼 클릭시 나타내기
+let btn_share = document.getElementsByClassName("page__share")[0];
+btn_share.addEventListener('click', function(){
+  this.children[1].classList.toggle("show");
+});
+
+//두줄 제목 한줄 처리하기 
+let ch_el = pageNav.querySelector(".pagination a > span");
+let newTxt = editTxt(ch_el.innerHTML);
+ch_el.innerHTML = newTxt;
+
+function editTxt(txt){
+  txt = txt.replace(/<br>/ig, "");
+  return txt;
+} 
+
   
 </script>
