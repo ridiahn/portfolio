@@ -1117,7 +1117,7 @@ body {
   .masthead{
     position: absolute;
     width: 100%;
-    mix-blend-mode: difference;
+    //mix-blend-mode: difference;
     color: #fff;
   }
 }
@@ -1155,9 +1155,14 @@ body {
     white-space: nowrap;
     font-size: $type-size-3;
     box-shadow: 0 2px 15px rgba(#000, 0.1);
-    width: 240px;
+    width: 220px;
     padding: 0 1rem;
     transition: width 0.5s;
+
+    i{
+      font-size: $type-size-2;
+      margin-right: 0.25rem;
+    }
   }
 }
 
