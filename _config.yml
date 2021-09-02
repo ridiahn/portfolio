@@ -20,7 +20,7 @@ title                    : "흐름을 잇는 작업을 수록하는 공간"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "안희라"
-description              : "안희라 작업 모음집"
+description              : "흐름 타는 디자이너의 작업 모음집"
 url                      : "https://ridiahn.github.io/portfolio/"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
