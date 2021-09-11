@@ -38,29 +38,3 @@ layout: archive
 <div class="entries-{{ entries_layout }}">
   {% include posts-category.html taxonomy=page.taxonomy type=entries_layout %}
 </div> -->
-
-<script>
-  let tagitems = document.getElementsByClassName("taxonomy__index")[0].getElementsByTagName("ul")[0].children;
-  let tag_all = tagitems[0];
-
-  Array.from(tagitems).forEach( el =>{
-    el.onclick = function(){
-      filterWord = this.children[0].children[0].innerText;
-      reset_list(filterWord);
-    };
-  })
-
-  function reset_list(key){
-    let list = document.querySelectorAll(".archive > ul.list > li");
-
-    Array.from(list).forEach( ( el, index ) =>{
-      let compareWord = el.querySelector("span.tags").innerText;
-      
-      if( key == tag_all.children[0].children[0].innerText ){
-        el.style.display = "";
-      }else if( compareWord.indexOf(key) == -1){
-        el.style.display = "none";
-      }
-    });
-  }
-</script>
