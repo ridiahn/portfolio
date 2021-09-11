@@ -39,13 +39,15 @@ function pagnavEvent(){
 
 //페이지 네비게이션 두줄 제목 한줄 처리하기 
 function online_title(){
-  let navTtitle = document.querySelector(".page__nav .pagination a > span");
-  let newTxt = editTxt(navTtitle.innerHTML);
-  navTtitle.innerHTML = newTxt;
+  let navTtitle = document.querySelectorAll(".page__nav .pagination a > span");
+  Array.from(navTtitle).forEach( e =>{
+    let newTxt = editTxt(e.innerHTML);
+    e.innerHTML = newTxt;
+  });
 }
 
 function editTxt(txt){
-  txt = txt.replace(/<br>/ig, "");
+  txt = txt.replace(/(<br>|<br\/>)/ig, "");
   return txt;
 } 
 
