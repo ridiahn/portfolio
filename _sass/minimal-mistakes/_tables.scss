@@ -7,9 +7,10 @@ table {
   margin-bottom: 1em;
   width: 100%;
   font-family: $global-font-family;
-  font-size: $type-size-1;
+  font-size: $type-size-3;
   border-collapse: collapse;
   overflow-x: auto;
+  border: 1px solid mix(#000, $border-color, 5%);
 
   & + table {
     margin-top: 1em;
@@ -17,23 +18,70 @@ table {
 }
 
 thead {
-  background-color: $border-color;
-  border-bottom: 2px solid mix(#000, $border-color, 25%);
+  color: white;
+  font-size: $type-size-4;
+  background-color: black;
 }
 
 th {
-  padding: 0.5em;
+  padding: 0.75em;
   font-weight: bold;
   text-align: left;
 }
 
+tr{
+  border-bottom: 1px solid mix(#000, $border-color, 5%);
+  &:last-of-type{
+    border-bottom: 0;
+  }
+}
+
 td {
-  padding: 0.5em;
-  border-bottom: 1px solid mix(#000, $border-color, 25%);
+  padding: 1em;
 }
 
 tr,
 td,
 th {
   vertical-align: middle;
+}
+
+.code_list{
+  display: flex;
+  flex-direction: column;
+
+  &:hover{
+    box-shadow: 0 5px 15px rgba($color: black, $alpha: 0.15);
+  }
+
+  thead, 
+  tr{
+    display: flex;
+    width: 100%;
+  }
+
+  tbody tr:hover{
+    background-color: #efefef;
+    transition: 0.4s;
+  }
+
+  th:nth-of-type(1),
+  td:nth-of-type(1){
+    width: 20%;
+  }
+
+  th:nth-of-type(2),
+  td:nth-of-type(2){
+    width: 30%;
+  }
+
+  th:nth-of-type(3),
+  td:nth-of-type(3){
+    width: 50%;
+  }
+
+  th:last-of-type,
+  td:last-of-type{
+    width: 10%;
+  }
 }
