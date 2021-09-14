@@ -1,0 +1,98 @@
+
+.layout--single{
+  .page__content{
+    display: flex;
+    column-gap: $m-54;
+  }
+
+  .masthead{
+    position: absolute;
+    width: 100%;
+    //mix-blend-mode: difference;
+    color: #fff;
+  }
+}
+
+.pop{
+  position: relative;
+}
+
+.pop > button{
+  position: absolute;
+  right: 1rem;
+  top: calc( 460px - 46px + 1rem );
+  font-size: 0;
+  width: 46px;
+  height: 46px;
+  border-radius: 46px;
+  background-color: #dedede;
+  box-sizing: border-box;
+  border: solid 1px rgba(white, 0.5);
+
+  i{
+    font-size: $type-size-1;
+    color: $muted-text-color;
+  }
+}
+
+.pop:hover{
+  img{
+    box-shadow: 0 5px 15px rgba(#000, 0.2);
+  }
+
+  button{
+    overflow-x: hidden;
+    white-space: nowrap;
+    font-size: $type-size-3;
+    box-shadow: 0 2px 15px rgba(#000, 0.1);
+    width: 220px;
+    padding: 0 1rem;
+    transition: width 0.5s;
+
+    i{
+      font-size: $type-size-2;
+      margin-right: 0.25rem;
+    }
+  }
+}
+
+.poplayer{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 2rem 0;
+  background-color: rgba(#000, 0.5);
+  overflow: scroll;
+  z-index: 2;
+}
+
+.poplayer >*:not(button){
+  max-width: 60%;
+  height: auto;
+  display: block;
+  margin: 2rem auto;
+}
+
+.poplayer button{
+  position: fixed;
+  top: 0.5rem;
+  right: 2rem;
+  font-weight: lighter;
+  mix-blend-mode: difference;
+  color: #fff;
+  font-size: 0;
+  
+  &::before{
+    content: "×";
+    font-size: 46px;
+    margin-right: 0.5rem;
+  }
+}
+
+.block_scroll{
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+}
