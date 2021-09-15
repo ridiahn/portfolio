@@ -1,14 +1,14 @@
 <!-- start custom head snippets -->
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/variable/pretendardvariable.css" />
 <!-- insert favicons. use https://realfavicongenerator.net/ -->
-<link rel="icon" type="image/png" href="/assets/favicon.ico">
+<link rel="icon" type="image/png" href="{{site.baseurl}}/assets/favicon.ico">
 
 {% case page.layout %}
   {% when "home" %}
   {% when "single" %}
-  <script src="{{ site.baseurl }}/assets/js/_sub.js"></script>
+  <script src="{{site.baseurl}}/assets/js/_sub.js"></script>
   {% when "category" %}
-  <script src="{{ site.baseurl }}/assets/js/_category.js"></script>
+  <script src="{{site.baseurl}}/assets/js/_category.js"></script>
   {% when "about" %}
 {% endcase %}
 <!-- end custom head snippets -->

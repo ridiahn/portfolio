@@ -191,6 +191,9 @@ exclude:
   - tmp
   - /docs # ignore Minimal Mistakes /docs
   - /test # ignore Minimal Mistakes /test
+  #custom js
+  - assets/js/_sub.js
+  - assets/js/_category.js
 keep_files:
   - .git
   - .svn
