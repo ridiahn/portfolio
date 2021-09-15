@@ -191,9 +191,6 @@ exclude:
   - tmp
   - /docs # ignore Minimal Mistakes /docs
   - /test # ignore Minimal Mistakes /test
-  #custom js
-  - assets/js/_sub.js
-  - assets/js/_category.js
 keep_files:
   - .git
   - .svn
@@ -297,7 +294,9 @@ defaults:
     values:
       layout: single
       author_profile: false
-      read_time: true
+      read_time: false
       comments: # true
       share: true
-      related: true
+      related: false
+      after_footer_scripts:
+      - /assets/js/_sub.js
