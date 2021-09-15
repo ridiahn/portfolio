@@ -6,9 +6,9 @@
 {% case page.layout %}
   {% when "home" %}
   {% when "single" %}
-  <script src="{{ './assets/js/_sub.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/custom/_sub.js' | relative_url }}"></script>
   {% when "category" %}
-  <script src="{{ './assets/js/_category.js' | relative_url }}"></script>
+  <script src="{{ '/assets/js/custom/_category.js' | relative_url }}"></script>
   {% when "about" %}
 {% endcase %}
 <!-- end custom head snippets -->
