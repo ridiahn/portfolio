@@ -299,4 +299,4 @@ defaults:
       share: true
       related: false
       after_footer_scripts:
-      - /assets/js/_sub.js
+      - /assets/js/sub.js
