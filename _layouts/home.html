@@ -37,9 +37,9 @@ layout: archive
   <section class="about">
     {% assign pageabout = site.pages | where: 'permalink', '/about/' %}
     {% for item in pageabout %}
-      <h3 class="title_bar">{ item.title }}</h3>  
+      <h3 class="title_bar">{{ item.title }}</h3>  
       <p>{{ item.excerpt }}</p>
-      <a class="more" href="/about/">더보기</a>
+      <a class="more" href="{{ item.url }}">더보기</a>
     {% endfor %}
   </section>
 </body>
