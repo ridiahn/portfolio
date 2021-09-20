@@ -30,14 +30,23 @@ toc_sticky: true
 toc_label: "목차"
 
 ---
+
 ### 화면 미리보기
-화면 미리보기는 이미지로 제공됩니다. 
+화면 미리보기는 이미지로 제공됩니다.
 
 {% include figure image_path="https://bn1304files.storage.live.com/y4mIrE3OaPUJfc0pjP5UvSOk0MLaUomxQiNAD8iSoLot6UmkqLVv0ph3zcjtzokEAgvyoOj1BIIaJk3nZgNfF-L9-N1E-cTUWRuzwXR4sGD18WQZjdwhy03xOOcaYtFWbkEco2WO3LOZ8vGUBvtTD87GYnzXM6hswhsc9WJe-S36mPPchh4njYr1vmVZSztmv_t?width=1519&height=3104&cropmode=none" alt="index.html 세움터 메인화면" caption="index.html 세움터 메인화면" class="pop" %}
 
 {% include figure image_path="https://bn1304files.storage.live.com/y4mN22LrsTRZ5DRBvxud9HRYjiZpetXyaeAlTTb_03PUso2jOpEjoWB5NSGzrZbOyrxuKwBOyjylzB09dQfJQExSBFydELuZ3eFBPksbVvocT6deN0-E285ytTyTs4M9J4FO-WEaVBAmoFh3fKed95YX5OPtxpSdVDwRXtEip_rXivOYlP6Cqthnp6-_Af-zXz4?width=1519&height=3562&cropmode=none" alt="this is a placeholder image" caption="intro.html 세움터소개 화면 " class="pop" %}
 
 {% include figure image_path="https://bn1304files.storage.live.com/y4m13pUD3X9E-c-NclLCuwwaDwQH_Xo8alaQbU9pXlal4LGsUNRByalb5adJTwIUQ6JkfQL3jkgac48ouR4Sem1q681PXcyJXML9m0gJgNfCZk-cYrB6MuOBDA5GTgxccUC-3RHfEKmYKZmRmhPou1TbUZAvtq8RIHKNTtZB9tuKioIK6Gh3pKtjvK6HoQ10q1n?width=1519&height=1800&cropmode=none" alt="join.html 회원가입화면" caption="join.html 세움터의 회원가입 화면중 일부항목을 모아 축약된 정보로 제작하였다" class="pop" %}
+
+<!--#### 지원 현황
+
+|       지원 디바이스      |             지원 브라우져            |
+|   PC   | 태블릿 | 모바일 |  chrom  |   IE   |  Edge  | FireFox |
+|--------|--------|-------|---------|--------|--------|---------|
+|    O   |        |       |    O    |        |        |    O    |
+{: .app_status}-->
 
 ### 소스코드 목록
 
@@ -49,3 +58,6 @@ toc_label: "목차"
 | 로그인 |로그인>로그인|<a href ="https://1drv.ms/u/s!AtiujPE72s_3imFRv65oI7ZyAOKW">login.html</a>| |
 ||로그인>가입하기|<a href="https://1drv.ms/u/s!AtiujPE72s_3imDzU2YBBRoHf52V">join.html</a>| |
 {: .code_list}
+
+
+
