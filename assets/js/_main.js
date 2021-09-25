@@ -133,4 +133,9 @@ $(document).ready(function() {
       $(this).append(anchor);
     }
   });
+
+  //SameSite setting
+  document.cookie = "safeCookie1=foo; SameSite=Lax"; 
+  document.cookie = "safeCookie2=foo"; 
+  document.cookie = "crossCookie=bar; SameSite=None; Secure";
 });
