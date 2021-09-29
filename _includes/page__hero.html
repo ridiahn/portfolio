@@ -19,38 +19,61 @@
 {% assign image_description = image_description | markdownify | strip_html | strip_newlines | escape_once %}
 
 <header class="page__hero{% if page.header.overlay_color or page.header.overlay_image %}--overlay{% endif %}"
-  style="{% if page.header.overlay_color %}background-color:{{ page.header.overlay_color | default: 'transparent' }}{% endif %}; {% if overlay_img_path %}background-image: {% if overlay_filter %}{{ overlay_filter }}{% endif %}, url('{{ overlay_img_path }}'){% endif %};"
+  style="{% if page.header.overlay_color %}background-color:{{ page.header.overlay_color | default: 'transparent' }}{% endif %}; {% if overlay_img_path %}background-image: url('{{ overlay_img_path }}'){% endif %}, {% if overlay_filter %}{{ overlay_filter }}{% endif %};"
 >
   {% if page.header.overlay_color or page.header.overlay_image %}
     <article class="wrapper">
       {% include tag-list.html %}
-      <h1 id="page-title" class="page__title" itemprop="headline">
+      <h2 id="page-title" class="page__title" itemprop="headline">
         {% if paginator and site.paginate_show_page_num %}
           {{ site.title }}{% unless paginator.page == 1 %} {{ site.data.ui-text[site.locale].page | default: "Page" }} {{ paginator.page }}{% endunless %}
         {% else %}
           {{ page.title | default: site.title | markdownify | remove: "<p>" | remove: "</p>" }}
         {% endif %}
-      </h1>
+      </h2>
 
+      <div class="page__lead">
       {% if page.header.show_overlay_excerpt != false and page.excerpt %}
-        <p class="page__lead">{{ page.excerpt | markdownify | remove: "<p>" | remove: "</p>" }}</p>
+        <p>{{ page.excerpt | markdownify | remove: "<p>" | remove: "</p>" }}</p>
       {% endif %}
+      </div>
 
       <div class="work__meta">
         <!-- {% include page__meta.html %} -->
         {% include page__workdate.html %}
         {% include page__hadecount.html %}
+        {% if page.header.actions %}
+        <p class="ex_preview">
+          {% for action in page.header.actions %}
+            <strong>{{ action.label | default: site.data.ui-text[site.locale].more_label | default: "Learn More" }}</strong>
+          {% if page.header.actions.url %}
+            <a href="{{ action.url | relative_url }}">{{action.url}}</a>
+          {% else %}
+            <a href="#미리보기">이미지 및 소스코드</a> 
+          {% endif %}
+        </p>
+        {% endfor %}
+        {% endif %}
+
+        {% if page.tools %}
+        <div class="tools">
+          <strong>작업도구</strong>
+          <ul>
+            {% for tool in page.tools %}
+              {% for i in tool[1] %}
+                <li>{{ i }}</li>
+              {% endfor %}
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+
       </div>
 
-      {% if page.header.cta_url %}
+      <!-- {% if page.header.cta_url %}
         <p><a href="{{ page.header.cta_url | relative_url }}" class="btn btn--light-outline btn--large">{{ page.header.cta_label | default: site.data.ui-text[site.locale].more_label | default: "Learn More" }}</a></p>
-      {% endif %}
-      {% if page.header.actions %}
-        <p>
-        {% for action in page.header.actions %}
-          <a href="{{ action.url | relative_url }}" class="btn btn--light-outline btn--large">{{ action.label | default: site.data.ui-text[site.locale].more_label | default: "Learn More" }}</a>
-        {% endfor %}
-      {% endif %}
+      {% endif %} -->
+
     </article>
   {% else %}
     <img src="{{ page.header.image | relative_url }}" alt="{{ image_description }}" class="page__hero-image">
