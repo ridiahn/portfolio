@@ -52,23 +52,17 @@
 $pageNav-height-lg : 54px;
 
 .page__nav{
-  border-bottom: solid 1px #efefef;
+  border-top: solid 1px #efefef;
   width: 100%;
   height: $pageNav-height-lg;
   display: flex;
   align-items: center;
   background-color: rgba(white, 0.9);
-  visibility: hidden;
   position: fixed;
-  top: -100px;
+  bottom: 0;
   left: 0;
-  transition: top 0.5s;
 }
 
-.page__nav.on{
-  visibility: visible;
-  top: 0;
-}
 
 /*
   Post pagination navigation links

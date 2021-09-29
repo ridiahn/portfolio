@@ -1,7 +1,8 @@
 window.onload = function(){
   expenditem();
   online_title();
-  pagnavEvent();
+  //pagnavEvent();
+  horizontalThumb();
 
   //공유하기 버튼 클릭시 나타내기
   let btnShare = document.getElementsByClassName("page__share")[0];
@@ -11,7 +12,7 @@ window.onload = function(){
 }
 
 //특정 위치에서 페이지 네비게이션 나타내고, 작업목록으로 가는 메뉴추가
-function pagnavEvent(){
+/*function pagnavEvent(){
   let gnb = document.querySelector("#site-nav > ul");
   let menuWorklist = gnb.children[0];
   let pageNav = document.getElementsByClassName("page__nav")[0];
@@ -35,7 +36,7 @@ function pagnavEvent(){
       _off();
     }
   });
-}
+}*/
 
 //페이지 네비게이션 두줄 제목 한줄 처리하기 
 function online_title(){
@@ -80,4 +81,25 @@ function pop_up(){
 function pop_close(){
   this.parentNode.remove();
   document.body.classList.remove("block_scroll");
+}
+
+function horizontalThumb(){
+  let hgallery = document.querySelectorAll(".h_th");
+
+  //아이템을 wrap으로 감싸 리턴
+  function wrapItems(items, wrapSize){
+    let wrap = document.createElement("div");
+    wrap.style.width = wrapSize + "px";
+    Array.from(items).forEach( e =>{
+      wrap.appendChild(e);
+    });
+    return wrap;
+  }
+  
+
+  Array.from(hgallery).forEach( e =>{
+    let hgalleryItems = e.children;
+    let scrollX_width = ( hgalleryItems[0].offsetWidth + 16 )* hgalleryItems.length;
+    e.appendChild(wrapItems(hgalleryItems, scrollX_width));
+  })
 }
