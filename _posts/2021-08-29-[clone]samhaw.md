@@ -5,7 +5,13 @@ categories:
 
 ### 작업 제목 및 요약정보 ###
 title:  "따라하기 작업,<br/>삼화 페인팅"
-excerpt: "따라하기 작업 3번째, 삼화페인팅의 웹 사이트와 모바일 사이트를 하나의 페이지로 처리, 기존 모바일용 페이지가 별도로 존재하던 방식을 탈피 또한 첫화면에서 불 필요하게 중복되던 검색 영역도 정리하였다 "
+excerpt: "늘고 줄고만 하던 반응형 웹에서 탈피, 디바이스 특성까지 고려한 스마트한 반응형 웹을 만나다"
+tools:
+  tool:
+    - css
+    - html
+    - js
+
 start_date: "2020-08-25"
 due_date: "2020-08-25"
 headcount: "1"
@@ -17,9 +23,9 @@ tags:
 ### header 설정 ###
 header:
   teaser: https://bn1304files.storage.live.com/y4mnAqLbSo37pRM8AgaG2TiV8IVsUzAhDKJPl1uW_bUVlQZ6NvkG1QGuaRiCESU6Dia_gPKY3oe2I-aQZAU_xfFd7sL9SSfewG_h4B0IMvZM2dfp3nq0_0OqW9joD8xM-qrg9IFTJQhiC98p1hhpPWFWYiF9lOBApXonbAYVrHtKfqKK3Y3HCRRbw6qU8HkvMMU?width=1899&height=855&cropmode=none
-  overlay_image: https://bn1304files.storage.live.com/y4mnAqLbSo37pRM8AgaG2TiV8IVsUzAhDKJPl1uW_bUVlQZ6NvkG1QGuaRiCESU6Dia_gPKY3oe2I-aQZAU_xfFd7sL9SSfewG_h4B0IMvZM2dfp3nq0_0OqW9joD8xM-qrg9IFTJQhiC98p1hhpPWFWYiF9lOBApXonbAYVrHtKfqKK3Y3HCRRbw6qU8HkvMMU?width=1899&height=855&cropmode=none
-  overlay_filter: 0.5 # same as adding an opacity of 0.5 to a black background
-  # caption: "이미지 출처및 설명글 표기"
+  overlay_image: https://drive.google.com/uc?export=view&id=1Qt1Tr8rcPgYdnVAQiHtj1PxXl4TTCcx7
+  overlay_filter: rgba(222,9,55,1.0)
+  caption: "원본링크 <a href='https://www.samhwa.com/'>https://www.samhwa.com/</a>"
   # actions: #페이지 이동 링크 추가
   # - label: "More Info"
   #   url: "https://unsplash.com"
@@ -29,34 +35,22 @@ toc: true
 toc_sticky: true
 toc_label: "목차"
 
-gallery:
-  - url: https://drv.tw/~hi.heera@hotmail.com/od/Web/samhwa/
-    image_path: https://bn1304files.storage.live.com/y4mnAqLbSo37pRM8AgaG2TiV8IVsUzAhDKJPl1uW_bUVlQZ6NvkG1QGuaRiCESU6Dia_gPKY3oe2I-aQZAU_xfFd7sL9SSfewG_h4B0IMvZM2dfp3nq0_0OqW9joD8xM-qrg9IFTJQhiC98p1hhpPWFWYiF9lOBApXonbAYVrHtKfqKK3Y3HCRRbw6qU8HkvMMU?width=1899&height=855&cropmode=none
-    alt: "삼화페인트 첫화면(index.html) 메인 슬라이드 영역"
-    title: "삼화페인트 첫화면 메인 슬라이드 영역"
-  - url: https://drv.tw/~hi.heera@hotmail.com/od/Web/samhwa/
-    image_path: https://bn1304files.storage.live.com/y4ma_vwmCVucME4NtEO8yAxVMg9UKUG5hF6mQ8kQAfSc13fxwXUPmlTgg7G8mmIyg-aqJvfnZ4aHEheCTX4qchFB6ye_wHe9pUxwkYH00-uyIfXAgzl_sO2awLZbLtFv6-7_Wks10GLWA6Sf5X60OthRPyMZ3xgHhg-S40R_VH4caBy1RUzfzvIuysP9WstV1wF?width=1899&height=855&cropmode=none
-    alt: "삼화페인트 첫화면(index.html) 검색영역"
-    title: "삼화페인트 첫화면 검색 영역"
-  - url: https://drv.tw/~hi.heera@hotmail.com/od/Web/samhwa/
-    image_path: https://bn1304files.storage.live.com/y4mfcKWD3TZ95YnvH_Fqmckg6yaHNIoFFJ-Z3Ll2fir7YaPx3Fzr8HDA72Mdnwbuoi_gkA1UPg-000owxg3PxZdu6N1VhgXDPcTFOSCDgaImyrbQt_8f3l7mcNtOnFm_ai8ORJRGERjr30bDfrRlBNdCzl2FJGYAdEVwngjopDoDNJbyM3zNiEyFU46_MGfECE9?width=1898&height=3797&cropmode=none
-    alt: "삼화페인트 첫화면(index.html) 핫이슈 영역"
-    title: "삼화페인트 첫화면 핫이슈 영역"
-  - url: https://drv.tw/~hi.heera@hotmail.com/od/Web/samhwa/
-    image_path: https://bn1304files.storage.live.com/y4md-AxheN7MQbaWrF2Hy_ZV0N3btkQr_RtOHvNck4UzvEuxl_i9j4blPprXQDCSN8AOum58J2FY9lX_lsuZEqN4NFoKLStbCeKO5W49G0qqaP0ifAUtGenC4wsV_v2ZWzYuMzm9VQfmv-NBTeEYGjR8800jfjTPy_1sD6hLrH-3RDtnzNfDhkKUYPtLSSYJEYM?width=1899&height=986&cropmode=none
-    alt: "삼화페인트 첫화면(index.html) 하단 영역"
-    title: "삼화페인트 첫화면(index.html) 하단 영역"
-
 ---
 
-### 화면 미리보기
-이미지 썸네일을 클릭하면 index.html 화면으로 이동됩니다
+### 작업소개
+<h4>늘고 줄고만 하던 반응형 웹에서 탈피, 디바이스 특성까지 고려한 스마트한 반응형 웹을 만나다</h4>
+삼화 페인팅의 사이트는 데스크톱용 페이지와 모바일용 페이지가 하나의 주소로 반응형으로 처리된 것이 아닌, 별도의 서브 url(m.~)로 접속되는 형식을 가지고 있다. 물론 어떠한 이유 때문에 모바일 사이트를 별도로 운영하고 있을 수 있으나 외관상 서브 url로 운영중인 모바일 페이지의 콘텐트 내용이 데스크톱 페이지와 그렇게 다르지도 않고 디바이스에 특화 되어있다고 보기에도 다소 애매했다. 모바일 사이트에서 콘텐트를 완전히 재 구성 하는게 아니라 웹페이지에 있던 콘텐트를 모바일 환경에 맞게 재 가공하는 정도라면 html,CSS,자바스크립트 조합으로 충분히 처리 할 수 있다. 삼화 페인트의 웹, 모바일 사이트를 하나의 페이지로 처리하기 도전!
 
-{% include gallery class="full" layout="" caption="삼화페인트 첫화면(index.html) 둘러보기" %}
 
-### 소스코드 목록
+### 미리보기
+미리보기는 이미지로 제공 됩니다
 
-|화면위치|화면내용|소스링크|비고|
-|---|---|---|---|
-| 첫화면 |메인화면|<a href="https://1drv.ms/u/s!AtiujPE72s_3iw17R4QNJ3OI1YsG?e=KE9bXB">index.html</a>| |
+{% include figure image_path="https://bn1304files.storage.live.com/y4mm0QAbwLfDCHDkesUeoOhvpqO53PG68w3ZusOJETh0mJBjfE4m8aLc-9OW5_E7GiF3vJhK1jA4xcZnafpDaq7nm_mL7MYdKHDShqjs-bWNb-dh3UbCJlY05Ao4_PQDTd2PKouQjqXcUEAmp7OPpPnkrIBtmCU9q0nomtkbmsPu3abT7Jcx6cWvVdWKUZ9h2-E?width=1899&height=11161&cropmode=none" class="pop" %}
+
+### 화면링크 목록
+
+|  화면 위치 |           |                |                                             화면링크                                               |    참고     |
+|   1dep    |   2dep    |     3-4dep      |                                                                                                    |             |
+| --------- | --------- | --------------- | -------------------------------------------------------------------------------------------------- | ----------- |
+|   첫화면  |           |                 |<a href="https://drv.tw/~hi.heera@hotmail.com/od/Web/samhwa/index.html">index.html</a>|  
 {: .code_list}
