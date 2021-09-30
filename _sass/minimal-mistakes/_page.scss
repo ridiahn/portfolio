@@ -58,7 +58,8 @@ body {
  article p{
     margin-left: 2rem;
     margin-right: 2rem;
-    letter-spacing: -0.5px;
+    letter-spacing: -0.75px;
+    line-height: 1.6;
   }
 
   article h3{
@@ -66,7 +67,8 @@ body {
     margin-right: 2rem;
     margin-top: $m-100;
     margin-bottom: $m-36;
-
+    font-size: $h-size-6;
+    color: rgba(#000, 0.7);
     &:first-of-type{
       margin-top: 0;
     }
@@ -77,6 +79,7 @@ body {
   article h6{
     margin-left: 2rem;
     margin-right: 2rem;
+    line-height: 1.4;
   }
 
   article > figure,
@@ -103,8 +106,9 @@ body {
 
 .page__title {
   margin-top: 0;
-  line-height: 1.4;
+  line-height: 1.35;
   font-size: $h-size-2;
+  letter-spacing: -2px;
   color: black;
   border-bottom: none;
 
@@ -232,7 +236,8 @@ body {
         margin-left:  -1 * 220px;
         display: flex;
         flex-wrap: wrap;
-        column-gap: $m-36;
+        column-gap: $m-54;
+        padding: 0;
       }
     }
 
