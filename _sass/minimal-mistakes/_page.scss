@@ -72,6 +72,13 @@ body {
     }
   }
 
+  article h4, 
+  article h5, 
+  article h6{
+    margin-left: 2rem;
+    margin-right: 2rem;
+  }
+
   article > figure,
   article > .img_sub{
     box-sizing: border-box;

@@ -32,8 +32,6 @@ toc_sticky: true
 toc_label: "목차"
 ---
 
-### 작업소개
-
 ### 미리보기
 {% include figure image_path="https://bn1304files.storage.live.com/y4mPOejrhb_rgXIdyKngoCsL2U4slYS-v6HE1XDbvPiLZDf891Ka_fOtEkOQ_ZauuWYfN8Esgz4r39YMC9h0wOW5Et5QUgYCvzZWfXq8Tot2s7erdQfnVJoYgL3y88zVpCyJNchzV3J3xTfQVEUhzRj2NVqeXZBh_K4VT-MszGWbUMmyViztS7FuCQoK6sq0ZB0?width=1519&height=4551&cropmode=none" class="pop" %}
 
