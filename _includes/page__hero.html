@@ -42,19 +42,6 @@
         <!-- {% include page__meta.html %} -->
         {% include page__workdate.html %}
         {% include page__hadecount.html %}
-        {% if page.header.actions %}
-        <p class="ex_preview">
-          {% for action in page.header.actions %}
-            <strong>{{ action.label | default: site.data.ui-text[site.locale].more_label | default: "Learn More" }}</strong>
-          {% if page.header.actions.url %}
-            <a href="{{ action.url | relative_url }}">{{action.url}}</a>
-          {% else %}
-            <a href="#미리보기">이미지 및 소스코드</a> 
-          {% endif %}
-        </p>
-        {% endfor %}
-        {% endif %}
-
         {% if page.tools %}
         <div class="tools">
           <strong>작업도구</strong>
@@ -67,7 +54,18 @@
           </ul>
         </div>
         {% endif %}
-
+        {% if page.header.actions %}
+        <p class="ex_preview">
+          {% for action in page.header.actions %}
+            <strong>{{ action.label | default: site.data.ui-text[site.locale].more_label | default: "Learn More" }}</strong>
+          {% if action.url %}
+            <a href="{{ action.url | relative_url }}">사이트 바로가기</a>
+          {% else %}
+            <a href="#미리보기">이미지 및 소스코드</a> 
+          {% endif %}
+          {% endfor %}
+        </p>
+        {% endif %}
       </div>
 
       <!-- {% if page.header.cta_url %}
