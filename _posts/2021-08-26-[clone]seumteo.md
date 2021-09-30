@@ -5,14 +5,14 @@ categories:
 
 ### 작업 제목 및 요약정보 ###
 title:  "따라하기 작업,<br/>세움터 홈페이지"
-excerpt: "공공기관 홈페이지 세움터(https://cloud.eais.go.kr/) 따라하기, 마크업(html, css) 작업"
+excerpt: "공공기관 홈페이지를 따라 해보다. 마크업(html, css)작업"
 tools:
   tool:
     - css
     - html
 
-start_date: "2020-08-25"
-due_date: "2020-08-25"
+start_date: "2021-05-06"
+due_date: "2021-05-13"
 headcount: "1"
   
 ### 태그 설정 ###
@@ -25,9 +25,9 @@ header:
   overlay_image: https://bn1304files.storage.live.com/y4m4CNwa42Ktsl9tl0ubADOBU53qP8QKpBlCuUD_UOlofbGekaViVZO8S8x0bgDl6rVHdNLCiOLL39or1l6W51thqMACmWOtSR5pWD4OfRIR8Xed60FHQJIi90ULAYUe44Ub4FqlxdRNp-ZWaRJXYNo0A9_0NDsMIxZyYWmyrc1DUCRmuzhpj8F0M_xMEWDXF94?width=1600&height=1600&cropmode=none
   overlay_filter: rgba(48,169,214,1.0)
   caption: "원본링크 <a href='https://cloud.eais.go.kr/'>https://cloud.eais.go.kr/</a>"
-  # actions: #페이지 이동 링크 추가
-  # - label: "More Info"
-  #   url: "https://unsplash.com"
+  actions: #페이지 이동 링크 추가
+  - label: "산출물/URL"
+    url: false
 
 ### toc(목차)설정 ###
 toc: true
@@ -35,6 +35,11 @@ toc_sticky: true
 toc_label: "목차"
 
 ---
+
+### 작업소개
+<h4>세움터 홈페이지 내가 직접 세워보자</h4>
+공공기관의 홈 페이지는 일반 적인 기업 홈페이지와는 어떤 차이가 있을까? 궁금증을 안고 시작한 작업.
+외관적으로는 특별한게 없어 보이지만 차이는 내면에 있었다. 기업들의 홈페지는 웹 접근성을 준수한 곳도 안 한곳도 있는 반면 공공기관의 홈 페이지의 마크업은 웹 접근성을 준수 한다. 또한 최대한 다양한 연령대의 사용자를 커버하기 위해 페이지 곳곳에 편의도구(예.글자크기 확대 등)도 잘 배치 되어 있다. 이런 면을 본 받으며 작업한 이 페이지는 HTML+CSS로 구현되었다.  
 
 ### 미리보기
 화면 미리보기는 이미지로 제공됩니다.

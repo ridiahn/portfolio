@@ -12,8 +12,8 @@ tools:
     - html
     - js
 
-start_date: "2020-08-25"
-due_date: "2020-08-25"
+start_date: "2021-07-08"
+due_date: "2021-07-29"
 headcount: "1"
 
 ### 태그 설정 ###
@@ -22,13 +22,13 @@ tags:
   
 ### header 설정 ###
 header:
-  teaser: https://bn1304files.storage.live.com/y4mnAqLbSo37pRM8AgaG2TiV8IVsUzAhDKJPl1uW_bUVlQZ6NvkG1QGuaRiCESU6Dia_gPKY3oe2I-aQZAU_xfFd7sL9SSfewG_h4B0IMvZM2dfp3nq0_0OqW9joD8xM-qrg9IFTJQhiC98p1hhpPWFWYiF9lOBApXonbAYVrHtKfqKK3Y3HCRRbw6qU8HkvMMU?width=1899&height=855&cropmode=none
-  overlay_image: https://drive.google.com/uc?export=view&id=1Qt1Tr8rcPgYdnVAQiHtj1PxXl4TTCcx7
+  teaser: https://bn1304files.storage.live.com/y4mJDYwuBzlS6nD0Ha9JX29ny9jxze800mHvFQIbnJ8FCA23FGi_Thyi7iZCx99tKDssM_oam5YECHgjek7_8QWHUlRAjENCTa7vhrEm31QaIIpldmMV-jKTQ9o0SlGXYxYLBgpzkbuUPAh8bNhLnvHQCDhmRvNkp-p2MRMrqBJHyk_V_3jgbEqI5IE7N-D-VAb?width=600&height=300&cropmode=none
+  overlay_image: https://drive.google.com/uc?export=view&id=1TcsrVh4xuDkwP5_f05ehptb6xvcsSMMc
   overlay_filter: rgba(222,9,55,1.0)
   caption: "원본링크 <a href='https://www.samhwa.com/'>https://www.samhwa.com/</a>"
-  # actions: #페이지 이동 링크 추가
-  # - label: "More Info"
-  #   url: "https://unsplash.com"
+  actions: #페이지 이동 링크 추가
+  - label: "산출물/URL"
+    url: false
 
 ### toc(목차)설정 ###
 toc: true
