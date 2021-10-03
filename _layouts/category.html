@@ -20,7 +20,7 @@ layout: archive
         <strong>전체</strong><span class="taxonomy__count">{{ site.posts.size }}</span>
       </button>
     </li>
-    {% for i in (1..tags_max) reversed %}
+    {% for i in (1..tags_max) %}
       {% for tag in site.tags %}
         {% if tag[1].size == i %}
           <li>
