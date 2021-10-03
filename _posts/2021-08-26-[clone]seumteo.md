@@ -58,7 +58,7 @@ toc_label: "목차"
 | --------- | --------- | --------------- | -------------------------------------------------------------------------------------------------- | ----------- |
 |   첫화면  |           |                 |<a href="https://drv.tw/~hi.heera@hotmail.com/od/Web/seumteo/index.html">index.html</a>|  
 |   (팝업)  |           |                 |<a href="https://drv.tw/~hi.heera@hotmail.com/od/Web/seumteo/popup.html">popup.html</a>|  
-|   메뉴    |  이용안내  |   세움터소개    |<a href="https://drv.tw/~hi.heera@hotmail.com/od/Web/seumteo/intro.html">intro.html</a>|  
+|   메뉴    |  이용안내  |   세움터소개    |<a href="https://drv.tw/~hi.heera@hotmail.com/od/Web/seumteo/introduce.html">introduce.html</a>|  
 |           |   로그인   |    로그인하기   |<a href="https://drv.tw/~hi.heera@hotmail.com/od/Web/seumteo/login.html">login.html</a>|
 |           |            |    가입하기     |<a href="https://drv.tw/~hi.heera@hotmail.com/od/Web/seumteo/join.html">join.html</a>|
 {: .code_list}
