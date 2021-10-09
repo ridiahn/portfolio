@@ -21,7 +21,7 @@ tags:
 ### header 설정 ###
 header:
   teaser: https://bn1304files.storage.live.com/y4mHx5qItdEP2l92WNgjHDwJDEKRWEq6YgJhd3kfqBfP6jzr0asB2BqPnbyEi1V-TwxOrDUSLHFArpmvbvlWp6X0zqAglsDeyuR-8QPqHJzX26I5zRhF7QrbOWhS57EjnwzRZU9tFWvcTFGM04RvWLbPn7zIGdIQqXYYyj00ypBgHhRns_tEJG7ZywCghzA0kU-?width=1519&height=4602&cropmode=none
-  overlay_image: https://drive.google.com/uc?export=view&id=16NRJQR_rAvoDTBv4y5yW_akf2YoqgFnj
+  overlay_image: https://drive.google.com/uc?export=view&id=1d_owWTln562Y0LHnSt7-sQI4pmZdJTld
   overlay_filter: rgba(59, 59, 59, 1.0)
   caption: "사용된 이미지 <a href='https://unsplash.com'>https://unsplash.com</a>, 원본링크 <a href='https://preview.colorlib.com/#stated'>https://preview.colorlib.com/#stated</a>"
   actions: #페이지 이동 링크 추가
