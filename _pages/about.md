@@ -5,4 +5,5 @@ excerpt: "좋은 흐름에서 좋은 작업이 나온다고 믿습니다<br>
 sitemap: false
 permalink: /about/
 layout: about
+footer_script: /assets/js/about.js
 ---

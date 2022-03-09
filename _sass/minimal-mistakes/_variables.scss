@@ -5,6 +5,12 @@
 /*
    Typography
    ========================================================================== */
+@font-face {
+   font-family: 'Galmetgol';
+   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/naverfont_04@1.0/Galmetgol.woff') format('woff');
+   font-weight: normal;
+   font-style: normal;
+}
 
 $doc-font-size: 1rem !default;
 
@@ -36,7 +42,7 @@ $caption-font-family: $serif !default;
 $m-100: 6.25rem !default; //100px
 $m-54: 3.375rem !default; // 54px
 $m-36: 2.25rem !default; // 36px
-$m-24: 2.25rem !default; // 36px
+$m-24: 1.5rem !default; // 24px
 
 /* type scale */
 $type-size-1: 1.25rem !default; // 20px
