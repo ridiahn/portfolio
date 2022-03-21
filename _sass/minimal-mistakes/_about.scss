@@ -1,62 +1,34 @@
 .layout--about{
 
-  #main{
-    max-width: 100%;
-    margin: 0;
-    padding: 0;
+  main{
+    position: relative;
+
+    &::after{
+      position: absolute;
+      top: 0;
+      z-index: -1;
+      width: 100%;
+      height: 100vh;
+      display: block;
+      content: "";
+      background: url(../../assets/img/calligraphy3.png) no-repeat 50px bottom;
+      background-size: contain;
+      opacity: 0.3;
+    }
   }
 
-  .point_txt,
   h2{
     font-size: $h-size-5;
     letter-spacing: -0.5px;
     margin-bottom: 2rem;
   }
 
-  .about,
-  .ability,
-  .contact{
-    padding-right: $m-100*1.5;
-  }
-
-  .ability,
-  .contact{
-    float: right;
-    width: 50%;
-    padding-left: $m-100;
-    margin-top: $m-100;
-  }
-
-
-  .about{
-   h2{
-    width: 50%;
-    height: 100vh;
-    float: left;
-    font-size: 4em;
-    color: transparent;
-    background: url(../../assets/img/calligraphy2_w.png) no-repeat center center;
-    background-size: 90% auto;
-    background-blend-mode: exclusion;
-    background-color: darkblue;
-    position: relative;
-    
-    &::after{
-      position: absolute;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      display: block;
-      content: "";
-      background: url(../../assets/img/profile_img1.jpg) no-repeat 100px 100px;
-      background-size: 420px auto;
-      mix-blend-mode: difference;
-      background-attachment: fixed;
-    }
+  h3{
+    font-size: 1rem;
   }
 
   .point_txt{
-    font-size: $h-size-4;
+    font-size: $h-size-3;
     line-height: 1.6;
     letter-spacing: 5px;
     word-spacing: -5px ;
@@ -64,17 +36,18 @@
     margin-bottom: $m-54;
   }
 
+  .about{
+    height: 100vh;
+
   article{
-    margin-top: 70vh;
+    padding-right: $m-100;
     width: 50%;
-    float: right;
-    padding-left: $m-100;
     box-sizing: border-box;
   }
 
   p{
     margin-left: $m-54;
-    line-height: 1.5;
+    line-height: 1.8;
   }
 
   a{
@@ -93,34 +66,149 @@
   }
  }
 
- .ability{
-  div{
+.process{
+  padding-top: $m-100;
+
+  >ul>li{
+    width: 100%;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 0.5rem;
+    flex-wrap: wrap;
+    flex-direction: column;
+    min-height: 200px;
+    max-height: 70vh;
+    transition: opacity 0.5s;
+
+    img{
+      display: block;
+      height: 70vh;
+    }
+
+    &>*:not(img){
+      order: 2;
+    }
 
     h3{
-      font-size: 1rem;
-      width: 20%;
-      margin: 0;
+      padding-left: $m-54;
+    } 
+
+    p{
+      max-width: 500px;
+      padding: 0 $m-100;
+    }
+
+    .sub{
+      padding: 0 $m-100;
+      box-sizing: border-box;
+    }
+  }
+
+  // article:not(.show){
+  //   opacity: 0;
+  // }
+
+  // .show{
+  //   opacity: 1;
+  // }
+
+  .sub{
+    h4{
+      font-size: $type-size-2;
+      margin-top: $m-54;
+    }
+    
+    h5{
+      font-size: $type-size-3;
+      margin-right: 1rem;
+      display: inline;
+      vertical-align: top;
     }
 
     ul{
       margin: 0;
+      display: inline-block;
 
       li{
-        display: inline;
+        margin: 0;
       }
     }
   }
- }
 
- .contact{
-  ul{
-    li{
-      display: inline-block;
+  >ul>li:nth-of-type(1){
+    justify-content: flex-end;
+    img{
+      object-position: 0 -35vh;
+      width: 40vw;
     }
   }
+
+  >ul>li:nth-of-type(2){
+    margin-top: $m-100;
+    justify-content: center;
+
+   img{
+     object-fit: cover;
+      width: 30vw;
+      height: 70vh;
+      order: 3;
+    }
+  }
+
+  >ul>li:nth-of-type(3){
+    justify-content: flex-end;
+    align-content: center;
+    
+    img{
+      width: 18vw;
+      object-fit: contain;
+      margin-right: $m-100;
+    }
+    
+    .sub{
+      div{
+        float: left;
+        margin-right: $m-54;
+      }
+    }
+  }
+}
+
+
+// .ability{
+//   float: right;
+//   width: 50%;
+//   padding-left: $m-100;
+//   margin-top: $m-100;
+// }
+
+//  .ability{
+//   div{
+//     display: flex;
+//     align-items: center;
+//     justify-content: space-between;
+//     margin-bottom: 0.5rem;
+
+//     h3{
+//       font-size: 1rem;
+//       width: 20%;
+//       margin: 0;
+//     }
+
+//     ul{
+//       margin: 0;
+
+//       li{
+//         display: inline;
+//       }
+//     }
+//   }
+//  }
+
+ .contact{
+   margin: $m-100 0;
+   text-align: right;
+   h2{
+     float: right;
+     max-width: 50%;
+   }
  }
 }
