@@ -3,7 +3,9 @@
    ========================================================================== */
 
 .masthead {
-  position: relative;
+  position: fixed;
+  top: 0;
+  width: 100%;
   -webkit-animation: $intro-transition;
   animation: $intro-transition;
   -webkit-animation-delay: 0.15s;
@@ -15,20 +17,18 @@
     margin-left: auto;
     margin-right: auto;
     padding: 1em;
-    max-width: 100%;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
-    -webkit-box-pack: justify;
-    -ms-flex-pack: justify;
-    justify-content: space-between;
     font-family: $sans-serif-narrow;
 
     @include breakpoint($x-large) {
-      max-width: $max-width;
+      width: 100%;
     }
 
     nav {
+      display: flex;
+      justify-content: space-between;
       z-index: 10;
     }
 
@@ -43,42 +43,56 @@
 }
 
 .site-title {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-item-align: center;
-  align-self: center;
-  font-weight: bold;
+  font-size: $type-size-3;
+  text-align: center;
+  cursor: default;
+  vertical-align: top;
+  font-weight: normal;
+
+  svg{
+    cursor: pointer;
+    mix-blend-mode: difference;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 1rem;
+    left: calc( 50% - 20px );
+  }
 }
 
 .site-subtitle {
-  display: block;
-  font-size: $h-size-4;
+  font-size: $type-size-2;
+
+  &::before{
+    content:"";
+    display: inline-block;
+    top: 50%;
+    width: 20px;
+    height: 1px;
+    margin: 0 0.5rem calc(0.5em - 1px);
+    line-height: 0;
+    background-color: $text-color;
+  }
 }
 
 .masthead__menu {
   margin-left: 0;
   margin-right: 0;
   width: 100%;
+}
 
-  .site-nav {
-    margin-left: 0;
-  }
-
-  ul {
-    flex: 1;
-    align-items: center;
-    margin: 0;
-    padding: 0;
-    display: inherit;
-  }
+#site-nav ul{
+  width: 45%;
+  text-align: right;
 }
 
 .masthead__menu-item {
-  display: block;
+  //display: block;
   list-style-type: none;
   white-space: nowrap;
-  font-size: $type-size-3;
+  font-size: $type-size-2;
+  font-weight: bold;
+  letter-spacing: 5px;
 
   &--lg {
     padding-right: 2em;
@@ -111,40 +125,9 @@
 
   &:first-of-type{
     order: 2;
-    a{
-      padding: 0.15rem 0.5rem;
-      margin: 0;
-      color: rgba(white, 0.8);
-      line-height: 20px;
-    }
   }
   
   &:not(:first-of-type){
     order: 1;
-  }
-}
-
-
-.pagination ul li:nth-of-type(3) a,
-.masthead__menu-item:first-of-type a{
-  background-color: black;
-  transition: 0.4s;
-  display: inline-flex;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  
-  &::before{
-    content: url(../img/ico_hreum.svg) !important;
-    display: inline-block;
-    padding-right: 0.25rem;
-    width: 20px;
-    height: 20px;
-    position: relative;
-    transform: none;
-  }
-
-  &:hover{
-    color: rgba(white, 1);
   }
 }
