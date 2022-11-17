@@ -34,7 +34,8 @@
 .archive__subtitle {
   margin: 1.414em 0 0.5em;
   padding-bottom: 0.5em;
-  font-size: $h-size-2;
+  //font-size: $h-size-2;
+  font-size: 3.5vh;
   color: black;
 
   + .list__item .archive__item-title {
@@ -205,7 +206,9 @@
   }
 
   .archive__item-title {
-    font-size: $h-size-3;
+    //font-size: $h-size-3;
+    font-size: 4.5vh;
+    letter-spacing: -1px;
   }
 
   .archive__item-excerpt {

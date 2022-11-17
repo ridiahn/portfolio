@@ -2,31 +2,38 @@
 layout: archive
 ---
 <body>
+  <section class="intro">
+    <h2>
+      <svg>
+        <text x="0" y="100%" textLength="30%" lengthAdjust="spacingAndGlyphs">아</text>
+        <text x="22%" y="100%" textLength="20%" lengthAdjust="spacingAndGlyphs">이디</text>
+        <text x="35%" y="100%" textLength="15%" lengthAdjust="spacingAndGlyphs" font-weight="bold">어</text>
+        <text x="45%" x="0" y="100%" textLength="40%" lengthAdjust="spacingAndGlyphs">커</text>
+        <text x="70%" x="0" y="100%" textLength="40%" lengthAdjust="spacingAndGlyphs">넥터</text>
+      </svg>
+    </h2>
+    <h3>
+      <ul>
+        <li>화면기획<sub>UX/UI</sub></li>
+        <li>화면디자인<sub>GUI</sub></li>
+        <li>브랜딩<sub>BI/CI</sub></li>
+        <li>웹 퍼블리싱<sub>Web Publishing</sub></li>
+      </ul>
+    </h3>
+  </section>
+  </section>
   {{ content }}
-
   {% if paginator %}
     {% assign posts = paginator.posts %}
   {% else %}
     {% assign posts = site.posts %}
   {% endif %}
-
   {% assign entries_layout = page.entries_layout | default: 'list' %}
-  <section class="entries-{{ entries_layout }} main">
-    <h2 class="archive__subtitle hidden">대표 작업</h2>
-    <ul>
-      {% assign main-posts = posts | where: 'top', 'true' %}
-      {% for post in main-posts limit: 3 %}
-        {% include archive-single.html type="grid" %}
-      {% endfor %}
-    </ul>
-  </section>
-
   <section class="entries-{{ entries_layout }} recent">
-    <h2 class="archive__subtitle title_bar">{{ site.data.ui-text[site.locale].recent_works | default: "최근 작업" }}</h2>
-    
+    <h2 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_works | default: "프로젝트" }}</h2>
     <a class="more" href="./categories/work">더보기</a>
     <ul>
-      {% for post in posts limit: 3 %}
+      {% for post in posts limit: 9 %}
         {% if post.top == none %}
           {% include archive-single.html type="grid" %}
         {% endif %}
@@ -38,9 +45,11 @@ layout: archive
   <section class="about">
     {% assign pageabout = site.pages | where: 'permalink', '/about/' %}
     {% for item in pageabout %}
-      <h3 class="title_bar">{{ item.title }}</h3>  
-      <p>{{ item.excerpt }}</p>
-      <a class="more" href="{{ item.url | relative_url }}">더보기</a>
+      <h3 class="title_bar">{{ item.title }}</h3>
+      <section>
+      <article>{{ item.excerpt }}</article>
+      <p>{{ item.content }}</p>
+      </section>
     {% endfor %}
   </section>
-</body>
+</body> 

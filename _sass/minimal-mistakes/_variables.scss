@@ -6,12 +6,11 @@
    Typography
    ========================================================================== */
 @font-face {
-   font-family: 'Galmetgol';
-   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/naverfont_04@1.0/Galmetgol.woff') format('woff');
-   font-weight: normal;
+   font-family: 'EliceDigitalBaeum_Regular';
+   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_220508@1.0/EliceDigitalBaeum_Regular.woff2') format('woff2');
+   font-weight: 400;
    font-style: normal;
-}
-
+  }
 $doc-font-size: 1rem !default;
 
 /* paragraph indention */
