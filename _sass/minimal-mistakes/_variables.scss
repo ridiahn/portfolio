@@ -5,12 +5,7 @@
 /*
    Typography
    ========================================================================== */
-@font-face {
-   font-family: 'EliceDigitalBaeum_Regular';
-   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_220508@1.0/EliceDigitalBaeum_Regular.woff2') format('woff2');
-   font-weight: 400;
-   font-style: normal;
-  }
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;400&family=Petit+Formal+Script&display=swap');
 $doc-font-size: 1rem !default;
 
 /* paragraph indention */
@@ -19,7 +14,7 @@ $indent-var: 1.2em !default;
 
 /* system typefaces */
 $serif: Georgia, Times, serif !default;
-$sans-serif: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif !default;
+$sans-serif: 'Noto Sans KR', 'Pretendard', -apple-system, 'BlinkMacSystemFont', system-ui, 'Roboto', 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Malgun Gothic', sans-serif !default;
 $monospace: Monaco, Consolas, "Lucida Console", monospace !default;
 
 /* sans serif typefaces */
@@ -51,7 +46,7 @@ $type-size-4: 0.75rem !default; // 12px
 $type-size-5: 0.625rem !default; // 10px
 
 /* headline scale */
-$h-size-1: 2.375rem !default; // 38px
+$h-size-1: 2.75rem !default; // 38px
 $h-size-2: 2rem !default; // 32px
 $h-size-3: 1.75rem !default; // 28px
 $h-size-4: 1.5rem !default; // 24px
