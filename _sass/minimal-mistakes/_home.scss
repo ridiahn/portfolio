@@ -1,134 +1,122 @@
 @import url('https://webfontworld.github.io/SCoreDream/SCoreDream.css');
 @import url('https://fonts.googleapis.com/css2?family=Ms+Madi&display=swap');
-//@import url('https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap');
+@import url('//cdn.jsdelivr.net/gh/neodgm/neodgm-webfont@1.530/neodgm/style.css');
+@import url('https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap');
+
+$color_bg_intro: rgb(33,33,33);
 
 .layout--home{
+  //background-color: $color_bg;
+
   #main{
     max-width: 100%;
   }
 
   .intro{
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    flex-wrap: wrap;
     width: 100%;
     min-height: 100vh;
-    background-image: url(../../assets/img/img_main1.png), url(../../assets/img/img_main2.svg), url(../../assets/img/img_main3.png);
-    background-repeat: no-repeat;
-    background-size: 35% auto, 38% auto, 12% auto;
-    background-position-x: 90%, 34%, 10%;
-    background-position-y: bottom 10vh, bottom 10vh, bottom 5vh;
     position: relative;
+    justify-content: end;
+    background-image: radial-gradient(circle at center center, transparent 0%,rgb(33,33,33) 99%),repeating-linear-gradient(0deg, rgba(163, 163, 163,0.2) 0px, rgba(163, 163, 163,0.2) 1px,transparent 1px, transparent 7vh),repeating-linear-gradient(90deg, rgba(163, 163, 163,0.2) 0px, rgba(163, 163, 163,0.2) 1px,transparent 1px, transparent 7vh),linear-gradient(90deg, rgb(33,33,33),rgb(33,33,33));
+    // background-image: url(../../assets/img/img_main1.png), url(../../assets/img/img_main2.svg), url(../../assets/img/img_main3.png);
+    // background-repeat: no-repeat;
+    // background-size: 35% auto, 38% auto, 12% auto;
+    // background-position-x: 90%, 34%, 10%;
+    // background-position-y: bottom 10vh, bottom 10vh, bottom 5vh;
   }
 
   .intro h2{
-    margin: -20vh 0 0; 
-    text-align: center;
     width: 100%;
-    font-weight: normal;
-    font-family: $serif;
-    font-size: $h-size-1;
-    color: $gray;
-    letter-spacing: -2.5px;
-    word-spacing: 2rem;
-
+    text-align: left;
+    
     svg{
       margin-top: -10vh;
-      width: 80%;
-      height: 30vh;
+      width: 100%;
+      height: 40vh;
       font-family: "SCoreDream";
-      font-size: 18vh;
+      font-size: 25vh;
     }
 
     svg text{
+      filter: url(#filter);
       &.txt2{
-        font-family: 'Ms Madi', cursive;
-        //font-family:'Petit Formal Script', cursive;
+        //font-family: 'Ms Madi', cursive;
       }
 
-      &.txt2 tspan.big{
-        font-size: 180%;
-        //font-size: 110%;//.ouline 스타일 적용시
+      &.txt2 tspan{
+        font-size: 60%;
+      }
+
+      tspan.hidden{
+        display: none;
+      }
+
+      tspan.big{
+        font-family:'Petit Formal Script', cursive;
+        font-size: 110%;
+        fill: black;
       }
     }
 
-    .stroke_ef{
-      fill: green;
-      filter: url(#txt_filter);
-    }
-
-    // .outline{
-    //   font-size: 60%;
-    //   fill: white;
-    //   stroke: black;   
+    // .stroke_ef{
+    //   fill: green;
+    //   filter: url(#txt_filter);
     // }
   }
 
-  .intro>article{
-    font-size: $type-size-1;
-    width: 40%;
-    text-align: center;
-    letter-spacing: -1px;
-    
-    span{
-      display: block;
-    }
+  .outline{
+    font-family:'Petit Formal Script', cursive;
+    fill: $color_bg_intro;
+    stroke: black;
   }
 
-  .intro div{
-    position: absolute;
-    bottom: 0;
-    display: flex;
-    font-size: $type-size-1;
-    margin-bottom: 5vh;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
+  .intro > article{
+    box-sizing: border-box;
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-right: 7vh;
+    align-self: flex-end;
+    font-size: 5.5vh;
+    line-height: 1.1;
+    font-family: "SCoreDream";
+    font-weight: 200;
+    text-align: right;
+    letter-spacing: -2.5px;
+    height: 28vh;
+    width: 101vh;
+    color: mediumspringgreen;
+    background-color: $color_bg_intro;
 
     ul{
-      width: 70%;
-      font-weight: 400;
-      display: flex;
-      justify-content: space-around;
+      margin: 0;
     }
-
     ul li{
-      text-align: center;
-      flex-grow: 1;
+      margin: 0;
+      display: inline;
+      text-decoration: line-through;
 
-      &:nth-last-of-type(1){
-        position: relative;
+      &::after{
+        content: ",";
+      }
 
-        &::before{
-          position: absolute;
-          left: 0;
-          top: 0;
-          content: "(";
-        }
-
-        &::after{
-          position: absolute;
-          right: 0;
-          top: 0;
-          content: ")";
+      &:last-of-type{
+        font-family:'Petit Formal Script','Times New Roman', Times, serif;
+        // -webkit-text-stroke: 1px #000;
+        // color: transparent;
+        font-size: 120%;
+        letter-spacing: 2px;
+        margin-left: -0.5rem;
+        text-decoration: none;
+        
+        &::after{ 
+          content: none;
         }
       }
     }
-
-    ul li sub{
-      display: block;
-      margin-top: 1vh;
-    }
-
-    >span{
-      width: 15%;
-      height: 8vh;
-      text-align: center;
-      background: black;
-      border-radius: 50%;
-    }
-
+    
   }
 
   .archive{

@@ -3,7 +3,7 @@
    ========================================================================== */
 
 .masthead {
-  position: fixed;
+  //position: fixed;
   top: 0;
   width: 100%;
   -webkit-animation: $intro-transition;
@@ -16,7 +16,7 @@
     @include clearfix;
     margin-left: auto;
     margin-right: auto;
-    padding: 1em;
+    padding: 1em 1em 0;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
