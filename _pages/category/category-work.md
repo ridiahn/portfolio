@@ -7,5 +7,5 @@ after_footer_scripts:
 ---
 {% assign posts = site.categories.work | sort: 'due_date' | reverse %}
 {% for post in posts %} 
-  {% include archive-single.html type="grid" %} 
+  {% include archive-single.html type="grid" class="bg_modal" %} 
 {% endfor %}

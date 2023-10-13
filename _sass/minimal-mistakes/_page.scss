@@ -22,6 +22,8 @@
 }
 
 body {
+  font-weight: 400;
+  word-spacing: 0.2em;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -706,6 +708,19 @@ body {
 /*
    custom Pages
    ========================================================================== */
+
+i.hidden{
+  display: none;  
+}
+
+.txt_point{
+  font-family:'Kanginhan';
+  font-size: 3vw;
+  line-height: 1;
+  word-spacing: 0.2em;
+  letter-spacing: -0.08em;
+}
+  
 .title_bar{
   &::before{
     content: "";
@@ -732,16 +747,14 @@ body {
 .work_date{
   color: #ccc;
   font-weight: lighter;
-  
+  > span{
+    text-align: justify;
+  }
   strong{
     font-size: 0;
   }
 
   i{
     display: none;
-  }
-
-  span:first-of-type::after{
-    content: '-';
   }
 }

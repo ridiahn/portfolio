@@ -4,7 +4,7 @@ categories:
   - work
 
 ### 작업 제목 및 요약정보 ###
-title:  "따라하기 작업,<br/>세움터 홈페이지"
+title:  "따라하기 작업, 세움터 홈페이지"
 excerpt: "공공기관 홈페이지를 따라 해보다. 마크업(html, css)작업"
 tools:
   tool:

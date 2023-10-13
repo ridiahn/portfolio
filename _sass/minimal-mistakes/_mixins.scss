@@ -90,3 +90,15 @@
   background-color: $background-color;
   color: yiq-contrast-color($background-color, $dark, $light, $threshold);
 }
+
+
+
+/*
+  grid
+  ========================================================================== */
+
+@mixin grid_12{
+  display: grid !important;
+  grid-template-columns: $grid-col-12;
+  // gap: 20px;
+}

@@ -1,11 +1,12 @@
 window.onload = function(){
-  //animation_rolling();
+  bigContactInfo()
 }
 
-// function animation_rolling(t){
-//   let list = document.getElementsByClassName('rolling_txt')[0];
-//   let temp = list.cloneNode(true);
-//   list.parentNode.appendChild(temp);
-// }
-
-
+function bigContactInfo(){
+  const infoContact = document.querySelector('ul.contact')
+  const changePoint = window.innerHeight - 100;
+  infoContact.classList.add('big')
+  document.addEventListener('wheel', function(){
+    (window.scrollY || window.pageYOffset > changePoint) ? infoContact.classList.remove('big') : infoContact.classList.add('big')
+  })
+} 
