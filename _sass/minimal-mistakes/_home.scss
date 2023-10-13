@@ -1,226 +1,188 @@
-@import url('https://webfontworld.github.io/SCoreDream/SCoreDream.css');
-@import url('https://fonts.googleapis.com/css2?family=Ms+Madi&display=swap');
-@import url('//cdn.jsdelivr.net/gh/neodgm/neodgm-webfont@1.530/neodgm/style.css');
-@import url('https://fonts.googleapis.com/css2?family=Petit+Formal+Script&display=swap');
-
 $color_bg_intro: rgb(33,33,33);
 
 .layout--home{
-  //background-color: $color_bg;
-
   #main{
+    // font-family: 'Chosunilbo_myungjo', serif;
     max-width: 100%;
+    padding: 0 24px;
+    margin: 0;
+  }
+
+  #main > .archive{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    position: relative;
+    padding: 0;
+    margin: 0;
   }
 
   .intro{
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    min-height: 100vh;
-    position: relative;
-    justify-content: end;
-    background-image: radial-gradient(circle at center center, transparent 0%,rgb(33,33,33) 99%),repeating-linear-gradient(0deg, rgba(163, 163, 163,0.2) 0px, rgba(163, 163, 163,0.2) 1px,transparent 1px, transparent 7vh),repeating-linear-gradient(90deg, rgba(163, 163, 163,0.2) 0px, rgba(163, 163, 163,0.2) 1px,transparent 1px, transparent 7vh),linear-gradient(90deg, rgb(33,33,33),rgb(33,33,33));
-    // background-image: url(../../assets/img/img_main1.png), url(../../assets/img/img_main2.svg), url(../../assets/img/img_main3.png);
-    // background-repeat: no-repeat;
-    // background-size: 35% auto, 38% auto, 12% auto;
-    // background-position-x: 90%, 34%, 10%;
-    // background-position-y: bottom 10vh, bottom 10vh, bottom 5vh;
-  }
+    @include grid_12;
 
-  .intro h2{
-    width: 100%;
-    text-align: left;
-    
-    svg{
-      margin-top: -10vh;
-      width: 100%;
-      height: 40vh;
-      font-family: "SCoreDream";
-      font-size: 25vh;
-    }
-
-    svg text{
-      filter: url(#filter);
-      &.txt2{
-        //font-family: 'Ms Madi', cursive;
-      }
-
-      &.txt2 tspan{
-        font-size: 60%;
-      }
-
-      tspan.hidden{
-        display: none;
-      }
-
-      tspan.big{
-        font-family:'Petit Formal Script', cursive;
-        font-size: 110%;
-        fill: black;
-      }
-    }
-
-    // .stroke_ef{
-    //   fill: green;
-    //   filter: url(#txt_filter);
-    // }
-  }
-
-  .outline{
-    font-family:'Petit Formal Script', cursive;
-    fill: $color_bg_intro;
-    stroke: black;
-  }
-
-  .intro > article{
+    grid-template-rows: $grid-row-4;
+    letter-spacing: -0.05em;
+    font-weight: 300;
     box-sizing: border-box;
-    display: inline-flex;
-    flex-direction: column;
-    justify-content: center;
-    padding-right: 7vh;
-    align-self: flex-end;
-    font-size: 5.5vh;
-    line-height: 1.1;
-    font-family: "SCoreDream";
-    font-weight: 200;
-    text-align: right;
-    letter-spacing: -2.5px;
-    height: 28vh;
-    width: 101vh;
-    color: mediumspringgreen;
-    background-color: $color_bg_intro;
+    line-height: 1.8;
+    font-size: 1.2vw;
+    height: 100vh;
+    position: relative;
+    color: rgba(0, 0, 0, 0.5);
+    background: url(../../assets/img/design.png) no-repeat 55% 30%;
+    background-size: 25% auto;
 
-    ul{
-      margin: 0;
-    }
-    ul li{
-      margin: 0;
-      display: inline;
-      text-decoration: line-through;
+    div{
+      font-family: $point-font;
+      word-spacing: -0.5rem;
+      color: black;
+      grid-column: 1 / 8;
+      grid-row: 1 / 2;
+      line-height: 1;
+      //align-self: center;
+      text-align: left;
+      font-size: 4vw;
 
-      &::after{
-        content: ",";
-      }
-
-      &:last-of-type{
-        font-family:'Petit Formal Script','Times New Roman', Times, serif;
-        // -webkit-text-stroke: 1px #000;
-        // color: transparent;
-        font-size: 120%;
-        letter-spacing: 2px;
-        margin-left: -0.5rem;
-        text-decoration: none;
-        
-        &::after{ 
-          content: none;
-        }
-      }
-    }
-    
-  }
-
-  .archive{
-    width: 100%;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    margin-top: 20px;
-  }
-
-  .page__title{
-    display: none;
-  }
-
-  .entries-list{
-    h2{
-      a{
-        font-size: 1.45rem;
-      }
-    }
-
-    ul{
-      padding-left: 0;
-      margin: 0;
-  
-      li{
+      ul{
         margin: 0;
+        li{
+          display: inline-block;
+          word-break: keep-all;
+          margin-bottom: 0.25em;
+
+          &:nth-of-type(3){
+            display: block;
+            text-align: right; 
+            margin-bottom: 0;
+          }
+
+          &:nth-of-type(4){
+            margin-top: -0.5em;
+            margin-bottom: 0;
+            width: 50%;
+            text-align: right;
+            font-family: 'Kanginhan';
+            filter: url(#distort);
+            font-size: 1.6em;
+          }
+        }
       }
-    }
-  }
 
-  .entries-list.recent{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
+      b{
+        margin-top: -0.5em;
+        display: block;
+        box-sizing: border-box;
+        font-weight: normal;
 
-    h2{
-      width: 100%;
-    }
+        i{
+          display: inline-block;
+          width: 1em;
+          color: transparent;
+          &::selection{
+            color: transparent;
+          }
+          &:nth-of-type(1){
+            content: url(../../assets/img/char1.png);
+            transform: scale(0.95) translateY(10px);
+          }
 
-    a.more{
-      order: 3;
-      display: block;
-      width: 10vh;
-      height: 10vh;
-      border-radius: 50%;
-    }
-    
-    ul{
-      width: 80%;
-      display: flex;
-      gap: 0 2rem;
-
-      li{
-        width: calc(100% / 4);
-        display: flex;
-        justify-content: flex-end;
-        flex-wrap: wrap;
-        gap: 5% 2.5%;
-
-        .tags,
-        .archive__item-title{
-          white-space: nowrap;
-        }
-
-        .tags{
-          order: 0;
-          width: 30%;
-        }
-
-        .archive__item-title{
-          width: 65%;
-          font-size: $h-size-4;
-          order: 1;
-        }
-
-        .work_date{
-          width: 70%;
-          text-align: left;
-          order: 3;
-          line-height: 0;
-          margin: 0;
-          font-size: $type-size-2;
-          font-style: italic;
-          padding-left: 2.5%;
-        }
-        
-        .archive__item-excerpt{
-          font-size: 0;
-        }
-
-        .archive__item-teaser{
-          width: 100%;
-          height: 30vh;
-          max-height: 30vh;
-          flex-grow: 1;
-          border-radius: 3rem;
-          overflow: hidden;
-
-          img{
-            object-fit: contain;
+          &:nth-of-type(2){
+            content: url(../../assets/img/char2.png);
+            transform: scale(0.9) translateY(15px) translateX(-8px);
           }
         }
       }
     }
+
+    article{
+      grid-column: -2 / -5;
+      grid-row: 2/4;
+      font-weight: 500;
+      text-align: justify;
+      word-spacing: -0.5px;
+      align-self: center;
+      box-sizing: border-box;
+    }
   }
+
+  // .contact{
+  //   font-weight: lighter;
+  //   font-size: 4vw;
+  //   grid-column: -2 / -7;
+  //   grid-row: 4;
+  //   margin: 0;
+  //   line-height: 1.2;
+
+  //   li{
+  //     margin: 0;
+
+  //   }
+  // }
+  // .page__title{
+  //   display: none;
+  // }
+
+  .entries-list{
+    height: 100vh;
+    position: relative;
+    align-content: start;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+    h2{
+      font-size: 1rem
+    }
+
+    .more{
+      order: 3;
+    }
+
+    ul{
+      width: 50%;
+      padding-left: 0;
+
+      li{
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        // gap: 20px;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-y: visible;
+
+        h3{
+          order: 2;
+          grid-column: 2 / 6;
+          font-weight: 400;
+          margin-bottom: 0;
+          font-size: 1.2rem;
+          letter-spacing: -0.03em;
+          line-height: 1.2;
+        }
+
+        span.tags{
+          order: 1;
+          grid-column-start: 1;
+        }
+        
+        p.work_date{
+          order: 3;
+          grid-column: -1 / -2;
+          text-align: right;
+          font-size: $type-size-3;
+          font-weight: lighter;
+          display: block;
+        }
+      }
+      
+      li:hover{
+        .item_info{
+          visibility: visible;
+        }
+      }
+    }
+  }
+
+
+  
 }

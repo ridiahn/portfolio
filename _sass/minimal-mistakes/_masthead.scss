@@ -3,9 +3,10 @@
    ========================================================================== */
 
 .masthead {
-  //position: fixed;
+  position: absolute;
   top: 0;
-  width: 100%;
+  right: 0;
+  //width: 100%;
   -webkit-animation: $intro-transition;
   animation: $intro-transition;
   -webkit-animation-delay: 0.15s;
@@ -19,16 +20,16 @@
     padding: 1em 1em 0;
     display: -webkit-box;
     display: -ms-flexbox;
-    display: flex;
+    //display: flex;
     font-family: $sans-serif-narrow;
 
     @include breakpoint($x-large) {
-      width: 100%;
+      //width: 100%;
     }
 
     nav {
-      display: flex;
-      justify-content: space-between;
+      //display: flex;
+      //justify-content: flex-end;
       z-index: 10;
     }
 
@@ -42,57 +43,41 @@
   max-height: 2rem;
 }
 
+#site-nav h1{
+  display: inline-block;
+  margin: 0;
+}
+
 .site-title {
   font-size: $type-size-3;
   text-align: center;
   cursor: default;
   vertical-align: top;
-  font-weight: normal;
-
-  svg{
-    cursor: pointer;
-    mix-blend-mode: difference;
-    width: 40px;
-    height: 40px;
-    position: absolute;
-    top: 1rem;
-    left: calc( 50% - 20px );
-  }
+  font-weight: normal; 
 }
 
 .site-subtitle {
   font-size: $type-size-2;
-
-  &::before{
-    content:"";
-    display: inline-block;
-    top: 50%;
-    width: 20px;
-    height: 1px;
-    margin: 0 0.5rem calc(0.5em - 1px);
-    line-height: 0;
-    background-color: $text-color;
-  }
 }
 
 .masthead__menu {
   margin-left: 0;
   margin-right: 0;
-  width: 100%;
+  //width: 100%;
 }
 
 #site-nav ul{
-  width: 45%;
+  //width: 45%;
   text-align: right;
 }
 
 .masthead__menu-item {
-  //display: block;
+  //display: inline-block;
   list-style-type: none;
   white-space: nowrap;
   font-size: $type-size-2;
-  font-weight: bold;
-  letter-spacing: 5px;
+  letter-spacing: 1px;
+  margin-left: 2rem;
 
   &--lg {
     padding-right: 2em;
