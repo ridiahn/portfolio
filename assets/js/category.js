@@ -5,19 +5,19 @@ window.onload = function(){
 }
 
 function categoryfilter(){
-  let tagitems = document.getElementsByClassName("taxonomy__index")[0].getElementsByTagName("ul")[0].children;
+  let tagitems = document.getElementsByClassName("labels")[0].children;
   let tag_all = tagitems[0];
 
   Array.from(tagitems).forEach( el =>{
     el.onclick = function(){
-      filterWord = this.children[0].children[0].innerText;
+      filterWord = this.children[0].innerText;
       reset_list(filterWord);
     };
   })
 }
 
 function reset_list(key){
-  let list = document.querySelectorAll(".archive > ul.list > li");
+  let list = document.querySelectorAll(".archive table .list__item");
 
   Array.from(list).forEach( el =>{
     let compareWord = el.querySelector("span.tags").innerText;
@@ -33,13 +33,12 @@ function reset_list(key){
 
 function makeModal(item){
   const modal = document.createElement('div')
-  const title = document.createElement('h3')
-  title.innerText = item.querySelector('h3 a').innerText
+  // const title = document.createElement('h3')
+  // title.innerText = item.querySelector('h3 a').innerText
   const description = item.querySelector('.archive__item-excerpt')
   const img = item.querySelector('figure')
-  const area_modal = item.closest('.list')
  
-  modal.append(title, description)
+  modal.append(description)
   if(img.children.length > 1){
     modal.append(img) 
     const imgGrid = Array.from({ length: 4 }, (v, i) => i + 1)
@@ -61,5 +60,5 @@ function makeModal(item){
 
 function addHoverModal(){
   const items = document.querySelectorAll('.bg_modal');
-  Array.from(items).forEach( el => makeModal(el) )
+  Array.from(items).forEach( el => makeModal(el))
 }

@@ -4,19 +4,10 @@
   {% assign teaser = site.teaser %}
 {% endif %}
 
-{% if post.gallery %}
-  {% capture gallery %}{{ post.gallery }}{% endcapture %}
-{% endif %}
-
 <li class="{{ include.type | default: 'list' }}__item {{include.class()}}">
     <figure class="archive__item-teaser">  
     {% if include.type == "grid" and teaser %}
       <img src="{{ teaser | relative_url }}" alt="">
-    {% endif %}
-    {% if post.gallery %}
-      {% for img in post.gallery %}
-        <img src="{{ img.image_path | relative_url }}" alt="{% if img.alt %}{{ img.alt }}{% endif %}">
-      {% endfor %}
     {% endif %}
     </figure>
 </li>

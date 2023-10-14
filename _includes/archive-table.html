@@ -1,0 +1,49 @@
+{% if post.header.teaser %}
+  {% capture teaser %}{{ post.header.teaser }}{% endcapture %}
+{% else %}
+  {% assign teaser = site.teaser %}
+{% endif %}
+
+{% if post.gallery %}
+  {% capture gallery %}{{ post.gallery }}{% endcapture %}
+{% endif %}
+
+{% if post.id %}
+  {% assign title = post.title | markdownify | remove: "<p>" | remove: "</p>" %}
+  {% assign gallery = page[post.id] %}
+{% else %}
+  {% assign title = post.title %}
+{% endif %}
+
+<tr class="{{ include.type | default: 'list' }}__item">
+  <td class="{{include.class()}}">
+    <h3 class="archive__item-title no_toc" itemprop="headline">
+      {% if post.link %}
+        <a href="{{ post.link }}">{{ title }}</a> <a href="{{ post.url | relative_url }}" rel="permalink"><i class="fas fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
+      {% else %}
+        <a href="{{ post.url | relative_url }}" rel="permalink">{{ title }}</a>
+      {% endif %}
+    </h3>
+    {% if post.excerpt %}
+    <p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify | strip_html | truncate: 160 }}</p>
+    {% endif %}
+    <figure class="archive__item-teaser">  
+      {% if include.type == "grid" and teaser %}
+        <img src="{{ teaser | relative_url }}" alt="">
+      {% endif %}
+      {% if post.gallery %}
+        {% for img in post.gallery %}
+          <img src="{{ img.image_path | relative_url }}" alt="{% if img.alt %}{{ img.alt }}{% endif %}">
+        {% endfor %}
+      {% endif %}
+    </figure>
+  </td>
+  <td>
+    {% if post.tags.size > 0 %}
+      <span class="tags"><strong class="hidden">{{ site.data.ui-text[site.locale].tags_label | default: "Tags:" }}</strong>{{ post.tags | sort | join: ", " }}</span>
+    {% endif %}
+  </td>
+  <td>
+    {% include page__workdate.html %}
+  </td>
+  </tr>

@@ -49,6 +49,7 @@
   line-height: initial;
   overflow: hidden;
   text-overflow: ellipsis;
+  font-weight: 500;
 
   a[rel="permalink"]::before {
     content: '';
@@ -203,10 +204,6 @@
     &::before {
       display: none;
     }
-  }
-
-  .archive__item-title {
-    font-size: 4.5vh;
   }
 
   .archive__item-excerpt {

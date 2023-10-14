@@ -14,7 +14,6 @@ footer {
   animation: $intro-transition;
   -webkit-animation-delay: 0.45s;
   animation-delay: 0.45s;
-  background-color: black;
 
   .page__footer {
     @include clearfix;

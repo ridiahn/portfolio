@@ -2,6 +2,13 @@
 layout: archive
 ---
 <body>
+  {% if paginator %}
+  {% assign posts = paginator.posts %}
+  {% else %}
+    {% assign posts = site.posts %}
+  {% endif %}
+  {% assign entries_layout = page.entries_layout | default: 'list' %}
+  
   <section class="intro">
     <div>
       <ul>
@@ -24,35 +31,15 @@ layout: archive
         </filter>
       </defs>
     </svg>
+    
+    <div class="bg_imgs">
+      <ul>
+        {% for post in posts limit: 6 %}
+          {% if post.top == none %}
+            {% include archive-images.html type="grid"%}
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
   </section>
-
-  {% if paginator %}
-    {% assign posts = paginator.posts %}
-  {% else %}
-    {% assign posts = site.posts %}
-  {% endif %}
-  {% assign entries_layout = page.entries_layout | default: 'list' %}
-  <section class="entries-{{ entries_layout }} recent">
-    <h2 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_works | default: "프로젝트" }}</h2>
-    <a class="more" href="./categories/work">더보기</a>
-    <ul>
-      {% for post in posts limit: 6 %}
-        {% if post.top == none %}
-          {% include archive-single.html type="grid"%}
-        {% endif %}
-      {% endfor %}
-    </ul>
-  </section>
-
-  <!-- {% include paginator.html %}
-  <section class="about">
-    {% assign pageabout = site.pages | where: 'permalink', '/about/' %}
-    {% for item in pageabout %}
-      <h3 class="title_bar">{{ item.title }}</h3>
-      <section>
-      <article>{{ item.excerpt }}</article>
-      <p>{{ item.content }}</p>
-      </section>
-    {% endfor %}
-  </section>
-</body>  -->
+</body>
