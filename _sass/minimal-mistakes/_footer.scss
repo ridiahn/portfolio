@@ -3,12 +3,9 @@
    ========================================================================== */
 
 footer {
-  @include clearfix;
-  float: left;
   margin-left: 0;
   margin-right: 0;
   width: 100%;
-  margin-top: 3em;
   color: $muted-text-color;
   -webkit-animation: $intro-transition;
   animation: $intro-transition;
@@ -16,31 +13,8 @@ footer {
   animation-delay: 0.45s;
 
   .page__footer {
-    @include clearfix;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 2em;
     max-width: 100%;
-    padding: 0 1em 2em;
-    display: flex;
-    flex-wrap: wrap;
-
-    @include breakpoint($x-large) {
-      max-width: $x-large;
-    }
-  }
-
-  a {
-    color: inherit;
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
-
-    i{
-      color: $muted-text-color;
-      font-size: 0;
+    padding: 0 1em;
     }
   }
 
@@ -52,75 +26,9 @@ footer {
     }
   }
 
-  .work,
-  .social,
-  .email{
-    padding-right: 1rem;
-    margin-bottom: $m-24;
-
-    @include breakpoint($large) {
-      padding-right: 0;
-    }
-
-    h3{
-      font-size: $type-size-2;
-      margin-bottom: 0.25rem;
-      font-weight: normal;
-    }
-
-    a,
-    .label{
-      font-size: $type-size-2;
-      color: white;
-    }
-  }
-
   .page__footer-copyright {
     width: 100%;
     font-size: $type-size-4;
-    display: inline-flex;
-    align-items: center;
-
-    > a {
-      font-size: 0;
-      i{
-        font-size: $type-size-2;
-      }
-    }
-
-    span:last-of-type{
-      font-weight: lighter;
-      color: rgba($color: white, $alpha: 0.2);
-      margin-left: 0.5rem;
-    }
+    display: inline;
   }
-
-  .author__content{
-    flex: 1;
-
-    h3{
-      display: inline;
-      font-size: $h-size-6;
-    }
-
-    address {
-      display: inline;
-      color: rgba($color: white, $alpha: 0.2);
-      
-      &::before{
-        content: ",";
-      }
-
-      i{
-        font-size: $type-size-3;
-        margin-right: -0.15rem;
-      }
-    }
-
-    p{
-      margin-top: 0.5rem;
-      font-size: $type-size-3;
-    }
-  }
-}
 

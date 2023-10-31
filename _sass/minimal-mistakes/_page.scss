@@ -707,6 +707,42 @@ body {
 /*
    custom Pages
    ========================================================================== */
+$marginColums : 5;
+nav.breadcrumbs{
+  width: calc((100% / 12) * #{$marginColums});
+  text-align: left;
+  margin: 0;
+  padding: 0;
+  font-family: $point-font;
+
+  ol{
+    width: 100%;
+    font-size: 4vw;
+    margin: 0;
+    line-height: 1;
+    font-weight: 300;
+    
+    > *:not(.current),
+    li:not(.current) a{
+      color: $light-gray;
+
+      &:visited{
+        color: $light-gray;
+      }
+    }
+    
+    span.sep{
+      font-size: 0.8em;
+    }
+
+    li.current{
+      font-weight: 400;
+      display: block;
+      padding-left: $m-54;
+      color: $text-color;
+    }
+  }
+}
 
 i.hidden{
   display: none;  
@@ -730,7 +766,7 @@ i.hidden{
 }
 
 .work_date{
-  color: #ccc;
+  color:$gray;
   font-weight: lighter;
 
   > span{
@@ -744,4 +780,8 @@ i.hidden{
   i{
     display: none;
   }
+}
+
+.contact li{
+  display: block;
 }

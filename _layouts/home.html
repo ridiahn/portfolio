@@ -1,45 +1,20 @@
 ---
-layout: archive
+layout: default
 ---
 <body>
+  {{ content }}
+
   {% if paginator %}
-  {% assign posts = paginator.posts %}
+    {% assign posts = paginator.posts %}
   {% else %}
     {% assign posts = site.posts %}
   {% endif %}
-  {% assign entries_layout = page.entries_layout | default: 'list' %}
-  
-  <section class="intro">
-    <div>
-      <ul>
-        <li>UX/UI 기획자,</li> 
-        <li>GUI 디자이너,</li>
-        <li>프론트엔드 개발자,</li>
-        <li>+a</li>
-      </ul>
-      <b>아이디어 커넥터</b>
-    </div>
-    <article> 
-      누군가의 아이디어에 진심으로 공감하고 일상의 경험을 바탕으로 아이디어가 사용되는 모습을 끊임 없이 상상하며,
-      나만의 감성을 더해, 그 결과를 코드로 세상에 나타나게 하는 일을 합니다
-    </article>
-    <svg>
-      <defs>
-        <filter id="distort">
-          <feTurbulence baseFrequency="0.01 0.01" numOctaves="1" result="noise"  />
-          <feDisplacementMap in="SourceGraphic" in2="noise" scale="10" xChannelSelector="R" yChannelSelector="R">
-        </filter>
-      </defs>
-    </svg>
-    
-    <div class="bg_imgs">
-      <ul>
-        {% for post in posts limit: 6 %}
-          {% if post.top == none %}
-            {% include archive-images.html type="grid"%}
-          {% endif %}
-        {% endfor %}
-      </ul>
-    </div>
-  </section>
+ 
+  <figure class="bg_imgs">
+    {% for post in posts limit: 5 %}
+      {% if post.top == none %}
+        {% include archive-images.html type="grid"%}
+      {% endif %}
+    {% endfor %}
+  </figure>
 </body>

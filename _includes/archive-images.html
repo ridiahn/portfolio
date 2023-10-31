@@ -4,10 +4,6 @@
   {% assign teaser = site.teaser %}
 {% endif %}
 
-<li class="{{ include.type | default: 'list' }}__item {{include.class()}}">
-    <figure class="archive__item-teaser">  
-    {% if include.type == "grid" and teaser %}
-      <img src="{{ teaser | relative_url }}" alt="">
-    {% endif %}
-    </figure>
-</li>
+{% if include.type == "grid" and teaser %}
+  <img src="{{ teaser | relative_url }}" alt="">
+{% endif %}

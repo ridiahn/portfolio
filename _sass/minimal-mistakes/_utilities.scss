@@ -65,7 +65,7 @@ body:hover .visually-hidden button {
    Skip links
    ========================================================================== */
 
-.skip-link {
+.skip-links {
   position: fixed;
   z-index: 20;
   margin: 0;
@@ -73,7 +73,7 @@ body:hover .visually-hidden button {
   white-space: nowrap;
 }
 
-.skip-link li {
+.skip-links li {
   height: 0;
   width: 0;
   list-style: none;

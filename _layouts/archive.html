@@ -12,13 +12,12 @@ layout: default
   {% if page.sidebar %}
     {% include sidebar.html %}
   {% endif %}
-
+  {% if page.url != "/" and site.breadcrumbs %}
+  {% unless paginator %}
+    {% include breadcrumbs.html %}
+  {% endunless %}
+  {% endif %}
   <div class="archive">
-    {% if page.url != "/" and site.breadcrumbs %}
-      {% unless paginator %}
-        {% include breadcrumbs.html %}
-      {% endunless %}
-    {% endif %}
     {% unless page.header.overlay_color or page.header.overlay_image %}
       <h1 id="page-title" class="page__title">{{ page.title }}</h1>
     {% endunless %}
