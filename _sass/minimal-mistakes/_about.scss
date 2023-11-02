@@ -39,18 +39,10 @@
     display: block;
   }
 
-  section:not(.about){
+  section:not(.about, .attitude){
     order: 2;
     width: calc((100% / 12) * 6);
     gap: calc(100% / 6);
-
-    &.attitude{
-      order: 1;
-    }
-    
-    h2{
-      font-size: $type-size-3;
-    }
     
     ul{
       li{
@@ -59,13 +51,20 @@
     } 
   }
 
+  h2{
+    font-size: $type-size-3;
+  }
+
   
   .attitude{
+    order: 1;
     ul{
       margin-left: 1.5em;
-      list-style-type: decimal;
       
       li{
+        display:list-item;
+        list-style-position: outside;
+        list-style-type: decimal;
         padding-left: 1rem;
       }
     }

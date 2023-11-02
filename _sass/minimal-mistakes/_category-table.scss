@@ -2,21 +2,16 @@
   #main{
     width: 100%;
     display: flex;
-    align-items: start;
+    flex-wrap: wrap;
     position: relative;
+    justify-content: flex-end;
   }
 
   .archive {
-    margin-top: 0;
-    flex: 1;
+    margin-top: 100px;
 
     @include breakpoint($large) {
-      width: 100%;
-      padding: 0;
-    }
-  
-    @include breakpoint($x-large) {
-      width: 100%;
+      width: 60%;
       padding: 0;
     }
   }
@@ -27,7 +22,7 @@
  
   ul.labels{
     margin: 0;
-    font-size: $type-size-3;
+    font-size: $type-size-4;
     padding: 0;
     
     li{
@@ -50,13 +45,17 @@
     order: 1;
     flex: 1;
     border: 0;
-    
+
     thead{
       text-align: left;
       height: 8vw;
 
       th{
         margin-bottom: 0.5rem;
+      }
+
+      th:last-of-type{
+        text-align: right;
       }
     }
     
@@ -77,30 +76,21 @@
     }
 
     tbody tr{
-      padding: $m-24 0;
-
+      padding: 5px 0;
+      height: 7.5vh;
       &:hover{
-        padding-left: 1.5rem;
-        transition: background-color 1s, padding-left 0.25s;
-
         h3{
-          //color: white;
-          font-size: 2.5vw;
+          padding-left: 1rem;
+          font-size: 2em;
           font-weight: 400;
-          
-          a{
-            //background-color: black;
-            color: inherit;
-            padding: 1rem;
-            line-height: 1.5;
-          }
+          transition: padding-left 0.25s;
         }
       }
     }
 
     thead tr > *:nth-child(2),
     tbody td:nth-child(1){
-      width: calc(100% / (12 - #{$marginColums}) * 5);
+      width: calc((100% / 12)  * 4);
       box-sizing: border-box;
       padding-right: $m-54;
       flex: 1;
@@ -108,7 +98,7 @@
 
     thead tr > *:not(:nth-child(2)),
     tbody td:not(:nth-child(1)){
-      width: calc(100% / (12 - #{$marginColums}));
+      width: calc( 100% / 12 );
     }
 
     tbody{ 
@@ -126,6 +116,7 @@
     }
 
     h3{
+      font-size: 1.4em;
       line-height: 1.4;
       flex: 1;
       -webkit-line-clamp: 2;
@@ -139,16 +130,16 @@
 
     .tags{
       color: inherit;
-      font-size: $type-size-3;
-      margin: 0.5rem 0;
+      font-size: $type-size-4;
+      margin: 0.25rem 0;
     }
 
     .work_date{
-      text-align: left;
-      font-size: $type-size-3;
+      font-size: $type-size-4;
 
       span{
         display: block;
+        text-align: right;
       }
     }
   }
