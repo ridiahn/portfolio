@@ -1,4 +1,6 @@
 .layout--category-table{
+  background-color: darkgray;
+
   #main{
     width: 100%;
     display: flex;
@@ -6,12 +8,11 @@
     position: relative;
     justify-content: flex-end;
   }
-
-  .archive {
-    margin-top: 100px;
+  
+  .archive {    
+    width: 50%;
 
     @include breakpoint($large) {
-      width: 60%;
       padding: 0;
     }
   }
@@ -42,8 +43,6 @@
   }
 
   .archive .lists{
-    order: 1;
-    flex: 1;
     border: 0;
 
     thead{
@@ -90,15 +89,14 @@
 
     thead tr > *:nth-child(2),
     tbody td:nth-child(1){
-      width: calc((100% / 12)  * 4);
+      width: calc((100% / 6)  * 4);
       box-sizing: border-box;
-      padding-right: $m-54;
       flex: 1;
     }
 
     thead tr > *:not(:nth-child(2)),
     tbody td:not(:nth-child(1)){
-      width: calc( 100% / 12 );
+      width: calc( 100% / 6 );
     }
 
     tbody{ 
@@ -116,7 +114,10 @@
     }
 
     h3{
-      font-size: 1.4em;
+      font-size: 1.2rem;
+      word-spacing: -0.5rem;
+      font-family: $point-font;
+      font-weight: bold;
       line-height: 1.4;
       flex: 1;
       -webkit-line-clamp: 2;
