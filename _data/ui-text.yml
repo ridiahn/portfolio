@@ -594,10 +594,10 @@ ne-NP:
 # Korean
 # ------
 ko: &DEFAULT_KO
-  skip_links                 :
-  skip_primary_nav           :
-  skip_content               :
-  skip_footer                :
+  skip_links                 : "건너뛰기"
+  skip_primary_nav           : "사이트 메뉴 건너뛰기"
+  skip_content               : "본문 건너뛰기"
+  skip_footer                : "사이트 하단 건너뛰기"
   page                       : "페이지"
   pagination_previous        : "이전"
   pagination_next            : "다음"
@@ -623,7 +623,9 @@ ko: &DEFAULT_KO
   powered_by                 : "Powered by"
   website_label              : "웹사이트"
   email_label                : "이메일"
+  main_works                 : "주요작업"
   recent_works               : "최근작업"
+  works                      : "작업목록"
   recent_posts               : "최근 포스트"
   undefined_wpm              : "Undefined parameter words_per_minute at _config.yml"
   comment_form_info          : "이메일은 공개되지 않습니다. 작성 필요 필드:"

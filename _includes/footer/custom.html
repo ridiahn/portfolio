@@ -1,30 +1,20 @@
 <!-- start custom footer snippets -->
-<ul class="contact">
-  {% if author.email %}
-    <li><span class="email">{{ author.email }}</span></li>
-  {% endif %}
-  {% if author.location %}
-  <li>
-    <address class="location" itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
-      <i class="fas fa-fw fa-map-marker-alt hidden" aria-hidden="true"></i> <span itemprop="name">{{ author.location }}</span>
-    </address>
-  </li>
-  {% endif %}
-</ul>
-
-<ul class="channel">
-  {% if author.github %}
-    <li>
-      <a href="https://github.com/{{ author.github }}" itemprop="sameAs" rel="nofollow noopener noreferrer">
-        <i class="fab fa-fw fa-github hidden" aria-hidden="true"></i><span class="label">GitHub</span>
-      </a>
-    </li>
-  {% endif %}
-</ul>
 <!--copyright-->
   <p class="page__footer-copyright">
     <span>{{ site.data.ui-text[site.locale].powered_by | default: "Powered by" }} <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</span>
   </p>
+  <ul class="contact">
+    {% if author.email %}
+      <li><span class="email">{{ author.email }}</span></li>
+    {% endif %}
+    {% if author.location %}
+    <li>
+      <address class="location" itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+        <i class="fas fa-fw fa-map-marker-alt hidden" aria-hidden="true"></i> <span itemprop="name">{{ author.location }}</span>
+      </address>
+    </li>
+    {% endif %}
+  </ul>
 <!-- {% unless site.atom_feed.hide %}
   <a href="{% if site.atom_feed.path %}{{ site.atom_feed.path }}{% else %}{{ '/feed.xml' | relative_url }}{% endif %}"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].feed_label | default: "Feed" }}</a>
   {% endunless %} -->

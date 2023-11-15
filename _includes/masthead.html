@@ -6,14 +6,26 @@
       <nav id="site-nav">
         <h1>
           <a class="site-title" href="{{ '/' | relative_url }}">
-          {% unless logo_path == empty %}
-            <a class="site-logo" href="{{ '/' | relative_url }}"><img src="{{ logo_path | relative_url }}" alt="{{ site.masthead_title | default: site.title }}"></a>
-          {% endunless %}
-                <span class="copylight">&copy;</span><span>{{ site.time | date: '%Y' }}</span><b>{{ site.name | default: site.title }}</b>
-                <!-- {{ site.masthead_title | default: site.title }} -->
-                <!-- {% if site.subtitle %}<span class="site-subtitle">{{ author.email }}</span>{% endif %} -->
-            </a>
-          </h1>
+            {% unless logo_path == empty %}
+              <span class="site-logo" href="{{ '/' | relative_url }}"><img src="{{ logo_path | relative_url }}" alt="{{ site.masthead_title | default: site.title }}"></span>
+            {% endunless %}
+            <span class="copylight">&copy;</span><b>{{ site.name | default: site.title }}</b>
+            <!-- {{ site.masthead_title | default: site.title }} -->
+            <!-- {% if site.subtitle %}<span class="site-subtitle">{{ author.email }}</span>{% endif %} -->
+          </a>
+        </h1>
+        <div class="channel">
+          <button>그 외</button>
+          <ul>
+            {% if author.github %}
+              <li>
+                <a href="https://github.com/{{ author.github }}" itemprop="sameAs" rel="nofollow noopener noreferrer">
+                  <i class="fab fa-fw fa-github hidden" aria-hidden="true"></i><span class="label">GitHub</span>
+                </a>
+              </li>
+            {% endif %}
+          </ul>
+        </div>
         <ul class="visible-links">
           {%- for link in site.data.navigation.main -%}
             <li class="masthead__menu-item">
