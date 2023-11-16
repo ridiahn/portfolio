@@ -1,5 +1,6 @@
 $color_bg: rgb(236, 233, 225);
 $title_lg: 4.6vw;
+$title_md: 3.8vw;
 $txt_lg: 1.3rem;
 
 .layout--home{
@@ -7,31 +8,35 @@ $txt_lg: 1.3rem;
 
   @mixin bigletter{
     color: black;
-    font-family: $point-font;
-    word-spacing: -0.7rem;
+    word-spacing: 1rem;
     font-size: $title_lg;
-    line-height: 1.05;
+    line-height: 1.1;
     font-weight: 400 !important;
-    letter-spacing: -0.04em;
+    letter-spacing: -0.025em;
   }
 
   .masthead {
    width: 100%;
 
    #site-nav {
-    grid-template-columns: $grid-col-12;
+ 
     h1{
-      grid-column: 2 / 4;
+      grid-column: 1 / 3;
       font-size: $title_lg;
       text-align: left;
+      align-self: start;
+      background-color: black;
+      color: white;
      }
   
-    .visible-links{
-      grid-column: -2 / -4;
-    }
-  
-    .channel{
-      grid-column: end;
+    .contact{
+      @include bigletter;
+
+      grid-column: 3 / 8;
+      grid-row: 1;
+      font-size: $title_md;
+      color: $light-gray;
+      text-align: right;
     }
   }
 
@@ -96,17 +101,17 @@ $txt_lg: 1.3rem;
     }
 
     ul{
-      grid-column: 2 / 6;
+      grid-column: 3 / 6;
       grid-row: 2 / 4;
       margin-bottom: 0;
-      align-self: end;
       position: relative;
-
+      font-size: $title_md;
+      align-self: end;
       &::after{
         content: "+a";
         position: absolute;
         bottom: 0;
-        right: $title_lg;
+        right:0;
         filter: url(#distort);
         font-size: 1.1em;
       }
@@ -119,6 +124,7 @@ $txt_lg: 1.3rem;
         &::after{
           content: ",";
           color: $light-gray;
+          font-family: $point-font;
         }
 
         :lang(ko){
@@ -130,24 +136,24 @@ $txt_lg: 1.3rem;
     h3{
       margin: 0;
       display: inline;
-      grid-column: 7 / 11;
+      grid-column: -1 / -6;
       grid-row: 3;
       box-sizing: border-box;
       font-weight: normal;
       background-color: black;
       color: white;
       align-self: end;
-      text-align: center;
     }
 
     .year{
       @include bigletter;
-      grid-column: 4 / 6;
+      grid-column: 6 / 8;
       grid-row: 1;
-      justify-self: left;
       width: fit-content;
-      text-align: right;
-      
+      font-size: $title_md;
+      transform: rotate(90deg) translateX(-0.25em);
+      transform-origin: left top;
+      word-spacing: -0.15em;
       span{
         //box-shadow: inset 0 -6vw 0 black; 
         //color: white;
@@ -177,20 +183,19 @@ $txt_lg: 1.3rem;
     }
     
     article{
-      position: relative;
-      overflow: hidden;
-      z-index: 1;
-      margin-top: 1.5em;
-      font-size: $txt_lg;
-      grid-column: 3 / 11;
-      grid-row: 4 / 7;
-      line-height: 1.8;
+      grid-column: 9 / 12;
+      grid-row: 1 / 2;
+      line-height: 1.5;
       color: rgba(0, 0, 0, 0.5);
+      font-size: 1.1em;
       font-weight: 500;
       text-align: justify;
       word-spacing: -0.5px;
-      box-sizing: border-box;
       letter-spacing: -0.025em;
+      // z-index: 1;
+      // position: relative;
+      // overflow: hidden;
+      // box-sizing: border-box;
 
       b{
         font-weight: inherit;

@@ -14,25 +14,39 @@
             <!-- {% if site.subtitle %}<span class="site-subtitle">{{ author.email }}</span>{% endif %} -->
           </a>
         </h1>
-        <div class="channel">
-          <button>그 외</button>
+        <ul class="contact">
+          {% if author.email %}
+            <li><span class="email">{{ author.email }}</span></li>
+          {% endif %}
+          {% if author.location %}
+          <li>
+            <address class="location" itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+              <i class="fas fa-fw fa-map-marker-alt hidden" aria-hidden="true"></i> <span itemprop="name">{{ author.location }}</span>
+            </address>
+          </li>
+          {% endif %}
+        </ul>
+        <div class="visible-links">
           <ul>
-            {% if author.github %}
-              <li>
-                <a href="https://github.com/{{ author.github }}" itemprop="sameAs" rel="nofollow noopener noreferrer">
-                  <i class="fab fa-fw fa-github hidden" aria-hidden="true"></i><span class="label">GitHub</span>
-                </a>
-              </li>
-            {% endif %}
-          </ul>
-        </div>
-        <ul class="visible-links">
           {%- for link in site.data.navigation.main -%}
             <li class="masthead__menu-item">
               <a href="{{ link.url | relative_url }}"{% if link.description %} title="{{ link.description }}"{% endif %}>{{ link.title }}</a>
             </li>
           {%- endfor -%}
-        </ul>
+          </ul>
+          <div class="channel">
+            <button>그 외</button>
+            <ul>
+              {% if author.github %}
+                <li>
+                  <a href="https://github.com/{{ author.github }}" itemprop="sameAs" rel="nofollow noopener noreferrer">
+                    <i class="fab fa-fw fa-github hidden" aria-hidden="true"></i><span class="label">GitHub</span>
+                  </a>
+                </li>
+              {% endif %}
+            </ul>
+          </div>
+        </div>
         {% if site.search == true %}
         <button class="search__toggle" type="button">
           <span class="visually-hidden">{{ site.data.ui-text[site.locale].search_label | default: "Toggle search" }}</span>
