@@ -40,7 +40,11 @@
   </td>
   <td>
     {% if post.tags.size > 0 %}
-      <span class="tags"><strong class="hidden">{{ site.data.ui-text[site.locale].tags_label | default: "Tags:" }}</strong>{{ post.tags | sort | join: ", " }}</span>
+      <ul class="tags">
+        {% for tag in post.tags %}
+          <li >{{tag}}</li>
+        {% endfor %}
+      </ul>
     {% endif %}
   </td>
   <td>

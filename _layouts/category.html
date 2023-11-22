@@ -1,10 +1,6 @@
 ---
 layout: archive
 ---
-<ul class="list">
-  {{ content }}
-</ul>
-
 {% assign tags_max = 0 %}
 {% for tag in site.tags %}
   {% if tag[1].size > tags_max %}
@@ -14,25 +10,25 @@ layout: archive
 
 <div class="taxonomy__index">
   <h3 class="hidden">작업분류</h3>
-  <ul>
-    <li>
-      <button>
-        <strong>전체</strong><span class="taxonomy__count">{{ site.posts.size }}</span>
-      </button>
+  <ul class="filter">
+    <li class="active">
+      전체<span class="taxonomy__count">{{ site.posts.size }}</span>
     </li>
     {% for i in (1..tags_max) %}
       {% for tag in site.tags %}
         {% if tag[1].size == i %}
           <li>
-            <button href="#{{ tag[0] | slugify }}">
-              <strong>{{ tag[0] }}</strong> <span class="taxonomy__count">{{ i }}</span>
-            </button>
+            {{ tag[0] }}<span class="taxonomy__count">{{ i }}</span>
           </li>
         {% endif %}
       {% endfor %}
     {% endfor %}
   </ul>
 </div>
+
+<ul class="list">
+  {{ content }}
+</ul>
 
 <!-- {% assign entries_layout = page.entries_layout | default: 'list' %}
 <div class="entries-{{ entries_layout }}">

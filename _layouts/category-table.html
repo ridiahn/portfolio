@@ -8,33 +8,27 @@ layout: archive
     {% assign tags_max = tag[1].size %}
   {% endif %}
 {% endfor %}
+<ul class="filter">
+  <li class="active">
+    전체<span>{{ site.posts.size }}</span>
+  </li>
+  {% for i in (1..tags_max) %}
+    {% for tag in site.tags %}
+      {% if tag[1].size == i %}
+        <li>
+          {{ tag[0] }}<span>{{ i }}</span>
+        </li>
+      {% endif %}
+    {% endfor %}
+  {% endfor %}
+</ul>
 
 <table class="lists">
   <thead>
     <tr>
-      <th>분류</th>
-      <th>프로젝트 명</th>
-      <th>기간</th>
-    </tr>
-    <tr>
-      <td>
-        <ul class="labels">
-          <li>
-            <strong>전체</strong><span>{{ site.posts.size }}</span>
-          </li>
-          {% for i in (1..tags_max) %}
-            {% for tag in site.tags %}
-              {% if tag[1].size == i %}
-                <li href="#{{ tag[0] | slugify }}">
-                  <strong>{{ tag[0] }}</strong> <span>{{ i }}</span>
-                </li>
-              {% endif %}
-            {% endfor %}
-          {% endfor %}
-        </ul>
-      </td>
-      <td></td>
-      <td></td>
+      <th>작업분류</th>
+      <th>작업명</th>
+      <th>작업년도</th>
     </tr>
   </thead>
   <tbody>

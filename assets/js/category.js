@@ -5,29 +5,28 @@ window.onload = function(){
 }
 
 function categoryfilter(){
-  let tagitems = document.getElementsByClassName("labels")[0].children;
-  let tag_all = tagitems[0];
+  let tagitems = document.querySelectorAll(".filter li")
+  let tag_all = tagitems[0]
 
-  Array.from(tagitems).forEach( el =>{
+  tagitems.forEach( el =>{
     el.onclick = function(){
-      filterWord = this.children[0].innerText;
-      reset_list(filterWord);
+      let prevActive = document.querySelector(".filter li.active");
+      prevActive.classList.remove('active');
+      el.classList.add('active')
+      filterWord = this.innerText.replace(/\d+$/gi,'')
+      reset_list(filterWord)
     };
   })
 }
 
 function reset_list(key){
-  let list = document.querySelectorAll(".archive table .list__item");
+  let lists = document.querySelectorAll(".tags")
 
-  Array.from(list).forEach( el =>{
-    let compareWord = el.querySelector("span.tags").innerText;
-    if( key == "전체" ){
-      el.style.display = "";
-    }else if( compareWord.indexOf(key) == -1){
-      el.style.display = "none";
-    }else{
-      el.style.display = "";
-    }
+  lists.forEach( (el, i) =>{
+    let tags = el.textContent; 
+    console.log(key)
+    let match = ( key != '전체' && tags.indexOf(key) == -1) ? 'none' : '';
+    el.closest('.grid__item').style.display = match;
   });
 }
 
@@ -45,7 +44,7 @@ function makeModal(item){
     Array.from(img.children).forEach( el => {
         const thisGrid = Math.floor(Math.random()*imgGrid.length)
         el.classList.add('img_position'+`${imgGrid[thisGrid]}`)
-        imgGrid.splice(thisGrid, 1);
+        imgGrid.splice(thisGrid, 1)
       } 
     )
   }else{

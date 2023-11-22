@@ -35,8 +35,11 @@ $txt_lg: 1.3rem;
       grid-column: 3 / 8;
       grid-row: 1;
       font-size: $title_md;
-      color: $light-gray;
       text-align: right;
+
+      li{
+        font-weight: inherit;
+      }
     }
   }
 

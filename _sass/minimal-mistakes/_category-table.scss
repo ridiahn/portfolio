@@ -1,87 +1,135 @@
 .layout--category-table{
-  background-color: darkgray;
 
   #main{
     width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    position: relative;
-    justify-content: flex-end;
   }
   
-  .archive {    
-    width: 50%;
-
+  .archive { 
+    width: 100%;
+    margin-top: 0;
     @include breakpoint($large) {
       padding: 0;
+      display: flex;
+
     }
   }
 
-  h1.page__title{
-    display: none;
+  .page__title,
+  .filter{
+
   }
- 
-  ul.labels{
-    margin: 0;
-    font-size: $type-size-4;
+
+  .page__title{
+    font-size: 3.8vw;
+    padding-right: 1em;
+    order: 1;
+    color: white;
+    background-color: #000;
+    align-self: flex-start;
+  }
+
+  ul.filter{
+    width: calc((100% / 12) * 2);
+    line-height: 1.2;
+    margin: 1em 0 0;
     padding: 0;
-    
+    order: 0;
+
     li{
       cursor: pointer;
       margin: 0;
       padding: 0;
       display: block;
+      word-spacing: -0.15em;
 
       strong{
         font-weight: 300;
       }
 
       span{
+        box-sizing: border-box;
         margin-left: 0.15rem;
+        font-size: 0.8em;
+        padding: 0.2em 0.3em;
+        line-height: 0;
+        position: relative;
+
+        &::after{
+          $braket_height: 50%;
+
+          content: "";
+          display: inline-block;
+          width: 100%;
+          height: $braket_height;
+          left: 0;
+          top: calc((100% - #{$braket_height}) / 2);
+          position: absolute;
+          border-left: solid 2px $light-gray;
+          border-right: solid 2px $light-gray;
+          border-radius: 1em;
+        }
+      }
+
+      &.active{
+        color: black;
+        background-color: white;
+        strong{
+          font-weight: 500;
+        }
       }
     }
   }
 
-  .archive .lists{
+  .lists{
+    flex: 1;
+    order: 2;
+    width: 100%;
+    margin: 0 calc(100% / 12);
     border: 0;
+    font-size: 1.1em;
+    border-spacing: 0;
+    mix-blend-mode: difference;
 
     thead{
+      font-size: inherit;
       text-align: left;
-      height: 8vw;
 
       th{
-        margin-bottom: 0.5rem;
+        margin-bottom: 0;
+        font-size: 0.7em;
+        font-weight: 400;
       }
 
       th:last-of-type{
         text-align: right;
       }
     }
-    
+
+    tbody{
+      color: inherit;
+    }
+
     thead tr,
     tbody tr{
       width: 100%;
-      color: black;
       display: inline-flex;
-      text-align: left;
-      justify-content: space-between;
-      //gap: 100px;
-      box-sizing: border-box;
+      //justify-content: space-between;
       background-color: transparent;
     }
 
     td, th{
       padding: 0;
+      vertical-align: top;
     }
 
     tbody tr{
-      padding: 5px 0;
-      height: 7.5vh;
+      border-bottom: solid 1px white;
+      min-height: calc(100vh / 5);
+      font-size: 1em;
+
       &:hover{
         h3{
           padding-left: 1rem;
-          font-size: 2em;
-          font-weight: 400;
           transition: padding-left 0.25s;
         }
       }
@@ -89,14 +137,12 @@
 
     thead tr > *:nth-child(2),
     tbody td:nth-child(1){
-      width: calc((100% / 6)  * 4);
-      box-sizing: border-box;
       flex: 1;
     }
 
     thead tr > *:not(:nth-child(2)),
     tbody td:not(:nth-child(1)){
-      width: calc( 100% / 6 );
+      min-width: 10%
     }
 
     tbody{ 
@@ -114,33 +160,43 @@
     }
 
     h3{
-      font-size: 1.2rem;
-      word-spacing: -0.5rem;
-      font-family: $point-font;
-      font-weight: bold;
-      line-height: 1.4;
-      flex: 1;
-      -webkit-line-clamp: 2;
-      color: inherit;
+      font-size: 1em;
       text-align: left;
-
+      margin: 0;
+      color: inherit;
+      
       a{
+        font-weight: 500;
         color: inherit;
+        -webkit-line-clamp: 2;
       }
     }
 
     .tags{
+      font-size: 0.9em;
+      line-height: 1.3;
+      margin: 0 10px 10px 0;
       color: inherit;
-      font-size: $type-size-4;
-      margin: 0.25rem 0;
+
+      li{
+        margin: 0;
+        display: block;
+      }
     }
 
     .work_date{
-      font-size: $type-size-4;
-
+      font-size: 0.9em;
+      font-weight: 400;
+      letter-spacing: -0.05em;
+      color: inherit;
+      margin-bottom: 0;
       span{
         display: block;
         text-align: right;
+      }
+
+      .due_date{
+        position: absolute;
       }
     }
   }
