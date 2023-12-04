@@ -80,7 +80,6 @@ $txt_lg: 1.3rem;
 
   }
   
-
   main{
     max-width: 100%;
     margin: 0;
@@ -110,7 +109,6 @@ $txt_lg: 1.3rem;
     // background-size: 25% auto;
     overflow-x: hidden;
     height: 100vh;
-
 
     &::before{
       position: absolute;
@@ -152,51 +150,54 @@ $txt_lg: 1.3rem;
     }
     
     ul{
-      font-size: 2rem;
       line-height: 1.2;
-
+      font-size: 2rem;
       li{
-        margin: 0;
         word-break: keep-all;
+        margin-bottom: 0;
       }
     }
 
     ul.contact{
       grid-column: 9 / 13;
       grid-row: 1;
-
       li{
         display: block;
       }
     }
 
-    ul:not(.contact){
-      grid-column: 9 / 13;
+    .big_works{
+      grid-column: 2 / 12;
       grid-row: 4;
       align-self: end;
+      order: 0;
+      height: 100%;
+      width: 100%;
       margin-bottom: 0;
       position: relative;
+      overflow: hidden;
+    }
+
+    .big_works ul{
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: max-content;
+      max-width: unset;
+      font-size: 7vw;
+      line-height: 0.9;
+      display: flex;
 
       &::after{
         content: "+@";
-        position: absolute;
-        left: 50%;
-        margin-top: -1.2em;
       }
   
       li{
-        display: block;
-        // &::after{
-        //   content: "";
-        //   display: inline-block;
-        //   width: 3px;
-        //   height: 0.8em;
-        //   background: black;
-        //   transform: skew(-35deg);
-        //   position: absolute;
-        //   right: -0.5em;
-        //   top: calc(50% - (0.8em / 2));
-        // }
+        margin-right: 2em;
+
+        &::after{
+
+        }
 
         :lang(ko){
           color: $light-gray;
@@ -227,21 +228,17 @@ $txt_lg: 1.3rem;
       }
     }
 
-    .year{
-      @include bigletter;
-      grid-column: 1 / 4;
-      grid-row: 1 / 5;
+    .years{
+      order: 1;
+      grid-column: 1 / 13;
+      grid-row: 4;
       align-self: end;
-      justify-self: right;
-      width: fit-content;
-      font-size: 10vw;
+      display: flex;
+      justify-content: space-between;
+      font-size: 8vw;
       line-height: 0.8;
       word-spacing: -0.3em;
-
-      span{
-        //box-shadow: inset 0 -6vw 0 black; 
-        //color: white;
-      }
+      position: relative;
     }
 
     i{

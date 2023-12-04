@@ -10,14 +10,16 @@ layout: default
     아이디어에 대한 공감에서 출발해 사용자, 개발자, 디자이너의 시선으로 아이디어를 다각적으로 바라보며 발전 시키고 구체화 합니다.
     그리고 그 결과를 글과 그림, 코드로 구현하는 과정을 함께하고 있습니다.
   </article>
+  <div class="big_works">
     <ul>
-    <li>UI/UX <span>기획</span></li>
+    <li>UI/UX 기획</li>
     <li>GUI <span class="hidden">디자인</span></li>
     <li>CI/BI <span class="hidden">디자인</span></li>
-    <li>편집 <span>디자인</span></li>
+    <li>편집 디자인</li>
     <li>웹퍼블리싱</li>
     <li>프론트엔드</li>
     </ul>
+  </div>
     <ul class="contact">
     <li><span class="email">{{ site.author.email }}</span></li>
     <li>
@@ -26,7 +28,10 @@ layout: default
       </address>
     </li>
   </ul>
-  <time class="year"><span>17 - {{ site.time | date: '%y' }}</span></time>
+  <div class="years">
+    <time>17</time><span class="hidden">-</span><time>{{ site.time | date: '%y' }}</time>
+  </div>
+ 
   <svg>
     <filter id="pixelate" x="0" y="0">
     <feFlood x="4" y="4" height="2" width="2"/>
