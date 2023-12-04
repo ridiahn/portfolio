@@ -3,9 +3,8 @@
    ========================================================================== */
 
 .masthead {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
+  width: 50%;
+  position: absolute;
   -webkit-animation: $intro-transition;
   animation: $intro-transition;
   -webkit-animation-delay: 0.15s;
@@ -26,137 +25,100 @@
   margin-right: 0;
 }
 
-#site-nav {
-  @include grid_12; 
+#site-nav{
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 100%;
+  overflow: hidden;
+  font-size: 1.5rem;
 
-  z-index: 3;
-  align-items: end;
   a {
     text-decoration: none;
   }
-}
 
-#site-nav h1{
-  grid-column: 1 / 3;
-  margin-bottom: 0;
-  overflow: visible;
-  cursor: pointer;
-  font-family: $point-font;
-  font-weight: 400;
-  font-size: 2.3em;
-  align-self: center;
+  h1{
+    font-size: inherit;
+    margin-bottom: 0;
+    overflow: visible;
+    cursor: pointer;
+    font-family: $point-font;
+    font-weight: 400;
 
-  a{
-    color: inherit;
-    display: inline-flex;
-    align-items: center;
+    a{
+      color: inherit;
+      display: inline-flex;
+      align-items: center;
+    }
+  
+    .copylight{
+      transform: scale(1.2) translateY(2px);
+      margin-right: 0.5rem;
+    }
+  
+    b{
+      font-weight: inherit;
+    }
   }
-
-  .copylight{
-    transform: scale(1.2) translateY(2px);
-    margin-right: 0.5rem;
-  }
-
-  b{
-    font-weight: inherit;
-  }
-}
-
-@mixin label{
-  margin-top: 4px;
-  border-bottom: solid 1px $light-gray;
-  //border-left: solid 1px black;
-  box-sizing: border-box;
-  padding-top: 1rem;
-  //padding: 2px 3rem 0.8rem 0.8rem;
-  //margin-right: 2px; 
-  text-align: left;
-  line-height: 1;
-  font-weight: bold;
-  font-size: $type-size-3;
-  letter-spacing: -0.01em;
-  font-family: $point-font;
-}
-
-#site-nav{
 
   @include breakpoint($large) {
     .contact{
-      grid-column: 6 / 8;
+      order: 2;
       display: flex;
       flex-direction: column;
-      text-align: right;
+      width: 50%;
+      font-size: 1rem;
 
       li{
         line-height: 1.2;
         color: $light-gray;
-        &:first-of-type{
-          color: black;
-          order: 2;
-          font-weight: 500;
-          font-size: 1.1em;
-        }
       }
     }
 
+    .channel, 
     .visible-links{
-      grid-column: 8 / end;
-      grid-row: 1;
-      justify-self: right;
-      text-align: right;
-      font-weight: 500;
-      line-height: 1.2;
-      font-size: 1.1em;
-      font-style: italic;
-      letter-spacing: 0.05em;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      
+      font-size: 1rem;
+    }
+    
+    .visible-links{
+      //@include slash;
+      order: 1;
+      width: 50%;
+
       > ul{
-        flex: 1;
-
+        color: $light-gray;
+        line-height: 1.2;
+        
         li{
-          letter-spacing: inherit;
-          margin-bottom: 2px;
-          display: inline-block;
-          width: calc(100% / 2);
+          display: block;
           position: relative;
-
-          &::after{
-            content: "";
-            display: inline-block;
-            width: 2px;
-            height: 70%;
-            background: black;
-            transform: skew(-35deg);
-            position: absolute;
-            right: 0;
-            bottom: 4px;
+          
+          &.active{
+            color: black;
           }
 
           a{
-            box-sizing: border-box;
             font-weight: inherit;
             letter-spacing: inherit;
-            color: black;
-            margin-right: 2rem;
+            color: inherit;
           }
         }
       } 
     }
   
     .channel{
-      width: 18%;
+      order: 3;
+      color: $light-gray;
+      width: 50%;
+
       button{
-        width: 100%;
-        text-align: right;
-        font-size: inherit;
+        //margin-left: 50%;
         font-weight: inherit;
-        padding: 0;
         position: relative;
-        line-height: 1;
         word-spacing: 1em;
+        line-height: 1.2;
+        color: inherit;
       }
 
       li{
@@ -196,11 +158,4 @@
     }
   }
 
-  &:first-of-type{
-    order: 2;
-  }
-  
-  &:not(:first-of-type){
-    order: 1;
-  }
 }

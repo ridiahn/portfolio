@@ -9,6 +9,10 @@
 @import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/variable/pretendardvariable.css");
 
 @font-face {
+   font-family: 'eulyoo1945';
+   src: url('/assets/fonts/Eulyoo1945-Regular.woff')
+}
+@font-face {
    font-family: 'Orbit-Regular';
    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/Orbit-Regular.woff2') format('woff2');
    font-weight: normal;
@@ -23,8 +27,8 @@
 }
 
 @font-face {
-   font-family: 'Kanginhan';
-   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/naverfont_07@1.0/Kanginhan.woff') format('woff');
+   font-family: 'JeonjuCraftGoR';
+   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/JeonjuCraftGoR.woff2') format('woff2');
    font-weight: normal;
    font-style: normal;
 }
@@ -37,7 +41,7 @@ $indent-var: 1.2em !default;
 
 /* system typefaces */
 $point-font: 'Orbit-Regular';
-$serif: 'Jeju Myeongjo', Georgia, Times, serif !default;
+$serif: 'eulyoo1945', Georgia, Times, serif !default;
 $sans-serif: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 $monospace: Monaco, Consolas, "Lucida Console", monospace !default;
 

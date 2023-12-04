@@ -1,7 +1,9 @@
 ---
-published: true
 categories:
-  - work
+  - works
+published: true
+categorize:
+  - 사례연구
 
 ### 작업 제목 및 요약정보 ###
 title:  "따라하기 작업, 삼화 페인팅"

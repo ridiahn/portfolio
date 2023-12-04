@@ -1,4 +1,6 @@
 ---
+categories:
+  - works
 published: true
 top: true
 title:  "따라하기 작업, 부트스트랩 테마1"
@@ -13,8 +15,9 @@ start_date: "2021-05-10"
 due_date: "2021-05-21"
 headcount: "1"
 
-categories:
-  - work
+categorize:
+  - 사례연구
+  
 tags:
   - 프론트엔드
 

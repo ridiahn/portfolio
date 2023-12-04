@@ -705,36 +705,11 @@ body {
 /*
    custom Pages
    ========================================================================== */
-nav.breadcrumbs{
-  @include grid_12;
 
-  max-width: 100%;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-
-  ol{
-    width: 100%;
-    grid-column: 5 / 13;
-    margin: 0;
-    line-height: 1;
-    font-weight: 300;
-    font-size: $type-size-3;
-    
-    > *:not(.current),
-    li:not(.current) a{
-      color: $light-gray;
-      
-      &:visited{
-        color: $light-gray;
-      }
-    }
-
-    li.current{
-      font-weight: 400;
-      color: $text-color;
-    }
-  }
+.page__title{
+  display: none;
+  position: absolute;
+  top: -999px;
 }
 
 i.hidden{
@@ -751,32 +726,6 @@ i.hidden{
 
 .archive__item-teaser {
   margin: 0;
-}
-
-.tags{
-  font-size: $type-size-3;
-  color: #999;
-}
-
-.work_date{
-  color:$gray;
-  font-weight: lighter;
-
-  > span{
-    text-align: justify;
-  }
-  strong{
-    font-size: 0;
-    position: absolute;
-  }
-
-  i{
-    display: none;
-  }
-}
-
-.contact li{
-  display: block;
 }
 
 .page__footer{

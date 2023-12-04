@@ -2,7 +2,7 @@
 main:
   - title: "작업목록"
     url: /works
-  - title: "자기소개"
+  - title: "소개"
     url: /about
   # - title: "Sample Posts"
   #   url: /year-archive/

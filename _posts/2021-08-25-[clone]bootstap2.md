@@ -1,4 +1,6 @@
 ---
+categories:
+  - works
 published: true
 title:  "따라하기 작업, 부트스트랩 테마2"
 start_date: "2021-06-08"
@@ -11,8 +13,8 @@ tools:
     - html
     - js
 
-categories:
-  - work
+categorize:
+  - 사례연구
 tags:
   - 프론트엔드
 

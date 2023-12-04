@@ -12,13 +12,13 @@ layout: archive
   <h3 class="hidden">작업분류</h3>
   <ul class="filter">
     <li class="active">
-      전체<span class="taxonomy__count">{{ site.posts.size }}</span>
+      전체<span class="taxonomy__count hidden">{{ site.posts.size }}</span>
     </li>
     {% for i in (1..tags_max) %}
       {% for tag in site.tags %}
         {% if tag[1].size == i %}
           <li>
-            {{ tag[0] }}<span class="taxonomy__count">{{ i }}</span>
+            {{ tag[0] }}<span class="taxonomy__count hidden">{{ i }}</span>
           </li>
         {% endif %}
       {% endfor %}
@@ -26,11 +26,20 @@ layout: archive
   </ul>
 </div>
 
-<ul class="list">
-  {{ content }}
+{% assign postsInYear = site.posts | where_exp: "item", "item.hidden != true" | group_by_exp: 'post', 'post.start_date | date: "%Y"' | reverse %}
+<section class="list">
+<!-- <h2>전체</h2> -->
+<ul>
+{% for year in postsInYear %}
+  <li id="{{ year.name }}">
+  <h3> {{ year.name }}</h3>
+    <ul>
+      {% for post in year.items %}
+        {% include archive-single.html type="grid" class="bg_modal" %}
+      {% endfor %}
+    </ul>
+  </li>
+{% endfor %}
 </ul>
-
-<!-- {% assign entries_layout = page.entries_layout | default: 'list' %}
-<div class="entries-{{ entries_layout }}">
-  {% include posts-category.html taxonomy=page.taxonomy type=entries_layout %}
-</div> -->
+<!-- <a href="#page-title" class="back-to-top">{{ site.data.ui-text[site.locale].back_to_top | default: 'Back to Top' }} &uarr;</a> -->
+</section>

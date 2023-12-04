@@ -2,7 +2,7 @@
 title: "자기소개"
 excerpt: "아이디어 커넥터 희라 입니다"
 sitemap: false
-permalink: /about/
+permalink: /about
 layout: about
 after_footer_scripts:
 - /assets/js/about.js

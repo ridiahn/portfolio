@@ -14,7 +14,7 @@
             <!-- {% if site.subtitle %}<span class="site-subtitle">{{ author.email }}</span>{% endif %} -->
           </a>
         </h1>
-        <ul class="contact">
+        <ul class="contact hidden">
           {% if author.email %}
             <li><span class="email">{{ author.email }}</span></li>
           {% endif %}
@@ -34,18 +34,18 @@
             </li>
           {%- endfor -%}
           </ul>
-          <div class="channel">
-            <button>그 외</button>
-            <ul>
-              {% if author.github %}
-                <li>
-                  <a href="https://github.com/{{ author.github }}" itemprop="sameAs" rel="nofollow noopener noreferrer">
-                    <i class="fab fa-fw fa-github hidden" aria-hidden="true"></i><span class="label">GitHub</span>
-                  </a>
-                </li>
-              {% endif %}
-            </ul>
-          </div>
+        </div>
+        <div class="channel">
+          <button>그 외</button>
+          <ul>
+            {% if author.github %}
+              <li>
+                <a href="https://github.com/{{ author.github }}" itemprop="sameAs" rel="nofollow noopener noreferrer">
+                  <i class="fab fa-fw fa-github hidden" aria-hidden="true"></i><span class="label">GitHub</span>
+                </a>
+              </li>
+            {% endif %}
+          </ul>
         </div>
         {% if site.search == true %}
         <button class="search__toggle" type="button">

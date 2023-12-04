@@ -1,7 +1,7 @@
 {% assign document = post | default: page %}
-{% assign date_format = site.date_format | default: "%y.%m.%d" %}
+{% assign date_format = site.date_format | default: "%m.%d" %}
 <p class="work_date">
-  <strong>작업기간</strong>
+  <strong class="hidden">작업기간</strong>
   {% if document.start_date %}
   <span class="start_date">
     <time datetime="{{ document.start_date }}">{{ document.start_date | date: date_format }}</time>

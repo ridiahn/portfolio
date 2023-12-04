@@ -4,16 +4,41 @@ permalink: /
 layout: default
 ---
 <section class="intro">
-  <h3>아이디어 커넥터</h3>
-  <time class="year"><span>2017 - {{ site.time | date: '%y' }}</span></time>
-  <ul>
-    <li>UX/UI <span lang="ko">기획자</span></li> 
-    <li>GUI <span lang="ko">디자이너</span></li>
-    <li>Frontend <span lang="ko">개발자</span></li>
-  </ul>
+
   <article>
-    누군가의 필요와 불편에 공감하고, 그 아이디어를 발전시켜 글로 그림으로 코딩으로 세상에 연결하는 일을 합니다 
+    <b>누군가 느낀 불편함과 필요에 관심을 가지고 공감을 통해 그 문제를 함께 해결 해나가는 과정을 즐기는 아이디어 커넥터 입니다.</b>
+    아이디어에 대한 공감에서 출발해 사용자, 개발자, 디자이너의 시선으로 아이디어를 다각적으로 바라보며 발전 시키고 구체화 합니다.
+    그리고 그 결과를 글과 그림, 코드로 구현하는 과정을 함께하고 있습니다.
   </article>
+    <ul>
+    <li>UI/UX <span>기획</span></li>
+    <li>GUI <span class="hidden">디자인</span></li>
+    <li>CI/BI <span class="hidden">디자인</span></li>
+    <li>편집 <span>디자인</span></li>
+    <li>웹퍼블리싱</li>
+    <li>프론트엔드</li>
+    </ul>
+    <ul class="contact">
+    <li><span class="email">{{ site.author.email }}</span></li>
+    <li>
+      <address class="location" itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+        <i class="fas fa-fw fa-map-marker-alt hidden" aria-hidden="true"></i> <span itemprop="name">{{ site.author.location }}</span>
+      </address>
+    </li>
+  </ul>
+  <time class="year"><span>17 - {{ site.time | date: '%y' }}</span></time>
+  <svg>
+    <filter id="pixelate" x="0" y="0">
+    <feFlood x="4" y="4" height="2" width="2"/>
+    <feComposite width="10" height="10"/>
+    <feTile result="a"/>
+    <feComposite in="SourceGraphic" in2="a" operator="in"/>
+    <feMorphology operator="dilate" radius="5"/>
+  </filter>
+  <filter id="noise" x="0" y="0">
+    <feTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch' />
+  </filter>
+  </svg>
 </section>
 
 <article class="attitude">
@@ -25,17 +50,6 @@ layout: default
   </ul>
 </article>
 
-<section class="workScope">
-  <h2>작업분야</h2>
-  <ul>
-    <li>UI/UX 기획</li>
-    <li>GUI 디자인</li>
-    <li>CI 디자인</li>
-    <li>서식 디자인</li>
-    <li>웹퍼블리싱</li>
-    <li>프론트엔드</li>
-  </ul>
-</section>
 
 <section class="workTools">
   <div>
