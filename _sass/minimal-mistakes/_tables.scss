@@ -39,9 +39,6 @@ tbody{
 }
 
 tr{
-  &:nth-of-type(odd):not(:first-of-type){
-    background-color: #fcfcfc;
-  }
   &:last-of-type{
     border-bottom: 0;
   }

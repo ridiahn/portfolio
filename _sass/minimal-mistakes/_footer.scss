@@ -3,9 +3,12 @@
    ========================================================================== */
 
 footer {
+  margin-top: 25vh;
+  min-height: 50vh;
   margin-left: 0;
   margin-right: 0;
   width: 100%;
+  font-size: 1rem;
   color: $muted-text-color;
   -webkit-animation: $intro-transition;
   animation: $intro-transition;
@@ -13,21 +16,54 @@ footer {
   animation-delay: 0.45s;
 
   .page__footer {
+    position: relative;
     max-width: 100%;
-    padding: 0 1em;
+    padding: 0 36px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    ul{
+      padding: 0;
+      margin: 0;
+
+      li {
+        display: block;
+        margin-bottom: 0;
+      }
+    }
+
+    .page__footer-copyright {
+      margin-top: 5vh;
+      order: 1;
+      width: 20%;
+      font-size: 0.85em;
+      a:last-of-type{
+        display: block;
+      }
+    }
+
+    .service{
+      order: 0;
+      display: flex;
+      width: 100%;
+
+      h2{
+        width: calc((100% / 12)*2);
+      }
+    }
+
+    .contact{
+      width: 80%;
+      display: inline-flex;
+      flex-direction: column-reverse;
+      order: 2;
+      font-size: 7vw;
+      line-height: 1;
+      text-align: right;
+      bottom: 0;
+      right: 0;
     }
   }
-
-  ul {
-    padding: 0;
-    margin: 0;
-    li {
-      display: inline-block;
-    }
-  }
-
-  .page__footer-copyright {
-    width: 100%;
-    font-size: $type-size-4;
-  }
+}
 
