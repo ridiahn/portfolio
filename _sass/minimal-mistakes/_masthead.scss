@@ -3,13 +3,12 @@
    ========================================================================== */
 
 .masthead {
-  width: 50%;
   position: absolute;
   -webkit-animation: $intro-transition;
   animation: $intro-transition;
   -webkit-animation-delay: 0.15s;
   animation-delay: 0.15s;
-  z-index: 3;
+  z-index: 10;
 }
 
 .site-logo img {
@@ -26,11 +25,8 @@
 }
 
 #site-nav{
-  z-index: 10;
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  max-width: 100%;
+  flex-direction: column;
   overflow: hidden;
   font-size: 1.5rem;
 
@@ -39,12 +35,11 @@
   }
 
   h1{
-    font-size: inherit;
+    flex: 1;
+    font-size: 0.95em;
     margin-bottom: 0;
     overflow: visible;
-    cursor: pointer;
-    font-family: $point-font;
-    font-weight: 400;
+    font-weight: 500;
 
     a{
       color: inherit;
@@ -53,8 +48,9 @@
     }
   
     .copylight{
-      transform: scale(1.2) translateY(2px);
-      margin-right: 0.5rem;
+      font-weight: 400;
+      transform: scale(1.2) translateY(2px) translateX(2px);
+      margin-right: 0.15em;
     }
   
     b{
@@ -64,38 +60,48 @@
 
   @include breakpoint($large) {
     .contact{
-      order: 2;
-      display: flex;
-      flex-direction: column;
-      width: 50%;
+      position: absolute;
+      bottom: 0;
+      right: 0;
       font-size: 1rem;
 
       li{
-        line-height: 1.2;
+        line-height: 1.1;
         color: $light-gray;
       }
-    }
-
-    .channel, 
-    .visible-links{
-      font-size: 1rem;
     }
     
     .visible-links{
       //@include slash;
+      margin-top: 10vh;
       order: 1;
-      width: 50%;
-
       > ul{
         color: $light-gray;
-        line-height: 1.2;
+        line-height: 1.1;
         
         li{
+          width: fit-content;
           display: block;
           position: relative;
-          
+          padding: 0 0.5em;
+
           &.active{
+            margin-right: 0.5em;
             color: black;
+            font-weight: bold;
+            //font-family: $serif;
+
+            // &::after{
+            //   content: "";
+            //   position: absolute;
+            //   left: 0;
+            //   top: 15%;
+            //   width: 100%;
+            //   height: 70%;
+            //   border-left: solid 4px black;
+            //   border-right: solid 4px black;
+            //   border-radius: 1em;
+            // }
           }
 
           a{
@@ -109,16 +115,18 @@
   
     .channel{
       order: 3;
+      width: 100%;
       color: $light-gray;
-      width: 50%;
+      margin-left: 0.5em;
+      line-height: 1;
 
       button{
         //margin-left: 50%;
         font-weight: inherit;
-        position: relative;
-        word-spacing: 1em;
-        line-height: 1.2;
+        line-height: inherit;
         color: inherit;
+        padding: 0;
+        height: fit-content;
       }
 
       li{

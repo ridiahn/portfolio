@@ -135,11 +135,10 @@ $(document).ready(function() {
   });
 
   //Add visible-links item active
-  var currentPage = $(location).attr('pathname').replace(/'/'/gi,'');
+  var currentPage = $(location).attr('pathname').replace(/\/+/g,'');
   $('.visible-links ul li').each(function(){
-    itemLink = $(this).children('a').attr('href').replace(/'/'/gi,'');
-    console.log(currentPage, itemLink);
-    if( currentPage !== null | undefined && itemLink.indexOf(currentPage) !== -1){
+    itemLink = $(this).children('a').attr('href').replace(/\/+/g,'');
+    if( (currentPage !== null | undefined) && itemLink.indexOf(currentPage) !== -1){
       $(this).siblings().removeClass('active');
       $(this).addClass('active');
     }
