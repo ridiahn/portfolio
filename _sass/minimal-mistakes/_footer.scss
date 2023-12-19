@@ -3,12 +3,13 @@
    ========================================================================== */
 
 footer {
-  margin-top: 25vh;
+  position: relative;
+  margin-top: 15vh;
   min-height: 50vh;
   margin-left: 0;
   margin-right: 0;
+  padding: 0 36px;
   width: 100%;
-  font-size: 1rem;
   color: $muted-text-color;
   -webkit-animation: $intro-transition;
   animation: $intro-transition;
@@ -16,13 +17,8 @@ footer {
   animation-delay: 0.45s;
 
   .page__footer {
-    position: relative;
     max-width: 100%;
-    padding: 0 36px;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    align-items: flex-end;
+    line-height: 1.2;
     
     ul{
       padding: 0;
@@ -35,35 +31,56 @@ footer {
     }
 
     .page__footer-copyright {
-      margin-top: 5vh;
-      order: 1;
-      width: 20%;
-      font-size: 0.85em;
-      a:last-of-type{
+      float: left;
+      width: 25%;
+      font-size: 2rem;
+      font-weight: 600;
+      color: black;
+
+      span:last-of-type{
+        color: gray;
+        text-align: justify;
+        font-size: 1rem;
+        display: block;
+        font-weight: normal;
+      }
+    }
+
+    p:last-of-type{
+      font-size: 1rem;
+      float: right;
+      margin-top: 1rem;
+
+      span{
         display: block;
       }
     }
 
     .service{
-      order: 0;
-      display: flex;
-      width: 100%;
+      margin-bottom: 25vh;
+      width: 25%;
+      color: black;
 
       h2{
-        width: calc((100% / 12)*2);
+        margin-bottom: 5vh;
+      }
+
+      ul{
+        font-size: 1.1rem;
+        line-height: 1.5;
       }
     }
 
-    .contact{
-      width: 80%;
-      display: inline-flex;
-      flex-direction: column-reverse;
-      order: 2;
-      font-size: 7vw;
-      line-height: 1;
-      text-align: right;
+    .email{
+      color: black;
+      position: absolute;
       bottom: 0;
-      right: 0;
+      left: calc(50% - 60% / 2);
+      width: 60%;
+      font-size: 9vw;
+      line-height: 0.8;
+      text-align: center;
+      word-wrap: break-word;
     }
   }
 }

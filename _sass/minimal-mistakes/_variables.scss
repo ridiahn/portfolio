@@ -23,12 +23,6 @@
    font-style: normal;
 }
 
-@font-face {
-   font-family: 'JeonjuCraftGoR';
-   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/JeonjuCraftGoR.woff2') format('woff2');
-   font-weight: normal;
-   font-style: normal;
-}
 
 $doc-font-size: 1rem !default;
 
@@ -37,7 +31,7 @@ $paragraph-indent: false !default; // true, false (default)
 $indent-var: 1.2em !default;
 
 /* system typefaces */
-$point-font: 'Orbit-Regular';
+$point-font: 'Conviva';
 $serif: 'jejumyeongjo', Georgia, Times, serif !default;
 $sans-serif: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 $monospace: Monaco, Consolas, "Lucida Console", monospace !default;
