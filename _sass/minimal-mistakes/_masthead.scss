@@ -33,36 +33,8 @@
     line-height: 0.9;
 
     a{
-      width: 100%;
       padding-left: 36px;
       color: inherit;
-      display: inline-flex;
-      align-items: center;
-
-      b{
-        letter-spacing: 0.15em;
-      }
-    }
-  
-    .copylight{
-      font-weight: 400;
-      transform: scale(1.2) translateX(2px);
-      margin-right: 0.15em;
-    }
-  
-    span.years{
-      flex: 1;
-      padding-right: 36px;
-      display: inline-flex;
-      justify-content: space-between;
-
-      i{
-        color: transparent;
-        font-size: 0;
-        flex: 1;
-        height: 3px;
-        background-color: black;
-      }
     }
   }
 

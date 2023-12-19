@@ -26,8 +26,8 @@ layout: archive
   </ul>
 </div>
 
-{% assign postsInYear = site.posts | where_exp: "item", "item.hidden != true" | group_by_exp: 'post', 'post.start_date | date: "%Y"' | reverse %}
-<section class="list">
+{% assign postsInYear = site.posts | where_exp: "item", "item.hidden != true" | group_by_exp: 'post', 'post.start_date | date: "%y"' | reverse %}
+<section class="list_col">
 <!-- <h2>전체</h2> -->
 <ul>
 {% for year in postsInYear %}
