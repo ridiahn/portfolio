@@ -4,8 +4,7 @@
 
 footer {
   position: relative;
-  margin-top: 15vh;
-  min-height: 50vh;
+  margin-top: 50vh;
   margin-left: 0;
   margin-right: 0;
   padding: 0 36px;
@@ -58,16 +57,12 @@ footer {
 
     .service{
       margin-bottom: 25vh;
-      width: 25%;
       color: black;
+      padding: 0;
 
       h2{
+        font-size: 1rem;
         margin-bottom: 5vh;
-      }
-
-      ul{
-        font-size: 1.1rem;
-        line-height: 1.5;
       }
     }
 

@@ -8,38 +8,48 @@ layout: archive
   {% endif %}
 {% endfor %}
 
-<div class="taxonomy__index">
+<div class="taxonomy__index service">
   <h3 class="hidden">작업분류</h3>
   <ul class="filter">
     <li class="active">
       전체<span class="taxonomy__count hidden">{{ site.posts.size }}</span>
     </li>
-    {% for i in (1..tags_max) %}
-      {% for tag in site.tags %}
-        {% if tag[1].size == i %}
-          <li>
-            {{ tag[0] }}<span class="taxonomy__count hidden">{{ i }}</span>
-          </li>
-        {% endif %}
-      {% endfor %}
-    {% endfor %}
+    <li>
+      <h3>기획</h3>
+      <ul>
+        <li>UI/UX</li>
+      </ul>
+    </li>
+    <li>
+      <h3>디자인</h3>
+      <ul>
+        <li>GUI</li>
+        <li>CI/BI</li>
+      </ul>
+    </li>
+    <li>
+      <h3>개발</h3>
+      <ul>
+        <li>웹퍼블리싱</li>
+        <li>프론트엔드</li>
+      </ul>
+    </li>
   </ul>
 </div>
 
+
 {% assign postsInYear = site.posts | where_exp: "item", "item.hidden != true" | group_by_exp: 'post', 'post.start_date | date: "%y"' | reverse %}
-<section class="list_col">
-<!-- <h2>전체</h2> -->
-<ul>
-{% for year in postsInYear %}
-  <li id="{{ year.name }}">
-  <h3> {{ year.name }}</h3>
+<section class="list row">
+  {% for year in postsInYear %}
+  <div id="{{ year.name }}" class="year_div">
+    <h3 class="year_name"> {{ year.name }}</h3>
     <ul>
+      <!-- section calss .list.col 적용시, include부문에 class="bg_modal"추가 -->
       {% for post in year.items %}
-        {% include archive-single.html type="grid" class="bg_modal" %}
+        {% include archive-single.html type="grid" %}
       {% endfor %}
     </ul>
-  </li>
-{% endfor %}
-</ul>
-<!-- <a href="#page-title" class="back-to-top">{{ site.data.ui-text[site.locale].back_to_top | default: 'Back to Top' }} &uarr;</a> -->
+  </div>
+  {% endfor %}
 </section>
+<!-- <a href="#page-title" class="back-to-top">{{ site.data.ui-text[site.locale].back_to_top | default: 'Back to Top' }} &uarr;</a> -->
