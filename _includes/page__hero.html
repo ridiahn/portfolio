@@ -19,7 +19,10 @@
 {% assign image_description = image_description | markdownify | strip_html | strip_newlines | escape_once %}
 
 <header class="page__hero{% if page.header.overlay_color or page.header.overlay_image %}--overlay{% endif %}"
-  style="{% if page.header.overlay_color %}background-color:{{ page.header.overlay_color | default: 'transparent' }}{% endif %}; {% if overlay_img_path %}background-image: url('{{ overlay_img_path }}'){% endif %}, {% if overlay_filter %}{{ overlay_filter }}{% endif %};"
+  style="
+  {% if page.header.overlay_color %} background-color:{{ page.header.overlay_color | default: 'transparent' }} {% endif %}; 
+  {% if overlay_img_path %} background-image: url('{{ overlay_img_path }}'){% endif %}, 
+  {% if overlay_filter %}{{ overlay_filter }}{% endif %};"
 >
   {% if page.header.overlay_color or page.header.overlay_image %}
     <article class="wrapper">
@@ -54,7 +57,7 @@
           </ul>
         </div>
         {% endif %}
-        {% if page.header.actions %}
+        <!-- {% if page.header.actions %}
         <p class="ex_preview">
           {% for action in page.header.actions %}
             <strong>{{ action.label | default: site.data.ui-text[site.locale].more_label | default: "Learn More" }}</strong>
@@ -65,7 +68,7 @@
           {% endif %}
           {% endfor %}
         </p>
-        {% endif %}
+        {% endif %} -->
       </div>
 
       <!-- {% if page.header.cta_url %}

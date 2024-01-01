@@ -1,7 +1,7 @@
 ---
 categories:
   - works
-published: true
+published: false
 title:  "따라하기 작업, 부트스트랩 테마2"
 start_date: "2021-06-08"
 due_date: "2021-06-17"

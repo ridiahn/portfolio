@@ -52,15 +52,10 @@
 $pageNav-height-lg : 54px;
 
 .page__nav{
-  border-top: solid 1px #efefef;
+  order: 3;
   width: 100%;
   height: $pageNav-height-lg;
-  display: flex;
-  align-items: center;
   background-color: rgba(white, 0.9);
-  position: fixed;
-  bottom: 0;
-  left: 0;
   /* visibility: hidden;
   top: -100px;
   transition: top 0.25s;*/
@@ -83,27 +78,11 @@ $pageNav-height-lg : 54px;
   height: 100%;
 
   ul{
-    display: flex;
     height: inherit;
   }
 
   li {
-    width: calc( 100% - 46px / 2 );
-
-    &:nth-of-type(1){
-      text-align: left;
-      flex: 1;
-    }
-
-    &:nth-of-type(2) {
-      text-align: right;
-      flex: 1;
-    }
-
-    &:nth-of-type(3) {
-      width: $pageNav-height-lg;
-      height: 100%;
-    }
+    text-align: right;
   }
 
   li:nth-of-type(3) a{
@@ -114,7 +93,6 @@ $pageNav-height-lg : 54px;
   
   li a {
     width: 100%;
-    box-sizing: border-box;
     text-align: inherit;
     display: block;
     padding: 0.25em 1em;
@@ -137,8 +115,7 @@ $pageNav-height-lg : 54px;
     }
 
     span{
-      display: block;
-      font-size: $type-size-2;
+      font-size: 1rem;
       color: $muted-text-color;
     }
 
@@ -546,15 +523,15 @@ $pageNav-height-lg : 54px;
 
 .toc {
   color: $gray;
-  text-align: right;
-
   .nav__title {
-    font-size: $type-size-4;
+    font-size: 0.9rem;
     padding: 0;
     font-weight: lighter;
     margin-bottom: 0.75rem;
 
     i{
+      position: absolute;
+      visibility: hidden;
       font-size: 0;
     }
   }
@@ -562,10 +539,11 @@ $pageNav-height-lg : 54px;
   // Scrollspy marks toc items as .active when they are in focus
   .active a {
     //@include yiq-contrasted($active-color);
-    margin: 0.5rem 0;
+    margin: 0.5em 0 0.5em 1em;
+    padding-right: 1em;
     color: black;
     position: relative;
-    font-size: $type-size-3;
+    font-size: 1rem;
 
     &::after{
       content: "";
@@ -575,28 +553,27 @@ $pageNav-height-lg : 54px;
       width: 24px;
       height: 1px;
       background: black;
-      right: -1 * $m-36;
+      right: calc( -24px - 0.25em ) ;
     }
   }
 }
 
 .toc__menu {
   margin: 0;
-  padding-left: 1rem;
-  width: 100%;
   list-style: none;
-  font-size: $type-size-4;
 
   @include breakpoint($large) {
     //font-size: $h-size-3;
   }
 
+  li{
+    width: fit-content;
+  }
+
   a {
     display: block;
-    padding-top: 0.1rem;
-    padding-bottom: 0.1rem;
     color: #999;
-    line-height: 1.5;
+    line-height: 1.3;
 
     &:hover {
       color: $text-color;

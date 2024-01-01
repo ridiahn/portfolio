@@ -78,6 +78,7 @@
     }
 
     &.row{
+      min-height: 150vh; 
       .year_div{
         width: 100%;
         overflow: hidden;
@@ -123,17 +124,27 @@
             .tags,
             .work_date{
               font-size: .9rem;
+              
+              strong{
+                visibility: hidden;
+                color:transparent;
+                position: absolute;
+              }
             }
 
-            figure,
-            .archive__item-excerpt{
+            
+
+            figure{
               visibility: hidden;
               position: absolute;
             }
+
+            .archive__item-excerpt{
+              display: none;
+            }
       
             &:hover{   
-              figure,
-              .archive__item-excerpt{
+              figure{
                 visibility: visible;
               }
             }

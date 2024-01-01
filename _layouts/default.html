@@ -19,9 +19,9 @@
     {% include_cached browser-upgrade.html %}
     {% include_cached masthead.html %}
 
-    <main class="initial-content">
+    <div class="initial-content" id="main" role="main">
       {{ content }}
-    </main>
+    </div>
 
     {% if site.search == true %}
       <aside class="search-content">

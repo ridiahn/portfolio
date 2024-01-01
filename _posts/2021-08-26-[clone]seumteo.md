@@ -1,7 +1,7 @@
 ---
 categories:
   - works
-published: true
+published: false
 categorize:
   - 사례연구
 
