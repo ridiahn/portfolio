@@ -52,6 +52,8 @@
 $pageNav-height-lg : 54px;
 
 .page__nav{
+  @include clearfix;
+  margin-bottom: 25vh;
   order: 3;
   width: 100%;
   height: $pageNav-height-lg;
@@ -73,34 +75,24 @@ $pageNav-height-lg : 54px;
   ========================================================================== */
 
 .pagination {
-  @include clearfix();
-  flex: 1;
-  height: 100%;
+  @include clearfix;
+  float: right;
+  width: 50%;
 
   ul{
     height: inherit;
   }
-
-  li {
-    text-align: right;
-  }
-
-  li:nth-of-type(3) a{
-    font-size: 0;
-    justify-content: center;
-  }
-
   
   li a {
     width: 100%;
-    text-align: inherit;
     display: block;
     padding: 0.25em 1em;
-    font-size: $type-size-4;
-    line-height: 1.5;
+    font-size: 0.9rem;
+    line-height: 1.3;
     text-decoration: none;
     color: #ccc;
     border-radius: 0;
+    text-align: right;
 
     &.current,
     &.current.disabled {
@@ -115,8 +107,13 @@ $pageNav-height-lg : 54px;
     }
 
     span{
-      font-size: 1rem;
+      float: left;
+      order: 1;
+      font-size: 2.5rem;
       color: $muted-text-color;
+      max-width: 80%;
+      display: block;
+      text-align: left;
     }
 
     
@@ -142,7 +139,6 @@ $pageNav-height-lg : 54px;
     text-align: center;
     text-decoration: none;
     color: #ccc;
-    border-right: 1px solid rgba(#000, 0.1);
     
     &.disabled {
       color: rgba($muted-text-color, 0.5);
@@ -158,14 +154,11 @@ $pageNav-height-lg : 54px;
    ========================================================================== */
 
 .page__share {
-  border-right: 1px solid rgba(#000, 0.1);
-  height: 100%;
+  text-align: right;
 }
 
 .page__share-title {
-  font-size: 0;
-  height: inherit;
-  width: $pageNav-height-lg;
+  font-size: 1rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -173,8 +166,9 @@ $pageNav-height-lg : 54px;
   box-sizing: border-box;
 
   i{
-    font-size: $type-size-1;
-    color:#ccc ;   
+    color: transparent;
+    visibility: hidden;
+    position: absolute;
   }
 }
 

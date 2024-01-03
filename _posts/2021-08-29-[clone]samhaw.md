@@ -59,24 +59,28 @@ gallery:
 ### 작업계기
 2021년 본 사례연구는 기존 웹 페이지의 사례들의 디자인과 내용을 바탕으로 모방 구현한 작업으로, Html/Css 숙련도 향상과 JS/JQurey의 기초탐구 및 동작 구현을 목적으로 진행되었다.
 
-### 개선사항 및 결과
+
+<div class="code_thumbs" markdown= "1">
+
+### 삼화
+작업기간<time>12.12</time>-<time>12.15</time>
+
   * 기존 페이지의 div위주로 구조화된 요소들 시멘틱 태그로 변경
   * 순수 JS, Jqurey 코드로 동적 상호작용 구현(플러그인 사용 지양)
   * 모바일웹을 지원하는 페이지에서 디바이스별 웹의 구조가 상이한 경우 별도의 페이지 제작없이 JS를 통해 구조 재구성
 
-### 화면링크 목록
-
-<div markdown = "1" class="w-100 code_thumbs">
-
-#### 삼화
-
-| 화면링크                                                                             | 화면 위치  |           |               |
-|                                                                                     |   1dep    |   2dep    |     3-4dep    |
-|-------------------------------------------------------------------------------------| --------- | --------- | ------------- |
-|[index.html](https://drv.tw/~hi.heera@hotmail.com/od/Web/samhwa/index.html)          |  첫화면   |           |                |
+| 화면링크                                                                             | 화면 위치  |          |           |
+|                                                                                     |   1dep    |   2dep    |  3-4dep   |
+|-------------------------------------------------------------------------------------| --------- | --------- | --------- |
+|[index.html](https://drv.tw/~hi.heera@hotmail.com/od/Web/samhwa/index.html)          |  첫화면   |            |          |
 {: .code_list}
 
+{% include figure image_path="https://bn1304files.storage.live.com/y4mIrE3OaPUJfc0pjP5UvSOk0MLaUomxQiNAD8iSoLot6UmkqLVv0ph3zcjtzokEAgvyoOj1BIIaJk3nZgNfF-L9-N1E-cTUWRuzwXR4sGD18WQZjdwhy03xOOcaYtFWbkEco2WO3LOZ8vGUBvtTD87GYnzXM6hswhsc9WJe-S36mPPchh4njYr1vmVZSztmv_t?width=1519&height=3104&cropmode=none" alt="세움터 메인화면" caption="index.html 세움터 메인화면"%}
+
+</div>
+
 #### 테마1
+작업기간:12.12-12.15
 
 | 화면링크                                                                             | 화면 위치  |           |               |
 |                                                                                     |   1dep    |   2dep    |     3-4dep    |
@@ -86,6 +90,7 @@ gallery:
 
 
 #### 테마2
+작업기간:12.12-12.15
 
 | 화면링크                                                                             | 화면 위치  |           |               |
 |                                                                                     |   1dep    |   2dep    |     3-4dep    |
@@ -95,16 +100,14 @@ gallery:
 
 #### 세움터
 
-| 화면링크                                                                             | 화면 위치  |           |               |
-|                                                                                     |   1dep    |   2dep    |     3-4dep    |
-|-------------------------------------------------------------------------------------| --------- | --------- | ------------- |
-|[index.html](https://drv.tw/~hi.heera@hotmail.com/od/Web/seumteo/index.html)         |  첫화면   |           |                | 
-|[popup.html](https://drv.tw/~hi.heera@hotmail.com/od/Web/seumteo/popup.html)         |  (팝업)   |           |                | 
-|[introduce.html](https://drv.tw/~hi.heera@hotmail.com/od/Web/seumteo/introduce.html) |   메뉴    |  이용안내  |   세움터소개    |
-|[login.html](https://drv.tw/~hi.heera@hotmail.com/od/Web/seumteo/login.html)         |   메뉴    |   로그인   |    로그인하기   |
-|[join.html](https://drv.tw/~hi.heera@hotmail.com/od/Web/seumteo/join.html)           |           |           |    가입하기     |
+작업기간:12.12-12.15
+
+| 화면링크                                                                             |  화면 위치  |          |           |
+|                                                                                     |   1dep    |   2dep    |   3-4dep   |
+|-------------------------------------------------------------------------------------| --------- | --------- | ---------- |
+|[index.html](https://drv.tw/~hi.heera@hotmail.com/od/Web/seumteo/index.html)         |  첫화면   |           |             |             
+|[popup.html](https://drv.tw/~hi.heera@hotmail.com/od/Web/seumteo/popup.html)         |  (팝업)   |           |             | 
+|[introduce.html](https://drv.tw/~hi.heera@hotmail.com/od/Web/seumteo/introduce.html) |   메뉴    |  이용안내  |  세움터소개 |
+|[login.html](https://drv.tw/~hi.heera@hotmail.com/od/Web/seumteo/login.html)         |   메뉴    |   로그인   |  로그인하기 |
+|[join.html](https://drv.tw/~hi.heera@hotmail.com/od/Web/seumteo/join.html)           |           |           |  가입하기   |
 {: .code_list}
-
-{% include gallery layout="gallery_ver sticky" %}
-
-<div>
