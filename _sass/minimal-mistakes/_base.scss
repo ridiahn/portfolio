@@ -235,6 +235,28 @@ li ol {
 
 figure {
   margin: 0;
+  counter-reset: item_num;
+  
+  > div{
+    font-size: 0.9rem;
+
+    img{
+      margin: 0;
+    }
+    
+    span{
+      display: block;
+      margin-top: -2.5em;
+    }
+
+    span::before{
+      counter-increment: item_num;
+      content: '(' counter(item_num, decimal) ')';
+      display: block;
+      font-family: $serif;
+      color: black;
+    }
+  }
 
   img,
   iframe,
@@ -254,9 +276,10 @@ figure {
 
   &.half {
     > a,
-    > img {
+    > img,
+    > div {
       @include breakpoint($small) {
-        width: calc(50% - 0.5em);
+        max-width: calc(100% / 2);
       }
     }
 
@@ -267,9 +290,14 @@ figure {
 
   &.third {
     > a,
-    > img {
+    > img,
+    > div {
       @include breakpoint($small) {
-        width: calc(33.3333% - 0.5em);
+        max-width: calc(100% / 3);
+      }
+
+      @include breakpoint($medium) {
+        min-width: 20vw;
       }
     }
 

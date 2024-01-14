@@ -2,10 +2,10 @@
 layout: default
 ---
 
-{% if page.header.overlay_color or page.header.overlay_image or page.header.image %}
-  {% include page__hero.html %}
-{% elsif page.header.video.id and page.header.video.provider %}
+{% if page.header.video.id and page.header.video.provider %}
   {% include page__hero_video.html %}
+{% else  %}
+  {% include page__hero.html %}
 {% endif %}
 
 {% if page.url != "/" and site.breadcrumbs %}
@@ -17,39 +17,21 @@ layout: default
 
 {% include sidebar.html %}
 
-{% unless page.header.overlay_color or page.header.overlay_image %}
-  <header class="intro">
-    {% if page.title %}<h1 id="page-title" class="page__title" itemprop="headline">{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</h1>{% endif %}
-    <div class="work__meta">
-      {% include page__taxonomy.html %}
-      {% include page__workdate.html %}
-      {% include page__hadecount.html %}
-    </div>
-  </header>
-{% endunless %}
-
 <main class="page__content" itemprop="text">
   {{ content }}
   {% if page.link %}<div><a href="{{ page.link }}" class="btn btn--primary">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
 </main>
 
-{% if page.toc %}
-<aside class="sidebar__right">
-  <nav class="toc {% if page.toc_sticky %}sticky{% endif %}">
-    <header><h4 class="nav__title"><i class="fas fa-{{ page.toc_icon | default: 'file-alt' }}"></i> {{ page.toc_label | default: site.data.ui-text[site.locale].toc_label | default: "On this page" }}</h4></header>
-    {% include toc.html sanitize=true html=content h_min=1 h_max=3 class="toc__menu" skip_no_ids=true %}
-  </nav>
-</aside>
-{% endif %}
-
 <aside class="page__nav">
-  {% if page.share %}{% include social-share.html %}{% endif %}
+  {% comment %}
+    {% if page.share %}{% include social-share.html %}{% endif %}
+    {% include page_related.html %}
+  {% endcomment %}
   {% include post_pagination.html %}
-  {% include page_related.html %}
 </aside>
 
 
-<footer class="page__meta">
+<footer class="page__meta" id="footer">
   {% if site.data.ui-text[site.locale].meta_label %}
     <h4 class="page__meta-title">{{ site.data.ui-text[site.locale].meta_label }}</h4>
   {% endif %}

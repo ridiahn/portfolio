@@ -1,4 +1,4 @@
-$color_bg: rgb(236, 233, 225);
+$color_bg: rgb(235, 231, 217);
 $title_lg: 4.6vw;
 $title_md: 3.8vw;
 $txt_lg: 1.3rem;
@@ -379,7 +379,7 @@ $txt_lg: 1.3rem;
 
         &::marker{
           content: counter(list-item);
-          font-weight: 600;
+          font-weight: 500;
         }
 
         h3{

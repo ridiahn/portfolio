@@ -1,9 +1,9 @@
 # main links
 main:
   - title: "작업목록"
-    url: /works
+    url: /works/
   - title: "소개"
-    url: /about
+    url: /about/
   # - title: "Sample Posts"
   #   url: /year-archive/
   # - title: "Sample Collections"

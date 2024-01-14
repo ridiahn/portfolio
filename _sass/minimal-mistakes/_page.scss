@@ -308,8 +308,13 @@ body {
     display: none;
   }
 
-  strong {
-    font-size: 0;
+  i{
+    visibility: hidden;
+    position: absolute;
+  }
+  
+  strong{
+    font-size: 0.9em;
   }
 }
 

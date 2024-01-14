@@ -8,16 +8,15 @@
 {% if site.tag_archive.path %}
   {% assign tags_sorted = page.tags | sort_natural %}
 
-  <p class="page__taxonomy">
-    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i> {{ site.data.ui-text[site.locale].tags_label | default: "Tags:" }} </strong>
-    <span itemprop="keywords">
-    {% for tag_word in tags_sorted %}
-      <!-- <a href="{{ tag_word | slugify | prepend: path_type | prepend: site.tag_archive.path | relative_url }}" class="page__taxonomy-item" rel="tag">{{ tag_word }}</a> -->
-      {{ tag_word }}
-      {% unless forloop.last %}
-      ,
-      {% endunless %}
-    {% endfor %}
-    </span>
-  </p>
+  <div class="page__taxonomy">
+    <strong><i class="fas fa-fw fa-tags" aria-hidden="true"></i>분류</strong>
+    <ul>
+      {% for tag_word in page.tags %}
+      <li itemprop="keywords">
+        <!-- <a href="{{ tag_word | slugify | prepend: path_type | prepend: site.tag_archive.path | relative_url }}" class="page__taxonomy-item" rel="tag">{{ tag_word }}</a> -->
+        {{ tag_word }}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
 {% endif %}

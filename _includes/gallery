@@ -19,14 +19,16 @@
 <figure class="{{ gallery_layout }} {{ include.class }}">
   {% for img in gallery %}
     {% if img.url %}
-      <a href="{{ img.url | relative_url }}"
-        {% if img.title %}title="{{ img.title }}"{% endif %}>
-          <img src="{{ img.image_path | relative_url }}"
-               alt="{% if img.alt %}{{ img.alt }}{% endif %}">
+      <a href="{{ img.url | relative_url }}" title="{% if img.title %}{{ img.title }}{% endif %}">
+        <img src="{{ img.image_path | relative_url }}" alt="{% if img.alt %}{{ img.alt }}{% endif %}">
       </a>
+    {% elsif img.title %}
+      <div>
+        <img src="{{ img.image_path | relative_url }}" alt="{% if img.alt %}{{ img.alt }}{% endif %}">
+        {% if img.title %}<p><span>{{i}}</span>{{ img.title }}</p>{% endif %}
+      </div>
     {% else %}
-      <img src="{{ img.image_path | relative_url }}"
-           alt="{% if img.alt %}{{ img.alt }}{% endif %}">
+      <img src="{{ img.image_path | relative_url }}" alt="{% if img.alt %}{{ img.alt }}{% endif %}">
     {% endif %}
   {% endfor %}
   {% if include.caption %}

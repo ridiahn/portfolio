@@ -12,7 +12,7 @@
             {{ site.masthead_title | default: site.title }}
             {% if site.subtitle %}<span class="site-subtitle">{{ author.email }}</span>{% endif %}
             <b>{{ site.name | default: site.title }}</b> -->
-            <span class="copylight">&copy;</span><time>{{ site.time | date: '%y' }}</time>.{{ site.author.name }}
+            {{ site.author.name }}<i>.log</i>
           </a>
         </h1>
         <div class="visible-links">
@@ -22,17 +22,7 @@
               <a href="{{ link.url | relative_url }}"{% if link.description %} title="{{ link.description }}"{% endif %}>{{ link.title }}</a>
             </li>
           {%- endfor -%}
-          </ul>
-        </div>
-        <div class="channel">
-          <ul>
-            {% if author.github %}
-              <li>
-                <a href="https://github.com/{{ author.github }}" itemprop="sameAs" rel="nofollow noopener noreferrer">
-                  <i class="fab fa-fw fa-github hidden" aria-hidden="true"></i><span class="label">GitHub</span>
-                </a>
-              </li>
-            {% endif %}
+            <li><a href="#footer">그 외</a></li>
           </ul>
         </div>
         {% if site.search == true %}

@@ -2,11 +2,9 @@
 categories:
   - works
 published: true
-categorize:
-  - 사례연구
 
 ### 작업 제목 및 요약정보 ###
-title:  "따라하기 작업, 삼화 페인팅"
+title:  "2021 웹사이트 사례연구"
 excerpt: "늘고 줄고만 하던 반응형 웹에서 탈피, 디바이스 특성까지 고려한 스마트한 반응형 웹을 만나다"
 tools:
   tool:
@@ -16,21 +14,18 @@ tools:
 
 start_date: "2021-07-08"
 due_date: "2021-07-29"
-headcount: "1"
 
 ### 태그 설정 ###
 tags:
   - 프론트엔드
+  - 사례연구
+  - 개인
   
 ### header 설정 ###
 header:
   teaser: https://bn1304files.storage.live.com/y4mJDYwuBzlS6nD0Ha9JX29ny9jxze800mHvFQIbnJ8FCA23FGi_Thyi7iZCx99tKDssM_oam5YECHgjek7_8QWHUlRAjENCTa7vhrEm31QaIIpldmMV-jKTQ9o0SlGXYxYLBgpzkbuUPAh8bNhLnvHQCDhmRvNkp-p2MRMrqBJHyk_V_3jgbEqI5IE7N-D-VAb?width=600&height=300&cropmode=none
-  overlay_image: https://drive.google.com/uc?export=view&id=1TcsrVh4xuDkwP5_f05ehptb6xvcsSMMc
-  overlay_filter: rgba(222,9,55,1.0)
-  caption: "원본링크 <a href='https://www.samhwa.com/'>https://www.samhwa.com/</a>"
-  actions: #페이지 이동 링크 추가
-  - label: "산출물/URL"
-    url: false
+  image: https://drive.google.com/uc?export=view&id=1TcsrVh4xuDkwP5_f05ehptb6xvcsSMMc
+  image_layout: thumb
 
 ### toc(목차)설정 ###
 toc: true
@@ -58,56 +53,73 @@ gallery:
 
 ### 작업계기
 2021년 본 사례연구는 기존 웹 페이지의 사례들의 디자인과 내용을 바탕으로 모방 구현한 작업으로, Html/Css 숙련도 향상과 JS/JQurey의 기초탐구 및 동작 구현을 목적으로 진행되었다.
+{: .text-left}
 
+{% include gallery layout="gallery_onebig" %}
 
-<div class="code_thumbs" markdown= "1">
+<section markdown = "1" class="descrip_emph">
 
-### 삼화
-작업기간<time>12.12</time>-<time>12.15</time>
+### 세움터
+ 공공기관 웹사이트 <br/> <strong>작업기간</strong><time>12.12</time>-<time>12.12</time>
 
-  * 기존 페이지의 div위주로 구조화된 요소들 시멘틱 태그로 변경
-  * 순수 JS, Jqurey 코드로 동적 상호작용 구현(플러그인 사용 지양)
-  * 모바일웹을 지원하는 페이지에서 디바이스별 웹의 구조가 상이한 경우 별도의 페이지 제작없이 JS를 통해 구조 재구성
+  * HTML구조 시멘틱 태그 강화
+  * 회원가입 페이지 기획,디자인 및 구현
 
-| 화면링크                                                                             | 화면 위치  |          |           |
-|                                                                                     |   1dep    |   2dep    |  3-4dep   |
-|-------------------------------------------------------------------------------------| --------- | --------- | --------- |
-|[index.html](https://drv.tw/~hi.heera@hotmail.com/od/Web/samhwa/index.html)          |  첫화면   |            |          |
-{: .code_list}
+|    (파일명)    | 화면링크                                                                                    |
+|---------------|---------------------------------------------------------------------------------------------|
+| index.html    |[첫화면](https://drv.tw/~hi.heera@hotmail.com/od/Web/seumteo/index.html)                      |
+| popup.html    |[(팝업)](https://drv.tw/~hi.heera@hotmail.com/od/Web/seumteo/popup.html)                      |
+| introduce.html|메뉴>이용안내>[세움터소개](https://drv.tw/~hi.heera@hotmail.com/od/Web/seumteo/introduce.html) |
+| login.html    |메뉴>로그인>[로그인하기](https://drv.tw/~hi.heera@hotmail.com/od/Web/seumteo/login.html)       |
+| join.html     |메뉴>로그인>[가입하기](https://drv.tw/~hi.heera@hotmail.com/od/Web/seumteo/join.html)          |
+{: .code_list .emph}
 
-{% include figure image_path="https://bn1304files.storage.live.com/y4mIrE3OaPUJfc0pjP5UvSOk0MLaUomxQiNAD8iSoLot6UmkqLVv0ph3zcjtzokEAgvyoOj1BIIaJk3nZgNfF-L9-N1E-cTUWRuzwXR4sGD18WQZjdwhy03xOOcaYtFWbkEco2WO3LOZ8vGUBvtTD87GYnzXM6hswhsc9WJe-S36mPPchh4njYr1vmVZSztmv_t?width=1519&height=3104&cropmode=none" alt="세움터 메인화면" caption="index.html 세움터 메인화면"%}
+</section>
 
-</div>
+<section markdown = "1" class="descrip_emph">
 
-#### 테마1
-작업기간:12.12-12.15
+### 테마1
+ 원페이지 사이트 <br/> <strong>작업기간</strong><time>12.12</time>-<time>12.12</time>
 
-| 화면링크                                                                             | 화면 위치  |           |               |
-|                                                                                     |   1dep    |   2dep    |     3-4dep    |
-|-------------------------------------------------------------------------------------| --------- | --------- | ------------- |
-|[index.html](https://drv.tw/~hi.heera@hotmail.com/od/Web/template1/index.html)       |  첫화면   |           |                |
-{: .code_list}
+  * HTML구조 시멘틱 태그 강화
+  * 순수 Jqurey 코드로 동적 상호작용 구현(플러그인 사용 지양)
+  * 반응형 웹 적용
 
+|    (파일명)    | 화면링크                                                                                    |
+|---------------|---------------------------------------------------------------------------------------------|
+| index.html    |[첫화면](https://drv.tw/~hi.heera@hotmail.com/od/Web/template1/index.html)                    |
+{: .code_list .emph}  
 
-#### 테마2
-작업기간:12.12-12.15
+</section>
 
-| 화면링크                                                                             | 화면 위치  |           |               |
-|                                                                                     |   1dep    |   2dep    |     3-4dep    |
-|-------------------------------------------------------------------------------------| --------- | --------- | ------------- |
-|[index.html](https://drv.tw/~hi.heera@hotmail.com/od/Web/template2/index.html)       |  첫화면   |           |                | 
-{: .code_list}
+<section markdown = "1" class="descrip_emph">
 
-#### 세움터
+### 테마2
+ 원페이지 사이트 <br/> <strong>작업기간</strong><time>12.12</time>-<time>12.12</time>
 
-작업기간:12.12-12.15
+  * HTML구조 시멘틱 태그 강화
+  * 순수 JS 코드로 동적 상호작용 구현(플러그인 사용 지양)
+  * 테마 색상 변경적용
+  * 반응형 웹 적용
 
-| 화면링크                                                                             |  화면 위치  |          |           |
-|                                                                                     |   1dep    |   2dep    |   3-4dep   |
-|-------------------------------------------------------------------------------------| --------- | --------- | ---------- |
-|[index.html](https://drv.tw/~hi.heera@hotmail.com/od/Web/seumteo/index.html)         |  첫화면   |           |             |             
-|[popup.html](https://drv.tw/~hi.heera@hotmail.com/od/Web/seumteo/popup.html)         |  (팝업)   |           |             | 
-|[introduce.html](https://drv.tw/~hi.heera@hotmail.com/od/Web/seumteo/introduce.html) |   메뉴    |  이용안내  |  세움터소개 |
-|[login.html](https://drv.tw/~hi.heera@hotmail.com/od/Web/seumteo/login.html)         |   메뉴    |   로그인   |  로그인하기 |
-|[join.html](https://drv.tw/~hi.heera@hotmail.com/od/Web/seumteo/join.html)           |           |           |  가입하기   |
-{: .code_list}
+|    (파일명)    | 화면링크                                                                                    |
+|---------------|---------------------------------------------------------------------------------------------|
+| index.html    |[첫화면](https://drv.tw/~hi.heera@hotmail.com/od/Web/template2/index.html)                    |
+{: .code_list .emph}  
+
+</section>
+
+<section markdown = "1" class="descrip_emph">
+
+### 삼화페인팅
+ 회사소개사이트<br/> <strong>작업기간</strong><time>12.12</time>-<time>12.12</time>
+
+  * HTML구조 시멘틱 태그 강화
+  * 순수 JS 코드로 동적 상호작용 구현(플러그인 사용 지양)
+
+|    (파일명)    | 화면링크                                                                                    |
+|---------------|---------------------------------------------------------------------------------------------|
+| index.html    |[첫화면](https://drv.tw/~hi.heera@hotmail.com/od/Web/samhwa/index.html)                      |
+{: .code_list .emph}
+
+</section>

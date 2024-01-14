@@ -135,14 +135,9 @@ $(document).ready(function() {
   });
 
   //Add visible-links item active
-  var currentPage = $(location).attr('pathname').replace(/\/+/g,'');
-  $('.visible-links ul li').each(function(){
-    itemLink = $(this).children('a').attr('href').replace(/\/+/g,'');
-    if( (currentPage !== null | undefined) && itemLink.indexOf(currentPage) !== -1){
-      $(this).siblings().removeClass('active');
-      $(this).addClass('active');
-    }
-  })
+  var currentPage = $(location).attr('pathname').split('/')[1];
+  $( `.visible-links ul li a[href != '${currentPage}']` ).parent().removeClass('active');
+  $( `.visible-links ul li a[href *= '${currentPage}']` ).parent().addClass('active');
 
   //SameSite setting
   document.cookie = "safeCookie1=foo; SameSite=Lax"; 

@@ -1,32 +1,17 @@
 <!-- start custom footer snippets -->
 <!--copyright-->
 <span class="email">{{ site.author.email }}</span>
+
 <!--infos-->
-<div class="service hidden">
-  <h2>작업분야</h2>
-  <ul>
-    <li>
-      <h3>기획</h3>
-      <ul>
-        <li>UI/UX</li>
-      </ul>
-    </li>
-    <li>
-      <h3>디자인</h3>
-      <ul>
-        <li>GUI</li>
-        <li>CI/BI</li>
-      </ul>
-    </li>
-    <li>
-      <h3>개발</h3>
-      <ul>
-        <li>웹퍼블리싱</li>
-        <li>프론트엔드</li>
-      </ul>
-    </li>
-  </ul>
-</div>
+<ul class="other_links">
+  {% if author.github %}
+  <li>
+    <a href="https://github.com/{{ author.github }}" itemprop="sameAs" rel="nofollow noopener noreferrer">
+      <i class="fab fa-fw fa-github hidden" aria-hidden="true"></i><span class="label">GitHub</span>
+    </a>
+  </li>
+{% endif %}
+</ul>
 <p class="page__footer-copyright">
   <span class="copylight">&copy;</span><time>{{ site.time | date: '%y' }}</time>.{{ site.author.name }}<span>.All rights reserved</span>
 </p>

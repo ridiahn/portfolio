@@ -1,0 +1,88 @@
+{% capture overlay_img_path %}{{ page.header.overlay_image | relative_url }}{% endcapture %}
+
+{% if page.header.overlay_filter contains "gradient" %}
+  {% capture overlay_filter %}{{ page.header.overlay_filter }}{% endcapture %}
+{% elsif page.header.overlay_filter contains "rgba" %}
+  {% capture overlay_filter %}{{ page.header.overlay_filter }}{% endcapture %}
+  {% capture overlay_filter %}linear-gradient({{ overlay_filter }}, {{ overlay_filter }}){% endcapture %}
+{% elsif page.header.overlay_filter %}
+  {% capture overlay_filter %}rgba(0, 0, 0, {{ page.header.overlay_filter }}){% endcapture %}
+  {% capture overlay_filter %}linear-gradient({{ overlay_filter }}, {{ overlay_filter }}){% endcapture %}
+{% endif %}
+
+{% if page.header.image_description %}
+  {% assign image_description = page.header.image_description %}
+{% else %}
+  {% assign image_description = page.title %}
+{% endif %}
+
+{% assign image_description = image_description | markdownify | strip_html | strip_newlines | escape_once %}
+
+<header class="page__hero{% if page.header.overlay_color or page.header.overlay_image %}--overlay{% endif %}"
+  style="{% if page.header.overlay_color %}background-color:{{ page.header.overlay_color | default: 'transparent' }}{% endif %}; 
+  {% if overlay_img_path %} background-image: url('{{ overlay_img_path }}'){% endif %}, 
+  {% if overlay_filter %}{{ overlay_filter }}{% endif %};"
+>
+  {% if page.header.overlay_color or page.header.overlay_image %}
+    <article class="wrapper">
+      {% include tag-list.html %}
+      <h2 id="page-title" class="page__title" itemprop="headline">
+        {% if paginator and site.paginate_show_page_num %}
+          {{ site.title }}{% unless paginator.page == 1 %} {{ site.data.ui-text[site.locale].page | default: "Page" }} {{ paginator.page }}{% endunless %}
+        {% else %}
+          {{ page.title | default: site.title | markdownify | remove: "<p>" | remove: "</p>" }}
+        {% endif %}
+      </h2>
+
+      <div class="page__lead">
+      {% if page.header.show_overlay_excerpt != false and page.excerpt %}
+        <p>{{ page.excerpt | markdownify | remove: "<p>" | remove: "</p>" }}</p>
+      {% endif %}
+      </div>
+
+      <div class="work__meta">
+        <!-- {% include page__meta.html %} -->
+        {% include page__workdate.html %}
+        {% include page__hadecount.html %}
+        {% if page.tools %}
+        <div class="tools">
+          <strong>작업도구</strong>
+          <ul>
+            {% for tool in page.tools %}
+              {% for i in tool[1] %}
+                <li>{{ i }}</li>
+              {% endfor %}
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
+        <!-- {% if page.header.actions %}
+        <p class="ex_preview">
+          {% for action in page.header.actions %}
+            <strong>{{ action.label | default: site.data.ui-text[site.locale].more_label | default: "Learn More" }}</strong>
+          {% if action.url %}
+            <a href="{{ action.url | relative_url }}">사이트 바로가기</a>
+          {% else %}
+            <a href="#미리보기">이미지 및 소스코드</a> 
+          {% endif %}
+          {% endfor %}
+        </p>
+        {% endif %} -->
+      </div>
+      <!-- {% if page.header.cta_url %}
+        <p><a href="{{ page.header.cta_url | relative_url }}" class="btn btn--light-outline btn--large">{{ page.header.cta_label | default: site.data.ui-text[site.locale].more_label | default: "Learn More" }}</a></p>
+      {% endif %} -->
+      {% if page.toc %}
+      <nav class="toc {% if page.toc_sticky %}sticky{% endif %}">
+        <header><h4 class="nav__title"><i class="fas fa-{{ page.toc_icon | default: 'file-alt' }}"></i> {{ page.toc_label | default: site.data.ui-text[site.locale].toc_label | default: "On this page" }}</h4></header>
+        {% include toc.html sanitize=true html=content h_min=1 h_max=3 class="toc__menu" skip_no_ids=true %}
+      </nav>
+      {% endif %}
+    </article>
+  {% else %}
+    <img src="{{ page.header.image | relative_url }}" alt="{{ image_description }}" class="page__hero-image">
+  {% endif %}
+  <!-- {% if page.header.caption %}
+    <span class="page__hero-caption">{{ page.header.caption | markdownify | remove: "<p>" | remove: "</p>" }}</span>
+  {% endif %} -->
+</header>

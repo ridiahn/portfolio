@@ -36,9 +36,6 @@
   {% if post.tags.size > 0 %}
     <span class="tags"><strong class="hidden">{{ site.data.ui-text[site.locale].tags_label | default: "Tags:" }}</strong>{{ post.tags | sort | join: ", " }}</span>
   {% endif %}
-  {% if post.categorize.size > 0 %}
-  <span class="categorize"><strong class="hidden">작업분류</strong>{{ post.categorize | sort | join: ", " }}</span>
-  {% endif %}
   {% if post.excerpt %}
     <p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify | strip_html | truncate: 160 }}</p>
   {% endif %}

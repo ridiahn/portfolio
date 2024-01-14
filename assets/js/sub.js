@@ -5,38 +5,38 @@ window.onload = function(){
   horizontalThumb();
 
   //공유하기 버튼 클릭시 나타내기
-  let btnShare = document.getElementsByClassName("page__share")[0];
-  btnShare.addEventListener('click', function(){
-    this.children[1].classList.toggle("show");
-  });
+  // let btnShare = document.getElementsByClassName("page__share")[0];
+  // btnShare.addEventListener('click', function(){
+  //   this.children[1].classList.toggle("show");
+  // });
+
+  let firstActiveItem = document.querySelector(".gallery_onebig").children[0];
+  firstActiveItem.classList.add('active')
 }
 
-//특정 위치에서 페이지 네비게이션 나타내고, 작업목록으로 가는 메뉴추가
-/*function pagnavEvent(){
-  let gnb = document.querySelector("#site-nav > ul");
-  let menuWorklist = gnb.children[0];
-  let pageNav = document.getElementsByClassName("page__nav")[0];
-  let chpoint = document.getElementsByClassName("initial-content")[0].getElementsByTagName("header")[0].offsetHeight; 
 
-  var _on = function(){
-    pageNav.classList.add("on");
-    pageNav.querySelector(".pagination ul").append(menuWorklist);
-  }
 
-  var _off = function(){
-    pageNav.classList.remove("on");
-    gnb.prepend(menuWorklist);
-  }
+// const toFitScroll = (callback) => {
+//   let tick = false
 
-  window.addEventListener('scroll', function(){
-    let y =  Math.floor(window.scrollY || document.documentElement.scrollTop);
-    if(y > chpoint / 2){
-      _on();
-    }else{
-      _off();
-    }
-  });
-}*/
+//   return function trigger () {
+//     if (tick) {
+//       return
+//     }
+//     tick = true
+//     return requestAnimationFrame(function task() {
+//         tick = false
+//         return callback()
+//     })
+//   }
+// }
+
+// const onScroll = () => {
+
+
+// }
+
+// window.addEventListener('scroll', toFitScroll(onScroll), { passive : true })
 
 //페이지 네비게이션 두줄 제목 한줄 처리하기 
 function online_title(){
@@ -96,10 +96,10 @@ function horizontalThumb(){
     return wrap;
   }
   
-
   Array.from(hgallery).forEach( e =>{
     let hgalleryItems = e.children;
     let scrollX_width = ( hgalleryItems[0].offsetWidth + 16 )* hgalleryItems.length;
     e.appendChild(wrapItems(hgalleryItems, scrollX_width));
   })
 }
+

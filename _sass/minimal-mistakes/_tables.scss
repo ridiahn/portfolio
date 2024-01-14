@@ -38,7 +38,7 @@ tr:not(thead tr){
 
 th:not(:first-of-type),
 td:not(:first-of-type) {
-  padding: 0.25em 1rem;
+  padding: 0;
 }
 
 tr,
@@ -48,19 +48,19 @@ th {
 }
 
 .code_list{
+  border-top: solid 1px black;
 
   thead {
-    border-top: solid 1px black;
     tr:nth-of-type(1) th{
       font-size: 0.9rem;
       line-height: 1;
       padding-bottom: 0;
+      padding-right: 1rem;
     }
 
     tr:nth-of-type(2) th{
       padding-top: 0;
       line-height: 1;
-      padding-bottom: 0.5em;
       color: rgba($color: black, $alpha: 0.7);
     }
   }
@@ -68,31 +68,32 @@ th {
 
   tbody{
     margin-top: 1em;
-
+    font-size: 0.9rem;
+    vertical-align: top;
+    td{
+      padding: 1em 0;
+    }
     tr:hover{
       background-color: #efefef;
       transition: 0.4s;
     }
+
+    tr:not(:last-of-type){
+      border-bottom: dashed 1px $border-color;
+    }
   } 
+  
+  th:nth-of-type(2),
+  td:nth-of-type(2){
+    text-align: right;
 
-
-  th:nth-of-type(1),
-  td:nth-of-type(1){
-    width: 50%;
-  }
-
-  tr:last-of-type{
-    th:nth-of-type(3)~{
-      width: calc(50% / 3);
+    a{
+      vertical-align: top;
+      font-size: 2.5rem;
+      font-weight: 500;
+      padding: 0.5em 36px 0.5em 0.25em;
+      line-height: 1;
     }
   }
-  
-  tbody td:not(:first-of-type){
-    font-size: 1rem;
-  }
-
-  tbody tr:not(:last-of-type){
-    border-bottom: dashed 1px $border-color;
-  }
-
 }
+

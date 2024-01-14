@@ -2,9 +2,11 @@
    MASTHEAD
    ========================================================================== */
 
+$logo-size : 3vw;
+
 .masthead {
   position: relative;
-  width: 100%;
+  width: 50%;
   -webkit-animation: $intro-transition;
   animation: $intro-transition;
   -webkit-animation-delay: 0.15s;
@@ -19,57 +21,71 @@
 
 #site-nav{
   display: flex;
+  column-gap: 24px;
 
   a {
     text-decoration: none;
   }
 
   h1{
-    width: 50%;
-    font-size: 2rem;
+    font-size: $logo-size;
     margin-bottom: 0;
-    overflow: visible;
-    font-weight: 600;
+    font-weight: 400;
     line-height: 0.9;
-
+    padding-left: 36px;
+    
     a{
-      padding-left: 36px;
       color: inherit;
+    }
+
+    i{
+      font-family: $serif;
+      font-style: normal;
     }
   }
 
   @include breakpoint($large) {
     color: black;
     line-height: 1.1;
-    font-size: 1.1rem;
 
     .visible-links{
-      width: 25%;
+      flex: 1;
 
       > ul{
+        position: relative;
+        width: fit-content;
+        display: flex;
+        flex-direction: column;
+
+        &:hover{
+          li{
+            visibility: visible;
+            opacity: 1;
+            position: relative;
+          }
+        }
+
         li{
+          order: 1;
           width: fit-content;
           display: block;
-          position: relative;
-          padding: 0 0.5em;
+          padding: 0 64px;
+          visibility: hidden;
+          opacity: 0;
+          transition: opacity 0.25s;
 
           &.active{
-            margin-right: 0.5em;
+            order: 0;
+            visibility: visible;
+            opacity: 1;
             color: black;
-            font-weight: bold;
-            //font-family: $serif;
-
-            // &::after{
-            //   content: "";
-            //   position: absolute;
-            //   left: 0;
-            //   top: 15%;
-            //   width: 100%;
-            //   height: 70%;
-            //   border-left: solid 4px black;
-            //   border-right: solid 4px black;
-            //   border-radius: 1em;
-            // }
+            font-weight: 400;
+            font-size: $logo-size;
+            margin-bottom: 0.5rem;
+            position: relative;
+            border-radius: $logo-size;
+            border-left: solid 4px black;
+            border-right: solid 4px black;
           }
 
           a{
@@ -82,8 +98,29 @@
     }
 
     .channel{
-      width: 25%;
-      font-size: 0.95em;
+      text-align: right;
+      position: relative;
+      padding-right: 36px;
+      
+      strong{
+        font-weight: 400;
+        line-height: 1.5rem;
+        padding-left: 1.5rem;
+        &::before{
+          content: "";
+          display: inline-block;
+          position: absolute;
+          left: 0;
+          width: 8px;
+          height: 1.5rem;
+          border-left: solid 2px black;
+          border-right: solid 2px black;
+          transform: skewX(-30deg);
+        }
+      }
+      li{
+        visibility: hidden;
+      }
     }
   }
 }
