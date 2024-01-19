@@ -5,6 +5,30 @@
 /*
    Typography
    ========================================================================== */
+@import url(//fonts.googleapis.com/earlyaccess/jejumyeongjo.css);
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/variable/pretendardvariable.css");
+
+
+@font-face {
+   font-family: 'Orbit-Regular';
+   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/Orbit-Regular.woff2') format('woff2');
+   font-weight: normal;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: 'Pretendard-Regular';
+   src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+   font-weight: 400;
+   font-style: normal;
+}
+
+@font-face {
+   font-family: 'JeonjuCraftGoR';
+   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/JeonjuCraftGoR.woff2') format('woff2');
+   font-weight: normal;
+   font-style: normal;
+}
 
 $doc-font-size: 1rem !default;
 
@@ -13,8 +37,9 @@ $paragraph-indent: false !default; // true, false (default)
 $indent-var: 1.2em !default;
 
 /* system typefaces */
-$serif: Georgia, Times, serif !default;
-$sans-serif: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif !default;
+$point-font: 'Orbit-Regular';
+$serif: 'jejumyeongjo', Georgia, Times, serif !default;
+$sans-serif: "Pretendard Variable", Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 $monospace: Monaco, Consolas, "Lucida Console", monospace !default;
 
 /* sans serif typefaces */
@@ -36,7 +61,7 @@ $caption-font-family: $serif !default;
 $m-100: 6.25rem !default; //100px
 $m-54: 3.375rem !default; // 54px
 $m-36: 2.25rem !default; // 36px
-$m-24: 2.25rem !default; // 36px
+$m-24: 1.5rem !default; // 24px
 
 /* type scale */
 $type-size-1: 1.25rem !default; // 20px
@@ -46,7 +71,7 @@ $type-size-4: 0.75rem !default; // 12px
 $type-size-5: 0.625rem !default; // 10px
 
 /* headline scale */
-$h-size-1: 2.375rem !default; // 38px
+$h-size-1: 2.75rem !default; // 38px
 $h-size-2: 2rem !default; // 32px
 $h-size-3: 1.75rem !default; // 28px
 $h-size-4: 1.5rem !default; // 24px
@@ -58,15 +83,15 @@ $h-size-6: 1.125rem !default; // ~16px
    ========================================================================== */
 
 $gray: #7a8288 !default;
-$dark-gray: mix(#000, $gray, 50%) !default;
+$dark-gray: mix(#000, $gray, 40%) !default;
 $darker-gray: mix(#000, $gray, 60%) !default;
-$light-gray: mix(#fff, $gray, 50%) !default;
-$lighter-gray: mix(#fff, $gray, 90%) !default;
+$light-gray: rgba(0, 0, 0, 0.3) !default;
+$lighter-gray: rgba(0, 0, 0, 0.15) !default;
 
 $background-color: #fff !default;
 $code-background-color: #fafafa !default;
 $code-background-color-dark: $light-gray !default;
-$text-color: $dark-gray !default;
+$text-color: mix(#000, $gray, 30%) !default;
 $muted-text-color: mix(#fff, $text-color, 20%) !default;
 $border-color: $lighter-gray !default;
 $form-background-color: $lighter-gray !default;
@@ -160,6 +185,9 @@ $max-width: $x-large !default;
 $right-sidebar-width-narrow: 200px !default;
 $right-sidebar-width: 300px !default;
 $right-sidebar-width-wide: 400px !default;
+$grid-col-12 : repeat(12, 1fr);
+$grid-col-6: repeat(6, 1fr);
+$grid-row-4: repeat(4, minmax(25vh, auto));
 
 /*
    Other

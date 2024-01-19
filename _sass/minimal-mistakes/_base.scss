@@ -12,7 +12,8 @@ body {
   margin: 0;
   padding: 0;
   color: $text-color;
-  font-family: $global-font-family;
+  //font-family: $global-font-family;
+  font-family: $sans-serif;
   line-height: 1.5;
 
   &.overflow--hidden {
@@ -29,6 +30,7 @@ h5,
 h6 {
   margin: 0 0 0.5em;
   line-height: 1.2;
+  color: #000;
   font-family: $header-font-family;
   font-weight: bold;
   word-break: keep-all;
@@ -238,7 +240,6 @@ figure {
   iframe,
   .fluid-width-video-wrapper {
     margin-bottom: 0.5rem;
-    background-color: rgba(#000, 0.15);
   }
 
   img {
@@ -377,4 +378,5 @@ input[type="submit"],
 address{
   font-style: normal;
 }
+
 

@@ -15,14 +15,16 @@
   animation-delay: 0.15s;
 
   @include breakpoint($x-large) {
-    max-width: $max-width;
+    max-width: 100%;
+    padding: 0;
   }
 }
 
 body {
+  font-weight: 400;
+  word-spacing: 0.2em;
   display: -webkit-box;
   display: -ms-flexbox;
-  display: flex;
   min-height: 100vh;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -107,7 +109,8 @@ body {
 .page__title {
   margin-top: 0;
   line-height: 1.35;
-  font-size: $h-size-2;
+  font-size: $h-size-1;
+  font-weight: 300;
   letter-spacing: -2px;
   color: black;
   border-bottom: none;
@@ -422,7 +425,6 @@ body {
   ========================================================================== */
 .page__date{
   display: inline-block;
-
   text-align: right;
 
   strong{
@@ -519,7 +521,7 @@ body {
 .taxonomy__index {
   margin: 1.414em 0;
   padding: 0;
-  font-size: 0.75em;
+  font-size: 1rem;
 
   button {
     display: -webkit-box;
@@ -531,7 +533,6 @@ body {
     justify-content: space-between;
     color: inherit;
     text-decoration: none;
-    border-bottom: 1px solid $border-color;
   }
 }
 
@@ -704,42 +705,25 @@ body {
 /*
    custom Pages
    ========================================================================== */
-.title_bar{
-  &::before{
-    content: "";
-    display: block;
-    width: 30px;
-    height: 1px;
-    background: black;
-    margin-bottom: 0.5rem;
-  }
+
+.page__title{
+  display: none;
+  position: absolute;
+  top: -999px;
+}
+
+i.hidden{
+  display: none;
+}
+
+.txt_point{
+  font-family:'Kanginhan';
+  font-size: 3vw;
+  line-height: 1;
+  word-spacing: 0.2em;
+  letter-spacing: -0.08em;
 }
 
 .archive__item-teaser {
   margin: 0;
-  img{
-    filter: grayscale(100%);     
-  }
-}
-
-.tags{
-  font-size: $type-size-3;
-  color: #999;
-}
-
-.work_date{
-  color: #ccc;
-  font-weight: lighter;
-  
-  strong{
-    font-size: 0;
-  }
-
-  i{
-    display: none;
-  }
-
-  span:first-of-type::after{
-    content: '-';
-  }
 }

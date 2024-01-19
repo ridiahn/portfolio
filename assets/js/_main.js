@@ -134,6 +134,16 @@ $(document).ready(function() {
     }
   });
 
+  //Add visible-links item active
+  var currentPage = $(location).attr('pathname').replace(/\/+/g,'');
+  $('.visible-links ul li').each(function(){
+    itemLink = $(this).children('a').attr('href').replace(/\/+/g,'');
+    if( (currentPage !== null | undefined) && itemLink.indexOf(currentPage) !== -1){
+      $(this).siblings().removeClass('active');
+      $(this).addClass('active');
+    }
+  })
+
   //SameSite setting
   document.cookie = "safeCookie1=foo; SameSite=Lax"; 
   document.cookie = "safeCookie2=foo"; 

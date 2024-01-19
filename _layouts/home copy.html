@@ -1,0 +1,37 @@
+---
+layout: default
+---
+<body>
+  {{ content }}
+
+  {% assign postsInYear = site.posts | where_exp: "item", "item.hidden != true" | group_by_exp: 'post', 'post.start_date | date: "%y"' | reverse %}
+
+  {% assign entries_layout = page.entries_layout | default: 'list' %}
+  <section class="entries-{{ entries_layout }} works">
+    <h2 class="archive__subtitle title_bar">{{ site.data.ui-text[site.locale].main_works | default: "주요작업" }}</h2>
+    <ul class="mainWorks hidden">
+      {% assign main-posts = posts | where: 'top', 'true' %}
+      {% for post in main-posts limit: 2 %}
+        {% include archive-single.html type="main" %}
+      {% endfor %}
+    </ul>
+    <ul class="labels">
+      <li>작업명</li>
+      <li>분야</li>
+      <li>분류</li>
+      <li>의뢰사(인)</li>
+    </ul>
+    <ul>
+      {% for year in postsInYear %}
+      <li id="{{ year.name }}">
+      <h3> {{ year.name }}</h3>
+        <ul>
+          {% for post in year.items %}
+            {% include archive-single.html type="grid" class="bg_modal" %}
+          {% endfor %}
+        </ul>
+      </li>
+    {% endfor %}
+    </ul>
+  </section>
+</body>

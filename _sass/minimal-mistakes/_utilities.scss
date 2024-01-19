@@ -12,6 +12,7 @@
 .is--hidden {
   display: none;
   visibility: hidden;
+  position: absolute;
 }
 
 /* for preloading images */
@@ -65,7 +66,7 @@ body:hover .visually-hidden button {
    Skip links
    ========================================================================== */
 
-.skip-link {
+.skip-links {
   position: fixed;
   z-index: 20;
   margin: 0;
@@ -73,7 +74,7 @@ body:hover .visually-hidden button {
   white-space: nowrap;
 }
 
-.skip-link li {
+.skip-links li {
   height: 0;
   width: 0;
   list-style: none;
@@ -184,6 +185,12 @@ body:hover .visually-hidden button {
   @include breakpoint($large) {
     margin-right: -1 * span(2.5 of 12) !important;
   }
+}
+
+/* page content flex layout */
+
+.flex{
+  display: flex;
 }
 
 /*

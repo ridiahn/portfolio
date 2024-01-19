@@ -1,17 +1,15 @@
 {% assign document = post | default: page %}
-{% assign date_format = site.date_format | default: "%Y.%m.%d" %}
+{% assign date_format = site.date_format | default: "%m.%d" %}
 <p class="work_date">
-  <strong>작업기간</strong>
-  {% if document.due_date %}
-    <span class="due_date">
-      <i class="fas fa-fw fa-calendar-alt hidden" aria-hidden="true"></i> 
-      <time datetime="{{ document.due_date | date: date_format' }}">{{ document.due_date | date: date_format }}</time>
-    </span>
-  {% endif %}
+  <strong class="hidden">작업기간</strong>
   {% if document.start_date %}
   <span class="start_date">
-    <i class="fas fa-fw fa-calendar-alt hidden" aria-hidden="true"></i> 
-    <time datetime="{{ document.start_date | date: date_format' }}">{{ document.start_date | date: date_format }}</time>
+    <time datetime="{{ document.start_date }}">{{ document.start_date | date: date_format }}</time>
+  </span>
+  {% endif %}
+  {% if document.due_date %}
+  <span class="due_date">
+    <time datetime="{{ document.due_date }}">{{ document.due_date | date: date_format }}</time>
   </span>
   {% endif %}
 </p>

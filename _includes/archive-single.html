@@ -4,32 +4,43 @@
   {% assign teaser = site.teaser %}
 {% endif %}
 
+{% if post.gallery %}
+  {% capture gallery %}{{ post.gallery }}{% endcapture %}
+{% endif %}
+
 {% if post.id %}
   {% assign title = post.title | markdownify | remove: "<p>" | remove: "</p>" %}
+  {% assign gallery = page[post.id] %}
 {% else %}
   {% assign title = post.title %}
 {% endif %}
 
-<li class="{{ include.type | default: 'list' }}__item">
-  <!-- <div class="archive__item" itemscope itemtype="https://schema.org/CreativeWork"> -->
-    {% if include.type == "grid" and teaser %}
-      <figure class="archive__item-teaser">
-        <img src="{{ teaser | relative_url }}" alt="">
-      </figure>
+<li class="{{ include.type | default: 'list' }}__item {{include.class()}}">
+    <figure>  
+    {% if teaser %}
+      <img class="teaser" src="{{ teaser | relative_url }}" alt="">
     {% endif %}
-      <h3 class="archive__item-title no_toc" itemprop="headline">
-        {% if post.link %}
-          <a href="{{ post.link }}">{{ title }}</a> <a href="{{ post.url | relative_url }}" rel="permalink"><i class="fas fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
-        {% else %}
-          <a href="{{ post.url | relative_url }}" rel="permalink">{{ title }}</a>
-        {% endif %}
-      </h3>
-    {% if post.tags.size > 0 %}
-      <span class="tags"><strong class="hidden">{{ site.data.ui-text[site.locale].tags_label | default: "Tags:" }}</strong>{{ post.tags | sort | join: ", " }}</span>
+    {% if post.gallery %}
+      {% for img in post.gallery limit: 2 %}
+        <img src="{{ img.image_path | relative_url }}" alt="{% if img.alt %}{{ img.alt }}{% endif %}">
+      {% endfor %}
     {% endif %}
-    {% if post.excerpt %}
-      <p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify | strip_html | truncate: 160 }}</p>
-    {% endif %}
-    {% include page__workdate.html %}
-  <!-- </div> -->
+    </figure>
+    <h3 class="archive__item-title no_toc" itemprop="headline">
+      {% if post.link %}
+        <a href="{{ post.link }}">{{ title }}</a> <a href="{{ post.url | relative_url }}" rel="permalink"><i class="fas fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
+      {% else %}
+        <a href="{{ post.url | relative_url }}" rel="permalink">{{ title }}</a>
+      {% endif %}
+    </h3>
+  {% if post.tags.size > 0 %}
+    <span class="tags"><strong class="hidden">{{ site.data.ui-text[site.locale].tags_label | default: "Tags:" }}</strong>{{ post.tags | sort | join: ", " }}</span>
+  {% endif %}
+  {% if post.categorize.size > 0 %}
+  <span class="categorize"><strong class="hidden">작업분류</strong>{{ post.categorize | sort | join: ", " }}</span>
+  {% endif %}
+  {% if post.excerpt %}
+    <p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify | strip_html | truncate: 160 }}</p>
+  {% endif %}
+  {% include page__workdate.html %}
 </li>

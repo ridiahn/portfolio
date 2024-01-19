@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="imgCursor" width="55vw" height="40vh">
+	<filter id='noise' width='100%' height='100%'>
+		<feTurbulence id="turbulence" result="NOISE" numOctaves="1"/>
+		<feDisplacementMap in="SourceGraphic" in2="NOISE" scale="50" xChannelSelector="R" yChannelSelector="R"></feDisplacementMap>
+		<animate xlink:href="#turbulence" attributeName="baseFrequency" dur="10s" keyTimes="0; 1" values="0.00 0.00; 0.01 0.08;" repeatCount="indefinite"></animate>
+	</filter>
+	<image width="115%" height="150%" x="-30%" y="-40%" xlink:href="/assets/img/heeraahn.png" filter="url(#noise)"/>
+</svg>

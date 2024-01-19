@@ -16,18 +16,18 @@ minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt"
 
 # Site Settings
 locale                   : "ko-KR"
-title                    : "흐름을 잇는 작업을 수록하는 공간"
+title                    : "HeeRaAhn Portfolio"
 title_separator          : "-"
-subtitle                 : # site tagline that appears below site title in masthead
+subtitle                 : #
 name                     : "안희라"
-description              : "흐름 타는 디자이너의 작업 모음집"
+description              : "누군가의 아이디어를 세상에 연결합니다"
 url                      : "https://ridiahn.github.io/portfolio/"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
 logo                     : # path of logo image to display in the masthead, e.g. "/assets/images/88x88.png"
 masthead_title           : # overrides the website title displayed in the masthead, use " " for no title
-# breadcrumbs            : false # true, false (default)
+breadcrumbs              : false #(default)
 words_per_minute         : 200
 comments:
   provider               : # false (default), "disqus", "discourse", "facebook", "staticman", "staticman_v2", "utterances", "giscus", "custom"
@@ -104,7 +104,7 @@ author:
   name             : "안희라"
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "흐름을 읽고, 잡고, 이어가는 디자이너"
-  location         : "South Korea"
+  location         : "서울, South Korea"
   email            : "hi.heeraahn@gmail.com"
   github           : "ridiahn"
 

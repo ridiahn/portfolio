@@ -90,3 +90,30 @@
   background-color: $background-color;
   color: yiq-contrast-color($background-color, $dark, $light, $threshold);
 }
+
+
+
+/*
+  grid
+  ========================================================================== */
+
+@mixin grid_12{
+  display: grid !important;
+  grid-template-columns: $grid-col-12;
+  // gap: 20px;
+}
+
+@mixin slash{
+  position: relative;
+  &::before{
+    content: "";
+    display: inline-block;
+    width: 2px;
+    height: 0.8em;
+    background: black;
+    transform: skew(-35deg);
+    position: absolute;
+    left: 0;
+    top: 4px;
+  }
+}

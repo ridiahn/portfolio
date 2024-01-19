@@ -1,10 +1,12 @@
 ---
-published: true
 categories:
-  - work
+  - works
+published: true
+categorize:
+  - 사례연구
 
 ### 작업 제목 및 요약정보 ###
-title:  "따라하기 작업,<br/>삼화 페인팅"
+title:  "따라하기 작업, 삼화 페인팅"
 excerpt: "늘고 줄고만 하던 반응형 웹에서 탈피, 디바이스 특성까지 고려한 스마트한 반응형 웹을 만나다"
 tools:
   tool:
