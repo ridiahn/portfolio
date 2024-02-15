@@ -12,7 +12,7 @@
             {{ site.masthead_title | default: site.title }}
             {% if site.subtitle %}<span class="site-subtitle">{{ author.email }}</span>{% endif %}
             <b>{{ site.name | default: site.title }}</b> -->
-            {{ site.author.name }}<i>.log</i>
+            <span>(c)2024</span>.{{ site.author.name }}
           </a>
         </h1>
         <div class="visible-links">
@@ -22,9 +22,12 @@
               <a href="{{ link.url | relative_url }}"{% if link.description %} title="{{ link.description }}"{% endif %}>{{ link.title }}</a>
             </li>
           {%- endfor -%}
-            <li><a href="#footer">그 외</a></li>
           </ul>
         </div>
+        <ul class="info_contact">
+          <li>{{ author.email }}</li>
+          <li>{{ author.location }}</li>
+        </ul>
         {% if site.search == true %}
         <button class="search__toggle" type="button">
           <span class="visually-hidden">{{ site.data.ui-text[site.locale].search_label | default: "Toggle search" }}</span>

@@ -1,8 +1,8 @@
 # main links
 main:
-  - title: "작업목록"
+  - title: "저작물"
     url: /works/
-  - title: "소개"
+  - title: "저작자"
     url: /about/
   # - title: "Sample Posts"
   #   url: /year-archive/

@@ -3,10 +3,10 @@
 <p class="work_date">
   <strong>작업기간</strong>
   {% if document.start_date %}
-    <time class="start_date" datetime="{{ document.start_date }}">{{ document.start_date | date: date_format }}</time>
+  <time class="start_date" datetime="{{ document.start_date }}">{{ document.start_date | date: date_format }}</time>
   {% endif %}
   <span>-</span>
   {% if document.due_date %}
-    <time class="due_date" datetime="{{ document.due_date }}">{{ document.due_date | date: date_format }}</time>
+  <time class="due_date" datetime="{{ document.due_date }}">{{ document.due_date | date: date_format }}</time>
   {% endif %}
 </p>

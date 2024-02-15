@@ -69,27 +69,6 @@ $txt_lg: 1.3rem;
       }
     }
 
-    svg{
-      position: absolute;
-      top: 60vh;
-      order: 2;
-      display: inline-block;
-      margin: 0 5%;
-      width: 90%;
-      height: 25vh;
-      
-      path{
-        fill: none;
-        stroke: #ff2138;
-        stroke-width: 30; 
-        stroke-linecap: round;
-        stroke-miterlimit: 10; 
-      }
-
-      text{
-        font-family: $point-font;
-      }
-    }
     
     .contact{
       display: inline;

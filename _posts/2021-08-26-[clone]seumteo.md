@@ -50,7 +50,6 @@ toc_label: "목차"
 
 {% include figure image_path="https://bn1304files.storage.live.com/y4mN22LrsTRZ5DRBvxud9HRYjiZpetXyaeAlTTb_03PUso2jOpEjoWB5NSGzrZbOyrxuKwBOyjylzB09dQfJQExSBFydELuZ3eFBPksbVvocT6deN0-E285ytTyTs4M9J4FO-WEaVBAmoFh3fKed95YX5OPtxpSdVDwRXtEip_rXivOYlP6Cqthnp6-_Af-zXz4?width=1519&height=3562&cropmode=none" alt="this is a placeholder image" caption="intro.html 세움터소개 화면 " class="pop" %}
 
-{% include figure image_path="https://bn1304files.storage.live.com/y4m13pUD3X9E-c-NclLCuwwaDwQH_Xo8alaQbU9pXlal4LGsUNRByalb5adJTwIUQ6JkfQL3jkgac48ouR4Sem1q681PXcyJXML9m0gJgNfCZk-cYrB6MuOBDA5GTgxccUC-3RHfEKmYKZmRmhPou1TbUZAvtq8RIHKNTtZB9tuKioIK6Gh3pKtjvK6HoQ10q1n?width=1519&height=1800&cropmode=none" alt="join.html 회원가입화면" caption="join.html 세움터의 회원가입 화면중 일부항목을 모아 축약된 정보로 제작하였다" class="pop" %}
 
 
 ### 화면링크 목록

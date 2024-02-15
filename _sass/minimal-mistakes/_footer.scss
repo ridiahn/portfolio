@@ -4,10 +4,8 @@
 
 footer {
   position: relative;
-  margin-top: 50vh;
   margin-left: 0;
   margin-right: 0;
-  padding: 0 36px;
   width: 100%;
   clear: both;
   color: $muted-text-color;
@@ -19,7 +17,9 @@ footer {
   .page__footer {
     max-width: 100%;
     line-height: 1.2;
-    
+    margin-top: 50vh;
+    padding: 0 36px;
+
     ul{
       padding: 0;
       margin: 0;

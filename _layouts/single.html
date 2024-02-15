@@ -2,11 +2,6 @@
 layout: default
 ---
 
-{% if page.header.video.id and page.header.video.provider %}
-  {% include page__hero_video.html %}
-{% else  %}
-  {% include page__hero.html %}
-{% endif %}
 
 {% if page.url != "/" and site.breadcrumbs %}
   {% unless paginator %}
@@ -15,34 +10,16 @@ layout: default
 {% endif %}
 
 
-{% include sidebar.html %}
+{% include page__header.html %}
 
 <main class="page__content" itemprop="text">
   {{ content }}
-  {% if page.link %}<div><a href="{{ page.link }}" class="btn btn--primary">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
 </main>
 
-<aside class="page__nav">
+<footer class="page__nav">
   {% comment %}
     {% if page.share %}{% include social-share.html %}{% endif %}
     {% include page_related.html %}
   {% endcomment %}
   {% include post_pagination.html %}
-</aside>
-
-
-<footer class="page__meta" id="footer">
-  {% if site.data.ui-text[site.locale].meta_label %}
-    <h4 class="page__meta-title">{{ site.data.ui-text[site.locale].meta_label }}</h4>
-  {% endif %}
-  
-  {% comment %}
-    {% include page__date.html %}
-  {% endcomment %}
-  
-  {% if jekyll.environment == 'production' and site.comments.provider and page.comments %}
-    <div>
-      {% include comments.html %}
-    </div>
-  {% endif %}
 </footer>

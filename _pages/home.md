@@ -45,47 +45,6 @@ layout: default
     </li>
     {% endif %}
   </ul>
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2200 280">
-    <defs>
-      <!-- filter -->
-      <filter x="-20%" y="-20%" width="140%" height="140%" filterUnits="objectBoundingBox" id="pencilTexture">
-        <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="3" seed="1" result="f1">
-        </feTurbulence>
-        <feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="5" in="SourceGraphic" in2="f1" result="f4">
-        </feDisplacementMap>
-        <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="3" seed="10" result="f2">
-        </feTurbulence>
-        <feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="5" in="SourceGraphic" in2="f2" result="f5">
-        </feDisplacementMap>
-        <feTurbulence type="fractalNoise" baseFrequency="1.2" numOctaves="2" seed="100" result="f3">
-        </feTurbulence>
-        <feDisplacementMap xChannelSelector="R" yChannelSelector="G" scale="3" in="SourceGraphic" in2="f3" result="f6">
-        </feDisplacementMap>
-        <feBlend mode="multiply" in2="f4" in="f5" result="out1">
-        </feBlend>
-        <feBlend mode="multiply" in="out1" in2="f6" result="out2">
-        </feBlend>
-      </filter>
-
-      <!-- path -->
-      <path id="idea" 
-      d="M974 266c131-40 127-194 50-214-86-22-133 56-131 87 4 74 81 46 77-9-3-39-106-69-124 69-10 76 50 56 19-6-39-78-10-148 7-152 34 6-83 219-165 181-61-28 18-172 46-144 7 7-3 29-82 86-47 34-72 94-51 97 27 4 67-171 4-208-68-40-168 167-98 148 20-5 51-31 32-79-42-106-248-63-319 72-10 19-19 53-7 50 28-6 58-161-63-173-70-7-114 53-105 94 10 44 54 50 75 21 15-20 6-56-19-64-58-18-129 65-88 125">
-        <title>아이디어</title>
-      </path>
-      <path id="connector"
-      d="M41 73c49 2 79 62 66 87-24 48-70 77-79 65-8-11 2-27 68-61 12-6-64-56-67-29-2 18 34 19 54 26 15 5 59 5 78-4 25-12 108-105 58-116-44-10-74 195 15 197 43 1 100-79 107-136 5-38-32-45-39-18-35 140 195 0 113 24-51 14 57-50 78-23 14 18-38 83-20 28 18-58 42-71 42-71 28-20 62 18 25 80-20 32-24 56-80 74-43 14-111 13-91-5 22-18 161-42 174 1 7 23-33 74-55 74-46 1 10-103 118-164 92-52 86-41 101-59 8-10-91 23-95 67-5 48 104 21 99 8-4-10-123 32-91 81 33 50 199 14 164-59-16-33-84 23 0 0 79-21 111-109 65-109-42-1-49 169 64 212">
-        <title>커넥터</title>
-      </path>
-    </defs>
-
-    <!-- landering -->
-    <use xlink:href="#idea" filter="#pencilTexture" x="0" y="0"/>
-    <use xlink:href="#connector" x="55%" y="0"/>
-    <text font-size="200">
-      <tspan x="0" y="900">Idea</tspan>
-      <tspan x="0" y="1100">Connetor</tspan>
-    </text>
-  </svg>
 </section>
 
 <section class="partner layout_table">

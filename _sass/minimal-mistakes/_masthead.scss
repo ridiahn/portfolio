@@ -2,16 +2,23 @@
    MASTHEAD
    ========================================================================== */
 
-$logo-size : 3vw;
-
+$logo-size : 0.9rem;
+$logo-bracket-weight: 2px;
 .masthead {
   position: relative;
-  width: 50%;
+  color: black;
+  width: 100%;
   -webkit-animation: $intro-transition;
   animation: $intro-transition;
   -webkit-animation-delay: 0.15s;
   animation-delay: 0.15s;
   z-index: 10;
+}
+
+svg{
+  transform: skew(-15deg);
+  position: relative;
+  margin-top: -5vh;
 }
 
 .masthead__menu {
@@ -20,106 +27,87 @@ $logo-size : 3vw;
 }
 
 #site-nav{
+  font-size: $logo-size;
   display: flex;
-  column-gap: 24px;
-
+  flex-wrap: wrap;
+  justify-content: space-between;
+  
   a {
     text-decoration: none;
   }
 
   h1{
-    font-size: $logo-size;
+    display: inline-block;
     margin-bottom: 0;
     font-weight: 400;
     line-height: 0.9;
     padding-left: 36px;
-    
+    color: inherit;
+    font-size: inherit;
+    width: 20%;
     a{
       color: inherit;
-    }
-
-    i{
-      font-family: $serif;
-      font-style: normal;
     }
   }
 
   @include breakpoint($large) {
-    color: black;
-    line-height: 1.1;
+    color: inherit;
+    line-height: 1;
 
     .visible-links{
-      flex: 1;
+      order: 1;
+      width: 100%;
 
       > ul{
+        margin: 0;
         position: relative;
         width: fit-content;
         display: flex;
         flex-direction: column;
+        text-align: center;
 
         &:hover{
           li{
-            visibility: visible;
-            opacity: 1;
             position: relative;
           }
         }
 
         li{
-          order: 1;
           width: fit-content;
           display: block;
-          padding: 0 64px;
-          visibility: hidden;
-          opacity: 0;
+          padding: 0 36px;
+          position: relative;
           transition: opacity 0.25s;
 
+          &:last-of-type{
+            display: none;
+          }
+ 
           &.active{
-            order: 0;
-            visibility: visible;
-            opacity: 1;
-            color: black;
-            font-weight: 400;
-            font-size: $logo-size;
-            margin-bottom: 0.5rem;
+            color: inherit;
+            font-weight: 600; 
             position: relative;
-            border-radius: $logo-size;
-            border-left: solid 4px black;
-            border-right: solid 4px black;
           }
 
           a{
             font-weight: inherit;
             letter-spacing: inherit;
             color: inherit;
+            vertical-align: text-top;
           }
         }
       } 
     }
 
-    .channel{
-      text-align: right;
-      position: relative;
+    .info_contact{
+      margin-left: auto;
+      display: inline-flex;
+      justify-content: space-between;
+      width: 50%;
       padding-right: 36px;
-      
-      strong{
-        font-weight: 400;
-        line-height: 1.5rem;
-        padding-left: 1.5rem;
-        &::before{
-          content: "";
-          display: inline-block;
-          position: absolute;
-          left: 0;
-          width: 8px;
-          height: 1.5rem;
-          border-left: solid 2px black;
-          border-right: solid 2px black;
-          transform: skewX(-30deg);
-        }
-      }
+
       li{
-        visibility: hidden;
+        display: inline-block;
       }
     }
   }

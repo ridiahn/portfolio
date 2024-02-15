@@ -16,22 +16,39 @@
   {% endif %}
 {% endif %}
 
-<figure class="{{ gallery_layout }} {{ include.class }}">
-  {% for img in gallery %}
-    {% if img.url %}
-      <a href="{{ img.url | relative_url }}" title="{% if img.title %}{{ img.title }}{% endif %}">
-        <img src="{{ img.image_path | relative_url }}" alt="{% if img.alt %}{{ img.alt }}{% endif %}">
-      </a>
-    {% elsif img.title %}
-      <div>
-        <img src="{{ img.image_path | relative_url }}" alt="{% if img.alt %}{{ img.alt }}{% endif %}">
-        {% if img.title %}<p><span>{{i}}</span>{{ img.title }}</p>{% endif %}
-      </div>
-    {% else %}
+{% if gallery_layout  == 'scrolled' %}
+<figure class="scrolled">
+  <ul>
+    {% for img in gallery %}
+    <li>
       <img src="{{ img.image_path | relative_url }}" alt="{% if img.alt %}{{ img.alt }}{% endif %}">
-    {% endif %}
-  {% endfor %}
+      {% if img.title %}<span>({{forloop.index}})</span><p>{{ img.title }}</p>{% endif %}
+    </li>
+    {% endfor %}
+  </ul>
   {% if include.caption %}
-    <figcaption>{{ include.caption | markdownify | remove: "<p>" | remove: "</p>" }}</figcaption>
+  <figcaption>{{ include.caption | markdownify | remove: "<p>" | remove: "</p>" }}</figcaption>
   {% endif %}
 </figure>
+{% else %}
+  <figure class="{{ gallery_layout }} {{ include.class }}">
+    <div>
+    {% for img in gallery %}
+      {% if img.url %}
+        <a href="{{ img.url | relative_url }}" title="{% if img.title %}{{ img.title }}{% endif %}">
+          <img src="{{ img.image_path | relative_url }}" alt="{% if img.alt %}{{ img.alt }}{% endif %}">
+        </a>
+      {% elsif img.title %}
+          <img src="{{ img.image_path | relative_url }}" alt="{% if img.alt %}{{ img.alt }}{% endif %}">
+          {% if img.title %}<p><span>({{forloop.index}})</span> {{ img.title }}</p>{% endif %}
+      {% else %}
+        <img src="{{ img.image_path | relative_url }}" alt="{% if img.alt %}{{ img.alt }}{% endif %}">
+      {% endif %}
+    {% endfor %}
+    </div>
+    {% if include.caption %}
+      <figcaption>{{ include.caption | markdownify | remove: "<p>" | remove: "</p>" }}</figcaption>
+    {% endif %}
+  </figure>
+{% endif %}
+

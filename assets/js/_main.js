@@ -135,9 +135,9 @@ $(document).ready(function() {
   });
 
   //Add visible-links item active
-  var currentPage = $(location).attr('pathname').split('/')[1];
-  $( `.visible-links ul li a[href != '${currentPage}']` ).parent().removeClass('active');
-  $( `.visible-links ul li a[href *= '${currentPage}']` ).parent().addClass('active');
+  var currentCategory = $(location).attr('pathname').split('/')[1];
+  $( `.visible-links ul li a[href != '${currentCategory}']` ).parent().removeClass('active');
+  $( `.visible-links ul li a[href *= '${currentCategory}']` ).parent().addClass('active');
 
   //SameSite setting
   document.cookie = "safeCookie1=foo; SameSite=Lax"; 

@@ -103,17 +103,12 @@
   // gap: 20px;
 }
 
-@mixin slash{
+@mixin dot{
   position: relative;
+
   &::before{
-    content: "";
-    display: inline-block;
-    width: 2px;
-    height: 0.8em;
-    background: black;
-    transform: skew(-35deg);
+    content: ".";
     position: absolute;
-    left: 0;
-    top: 4px;
+    left: -36px;
   }
 }

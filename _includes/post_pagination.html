@@ -3,22 +3,32 @@
     <ul>
       <li>
         {% if page.previous %}
-          <a href="{{ page.previous.url | relative_url }}" class="pagination--pager" title="{{ page.previous.title | markdownify | strip_html }}">{{ site.data.ui-text[site.locale].pagination_previous | default: "Previous" }}
+          {{ site.data.ui-text[site.locale].pagination_previous | default: "Previous" }}
+          <a href="{{ page.previous.url | relative_url }}" class="pagination--pager" title="{{ page.previous.title | markdownify | strip_html }}">
+            <!-- {% if page.previous.start_date %}
+            <span class="year"> {{page.previous.start_date | date: "%y"'}} </span>
+            {% endif %} -->
             <span>{{page.previous.title}}</span>
           </a>
         {% else %}
-          <a href="#" class="pagination--pager disabled">{{ site.data.ui-text[site.locale].pagination_previous | default: "Previous" }}
+          {{ site.data.ui-text[site.locale].pagination_previous | default: "Previous" }}
+          <a href="#" class="pagination--pager disabled">
             <span>이전글이 없습니다</span>
           </a>
         {% endif %}
      </li>
      <li>
         {% if page.next %}
-          <a href="{{ page.next.url | relative_url }}" class="pagination--pager" title="{{ page.next.title | markdownify | strip_html }}">{{ site.data.ui-text[site.locale].pagination_next | default: "Next" }}
+          {{ site.data.ui-text[site.locale].pagination_next | default: "Next" }}
+          <a href="{{ page.next.url | relative_url }}" class="pagination--pager" title="{{ page.next.title | markdownify | strip_html }}">
+            <!-- {% if page.next.start_date %}
+            <span class="year"> {{page.next.start_date | date: "%y"'}} </span>
+            {% endif %} -->
             <span>{{page.next.title}}</span>
           </a>
         {% else %}
-          <a href="#" class="pagination--pager disabled">{{ site.data.ui-text[site.locale].pagination_next | default: "Next" }}
+          {{ site.data.ui-text[site.locale].pagination_next | default: "Next" }}
+          <a href="#" class="pagination--pager disabled">
             <span>다음글이 없습니다</span>
           </a>
         {% endif %}

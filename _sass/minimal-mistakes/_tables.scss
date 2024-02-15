@@ -31,9 +31,6 @@ tbody{
 
 tr:not(thead tr){
   //border-top: solid 1px $border-color;
-  &:last-of-type{
-    border-bottom: 0;
-  }
 }
 
 th:not(:first-of-type),
@@ -48,50 +45,86 @@ th {
 }
 
 .code_list{
-  border-top: solid 1px black;
+  //border-top: solid 1px black;
+  position: relative;
+  width: 100%;
+  tr{
+    position: relative;
+  }
+
 
   thead {
-    tr:nth-of-type(1) th{
-      font-size: 0.9rem;
-      line-height: 1;
-      padding-bottom: 0;
-      padding-right: 1rem;
+    //position: absolute;
+    top: 0;
+    left: 0;
+    //visibility: hidden;
+    //opacity: 0;
+    transition: opacity 0.25s;
+    font-family: $serif;
+    font-size: 0.9rem;
+    line-height: 1;
+
+    th{
+      padding: 0;
+      font-weight: normal;
     }
 
-    tr:nth-of-type(2) th{
-      padding-top: 0;
-      line-height: 1;
-      color: rgba($color: black, $alpha: 0.7);
-    }
+    // tr::before{
+    //   content: "번호.";
+    //   position: absolute;
+    //   left: 0;
+    // }
   }
 
 
   tbody{
-    margin-top: 1em;
+    margin-top: 0.5em;
     font-size: 0.9rem;
     vertical-align: top;
+    table-layout:fixed;
+    counter-reset: item_num;
+
     td{
-      padding: 1em 0;
-    }
-    tr:hover{
-      background-color: #efefef;
-      transition: 0.4s;
+      display: table-cell;
+      padding: 0.75rem 0;
     }
 
-    tr:not(:last-of-type){
-      border-bottom: dashed 1px $border-color;
+    tr{
+      border-bottom: solid 1px $border-color;
+      // &::before{
+      //   counter-increment: item_num;
+      //   content: '(' counter(item_num, hangul) ')';
+      //   padding: 0.75rem 0;
+      //   font-family: $serif;
+      //   position: absolute;
+      //   left: 0;
+      // }
+
+      &:hover{
+        background-color: #efefef;
+        transition: 0.4s;
+      }
+
+      &:not(:last-of-type){
+       
+      }
     }
-  } 
-  
+    
+  }
+
   th:nth-of-type(2),
   td:nth-of-type(2){
-    text-align: right;
+    width: 30%;
+  }
+
+  th:nth-of-type(1),
+  td:nth-of-type(1){
+    width: 70%;
 
     a{
       vertical-align: top;
-      font-size: 2.5rem;
-      font-weight: 500;
-      padding: 0.5em 36px 0.5em 0.25em;
+      font-size: 1rem;
+      font-weight: 600;
       line-height: 1;
     }
   }

@@ -1,21 +1,6 @@
-window.onload = function(){
-  expenditem();
-  online_title();
-  //pagnavEvent();
-  horizontalThumb();
-
-  //공유하기 버튼 클릭시 나타내기
-  // let btnShare = document.getElementsByClassName("page__share")[0];
-  // btnShare.addEventListener('click', function(){
-  //   this.children[1].classList.toggle("show");
-  // });
-
-  let firstActiveItem = document.querySelector(".gallery_onebig").children[0];
-  firstActiveItem.classList.add('active')
-}
-
-
-
+online_title();
+makeSection();
+remakegalleryCaptions();
 // const toFitScroll = (callback) => {
 //   let tick = false
 
@@ -31,12 +16,6 @@ window.onload = function(){
 //   }
 // }
 
-// const onScroll = () => {
-
-
-// }
-
-// window.addEventListener('scroll', toFitScroll(onScroll), { passive : true })
 
 //페이지 네비게이션 두줄 제목 한줄 처리하기 
 function online_title(){
@@ -50,56 +29,53 @@ function online_title(){
 function editTxt(txt){
   txt = txt.replace(/(<br>|<br\/>)/ig, "");
   return txt;
-} 
-
-//pop클래스를 가진 요소에게 팝업이벤트가 일어나는 버튼추가
-function expenditem(){
-  let seletpop = document.getElementsByClassName("pop");
-  Array.from(seletpop).forEach( e =>{
-    e.append(create_btn("<i class='fas fa-expand-alt'></i> 여기를 클릭하여 크게보기", pop_up));
-  });
 }
 
-function create_btn(txt, fx){
-  let btn = document.createElement("button");
-  btn.innerHTML = txt; 
-  btn.addEventListener('click', fx);
-  return btn
-}
-
-let ck_popup = 0;
-
-function pop_up(){
-  let poplayer = document.createElement("div");
-  poplayer.className= "poplayer";
-  poplayer.append(create_btn("닫기", pop_close));
-  poplayer.prepend(this.parentNode.children[0].cloneNode());
-  document.body.appendChild(poplayer);
-  document.body.classList.add("block_scroll");
-}
-
-function pop_close(){
-  this.parentNode.remove();
-  document.body.classList.remove("block_scroll");
-}
-
-function horizontalThumb(){
-  let hgallery = document.querySelectorAll(".h_th");
-
-  //아이템을 wrap으로 감싸 리턴
-  function wrapItems(items, wrapSize){
-    let wrap = document.createElement("div");
-    wrap.style.width = wrapSize + "px";
-    Array.from(items).forEach( e =>{
-      wrap.appendChild(e);
-    });
-    return wrap;
-  }
+function makeSection(){
+  const contentWapper = document.querySelector("main.page__content");
+  let title = document.querySelectorAll("main.page__content  h3[id]");
+  let countSection = title.length - 1;
   
-  Array.from(hgallery).forEach( e =>{
-    let hgalleryItems = e.children;
-    let scrollX_width = ( hgalleryItems[0].offsetWidth + 16 )* hgalleryItems.length;
-    e.appendChild(wrapItems(hgalleryItems, scrollX_width));
-  })
+  for( i = 0; i <= countSection; i++ ){
+    let section = document.createElement('section'); 
+    section.append(title[i]);
+    let contentElement = contentWapper.children;
+    Array.from(contentElement).some( el => {
+      if( el.tagName === 'H3' || el.tagName === 'SECTION' ) return true;
+      section.append(el);
+    })
+
+    contentWapper.append(section);
+  }
+
 }
+
+function remakegalleryCaptions(){
+  let imgCaptions = document.querySelectorAll("figure img ~ p");
+  if (imgCaptions == null || undefined){
+    return;
+  }else{
+    Array.from(imgCaptions).forEach( (item, index) =>{
+      item.closest('figure').querySelector('figcaption').append(item);
+    })
+  } 
+}
+
+const sections = document.querySelectorAll("main.page__content section");
+const points = Array.from(sections).map(el => Math.floor(el.offsetTop));
+const pointfotter = document.querySelector("footer.page__nav").offsetTop;
+points.push(pointfotter);
+const pointsIndexs = points.length - 1;
+let pointLast = 0;
+
+window.addEventListener('wheel', function(e){
+  e.preventDefault();
+  const pointCur = pointLast;
+  const pointCalc = e.deltaY > 0 ? pointCur + 1 : pointCur - 1;
+  const pointNext = pointCalc >= 0 && pointCalc < pointsIndexs ? pointCalc : (pointCalc < 0 ? 0 : pointsIndexs);
+  window.scrollTo({ left: 0, top: points[pointNext], behavior:"smooth"});
+  pointLast = pointNext
+}, {passive: false});
+
+
 
