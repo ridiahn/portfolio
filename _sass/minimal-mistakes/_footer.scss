@@ -7,6 +7,7 @@ footer {
   margin-left: 0;
   margin-right: 0;
   width: 100%;
+  height: 50vh;
   clear: both;
   color: $muted-text-color;
   -webkit-animation: $intro-transition;
@@ -17,8 +18,11 @@ footer {
   .page__footer {
     max-width: 100%;
     line-height: 1.2;
-    margin-top: 50vh;
     padding: 0 36px;
+
+    strong{
+      display: block;
+    }
 
     ul{
       padding: 0;
@@ -30,26 +34,32 @@ footer {
       }
     }
 
-    .page__footer-copyright {
+    .other_links{
       float: left;
-      width: 25%;
-      font-size: 2rem;
+    }
+
+    .page__footer-copyright {
+      font-size: calc(7vw * 2);
       font-weight: 500;
       color: black;
+      width: fit-content;
+      text-align: right;
+      margin-left: auto;
+      line-height: 1;
 
       span:last-of-type{
         color: gray;
-        text-align: justify;
-        font-size: 1rem;
         display: block;
-        font-weight: normal;
+        font-size: 1rem;
       }
     }
 
     p:last-of-type{
       font-size: 1rem;
-      float: right;
-      margin-top: 1rem;
+      position: absolute;
+      bottom: 1rem;
+      right: calc(12.5% + 36px);
+      margin: 0;
 
       span{
         display: block;
@@ -69,14 +79,8 @@ footer {
 
     .email{
       color: black;
-      position: absolute;
-      bottom: 0;
-      left: calc(50% - 60% / 2);
-      width: 60%;
-      font-size: 9vw;
-      line-height: 0.8;
-      text-align: center;
       word-wrap: break-word;
+      margin-bottom: 5vh;
     }
   }
 }

@@ -52,7 +52,7 @@
 $pageNav-height-lg : 54px;
 
 .page__nav{
-  @include clearfix;
+  //@include clearfix;
   order: 3;
   width: 100%;
   //background-color: rgba(white, 0.9);

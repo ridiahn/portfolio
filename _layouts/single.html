@@ -9,7 +9,6 @@ layout: default
   {% endunless %}
 {% endif %}
 
-
 {% include page__header.html %}
 
 <main class="page__content" itemprop="text">
@@ -17,6 +16,10 @@ layout: default
 </main>
 
 <footer class="page__nav">
+  <div>
+    <span>{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</span><span class="year">{{page.start_date | date: "%Y"'}}</span>
+    <a href="#main" class="back-to-top">현재</a>
+  </div>
   {% comment %}
     {% if page.share %}{% include social-share.html %}{% endif %}
     {% include page_related.html %}

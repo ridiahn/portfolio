@@ -61,6 +61,7 @@ function remakegalleryCaptions(){
   } 
 }
 
+
 const sections = document.querySelectorAll("main.page__content section");
 const points = Array.from(sections).map(el => Math.floor(el.offsetTop));
 const pointfotter = document.querySelector("footer.page__nav").offsetTop;
@@ -68,13 +69,43 @@ points.push(pointfotter);
 const pointsIndexs = points.length - 1;
 let pointLast = 0;
 
+const fixTitle = document.getElementById("page-title");
+const fixToc = document.getElementsByClassName("toc")[0];
+function addFixed(){
+  fixTitle.classList.add('fixed');
+  fixToc.classList.add('fixed');
+}
+function removeFixed(){
+  fixTitle.classList.remove('fixed');
+  fixToc.classList.remove('fixed');
+} 
+
+function ctrlfixed(index){
+//   const ActionFixed = {
+//     0 : function() {
+//       fixTitle.classList.remove('fixed');
+//       fixToc.classList.remove('fixed');
+//     },    
+//     [pointsIndexs] : function (){
+//       fixToc.classList.remove('fixed')
+//     },
+//     def : function() {
+//       fixTitle.classList.add('fixed');
+//       fixToc.classList.add('fixed');
+//     }
+//   }
+//   return ActionFixed[index.toString()] ? ActionFixed[index.toString()]() : ActionFixed["def"]();
+  return index > 0 && index < pointsIndexs ? addFixed() : removeFixed();
+}
+
 window.addEventListener('wheel', function(e){
   e.preventDefault();
   const pointCur = pointLast;
   const pointCalc = e.deltaY > 0 ? pointCur + 1 : pointCur - 1;
   const pointNext = pointCalc >= 0 && pointCalc < pointsIndexs ? pointCalc : (pointCalc < 0 ? 0 : pointsIndexs);
+  ctrlfixed(pointNext);
   window.scrollTo({ left: 0, top: points[pointNext], behavior:"smooth"});
-  pointLast = pointNext
+  pointLast = pointNext;
 }, {passive: false});
 
 

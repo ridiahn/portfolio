@@ -1,9 +1,10 @@
 <!-- start custom footer snippets -->
-<!--copyright-->
-<span class="email">{{ site.author.email }}</span>
+
+<p class="email"><strong>문의/연락</strong><span>{{ site.author.email }}</span></p>
 
 <!--infos-->
 <ul class="other_links">
+  <li><strong>그 외 채널</strong></li>
   {% if author.github %}
   <li>
     <a href="https://github.com/{{ author.github }}" itemprop="sameAs" rel="nofollow noopener noreferrer">
@@ -12,6 +13,8 @@
   </li>
 {% endif %}
 </ul>
+
+<!--copyright-->
 <p class="page__footer-copyright">
   <span class="copylight">&copy;</span><time>{{ site.time | date: '%y' }}</time>.{{ site.author.name }}<span>.All rights reserved</span>
 </p>

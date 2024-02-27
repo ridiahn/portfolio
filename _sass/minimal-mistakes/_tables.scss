@@ -19,7 +19,8 @@ table {
 thead {
   display: table;
   width: 100%;
-  font-size: $type-size-4;
+  font-size: 0.9rem;
+  color: $light-gray;
 }
 
 
@@ -57,16 +58,13 @@ th {
     //position: absolute;
     top: 0;
     left: 0;
-    //visibility: hidden;
-    //opacity: 0;
+    table-layout:fixed;
     transition: opacity 0.25s;
-    font-family: $serif;
-    font-size: 0.9rem;
+    font-weight: 600;
     line-height: 1;
 
     th{
       padding: 0;
-      font-weight: normal;
     }
 
     // tr::before{
@@ -79,14 +77,14 @@ th {
 
   tbody{
     margin-top: 0.5em;
-    font-size: 0.9rem;
+    font-size: inherit;
     vertical-align: top;
     table-layout:fixed;
     counter-reset: item_num;
 
     td{
       display: table-cell;
-      padding: 0.75rem 0;
+      padding: 0.5rem 0;
     }
 
     tr{
@@ -104,29 +102,31 @@ th {
         background-color: #efefef;
         transition: 0.4s;
       }
-
-      &:not(:last-of-type){
-       
-      }
     }
     
   }
 
-  th:nth-of-type(2),
-  td:nth-of-type(2){
-    width: 30%;
-  }
-
   th:nth-of-type(1),
   td:nth-of-type(1){
-    width: 70%;
-
+    width: 45%;
+    
     a{
-      vertical-align: top;
-      font-size: 1rem;
+      vertical-align: center;
       font-weight: 600;
       line-height: 1;
     }
+  }
+  
+  th:last-of-type,
+  td:last-of-type{
+    width: 30%;
+  }
+
+  
+
+  th:nth-of-type(2),
+  td:nth-of-type(2){
+    width: 70%;
   }
 }
 
