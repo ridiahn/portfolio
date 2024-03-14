@@ -14,7 +14,6 @@
 
 <header class="page__header">
   <h2 id="page-title" class="page__title" itemprop="headline">
-    <!-- <span class="year"> {{page.start_date | date: "%y"'}}</span> -->
     {% if paginator and site.paginate_show_page_num %}
       {{ site.title }}{% unless paginator.page == 1 %}{{ site.data.ui-text[site.locale].page | default: "Page" }}{{ paginator.page }}{% endunless %}
     {% else %}

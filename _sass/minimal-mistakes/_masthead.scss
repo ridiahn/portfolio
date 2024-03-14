@@ -2,8 +2,9 @@
    MASTHEAD
    ========================================================================== */
 
-$logo-size : 0.9rem;
+$logo-size : 1rem;
 $logo-bracket-weight: 2px;
+
 .masthead {
   position: relative;
   color: black;
@@ -15,22 +16,13 @@ $logo-bracket-weight: 2px;
   z-index: 10;
 }
 
-svg{
-  transform: skew(-15deg);
-  position: relative;
-  margin-top: -5vh;
-}
-
 .masthead__menu {
   margin-left: 0;
   margin-right: 0;
 }
 
-#site-nav{
+#site-nav {
   font-size: $logo-size;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
   
   a {
     text-decoration: none;
@@ -39,14 +31,46 @@ svg{
   h1{
     display: inline-block;
     margin-bottom: 0;
-    font-weight: 400;
+    font-weight: 600;
     line-height: 0.9;
     padding-left: 36px;
     color: inherit;
     font-size: inherit;
-    width: 20%;
+    position: relative;
+    text-align: left;
+    font-size: 1.1rem;
+    line-height: 1.2;
+    color: black;
+
+    div{
+      color: transparent;
+      width: inherit;
+      font-size: 0;
+      display: inline-block;
+      float: left;
+      margin-right: -1.5rem;
+
+      svg{
+        display: inline-block;
+        height: 2rem;
+        filter: url(#bevel);
+
+        &:first-of-type{ 
+          transform: scaleX(0.95) skewX(5deg);
+        }
+        &:last-of-type{ 
+          transform: translateX(-0.5rem)
+        }
+      }
+
+      &::selection{
+        color: transparent;
+      }
+    }
+
     a{
       color: inherit;
+      display: inline-block;
     }
   }
 
@@ -55,16 +79,12 @@ svg{
     line-height: 1;
 
     .visible-links{
-      order: 1;
-      width: 100%;
+      display: inline-block;
 
       > ul{
         margin: 0;
         position: relative;
-        width: fit-content;
-        display: flex;
-        flex-direction: column;
-        text-align: center;
+        padding: 0 36px;
 
         &:hover{
           li{
@@ -73,16 +93,11 @@ svg{
         }
 
         li{
-          width: fit-content;
           display: block;
-          padding: 0 36px;
           position: relative;
           transition: opacity 0.25s;
-
-          &:last-of-type{
-            display: none;
-          }
- 
+          color: $light-gray;
+          
           &.active{
             color: inherit;
             font-weight: 600; 
@@ -99,15 +114,14 @@ svg{
       } 
     }
 
-    .info_contact{
-      margin-left: auto;
-      display: inline-flex;
-      justify-content: space-between;
-      width: 50%;
+    .other_links{
+      display: inline-block;
+      float: right;
       padding-right: 36px;
+      text-align: right;
 
-      li{
-        display: inline-block;
+      a{
+        display: block;
       }
     }
   }

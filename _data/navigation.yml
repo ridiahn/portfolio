@@ -1,8 +1,8 @@
 # main links
 main:
-  - title: "저작물"
+  - title: "저(作)장물"
     url: /works/
-  - title: "저작자"
+  - title: "자기소개"
     url: /about/
   # - title: "Sample Posts"
   #   url: /year-archive/

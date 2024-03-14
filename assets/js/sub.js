@@ -1,6 +1,7 @@
 online_title();
 makeSection();
 remakegalleryCaptions();
+extendGalleryimg();
 // const toFitScroll = (callback) => {
 //   let tick = false
 
@@ -61,9 +62,38 @@ function remakegalleryCaptions(){
   } 
 }
 
+function setActiveImg(url, area){
+  area.style.backgroundImage = `url(${url})`;
+}
+
+function extendGalleryimg(){
+  const gallery = document.querySelector('figure.gallery')
+  const navItems = gallery.querySelectorAll('li')
+  
+  // set active area
+  const activeImgArea = document.createElement('div')
+  activeImgArea.classList.add('active');
+  setActiveImg(navItems[0].children[0].getAttribute('src'), activeImgArea)
+  gallery.prepend(activeImgArea)
+
+  Array.from(navItems).forEach( el => {
+      el.addEventListener('click', function(){
+        setActiveImg(el.children[0].getAttribute('src'), activeImgArea)
+      })
+    }
+  )
+}
+
 
 const sections = document.querySelectorAll("main.page__content section");
-const points = Array.from(sections).map(el => Math.floor(el.offsetTop));
+const vh100 = window.innerHeight;
+const points = []
+Array.from(sections).forEach(el =>{
+  let pointTop = Math.floor(el.offsetTop);
+  points.push(pointTop);
+  if (el.offsetHeight >= vh100) points.push(pointTop + vh100); 
+});
+
 const pointfotter = document.querySelector("footer.page__nav").offsetTop;
 points.push(pointfotter);
 const pointsIndexs = points.length - 1;
@@ -98,15 +128,13 @@ function ctrlfixed(index){
   return index > 0 && index < pointsIndexs ? addFixed() : removeFixed();
 }
 
-window.addEventListener('wheel', function(e){
-  e.preventDefault();
-  const pointCur = pointLast;
-  const pointCalc = e.deltaY > 0 ? pointCur + 1 : pointCur - 1;
-  const pointNext = pointCalc >= 0 && pointCalc < pointsIndexs ? pointCalc : (pointCalc < 0 ? 0 : pointsIndexs);
-  ctrlfixed(pointNext);
-  window.scrollTo({ left: 0, top: points[pointNext], behavior:"smooth"});
-  pointLast = pointNext;
-}, {passive: false});
-
-
-
+// window.addEventListener('wheel', function(e){
+//   e.preventDefault();
+//   const pointCur = pointLast;
+//   const pointCalc = e.deltaY > 0 ? pointCur + 1 : pointCur - 1;
+//   const pointNext = pointCalc >= 0 && pointCalc < pointsIndexs ? pointCalc : (pointCalc < 0 ? 0 : pointsIndexs);
+//   ctrlfixed(pointNext);
+//   //console.log(points, pointsIndexs);
+//   window.scrollTo({ left: 0, top: points[pointNext], behavior:"smooth"});
+//   pointLast = pointNext;
+// }, {passive: false});

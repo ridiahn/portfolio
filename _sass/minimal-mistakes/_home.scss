@@ -60,7 +60,41 @@ $txt_lg: 1.3rem;
     // @keyframes tv-static {
     //   100% {background-position: 50% 0, 60% 50%}
     // }
-
+    div.service{
+      width: 25%;
+      height: 60vh;
+      font-size: 1.2rem;
+      line-height: 1.3;
+      padding-left: 36px;
+    
+      h3{
+        margin: 0;
+        font-size: inherit;
+      }
+    
+      > ul{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        color: black;
+    
+        >li{
+          display: inline-flex;
+          flex-direction: column;
+    
+          h3{
+            order: 1;
+          }
+    
+          ul{
+            order: 0;
+          }
+        }
+      }
+    }
+    
+    
     div.service{     
       h2{
         visibility: hidden;

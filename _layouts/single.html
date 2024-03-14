@@ -16,13 +16,24 @@ layout: default
 </main>
 
 <footer class="page__nav">
-  <div>
-    <span>{{ page.title | markdownify | remove: "<p>" | remove: "</p>" }}</span><span class="year">{{page.start_date | date: "%Y"'}}</span>
-    <a href="#main" class="back-to-top">현재</a>
-  </div>
+  <a href="#main" class="back-to-top">다시보기</a>
   {% comment %}
     {% if page.share %}{% include social-share.html %}{% endif %}
-    {% include page_related.html %}
   {% endcomment %}
-  {% include post_pagination.html %}
+  <div class="next">
+    {% if page.next %}
+      {{ site.data.ui-text[site.locale].pagination_next | default: "Next" }}
+      <a href="{{ page.next.url | relative_url }}" class="pagination--pager" title="{{ page.next.title | markdownify | strip_html }}">
+        {{page.next.title}}
+      </a>
+      {% if page.next.header.teaser %}
+      <img src="{{ page.next.header.teaser }}" alt="{{page.next.title}} 미리보기">
+      {% endif %}
+    {% else %}
+      {{ site.data.ui-text[site.locale].pagination_next | default: "Next" }}
+      <a href="#" class="pagination--pager disabled">
+        다음글이 없습니다
+      </a>
+    {% endif %}
+  </div>
 </footer>

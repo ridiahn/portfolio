@@ -16,13 +16,13 @@
   {% endif %}
 {% endif %}
 
-{% if gallery_layout  == 'scrolled' %}
-<figure class="scrolled">
+{% if gallery_layout  == 'gallery' %}
+<figure class="gallery">
   <ul>
     {% for img in gallery %}
     <li>
       <img src="{{ img.image_path | relative_url }}" alt="{% if img.alt %}{{ img.alt }}{% endif %}">
-      {% if img.title %}<span>({{forloop.index}})</span><p>{{ img.title }}</p>{% endif %}
+      {% if img.title %}<p><span>({{forloop.index}})</span>{{ img.title }}</p>{% endif %}
     </li>
     {% endfor %}
   </ul>
@@ -31,6 +31,7 @@
   {% endif %}
 </figure>
 {% else %}
+
   <figure class="{{ gallery_layout }} {{ include.class }}">
     <div>
     {% for img in gallery %}

@@ -31,7 +31,7 @@ tbody{
 }
 
 tr:not(thead tr){
-  //border-top: solid 1px $border-color;
+  border-top: solid 1px $border-color;
 }
 
 th:not(:first-of-type),

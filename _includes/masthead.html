@@ -12,7 +12,28 @@
             {{ site.masthead_title | default: site.title }}
             {% if site.subtitle %}<span class="site-subtitle">{{ author.email }}</span>{% endif %}
             <b>{{ site.name | default: site.title }}</b> -->
-            <span>(c)2024</span>.{{ site.author.name }}
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 290" aria-label="아이디어">
+                <filter id="bevel">
+                  <feGaussianBlur stdDeviation="3" in="SourceAlpha" result="BLUR"/>
+                  <feSpecularLighting surfaceScale="5" specularConstant="1" specularExponent="80" lighting-color="#white" in="BLUR" result="SPECULAR">
+                      <fePointLight x="10" y="30" z="200" />
+                  </feSpecularLighting>
+                  <feComposite operator="in" in="SPECULAR" in2="SourceAlpha" result="COMPOSITE"/>
+                  <feMerge>
+                      <feMergeNode in="SourceGraphic" />
+                      <feMergeNode in="COMPOSITE"/>
+                  </feMerge>
+                </filter> 
+                <path fill="none" stroke="black" stroke-width="25" stroke-linecap="round" stroke-miterlimit="10" 
+                d="M974 266c131-40 127-194 50-214-86-22-133 56-131 87 4 74 81 46 77-9-3-39-106-69-124 69-10 76 50 56 19-6-39-78-10-148 7-152 34 6-83 219-165 181-61-28 18-172 46-144 7 7-3 29-82 86-47 34-72 94-51 97 27 4 67-171 4-208-68-40-168 167-98 148 20-5 51-31 32-79-42-106-248-63-319 72-10 19-19 53-7 50 28-6 58-161-63-173-70-7-114 53-105 94 10 44 54 50 75 21 15-20 6-56-19-64-58-18-129 65-88 125"/>
+              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 290" aria-label="커넥터">
+                <path fill="none" stroke="black" stroke-width="25" stroke-linecap="round" stroke-miterlimit="10"
+                d="M41 73c49 2 79 62 66 87-24 48-70 77-79 65-8-11 2-27 68-61 12-6-64-56-67-29-2 18 34 19 54 26 15 5 59 5 78-4 25-12 108-105 58-116-44-10-74 195 15 197 43 1 100-79 107-136 5-38-32-45-39-18-35 140 195 0 113 24-51 14 57-50 78-23 14 18-38 83-20 28 18-58 42-71 42-71 28-20 62 18 25 80-20 32-24 56-80 74-43 14-111 13-91-5 22-18 161-42 174 1 7 23-33 74-55 74-46 1 10-103 118-164 92-52 86-41 101-59 8-10-91 23-95 67-5 48 104 21 99 8-4-10-123 32-91 81 33 50 199 14 164-59-16-33-84 23 0 0 79-21 111-109 65-109-42-1-49 169 64 212"/>
+              </svg>
+              아이디어 커넥터
+            </div> 
           </a>
         </h1>
         <div class="visible-links">
@@ -24,10 +45,6 @@
           {%- endfor -%}
           </ul>
         </div>
-        <ul class="info_contact">
-          <li>{{ author.email }}</li>
-          <li>{{ author.location }}</li>
-        </ul>
         {% if site.search == true %}
         <button class="search__toggle" type="button">
           <span class="visually-hidden">{{ site.data.ui-text[site.locale].search_label | default: "Toggle search" }}</span>

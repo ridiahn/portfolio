@@ -1,22 +1,40 @@
 <!-- start custom footer snippets -->
 
-<p class="email"><strong>문의/연락</strong><span>{{ site.author.email }}</span></p>
-
 <!--infos-->
-<ul class="other_links">
-  <li><strong>그 외 채널</strong></li>
-  {% if author.github %}
-  <li>
-    <a href="https://github.com/{{ author.github }}" itemprop="sameAs" rel="nofollow noopener noreferrer">
-      <i class="fab fa-fw fa-github hidden" aria-hidden="true"></i><span class="label">GitHub</span>
-    </a>
-  </li>
-{% endif %}
-</ul>
+<div class="service">
+  <h4 class="hidden">작업분야</h4>
+  <ul>
+    <li>UI/UX</li>
+    <li>GUI</li>
+    <li>CI/BI</li>
+    <li>웹퍼블리싱</li>
+    <li>프론트엔드</li>
+  </ul>
+</div>
+<div class="location">
+  <h4>지역</h4>
+  <span>{{ author.location }}</span>
+</div>
+<div class="contact">
+  <h4>문의</h4>
+  <a href="mailto:{{ author.email }}">{{ author.email }}</a>
+</div>
+<div class="other_links">
+  <h4>연결</h4>
+  <ul>
+    {% if author.github %}
+    <li>
+      <a href="https://github.com/{{ author.github }}" itemprop="sameAs" rel="nofollow noopener noreferrer">
+        <i class="fab fa-fw fa-github hidden" aria-hidden="true"></i><span class="label">GitHub</span>
+      </a>
+    </li>
+    {% endif %}
+  </ul>
+</div>
 
 <!--copyright-->
 <p class="page__footer-copyright">
-  <span class="copylight">&copy;</span><time>{{ site.time | date: '%y' }}</time>.{{ site.author.name }}<span>.All rights reserved</span>
+  &copy;<time>{{ site.time | date: '%y' }}</time>.<span>{{ site.author.name }}</span><span>.All rights reserved</span>
 </p>
 <p>{{ site.data.ui-text[site.locale].powered_by | default: "Powered by" }} <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> <span>&amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</span></p>
 
