@@ -7,12 +7,11 @@
 {% if include.layout %}
   {% assign gallery_layout = include.layout %}
 {% else %}
-  {% if gallery.size == 2 %}
-    {% assign gallery_layout = 'half' %}
-  {% elsif gallery.size >= 3 %}
-    {% assign gallery_layout = 'third' %}
+  {% assign handle = gallery.size | modulo: 2 %}
+  {% if handle == 0 %}
+    {% assign gallery_layout = 'even' %}
   {% else %}
-    {% assign gallery_layout = '' %}
+    {% assign gallery_layout = 'odd' %}
   {% endif %}
 {% endif %}
 
@@ -31,22 +30,21 @@
   {% endif %}
 </figure>
 {% else %}
-
   <figure class="{{ gallery_layout }} {{ include.class }}">
-    <div>
     {% for img in gallery %}
       {% if img.url %}
         <a href="{{ img.url | relative_url }}" title="{% if img.title %}{{ img.title }}{% endif %}">
           <img src="{{ img.image_path | relative_url }}" alt="{% if img.alt %}{{ img.alt }}{% endif %}">
         </a>
       {% elsif img.title %}
+        <div>
           <img src="{{ img.image_path | relative_url }}" alt="{% if img.alt %}{{ img.alt }}{% endif %}">
           {% if img.title %}<p><span>({{forloop.index}})</span> {{ img.title }}</p>{% endif %}
+        </div>
       {% else %}
         <img src="{{ img.image_path | relative_url }}" alt="{% if img.alt %}{{ img.alt }}{% endif %}">
       {% endif %}
     {% endfor %}
-    </div>
     {% if include.caption %}
       <figcaption>{{ include.caption | markdownify | remove: "<p>" | remove: "</p>" }}</figcaption>
     {% endif %}

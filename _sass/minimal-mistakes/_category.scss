@@ -1,14 +1,15 @@
 .layout--category{
-  background-color: white;
-  filter: invert(100%) hue-rotate(180deg);
+  // background-color: white;
+  // filter: invert(100%) hue-rotate(180deg);
+  .masthead{
+    position: absolute;
+  }
 
   .archive{
-    display: flex;
-    
     @include breakpoint($large){
-      margin-top: 10vh;
       width: 100%;
       padding: 0;
+      margin: 0;
     }
   
     @include breakpoint($x-large){
@@ -22,20 +23,21 @@
   }
 
   .taxonomy__index{
-    //@include slash;
-    width: 25%;
-    padding-left: 36px;
-    margin: 0;
+    width: fit-content;
+    min-height: 25vh;
+    padding-right: 36px;
+    margin: 0 0 0 auto;
     
     ul{
-      //margin-left: 25%;
       margin: 0;
       line-height: 1.2;
       font-weight: 400;
+      text-align: right ;
 
       li{
         display: block;
         margin: 0;
+        cursor: pointer;
 
         span{
           margin-left: 0.3em;
@@ -67,48 +69,61 @@
   }
 
   .archive .list{
-    max-width: 75%;
-    
-    h3.year_name {
-      font-size: 7vw;
-      font-weight: 400;
-      line-height: 1;
-      text-align: left;
-      width: calc(100% / 3);
-    }
+    width: 100%;
+    $unit_width: calc((100vw - 20px) / 5);
+    //산출 : 뷰포트 - 스크롤바 / 한줄에 들어가는 아이템 갯수
 
     &.row{
-      min-height: 150vh; 
-      .year_div{
-        width: 100%;
-        overflow: hidden;
+      display: flex;
+      flex-wrap: wrap;
 
-        &:not(:first-of-type){
-          border-top: solid 1px $light-gray;
+      .year_div{
+        display: inline-block;
+        height: fit-content;
+        border-bottom: solid 1px $light-gray;
+        padding: 36px 0;
+
+        &:first-of-type{
+          h3.year_name{
+            position: relative;
+            overflow: visible;
+            &::before{
+              content: "20";
+              position: absolute;
+              transform: translateX(-1.1em);
+            }
+          }
         }
 
         h3.year_name{
-          position: absolute;
+          float: left;
+          display: inline-block;
+          width: $unit_width;
+          height: 100%;
+          margin: 0;
+          padding: 0 36px;
+          font-family: $serif;
+          font-style: italic;
+          font-size: 7vw;
+          letter-spacing: -0.05em;
+          font-weight: lighter;
+          line-height: 1;
+          text-align: right;
+          color: $lighter-gray;
         }
 
         > ul{
-          width: 100%;
-          display: flex;
-          flex-wrap: wrap;
+          display: inline-flex;
+          margin: 0;
           
           li{
-            width: calc(100% / 3 );
+            //display: table-cell;
+            //vertical-align: bottom;
+            width: $unit_width;
             height: 25vh;
-            padding: 0 3%;
-            margin-bottom: 3%;
-
-            &:first-of-type{
-              margin-left: calc(100% / 3);
-            }
-
-            &:nth-of-type(3n){
-              padding-left: 0;
-            }
+            padding: 0 36px;
+            margin-bottom: 0;
+            position: relative;
 
             h3{
               font-size: 1.5rem;
@@ -120,238 +135,42 @@
                 color: inherit;
               }
             }
-
-            .tags,
-            .work_date{
-              font-size: .9rem;
               
-              strong{
-                visibility: hidden;
-                color:transparent;
-                position: absolute;
+            strong{
+              visibility: hidden;
+              color:transparent;
+              position: absolute;
+              z-index: -2;
+            }
+
+            figure{
+              position: absolute;
+              z-index: -1;
+              top: 0;
+              left: 0;
+              height: 100%;
+              width: 100%;
+              padding: inherit;
+
+              img{
+                height: inherit;
+                width: auto;
+                object-fit: contain;
               }
             }
 
-            
-
-            figure{
+            > *:not(h3, .areas, figure){
+              font-size: .9rem;
               visibility: hidden;
               position: absolute;
             }
 
-            .archive__item-excerpt{
-              display: none;
-            }
       
             &:hover{   
-              figure{
-                visibility: visible;
-              }
             }
 
           }
         }
-      }
-    }
-  
-
-    &.col{
-      order: 0;
-      width: 100%;
-      padding-bottom: 10vh;
-      flex-direction: column;
-      position: relative;
-
-      > ul.labels{
-        margin-top: -1.2rem;
-        font-size: 0.75em;
-        display: flex;
-        gap: 5%;
-        flex: 1;
-        padding-right: 5%;
-        margin-left: calc(((100% /12) * 2) + 36px);
-  
-        li:first-of-type{
-          flex: 10;
-          width: 70%;
-        }
-  
-        li:not(:first-of-type){
-          flex: 1;
-        }
-      }
-  
-      .year_div{
-        flex: 1;
-        width: 100%;
-        display: flex;
-  
-        > ul {
-          flex: 1;
-
-          li{
-            width: inherit;
-            margin: 0;
-            padding: 1em 5% 1em 0;
-            border-top:solid 1px $border-color;
-            display: flex;
-            gap: 5%;
-            justify-content: space-between;
-                  
-            &:hover{
-              color: black;
-              transition: background-color 1s;
-
-              .item_info{
-                visibility: visible;
-              }
-            }
-
-            .work_date,
-            .categorize,
-            .tags{
-              flex: 1;
-              order: 1;
-              font-size: 0.85em;
-            }
-      
-            h3{
-              flex: 10;
-              font-size: 2rem;
-              letter-spacing: -0.045em;
-              margin: 0;
-              max-width: 75%;
-            }
-
-            .work_date{
-              span{
-                display: block;
-              }
-            } 
-          }
-        }
-      }
-    }
-
-  }
-}
-
-//bg modal를 위한 기본스타일 조정
-.grid__item .archive__item-teaser{
-  max-width: unset;
-
-  @include breakpoint($small) {
-    max-width: unset;
-    max-height: unset;
-  }
-
-  @include breakpoint($medium) {
-    max-width: unset;
-    max-height: unset;
-  }
-}
-
-li div.item_info{
-  @include grid_12;
-  grid-template-rows: $grid-row-4;
-  position: fixed;
-  z-index: -1;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  color: inherit;
-  visibility: hidden;
-  
-  h3{
-    font-family: $point-font;
-    font-size: 5vw;
-    grid-column: 6 / end;
-    grid-row: 1 / 3;
-    text-align: right;
-    display: inline;
-    align-self: start;
-    line-height: 1.3;
-    span{
-      background-color: $gray;
-    }
-  }
-
-  .work_date{
-    font-family: $point-font;
-    font-size: 5vw;
-    grid-column: 1 / 2;
-    grid-row: 2 / 4;
-    align-self: center;
-    color: $light-gray;
-    line-height: 1;
-  }
-
-  .tags{
-    grid-row: 3;
-    grid-column: 6 / 8;
-    align-self: end;
-    background-color: $gray;
-  }
-  
-  .categorize{
-    grid-row: 3;
-    grid-column: 8;
-    padding: 1em 1em 0 0 ;
-    align-self: end;
-    background-color: $gray;
-  }
-
-  p.archive__item-excerpt{
-    font-size: 1rem;
-    grid-column: 8 / 11;
-    grid-row: 4;
-    align-self: end;
-    //text-align: justify;
-  }
-  
-  figure{
-    position: absolute;
-    bottom: 0;
-    z-index: -1;
-    height: inherit;
-    max-height: unset;
-    display: flex;
-    filter: grayscale(1); 
-
-    &.col{
-      flex-direction: column;
-      width: 50%;
-      height: 100%;
-      justify-content: space-between;
-
-      img:first-of-type{
-        order: 1;
-        width: 50%;
-        flex: 2;
-        align-self: center;
-      }
-
-      img:nth-of-type(2){
-        order: 0;
-        width: fit-content;
-        height: 20vh;
-      }
-
-      img:nth-of-type(3){
-        order: 3;
-        width: 25%;
-      }
-    }
-    
-    &.row{
-      width: 100%;
-      height: 50%;
-      justify-content: flex-start;
-
-      img{
-       max-width: 30%;
-       object-fit: contain;
       }
     }
   }

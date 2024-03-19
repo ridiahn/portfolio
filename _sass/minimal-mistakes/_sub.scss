@@ -49,7 +49,7 @@ $content_start : 50vh;
       width: 100%;
       display: flex;
       flex-wrap: wrap;
-      min-height: 100vh;
+      margin-bottom: 15vh;
       
       .fixed{
         position: fixed;
@@ -82,8 +82,7 @@ $content_start : 50vh;
     figure{ 
       order: 2;
       margin-top: 1rem;
-      margin-bottom: 25vh;
-
+       
       figcaption{
         display: none;
       }
@@ -133,8 +132,9 @@ $content_start : 50vh;
     font-size: 0.9rem;
     padding: 0 36px;
     position: fixed;
-    left: 0;
-    bottom: 5vh;
+    right: 0;
+    top: 0;
+    text-align: right;
     
     header{
       display: none;
@@ -264,7 +264,7 @@ $content_start : 50vh;
   
       h3,p{
         padding-top: 0;
-        margin-left: calc(100% / 8 * 5);
+        margin-left: calc(100% / 8 );
       }
 
       p{
@@ -272,23 +272,12 @@ $content_start : 50vh;
         font-weight: 300;
         max-height: 40vh;
         margin-bottom: 0;
+        //column-count: 2;
+        letter-spacing: -0.025em;
       }
 
       
       @include breakpoint($medium) {
-        position: absolute;
-        top: 0;
-        right: 0;
-      }
-    }
-
-    &:has(figure){
-      figure{
-        width: 100%;
-        height: 100%;
-        display: block;
-        overflow: hidden;
-        order: 0;
       }
     }
 
@@ -298,24 +287,21 @@ $content_start : 50vh;
       
       figure{
         order: 1;
-        max-height: 70vh;
-        margin-left: auto;
         width: 100%;
-        margin-bottom: 5vh;
+        height: 80vh;
+        margin: 0 auto 10vh;
         text-align: right;
         vertical-align: bottom;
-        margin-bottom: 10vh;
+        overflow: hidden;
         
         img{
+          object-fit: contain;
+          height: 100%;
           padding: 0;
         }
 
         figcaption{
           display: none;
-        }
-
-        img:first-of-type{
-          width: 50%;
         }
       }
 
@@ -335,9 +321,11 @@ $content_start : 50vh;
         margin-bottom: 10vh;
         padding-right: 36px;
         order: 0;
-        margin-left: auto;
-        //margin-right: calc(100% / 8);
-        //text-align: right;
+        margin-right: calc(100% / 8);
+        
+        p{
+          padding-left: 36px;
+        }
 
         ul{
           margin: 0;
@@ -351,6 +339,9 @@ $content_start : 50vh;
               left: 0;
               font-family: $serif;
               font-style: italic;
+              //content: "√";
+              //font-size: 0.95em;
+              // transform: rotateY(-180deg);
               counter-increment: num;
               content: counter(num, decimal-leading-zero);
             }
@@ -361,6 +352,7 @@ $content_start : 50vh;
       h3 + ul{
         font-size: 1em;
         display: inline-flex;
+        flex-direction: column;
         width: fit-content;
         margin: 0 calc(100% / 8) 0;
         padding: 0;
@@ -368,7 +360,6 @@ $content_start : 50vh;
         
         li{
           width: 12.5vw;
-          flex: 1;
           list-style: none;
         }
         
@@ -431,7 +422,8 @@ $content_start : 50vh;
       font-size: 1.5rem;
     }
 
-    ul{
+    ul,
+    table{
       counter-reset: num;
     }
     
@@ -452,19 +444,10 @@ $content_start : 50vh;
       padding-left: 36px;
     }
    
-  > figure{
-      height: fit-content;
-
+    > figure{
       figcaption{
-        width: 25%;
-        display: table-caption;
-        color: black;
-        font-weight: 600;
-        margin: 0;
         padding-left: 36px;
-        float: left;
-        font-size: 0.9rem;
-        
+
         p{
           padding-left: 0;
           width: 100%;
@@ -478,20 +461,13 @@ $content_start : 50vh;
       }
     }
 
-    img{
+    > img {
       object-fit: cover;
       object-position: top;
       width: 100%;
       height: 100%;
     }
 
-    img ~ p {
-      text-align: right;
-
-      span{
-        float: left;
-      }
-    }
 
     figure.gallery{
       display: flex;

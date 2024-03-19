@@ -1,21 +1,7 @@
 online_title();
 makeSection();
 remakegalleryCaptions();
-extendGalleryimg();
-// const toFitScroll = (callback) => {
-//   let tick = false
-
-//   return function trigger () {
-//     if (tick) {
-//       return
-//     }
-//     tick = true
-//     return requestAnimationFrame(function task() {
-//         tick = false
-//         return callback()
-//     })
-//   }
-// }
+//extendGalleryimg();
 
 
 //페이지 네비게이션 두줄 제목 한줄 처리하기 
@@ -48,11 +34,47 @@ function makeSection(){
 
     contentWapper.append(section);
   }
-
 }
 
+//Math.floor(window.innerHeight / 4);
+const extendObjs = document.querySelectorAll('figure.zigzag div');
+const extendStartPoint = Array.from(extendObjs).map(e => Math.floor(window.pageYOffset + e.getBoundingClientRect().top));
+const growthRate = 0.15;
+const getScale = window.getComputedStyle(extendObjs[0]).transform.replace(/(matrix\(|\))/g, '');
+const setScale = parseInt(getScale.split(',')[0])
+let curScale = setScale;
+let lastIndex;
+
+const toFitScroll = (callback) => {
+  let tick = false
+  return function trigger () {
+    if (tick) {
+      return
+    }
+    tick = true
+    return requestAnimationFrame(function task() {
+        tick = false
+        return callback()
+    }) 
+  }
+}
+
+function effetExtend(y){
+  let extendIndex = extendStartPoint.findIndex(el => el >= y && y > (extendStartPoint[0] / 2));
+  if(extendIndex != -1){
+    curScale = lastIndex != extendIndex ? setScale : curScale;
+    extendObjs[extendIndex].style.transform = `scale(${curScale})`;
+    return curScale > 1 ? 1 : Math.floor(curScale += growthRate), lastIndex = extendIndex;;
+  }
+}
+
+window.addEventListener('scroll', function(){
+  toFitScroll(effetExtend(Math.floor(window.scrollY))); 
+}, { passive : true })
+
+//.gallery 동적 스타일링
 function remakegalleryCaptions(){
-  let imgCaptions = document.querySelectorAll("figure img ~ p");
+  let imgCaptions = document.querySelectorAll("figure.gallery img ~ p");
   if (imgCaptions == null || undefined){
     return;
   }else{
@@ -62,69 +84,37 @@ function remakegalleryCaptions(){
   } 
 }
 
-function setActiveImg(url, area){
-  area.style.backgroundImage = `url(${url})`;
-}
+// function setActiveImg(url, area){
+//   area.style.backgroundImage = `url(${url})`;
+// }
 
-function extendGalleryimg(){
-  const gallery = document.querySelector('figure.gallery')
-  const navItems = gallery.querySelectorAll('li')
+// function extendGalleryimg(){
+//   const gallery = document.querySelector('figure.gallery')
+//   const navItems = gallery.querySelectorAll('li')
   
-  // set active area
-  const activeImgArea = document.createElement('div')
-  activeImgArea.classList.add('active');
-  setActiveImg(navItems[0].children[0].getAttribute('src'), activeImgArea)
-  gallery.prepend(activeImgArea)
+//   // set active area
+//   const activeImgArea = document.createElement('div')
+//   activeImgArea.classList.add('active');
+//   setActiveImg(navItems[0].children[0].getAttribute('src'), activeImgArea)
+//   gallery.prepend(activeImgArea)
 
-  Array.from(navItems).forEach( el => {
-      el.addEventListener('click', function(){
-        setActiveImg(el.children[0].getAttribute('src'), activeImgArea)
-      })
-    }
-  )
-}
+//   Array.from(navItems).forEach( el => {
+//       el.addEventListener('click', function(){
+//         setActiveImg(el.children[0].getAttribute('src'), activeImgArea)
+//       })
+//     }
+//   )
+// }
 
-
-const sections = document.querySelectorAll("main.page__content section");
-const vh100 = window.innerHeight;
-const points = []
-Array.from(sections).forEach(el =>{
-  let pointTop = Math.floor(el.offsetTop);
-  points.push(pointTop);
-  if (el.offsetHeight >= vh100) points.push(pointTop + vh100); 
-});
-
-const pointfotter = document.querySelector("footer.page__nav").offsetTop;
-points.push(pointfotter);
-const pointsIndexs = points.length - 1;
+const movingUnit = Math.floor(window.innerHeight / 2);
 let pointLast = 0;
 
-const fixTitle = document.getElementById("page-title");
 const fixToc = document.getElementsByClassName("toc")[0];
-function addFixed(){
-  fixTitle.classList.add('fixed');
-  fixToc.classList.add('fixed');
-}
 function removeFixed(){
-  fixTitle.classList.remove('fixed');
   fixToc.classList.remove('fixed');
 } 
 
 function ctrlfixed(index){
-//   const ActionFixed = {
-//     0 : function() {
-//       fixTitle.classList.remove('fixed');
-//       fixToc.classList.remove('fixed');
-//     },    
-//     [pointsIndexs] : function (){
-//       fixToc.classList.remove('fixed')
-//     },
-//     def : function() {
-//       fixTitle.classList.add('fixed');
-//       fixToc.classList.add('fixed');
-//     }
-//   }
-//   return ActionFixed[index.toString()] ? ActionFixed[index.toString()]() : ActionFixed["def"]();
   return index > 0 && index < pointsIndexs ? addFixed() : removeFixed();
 }
 
