@@ -2,18 +2,14 @@
    MASTHEAD
    ========================================================================== */
 
-$logo-size : 1rem;
-$logo-bracket-weight: 2px;
-
 .masthead {
   position: relative;
   color: black;
-  width: 100%;
   -webkit-animation: $intro-transition;
   animation: $intro-transition;
   -webkit-animation-delay: 0.15s;
   animation-delay: 0.15s;
-  z-index: 10;
+  z-index: 1;
 }
 
 .masthead__menu {
@@ -22,82 +18,44 @@ $logo-bracket-weight: 2px;
 }
 
 #site-nav {
-  font-size: $logo-size;
+  font-size: 0.9rem;
   
   a {
     text-decoration: none;
   }
 
   h1{
-    display: inline-block;
     margin-bottom: 0;
+    font-size: 1.5rem;
     font-weight: 600;
-    line-height: 0.9;
-    padding-left: 36px;
     color: inherit;
-    font-size: inherit;
-    position: relative;
-    text-align: left;
-    font-size: 1.1rem;
-    line-height: 1.2;
-    color: black;
+    padding: 0 36px;
+    width: fit-content;
 
-    div{
-      color: transparent;
-      width: inherit;
-      font-size: 0;
-      display: inline-block;
-      float: left;
-      margin-right: -1.5rem;
-
-      svg{
-        display: inline-block;
-        height: 2rem;
-        filter: url(#bevel);
-
-        &:first-of-type{ 
-          transform: scaleX(0.95) skewX(5deg);
-        }
-        &:last-of-type{ 
-          transform: translateX(-0.5rem)
-        }
-      }
-
-      &::selection{
-        color: transparent;
-      }
-    }
-
-    a{
-      color: inherit;
-      display: inline-block;
+    .years{
+      float: right;
     }
   }
 
   @include breakpoint($large) {
     color: inherit;
-    line-height: 1;
-
+    
     .visible-links{
+      width: calc(100% / 8);
+      padding: 0 36px;
       display: inline-block;
+      float: left;
 
       > ul{
+        line-height: 1;
         margin: 0;
-        position: relative;
-        padding: 0 36px;
-
-        &:hover{
-          li{
-            position: relative;
-          }
-        }
 
         li{
           display: block;
           position: relative;
           transition: opacity 0.25s;
           color: $light-gray;
-          
+
           &.active{
             color: inherit;
             font-weight: 600; 
@@ -112,17 +70,6 @@ $logo-bracket-weight: 2px;
           }
         }
       } 
-    }
-
-    .other_links{
-      display: inline-block;
-      float: right;
-      padding-right: 36px;
-      text-align: right;
-
-      a{
-        display: block;
-      }
     }
   }
 }

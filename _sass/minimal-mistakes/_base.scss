@@ -329,6 +329,7 @@ figure {
 
   &.zigzag{
     width: 100%;
+    overflow-x: hidden;
     display: table;
 
     figcaption {
@@ -336,28 +337,60 @@ figure {
     }
 
     div{
-      width: fit-content;
+      display: flex;
+      justify-content: center;
+      width: 100%;
       text-align: center;
-      margin-bottom: 25vh;
-      transform: scale(0.5);
-      transition: transform 0.25s;
+      opacity: 0.2;
+      transform: translateY(calc(100vh / 3));
+      transition: all 0.5s;
+      
+      &:not(:last-of-type){
+        margin-bottom: 15vh;
+      }
 
+      img{
+        flex: 1;
+        vertical-align: top;
+        transform-origin: center top;
+        filter: blur(5px);
+        transform: scale(0.8);
+        transition: all 0.5s;
+      }
+      
       p{
+        width: 25%;
+        text-align: left;
         display: inline-block;
         padding: 0 36px;
+
+        span{
+          display: block;
+          font-size: 2.5rem;
+          line-height: 1;
+        }
+      }
+      
+      &.extend{
+        opacity: 1;
+        transform: translateY(0);
+
+        img{
+          opacity: 1;
+          filter: blur(0) opacity(1);
+          transform: scale(1) translateY(0);
+        }
       }
 
       &:nth-of-type(odd){
         img{
-          vertical-align: top;
+          margin-right: auto;
         }
       }
 
       &:nth-of-type(even){
-        display: flex;
         flex-direction: row-reverse;
         margin-left: auto;
-        justify-content: center;
       }
     }
   }

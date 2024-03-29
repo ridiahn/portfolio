@@ -1,24 +1,19 @@
 ---
 layout: archive
 ---
-{% assign tags_max = 0 %}
-{% for tag in site.tags %}
-  {% if tag[1].size > tags_max %}
-    {% assign tags_max = tag[1].size %}
-  {% endif %}
-{% endfor %}
 
 <div class="taxonomy__index">
-  <h3 class="hidden">작업분류</h3>
+<h3 class="hidden">필터</h3>
   <ul class="filter">
     <li class="active">
-      전체<span class="taxonomy__count hidden">{{ site.posts.size }}</span>
+      전체
     </li>
-    <li>UI/UX</li>
-    <li>GUI</li>
-    <li>CI/BI</li>
-    <li>웹퍼블리싱</li>
-    <li>프론트엔드</li>
+    {% include list_works.html %}
+    {% for name in type_work %}
+    <li>
+      {{ name }}
+    </li>
+    {% endfor %}
   </ul>
 </div>
 

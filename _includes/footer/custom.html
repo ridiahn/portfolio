@@ -1,16 +1,6 @@
 <!-- start custom footer snippets -->
 
 <!--infos-->
-<div class="service">
-  <h4 class="hidden">작업분야</h4>
-  <ul>
-    <li>UI/UX</li>
-    <li>GUI</li>
-    <li>CI/BI</li>
-    <li>웹퍼블리싱</li>
-    <li>프론트엔드</li>
-  </ul>
-</div>
 <div class="location">
   <h4>지역</h4>
   <span>{{ author.location }}</span>
@@ -32,10 +22,6 @@
   </ul>
 </div>
 
-<!--copyright-->
-<p class="page__footer-copyright">
-  &copy;<time>{{ site.time | date: '%y' }}</time>.<span>{{ site.author.name }}</span><span>.All rights reserved</span>
-</p>
 <p>{{ site.data.ui-text[site.locale].powered_by | default: "Powered by" }} <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> <span>&amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</span></p>
 
 <!-- {% unless site.atom_feed.hide %}

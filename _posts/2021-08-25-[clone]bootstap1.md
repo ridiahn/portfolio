@@ -5,12 +5,6 @@ published: false
 top: true
 title:  "따라하기 작업, 부트스트랩 테마1"
 excerpt: "원 페이지 사이트 템플릿을 구현하다"
-tools:
-  tool:
-    - css
-    - html
-    - jQuery
-
 start_date: "2021-05-10"
 due_date: "2021-05-21"
 headcount: "1"

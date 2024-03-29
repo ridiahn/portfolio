@@ -29,7 +29,11 @@
       {% endif %}
     </h3>
   {% if post.areas.size > 0 %}
-    <span class="areas">{{post.areas}}</span>
+    <ul class="areas">
+      {% for area in post.areas %}
+        <li>{{ area }}</li>
+      {% endfor %}
+    </ul>
   {% endif %}
   {% if post.tags.size > 0 %}
     <span class="tags"><strong class="hidden">{{ site.data.ui-text[site.locale].tags_label | default: "Tags:" }}</strong>{{ post.tags | sort | join: ", " }}</span>

@@ -1,10 +1,8 @@
 online_title();
 makeSection();
-remakegalleryCaptions();
-//extendGalleryimg();
-
 
 //페이지 네비게이션 두줄 제목 한줄 처리하기 
+const editTxt = (txt) => {txt = txt.replace(/(<br>|<br\/>)/ig, "")}
 function online_title(){
   let navTtitle = document.querySelectorAll(".page__nav .pagination a > span");
   Array.from(navTtitle).forEach( e =>{
@@ -13,11 +11,7 @@ function online_title(){
   });
 }
 
-function editTxt(txt){
-  txt = txt.replace(/(<br>|<br\/>)/ig, "");
-  return txt;
-}
-
+//markdown > html로 렌더링된 요소들 section 그룹핑 
 function makeSection(){
   const contentWapper = document.querySelector("main.page__content");
   let title = document.querySelectorAll("main.page__content  h3[id]");
@@ -36,43 +30,7 @@ function makeSection(){
   }
 }
 
-//Math.floor(window.innerHeight / 4);
-const extendObjs = document.querySelectorAll('figure.zigzag div');
-const extendStartPoint = Array.from(extendObjs).map(e => Math.floor(window.pageYOffset + e.getBoundingClientRect().top));
-const growthRate = 0.15;
-const getScale = window.getComputedStyle(extendObjs[0]).transform.replace(/(matrix\(|\))/g, '');
-const setScale = parseInt(getScale.split(',')[0])
-let curScale = setScale;
-let lastIndex;
-
-const toFitScroll = (callback) => {
-  let tick = false
-  return function trigger () {
-    if (tick) {
-      return
-    }
-    tick = true
-    return requestAnimationFrame(function task() {
-        tick = false
-        return callback()
-    }) 
-  }
-}
-
-function effetExtend(y){
-  let extendIndex = extendStartPoint.findIndex(el => el >= y && y > (extendStartPoint[0] / 2));
-  if(extendIndex != -1){
-    curScale = lastIndex != extendIndex ? setScale : curScale;
-    extendObjs[extendIndex].style.transform = `scale(${curScale})`;
-    return curScale > 1 ? 1 : Math.floor(curScale += growthRate), lastIndex = extendIndex;;
-  }
-}
-
-window.addEventListener('scroll', function(){
-  toFitScroll(effetExtend(Math.floor(window.scrollY))); 
-}, { passive : true })
-
-//.gallery 동적 스타일링
+//.gallery img title > fig안으로 caption 위치 변경
 function remakegalleryCaptions(){
   let imgCaptions = document.querySelectorAll("figure.gallery img ~ p");
   if (imgCaptions == null || undefined){
@@ -84,47 +42,57 @@ function remakegalleryCaptions(){
   } 
 }
 
-// function setActiveImg(url, area){
-//   area.style.backgroundImage = `url(${url})`;
-// }
-
-// function extendGalleryimg(){
-//   const gallery = document.querySelector('figure.gallery')
-//   const navItems = gallery.querySelectorAll('li')
-  
-//   // set active area
-//   const activeImgArea = document.createElement('div')
-//   activeImgArea.classList.add('active');
-//   setActiveImg(navItems[0].children[0].getAttribute('src'), activeImgArea)
-//   gallery.prepend(activeImgArea)
-
-//   Array.from(navItems).forEach( el => {
-//       el.addEventListener('click', function(){
-//         setActiveImg(el.children[0].getAttribute('src'), activeImgArea)
-//       })
-//     }
-//   )
-// }
-
-const movingUnit = Math.floor(window.innerHeight / 2);
-let pointLast = 0;
-
-const fixToc = document.getElementsByClassName("toc")[0];
-function removeFixed(){
-  fixToc.classList.remove('fixed');
+const pageAbsoluteY = (el) => {
+  return window.pageYOffset + el.getBoundingClientRect().top
 } 
 
-function ctrlfixed(index){
-  return index > 0 && index < pointsIndexs ? addFixed() : removeFixed();
+//scroll gallery
+function SetPoints(Objs){
+  this.itemStartPoints =  Array.from(Objs).map(el => Math.floor( pageAbsoluteY(el) + (el.offsetHeight / 2)))
+  this.areaStart = Math.floor(Objs[0].getBoundingClientRect().top - window.innerHeight / 4)
+  this.areaEnd = this.itemStartPoints[this.itemStartPoints.length - 1]
 }
+const extendObjs = document.querySelectorAll('figure.zigzag div');
+const extendPoint = extendObjs.length > 0 ? new SetPoints(extendObjs) : null;
+
+//scroll gallery extend effect
+let lastIndex;
+function effetExtend(y){
+  let extendIndex = extendPoint.itemStartPoints.findIndex(el => el >= y );
+  if(lastIndex !== extendIndex){
+    extendObjs[extendIndex].classList.add('extend');
+    return lastIndex = extendIndex;
+  }
+}
+
+//서브페이지 목차 fixed 토글
+const toc = document.getElementsByClassName("toc")[0];
+const footerPoint = pageAbsoluteY(document.querySelector("#main footer")) - window.innerHeight / 4;
+function classOnOff (condition, el, _class){
+  return !condition ? el.classList.add(_class) : el.classList.remove(_class)
+}
+function scrollEvents(y){
+  if(extendObjs.length > 0 && y >=  extendPoint.areaStart && y < extendPoint.areaEnd) effetExtend(y)
+  classOnOff(y >= footerPoint, toc, 'fixed')
+}
+
+//window scroll event
+let tick = false;
+window.addEventListener('scroll', function(){
+  let y = Math.floor(window.scrollY)
+
+  if(!tick){
+    requestAnimationFrame(() => {
+      scrollEvents(y)
+      return tick = false
+    })
+  }
+  tick = true;
+},{passive: true})
+
 
 // window.addEventListener('wheel', function(e){
 //   e.preventDefault();
-//   const pointCur = pointLast;
-//   const pointCalc = e.deltaY > 0 ? pointCur + 1 : pointCur - 1;
-//   const pointNext = pointCalc >= 0 && pointCalc < pointsIndexs ? pointCalc : (pointCalc < 0 ? 0 : pointsIndexs);
-//   ctrlfixed(pointNext);
-//   //console.log(points, pointsIndexs);
-//   window.scrollTo({ left: 0, top: points[pointNext], behavior:"smooth"});
-//   pointLast = pointNext;
+//   const dir = e.deltaY > 0 ? 1 : -1; 
+//   window.scrollBy({left: 0, top:Math.floor(window.innerHeight * dir), behavior:"smooth"});
 // }, {passive: false});
