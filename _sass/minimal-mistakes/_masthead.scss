@@ -3,6 +3,7 @@
    ========================================================================== */
 
 .masthead {
+  width: 100%;
   position: relative;
   color: black;
   -webkit-animation: $intro-transition;
@@ -18,47 +19,72 @@
 }
 
 #site-nav {
-  font-size: 0.9rem;
-  
+  font-size: 1.1rem;
+  text-align: right;
+
   a {
     text-decoration: none;
   }
 
   h1{
-    margin-bottom: 0;
-    font-size: 1.5rem;
+    display: inline-block;
+    font-size: 1.1rem;
     font-weight: 600;
     color: inherit;
     padding: 0 36px;
-    width: fit-content;
-
-    .years{
-      float: right;
-    }
+    width: calc(100% / 8);
+    // border: solid 1px black;
+    // border-radius: 50%;
+    margin-bottom: 0;
   }
+
+  h2{
+    visibility: visible;
+    font-size: inherit;
+  }
+
 
   @include breakpoint($large) {
     color: inherit;
     
     .visible-links{
-      width: calc(100% / 8);
-      padding: 0 36px;
       display: inline-block;
       float: left;
-
+      text-align: left;
+      
       > ul{
+        width: 100%;
         line-height: 1;
         margin: 0;
+        display: inline-flex;
 
-        li{
-          display: block;
-          position: relative;
+        > li{
           transition: opacity 0.25s;
           color: $light-gray;
+          font-weight: 600;
+          width: calc((100vw - 16px) / 8);
+          padding-left: 36px;
+          
+          &:not(:nth-of-type(2)){
+            order: 1;
+          }
+
+          &:nth-of-type(2){
+            margin-left: auto;
+            
+            p, div{
+              font-size: 0.9rem;
+            }
+
+            h3{
+              font-size: inherit;
+              line-height: 1.2;
+              margin: 1rem 0 0;
+            }
+          }
 
           &.active{
-            color: inherit;
-            font-weight: 600; 
+            color: black;
             position: relative;
           }
 
@@ -71,12 +97,21 @@
         }
       } 
     }
+    
+
+    .other-links{
+      width: calc(100% / 8);
+      line-height: 1;
+      padding: 0 36px;
+      margin-top: 0;
+      vertical-align: top;
+      margin-left: auto;
+    }
   }
 }
 
 .masthead__menu-item {
   list-style-type: none;
-  white-space: nowrap;
   letter-spacing: -0.08em;
 
   a {

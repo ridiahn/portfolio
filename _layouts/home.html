@@ -1,7 +1,36 @@
 ---
 layout: default
 ---
+
+
 <body>
+  {% include list_works.html %}
+  {% assign posts = "" | split: ',' %}
+  <section class="works">
+    <h3>{{ site.data.ui-text[site.locale].recent_works | default: "최근 작업" }}</h3>
+    {{posts}}
+    <ul class="category_works">
+      {% for name in type_work %}
+        {% assign post = site.posts | where_exp: "post", "post.areas contains name" | first %}
+        {% assign posts = posts | push: post | uniq %}
+        <li>
+          {{ name }}
+        </li>
+      {% endfor %}
+      <li><span class="years">2011-24</span></li>
+    </ul>
+    <ul class="recent_works">
+      {% for post in posts limit: 4%}
+        <li>
+            <a href="{{post.url | relative_url }}">
+              <img src="{{post.header.teaser | relative_url }}" alt="{{post.title}} 더보기">
+            </a>
+        </li>
+      {% endfor %}
+      <li><a class="more" href="./categories/work">더보기</a></li>
+    </ul>
+  </section>
+
   <section class="about">
     <h2>{{ item.title }}</h2>
     {% assign pageabout = site.pages | where: 'permalink', '/about' %}
@@ -9,25 +38,6 @@ layout: default
       <p>{{ item.excerpt }}</p>
       <a class="more" href="{{ item.url | relative_url }}">더보기</a>
     {% endfor %}
-  </section>
-
-  <section class="work_recent">
-    <h2>{{ site.data.ui-text[site.locale].recent_works | default: "최근 작업" }}</h2>
-    <a class="more" href="./categories/work">더보기</a>
-    <ul>
-      {% include list_works.html %}
-      {% for name in type_work %}
-      {% assign post = site.posts | where_exp: "post", "post.areas contains name" | first %}
-        <li>
-          <h3>{{name}}</h3>
-          {% if post %}
-            <a href="{{post.url | relative_url }}">
-              <img src="{{post.header.teaser | relative_url }}" alt="{{name}}분야 최근 작업 보기">
-            </a>
-          {% endif %}
-        </li>
-      {% endfor %}
-    </ul>
   </section>
 </body>
 

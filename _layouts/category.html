@@ -1,6 +1,7 @@
 ---
 layout: archive
 ---
+{% include list_works.html %}
 
 <div class="taxonomy__index">
 <h3 class="hidden">필터</h3>
@@ -8,7 +9,6 @@ layout: archive
     <li class="active">
       전체
     </li>
-    {% include list_works.html %}
     {% for name in type_work %}
     <li>
       {{ name }}

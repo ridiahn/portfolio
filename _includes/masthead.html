@@ -11,18 +11,44 @@
               <span class="site-logo" href="{{ '/' | relative_url }}"><img src="{{ logo_path | relative_url }}" alt="{{ site.masthead_title | default: site.title }}"></span>
             {% endunless %}
             {% endcomment %}
-           {{ site.masthead_title | default: site.title }}
+            포트폴리오
           </a>
-          <span class="years">2011-24</span>
         </h1>
         <div class="visible-links">
           <ul>
           {%- for link in site.data.navigation.main -%}
             <li class="masthead__menu-item">
-              <a href="{{ link.url | relative_url }}"{% if link.description %} title="{{ link.description }}"{% endif %}>{{ link.title }}</a>
+              <a href="{{ link.url | relative_url }}"{% if link.description %} title="{{ link.description }}"{% endif %}>
+                <h2>{{ link.title }}</h2> 
+              </a>
+              {% if link.url == "/about/" %}
+                <p>{{author.bio}}</p>
+                <div class="contact">
+                  <ul>
+                    <li>
+                      <h3>문의</h3>  
+                      <a href="mailto:{{ author.email }}">{{ author.email }}</a>
+                    </li>
+                    <li>
+                      <h3>지역</h3>  
+                      <p>{{ author.location }}</p>
+                    </li>
+                  </ul>
+                </div>
+              {% endif %}
             </li>
           {%- endfor -%}
           </ul>
+        </div>
+
+        <div class="other-links">
+          {% if author.links %}
+            {% for link in author.links %}
+              {% if link.label and link.url %}
+                <li><a href="{{ link.url }}" rel="nofollow noopener noreferrer">{{ link.label }}</a></li>
+              {% endif %}
+            {% endfor %}
+          {% endif %}
         </div>
         {% if site.search == true %}
         <button class="search__toggle" type="button">
