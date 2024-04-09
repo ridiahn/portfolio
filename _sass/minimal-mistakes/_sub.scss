@@ -8,9 +8,6 @@ $content_start : 50vh;
     top: 0;
 
     h1{
-      a ~ span{
-        visibility: hidden;
-      }
     }
   }
 
@@ -122,7 +119,7 @@ $content_start : 50vh;
 
   .toc{
     position: absolute;
-    left:calc(100% / 8);
+    right:36px;
     top: 0;
     margin-top: 0;
     width: calc(100% / 8);
@@ -130,6 +127,7 @@ $content_start : 50vh;
     // margin-bottom: 10vh;
     height: fit-content;
     font-size: 0.9rem;
+    text-align: right;
     
     header{
       display: none;

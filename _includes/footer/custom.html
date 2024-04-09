@@ -1,5 +1,14 @@
 <!-- start custom footer snippets -->
-
+<div class="other-links">
+  {% if author.links %}
+    {% for link in author.links %}
+      {% if link.label and link.url %}
+        <li><a href="{{ link.url }}" rel="nofollow noopener noreferrer">{{ link.label }}</a></li>
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+  <li><a href="mailto:{{ author.email }}">이메일</a></li>
+</div>
 <p>{{ site.data.ui-text[site.locale].powered_by | default: "Powered by" }} <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> <span>&amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</span></p>
 
 <!-- {% unless site.atom_feed.hide %}

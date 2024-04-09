@@ -4,6 +4,7 @@ excerpt: "아이디어의 목적에 의한, 사용자를 위한, 아름(나)다�
 sitemap: false
 permalink: /about
 layout: about
+profile: /assets/img/heeraahn.png
 after_footer_scripts:
 - /assets/js/about.js
 ---
