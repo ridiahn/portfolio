@@ -5,22 +5,26 @@ layout: default
 
 <body>
   {% include list_works.html %}
+  {% assign posts = site.posts | limit : 3 | reverse %}
+
   <section class="works">
     <h3>{{ site.data.ui-text[site.locale].recent_works | default: "최근 작업" }}</h3>
-    {{posts}}
     <ul class="category_works">
       {% for name in type_work %}
-        {% assign post = site.posts | where_exp: "post", "post.areas contains name and post.areas.size == 1" | first %}
         <li>
           <h4>{{ name }}</h4>
-          {% if post %}
+        </li>
+      {% endfor %}
+    </ul>
+    <ul class="recent_works">
+      <li>         
+        {% for post in posts %}
           <a href="{{post.url | relative_url }}">
             <img src="{{post.header.teaser | relative_url }}" alt="{{post.title}} 더보기">
           </a>
-          {% endif %}
-        </li>
-      {% endfor %}
-      <li class="more"><a class="more" href="./works/">더보기</a></li>
+        {% endfor %}
+      </li>
+      <!-- <li class="more"><a class="more" href="./works/">더보기</a></li> -->
     </ul>
   </section>
 
@@ -28,9 +32,8 @@ layout: default
     {% assign pageabout = site.pages | where: 'permalink', '/about' %}
     {% for item in pageabout %}
       <h3>{{ item.title }}</h3>
-      <img src={{item.profile}} alt="안희라 프로필" />
       <p>{{ item.excerpt }}</p>
-      <a class="more" href="{{ item.url | relative_url }}">더보기</a>
+      <img src={{item.profile}} alt="안희라 프로필" />
     {% endfor %}
   </section>
 </body>

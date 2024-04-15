@@ -1,43 +1,49 @@
 {% capture logo_path %}{{ site.logo }}{% endcapture %}
 
 <header class="masthead">
-  <div class="masthead__inner-wrap">
-    <div class="masthead__menu">
-      <nav id="site-nav">
-        <h1>
-          <a class="site-title" href="{{ '/' | relative_url }}">
-            {% comment %}
-            {% unless logo_path == empty %}
-              <span class="site-logo" href="{{ '/' | relative_url }}"><img src="{{ logo_path | relative_url }}" alt="{{ site.masthead_title | default: site.title }}"></span>
-            {% endunless %}
-            {% endcomment %}
-            {{site.url}}
+  <nav id="site-nav">
+    <h1>
+      <a class="site-title" href="{{ '/' | relative_url }}">
+        {% comment %}
+        {% unless logo_path == empty %}
+          <span class="site-logo" href="{{ '/' | relative_url }}"><img src="{{ logo_path | relative_url }}" alt="{{ site.masthead_title | default: site.title }}"></span>
+        {% endunless %}
+        {% endcomment %}
+        <span>&copy;</span>{{site.name}}
+      </a>
+      <span>11-{{site.time | date: '%y'}}</span>
+    </h1>
+    <div class="visible-links">
+      <ul>
+      {%- for link in site.data.navigation.main -%}
+        <li class="masthead__menu-item">
+          <a href="{{ link.url | relative_url }}"{% if link.description %} title="{{ link.description }}"{% endif %}>
+            <h2>{{ link.title }}</h2> 
           </a>
-          <span>2011-{{site.time | date: '%y'}}</span>
-        </h1>
-        <div class="visible-links">
-          <ul>
-          {%- for link in site.data.navigation.main -%}
-            <li class="masthead__menu-item">
-              <a href="{{ link.url | relative_url }}"{% if link.description %} title="{{ link.description }}"{% endif %}>
-                <h2>{{ link.title }}</h2> 
-              </a>
-            </li>
-          {%- endfor -%}
-          </ul>
-        </div>
-        {% if site.search == true %}
-        <button class="search__toggle" type="button">
-          <span class="visually-hidden">{{ site.data.ui-text[site.locale].search_label | default: "Toggle search" }}</span>
-          <i class="fas fa-search"></i>
-        </button>
-        {% endif %}
-        <button class="greedy-nav__toggle hidden" type="button">
-          <span class="visually-hidden">{{ site.data.ui-text[site.locale].menu_label | default: "Toggle menu" }}</span>
-          <div class="navicon"></div>
-        </button>
-        <ul class="hidden-links hidden"></ul>
-      </nav>
+        </li>
+      {%- endfor -%}
+      </ul>
     </div>
-  </div>
+    <div class="other-links">
+      {% if author.links %}
+        {% for link in author.links %}
+          {% if link.label and link.url %}
+            <li><a href="{{ link.url }}" rel="nofollow noopener noreferrer">{{ link.label }}</a></li>
+          {% endif %}
+        {% endfor %}
+      {% endif %}
+      <li><a href="mailto:{{ author.email }}">이메일</a></li>
+    </div>
+    {% if site.search == true %}
+    <button class="search__toggle" type="button">
+      <span class="visually-hidden">{{ site.data.ui-text[site.locale].search_label | default: "Toggle search" }}</span>
+      <i class="fas fa-search"></i>
+    </button>
+    {% endif %}
+    <button class="greedy-nav__toggle hidden" type="button">
+      <span class="visually-hidden">{{ site.data.ui-text[site.locale].menu_label | default: "Toggle menu" }}</span>
+      <div class="navicon"></div>
+    </button>
+    <ul class="hidden-links hidden"></ul>
+  </nav>
 </header>

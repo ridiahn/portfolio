@@ -1,5 +1,5 @@
 .layout--category{
-  // background-color: white;
+  background-color: mix($gray, $background-color-light, 0.7);
   // filter: invert(100%) hue-rotate(180deg);
 
   .archive{
@@ -33,7 +33,6 @@
       line-height: 1.2;
       font-weight: 400;
       font-family: $serif;
-      color: $light-gray;
 
       li{
         display: inline-block;
@@ -55,7 +54,6 @@
   .archive .list{
     width: 100%;
     $unit_width: calc((100vw - 20px) / 5);
-    //산출 : 뷰포트 - 스크롤바 / 한줄에 들어가는 아이템 갯수
 
     &.row{
       display: flex;
@@ -68,9 +66,11 @@
         padding: 36px 0;
 
         &:first-of-type{
+          
           h3.year_name{
             position: relative;
             overflow: visible;
+
             &::before{
               content: "20";
               position: absolute;
@@ -93,7 +93,7 @@
           font-weight: lighter;
           line-height: 1;
           text-align: right;
-          color: $lighter-gray;
+          color: rgba($primary-color, 0.5)
         }
 
         > ul{

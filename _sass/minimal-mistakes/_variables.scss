@@ -26,7 +26,6 @@ $paragraph-indent: false !default; // true, false (default)
 $indent-var: 1.2em !default;
 
 /* system typefaces */
-$point-font: 'Conviva';
 $serif: 'Eulyoo1945', Georgia, Times, serif !default;
 $sans-serif: "SUIT Variable", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 $monospace: Monaco, Consolas, "Lucida Console", monospace !default;
@@ -71,29 +70,31 @@ $h-size-6: 1.125rem !default; // ~16px
    Colors
    ========================================================================== */
 
-$gray: #7a8288 !default;
+$black: rgb(9, 12, 12)!default;
+$gray: rgb(125, 129, 133) !default;
 $dark-gray: mix(#000, $gray, 40%) !default;
 $darker-gray: mix(#000, $gray, 60%) !default;
 $light-gray: rgba(0, 0, 0, 0.3) !default;
 $lighter-gray: rgba(0, 0, 0, 0.15) !default;
 
-$background-color: #fff !default;
-$color_bg: rgb(235, 231, 217);
-$code-background-color: #fafafa !default;
-$code-background-color-dark: $light-gray !default;
-$text-color: mix(#000, $gray, 30%) !default;
-$muted-text-color: mix(#fff, $text-color, 20%) !default;
-$border-color: $lighter-gray !default;
-$form-background-color: $lighter-gray !default;
-$footer-background-color: $lighter-gray !default;
 
-$primary-color: #6f777d !default;
+$primary-color: rgb(57, 71, 71) !default;
+$secondary-color: rgb(198, 187, 194) !default;
 $success-color: #3fa63f !default;
 $warning-color: #d67f05 !default;
 $danger-color: #ee5f5b !default;
 $info-color: #3b9cba !default;
 $focus-color: $primary-color !default;
 $active-color: mix(#fff, $primary-color, 80%) !default;
+
+$background-color:#fff;
+$background-color-light: rgba($secondary-color, 0.25) !default;
+$background-color-dark: $primary-color;
+$code-background-color: #fafafa !default;
+$code-background-color-dark: $light-gray !default;
+$muted-text-color: mix(#fff, $black, 20%) !default;
+$border-color: $lighter-gray !default;
+$form-background-color: $lighter-gray !default;
 
 /* YIQ color contrast */
 $yiq-contrasted-dark-default: $dark-gray !default;
@@ -128,7 +129,7 @@ $youtube-color: #bb0000 !default;
 $xing-color: #006567 !default;
 
 /* links */
-$link-color: #000 !default;
+$link-color: #111717 !default;
 $link-color-hover: mix(#fff, $link-color, 20%) !default;
 $link-color-visited: mix(#fff, $link-color, 45%) !default;
 $masthead-link-color: $primary-color !default;

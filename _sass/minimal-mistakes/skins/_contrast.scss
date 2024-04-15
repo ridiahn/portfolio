@@ -3,15 +3,15 @@
    ========================================================================== */
 
 /* Colors */
-$text-color: #000 !default;
-$muted-text-color: $text-color !default;
+$black: #000 !default;
+$muted-text-color: $black !default;
 $primary-color: #ff0000 !default;
-$border-color: mix(#fff, $text-color, 75%) !default;
+$border-color: mix(#fff, $black, 75%) !default;
 $footer-background-color: #000 !default;
 $link-color: #0000ff !default;
-$masthead-link-color: $text-color !default;
-$masthead-link-color-hover: $text-color !default;
-$navicon-link-color-hover: mix(#fff, $text-color, 80%) !default;
+$masthead-link-color: $black !default;
+$masthead-link-color-hover: $black !default;
+$navicon-link-color-hover: mix(#fff, $black, 80%) !default;
 
 /* contrast syntax highlighting (base16) */
 $base00: #000000 !default;
@@ -38,7 +38,7 @@ $base0f: #b18a3d !default;
   .notice--warning,
   .notice--success,
   .notice--danger {
-    color: $text-color;
+    color: $black;
   }
 }
 

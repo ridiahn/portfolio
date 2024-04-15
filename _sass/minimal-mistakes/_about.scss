@@ -1,7 +1,7 @@
-$color_bg: rgb(235, 231, 217);
+$background-color-light: rgb(235, 231, 217);
 
 .layout--about{
-  background: $color_bg;
+  background: $background-color-light;
 
   @mixin bigletter{
     color: black;
@@ -48,7 +48,7 @@ $color_bg: rgb(235, 231, 217);
     margin-top: 10vh;
 
     // &::before{
-    //   background: repeating-radial-gradient(rgba($color_bg, 0) 0 0.0001%,rgba(255,255,255, 0) 0 0.0002%) 50% 0 / 0 500px,
+    //   background: repeating-radial-gradient(rgba($background-color-light, 0) 0 0.0001%,rgba(255,255,255, 0) 0 0.0002%) 50% 0 / 0 500px,
     //   repeating-conic-gradient(rgba(0,0,0, 0.15) 0 0.0001%,rgba(255,255,255, 0) 0 0.0002%) 60% 60%/2000px 2000px;
     //   background-blend-mode: difference;
     //   // animation: tv-static .5s infinite linear;

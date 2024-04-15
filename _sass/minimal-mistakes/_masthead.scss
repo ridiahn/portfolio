@@ -4,7 +4,6 @@
 
 .masthead {
   width: 100%;
-  color: black;
   -webkit-animation: $intro-transition;
   animation: $intro-transition;
   -webkit-animation-delay: 0.15s;
@@ -12,12 +11,8 @@
   z-index: 1;
 }
 
-.masthead__menu {
-  margin-left: 0;
-  margin-right: 0;
-}
-
 #site-nav {
+  width: 100%;
   font-size: 1.5rem;
 
   a {
@@ -27,11 +22,10 @@
   h1{
     font-size:  inherit;
     font-weight: 500;
-    color: black;
+    color: inherit;
     line-height: 1;
     margin-bottom: 0;
     padding: 0;
-    font-family: $serif;
     display: inline-block;
     width: calc(100% / 8 * 3);
 
@@ -42,7 +36,6 @@
 
     span{
       display: inline-block;
-      margin: auto;
     }
   }
 
@@ -58,9 +51,10 @@
     color: inherit;
     
     .visible-links{
+      width: 12.5vw;
       font-size: 0.9em;
       display: inline-block;
-      width: calc(100% / 8 * 2);
+      width: fit-content;
       padding: 0 36px;
       text-align: center;
 
@@ -82,24 +76,8 @@
           font-weight: 600;
           padding: 0 .5em;
           color: $light-gray;
-          display: inline-block;
+          display: block;
           width: fit-content;
-          
-          &:after{
-            display: inline-block;
-            content: "/";
-            position: absolute;
-            left: 0;
-            top: 0.1em;
-          }
-
-          &:nth-of-type(2){
-            h2{
-              &::before{
-                content:"ⓒ";
-              }
-            }
-          }
 
           &.active{
             color: black;
@@ -116,12 +94,11 @@
       } 
     }
     
-
     .other-links{
-      width: calc(100% / 8);
+      width: 12.5vw;
       line-height: 1.2;
       padding: 0 36px;
-      vertical-align: top;
+      display: inline-block;
     }
   }
 }
