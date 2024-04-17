@@ -1,7 +1,6 @@
 .layout--category{
-  background-color: mix($gray, $background-color-light, 0.7);
-  // filter: invert(100%) hue-rotate(180deg);
-
+  background-color: $background-color-dark;
+  
   .archive{
     @include breakpoint($large){
       width: 100%;
