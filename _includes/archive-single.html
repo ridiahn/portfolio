@@ -16,11 +16,6 @@
 {% endif %}
 
 <li class="{{ include.type | default: 'list' }}__item {{include.class()}}">
-    <figure>  
-    {% if teaser %}
-      <img class="teaser" src="{{ teaser | relative_url }}" alt="">
-    {% endif %}
-    </figure>
     <h3 class="archive__item-title no_toc" itemprop="headline">
       {% if post.link %}
         <a href="{{ post.link }}">{{ title }}</a> <a href="{{ post.url | relative_url }}" rel="permalink"><i class="fas fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
@@ -42,4 +37,9 @@
     <p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify | strip_html | truncate: 160 }}</p>
   {% endif %}
   {% include page__workdate.html %}
+  <figure>  
+    {% if teaser %}
+      <img class="teaser" src="{{ teaser | relative_url }}" alt="">
+    {% endif %}
+  </figure>
 </li>

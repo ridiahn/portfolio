@@ -18,10 +18,10 @@ layout: archive
 </div>
 
 {% assign postsInYear = site.posts | where_exp: "item", "item.hidden != true" | group_by_exp: 'post', 'post.start_date | date: "%y"' | reverse %}
-<section class="list row">
+<section class="list">
   {% for year in postsInYear %}
-  <div id="{{ year.name }}" class="year_div">
-    <h3 class="year_name"> {{ year.name }}</h3>
+  <div id="{{ year.name }}" class="year">
+    <h3 class="year_name"><span>{{ year.name }}</span></h3>
     <ul>
       <!-- section calss .list.col 적용시, include부문에 class="bg_modal"추가 -->
       {% for post in year.items %}

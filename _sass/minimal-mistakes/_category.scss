@@ -1,6 +1,7 @@
 .layout--category{
   background-color: $background-color-dark;
-  
+  min-height: 100vh;
+
   .archive{
     @include breakpoint($large){
       width: 100%;
@@ -15,17 +16,12 @@
   
   .back-to-top{
     order: 4;
-    align-self: flex-end;
   }
 
   .taxonomy__index{
     width: fit-content;
     padding: 0 36px;
     margin: 0;
-    width: calc(100% / 8 * 2);
-    float: right;
-    text-align: right;
-
     ul{
       margin: 0;
       font-size: 1.5rem;
@@ -50,110 +46,110 @@
     }
   }
 
-  .archive .list{
+  section.list{
     width: 100%;
-    $unit_width: calc((100vw - 20px) / 5);
 
-    &.row{
+    .year[id]{
       display: flex;
-      flex-wrap: wrap;
+      justify-content: space-between;
+      height: fit-content;
+      border-bottom: solid 1px $light-gray;
+      padding: 36px 0;
 
-      .year_div{
-        display: inline-block;
-        height: fit-content;
-        border-bottom: solid 1px $light-gray;
-        padding: 36px 0;
+      h3.year_name{
+        order: 1;
+        height: 100%;
+        width: fit-content;
+        font-family: $serif;
+        font-style: italic;
+        font-size: 2.5rem;
+        letter-spacing: -0.05em;
+        font-weight: lighter;
+        line-height: 1;
+        text-align: center;
+        width: calc(100% / 8);
 
-        &:first-of-type{
-          
-          h3.year_name{
-            position: relative;
-            overflow: visible;
+        span{
+          border-left: solid 4px $black;
+          border-right: solid 4px $black;
+          border-radius: 1em;
+          padding: 0 0.5em 0 0.35em;
+        }
+      }
 
-            &::before{
-              content: "20";
-              position: absolute;
-              transform: translateX(-1.1em);
+      $list-size : 7; 
+      > ul{
+        width: calc(100% / 8 * #{$list-size});
+        margin: 0;
+        
+        > li{
+          //display: table-cell;
+          //vertical-align: bottom;
+          display: flex;
+          width: 100%;
+          margin-bottom: 0;
+          position: relative;
+
+          h3{
+            order: 1;
+            font-size: 2.5rem;
+            color: $black;
+            font-weight: 500;
+            padding: 0 36px;
+            margin-right:auto;
+            //width: calc(100% / #{$list-size} * 3);
+
+            a{
+              color: inherit;
             }
           }
-        }
 
-        h3.year_name{
-          float: left;
-          display: inline-block;
-          width: $unit_width;
-          height: 100%;
-          margin: 0;
-          padding: 0 36px;
-          font-family: $serif;
-          font-style: italic;
-          font-size: 7vw;
-          letter-spacing: -0.05em;
-          font-weight: lighter;
-          line-height: 1;
-          text-align: right;
-          color: rgba($primary-color, 0.5)
-        }
-
-        > ul{
-          display: inline-flex;
-          margin: 0;
-          
-          > li{
-            //display: table-cell;
-            //vertical-align: bottom;
-            width: $unit_width;
-            height: 40vh;
-            padding: 0 36px;
-            margin-bottom: 0;
-            position: relative;
-
-            h3{
-              font-size: 1.5rem;
-              color: black;
-              font-weight: 500;
-              position: relative;
-
-              a{
-                color: inherit;
-              }
-            }
-            h3 ~ ul{
+          h3 ~ ul{
+            margin: 0;
+            > li {
               margin: 0;
-              > li {
-                margin: 0;
-                display: inline-block;
-              }
+              line-height: 1.2;
             }
-            strong{
-              visibility: hidden;
-              color:transparent;
-              position: absolute;
-              z-index: -2;
-            }
+          }
 
-            figure{
+          strong{
+            visibility: hidden;
+            color:transparent;
+            position: absolute;
+            z-index: -2;
+          }
+
+          figure{
+            order: 1;
+            text-align: center;
+            height: 10vh;
+            width: calc(100% / #{$list-size});
+            padding: 0;
+            transform-origin: center;
+
+            img{
               height: 100%;
-              width: 100%;
-              padding: 0;
-
-              img{
-                height: inherit;
-                width: auto;
-                object-fit: contain;
-              }
+              width: auto;
+              object-fit: contain;
             }
+          }
 
-            > *:not(h3, .areas, figure){
-              font-size: .9rem;
-              visibility: hidden;
-              position: absolute;
-            }
+          &:hover{
+            > figure{
+              height: 20vh;
+              transform: scale(1.5);
+            } 
+          }
 
-      
-            &:hover{   
-            }
+          .areas{
+            padding: 0 36px;
+            //text-align: right;
+            width: calc(100% / #{$list-size});
+          } 
 
+          > *:not(h3, .areas, figure){
+            visibility: hidden;
+            position: absolute;
           }
         }
       }
