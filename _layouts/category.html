@@ -5,9 +5,10 @@ layout: archive
 
 <div class="taxonomy__index">
 <h3 class="hidden">필터</h3>
+  <span>2011-{{site.time | date: '%y'}}</span>
   <ul class="filter">
     <li class="active">
-      전체
+      모든 작업
     </li>
     {% for name in type_work %}
     <li>
@@ -16,19 +17,16 @@ layout: archive
     {% endfor %}
   </ul>
 </div>
-
 {% assign postsInYear = site.posts | where_exp: "item", "item.hidden != true" | group_by_exp: 'post', 'post.start_date | date: "%y"' | reverse %}
 <section class="list">
-  {% for year in postsInYear %}
-  <div id="{{ year.name }}" class="year">
-    <h3 class="year_name"><span>{{ year.name }}</span></h3>
-    <ul>
-      <!-- section calss .list.col 적용시, include부문에 class="bg_modal"추가 -->
+  <ul>
+    {% for year in postsInYear %}
+    <!-- section calss .list.col 적용시, include부문에 class="bg_modal"추가 -->
       {% for post in year.items %}
         {% include archive-single.html type="grid" %}
       {% endfor %}
-    </ul>
-  </div>
-  {% endfor %}
+    {% endfor %}
+  </ul>
+  <a href="#page-title" class="back-to-top">{{ site.data.ui-text[site.locale].back_to_top | default: 'Back to Top' }} &uarr;</a>
 </section>
-<!-- <a href="#page-title" class="back-to-top">{{ site.data.ui-text[site.locale].back_to_top | default: 'Back to Top' }} &uarr;</a> -->
+

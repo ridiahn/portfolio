@@ -74,8 +74,8 @@ $black: rgb(9, 12, 12)!default;
 $gray: rgb(125, 129, 133) !default;
 $dark-gray: mix(#000, $gray, 40%) !default;
 $darker-gray: mix(#000, $gray, 60%) !default;
-$light-gray: rgba(0, 0, 0, 0.3) !default;
-$lighter-gray: rgba(0, 0, 0, 0.15) !default;
+$light-gray: mix(#fff, $gray, 30%) !default;
+$lighter-gray: mix(#fff, $gray, 5%) !default;
 
 
 $primary-color: rgb(57, 71, 71) !default;
@@ -88,7 +88,7 @@ $focus-color: $primary-color !default;
 $active-color: mix(#fff, $primary-color, 80%) !default;
 
 $background-color:#fff;
-$background-color-light: rgba($secondary-color, 0.25) !default;
+$background-color-light: rgba($gray, 0.5) !default;
 $background-color-dark: $primary-color;
 $code-background-color: #fafafa !default;
 $code-background-color-dark: $light-gray !default;

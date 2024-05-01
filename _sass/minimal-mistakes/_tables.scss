@@ -27,7 +27,7 @@ thead {
 tbody{
   display: table;
   width: 100%;
-  color: rgba($color: black, $alpha: 0.65);
+  color: inherit;
 }
 
 tr:not(thead tr){
@@ -58,6 +58,7 @@ th {
     //position: absolute;
     top: 0;
     left: 0;
+    color: $gray;
     table-layout:fixed;
     transition: opacity 0.25s;
     font-weight: 600;
@@ -83,6 +84,7 @@ th {
     counter-reset: item_num;
 
     td{
+      vertical-align: middle;
       display: table-cell;
       padding: 0.5rem 0;
     }
@@ -111,7 +113,7 @@ th {
     width: 45%;
     
     a{
-      vertical-align: center;
+      color: inherit;
       font-weight: 600;
       line-height: 1;
     }

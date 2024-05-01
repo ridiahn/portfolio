@@ -473,6 +473,7 @@ $pageNav-height-lg : 54px;
 .nav__title {
   margin: 0;
   padding: 0.5rem 0.75rem;
+  color: inherit;
   font-family: $sans-serif-narrow;
   font-size: $h-size-3;
   font-weight: bold;
@@ -496,7 +497,6 @@ $pageNav-height-lg : 54px;
 .toc {
   .nav__title {
     font-size: inherit;
-    font-weight: 600;
     padding: 0;
 
     i{
@@ -529,7 +529,7 @@ $pageNav-height-lg : 54px;
   }
 
   li{
-    color: $light-gray;
+    color: inherit;
     text-align: inherit;
     position: relative;
 
@@ -538,11 +538,7 @@ $pageNav-height-lg : 54px;
       color: inherit;
       padding: 0 calc(1em / 3);
       counter-increment: num;
-      content: counter(num);
-      border-left: solid 2px $lighter-gray;
-      border-right: solid 2px $lighter-gray;
-      border-radius: 1rem;
-      line-height: 0.8;
+      content: "0"counter(num);
     }
   }
 

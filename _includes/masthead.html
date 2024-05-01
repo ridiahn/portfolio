@@ -9,9 +9,8 @@
           <span class="site-logo" href="{{ '/' | relative_url }}"><img src="{{ logo_path | relative_url }}" alt="{{ site.masthead_title | default: site.title }}"></span>
         {% endunless %}
         {% endcomment %}
-        <span>&copy;</span>{{site.name}}
+        <i>&copy;</i><span class="years">11-{{site.time | date: '%y'}}</span>{{site.name}}
       </a>
-      <span>11-{{site.time | date: '%y'}}</span>
     </h1>
     <div class="visible-links">
       <ul>
@@ -22,17 +21,8 @@
           </a>
         </li>
       {%- endfor -%}
+        <li class="masthead__menu-item"><a href="mailto:{{ author.email }}"><h2>문의</h2></a></li>
       </ul>
-    </div>
-    <div class="other-links">
-      {% if author.links %}
-        {% for link in author.links %}
-          {% if link.label and link.url %}
-            <li><a href="{{ link.url }}" rel="nofollow noopener noreferrer">{{ link.label }}</a></li>
-          {% endif %}
-        {% endfor %}
-      {% endif %}
-      <li><a href="mailto:{{ author.email }}">이메일</a></li>
     </div>
     {% if site.search == true %}
     <button class="search__toggle" type="button">

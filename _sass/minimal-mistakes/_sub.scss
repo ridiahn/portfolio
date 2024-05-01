@@ -1,11 +1,12 @@
 
 $content_start : 50vh; 
 .layout--single{
-  background: $background-color-light;
+  background: $primary-color;
+  color: $secondary-color;
   
-  .masthead {
-    position: fixed;
-    top: 0;
+  .masthead{
+    position: absolute;
+    right: 0;
 
     h1{
     }
@@ -14,6 +15,7 @@ $content_start : 50vh;
   h3{
     font-size: 1rem;
     margin-bottom: 1em;
+    color: inherit;
 
     strong{
       font-size: 2.5rem;
@@ -21,9 +23,9 @@ $content_start : 50vh;
   }
 
   h4{
-    font-size: 0.9rem;
+    color: inherit;
+    font-size: 1rem;
     font-weight: 600;
-    color: $light-gray;
     line-height: 1;
     margin-bottom: 0;
   }
@@ -33,16 +35,26 @@ $content_start : 50vh;
     display: none;
   }
 
+  p{
+    font-size: 1.5rem;
+  }
+
+  #main{
+    position: relative;
+  }
 
   .page__header {
-    color: black;
 
     @include breakpoint($medium) {
       width: 100%;
+      padding: 0;
       display: flex;
       flex-wrap: wrap;
-      margin-bottom: 15vh;
-      
+      position: relative;
+      height: 100vh;
+      padding-bottom: 5vh;
+      align-content: space-between;
+
       .fixed{
         position: fixed;
         z-index: 2;
@@ -54,26 +66,23 @@ $content_start : 50vh;
       display: block;
       line-height: 1;
       overflow: visible;
+      color: inherit;
 
       @include breakpoint($medium) {
-        order: 1;
         font-size: 7vw;
         font-weight: 600;
-        text-align: right;
-        width: calc(100% / 8 * 4);
-        height: calc(7vw * 3);
-        margin-top: 7vw;
-        padding: 0 36px;
-        margin-left: auto;
+        max-width: calc(100% / 8 * 6);
+        max-height: calc(7vw * 3);
         overflow: hidden;
-        display: inline-flex;
-        align-items: flex-end;
+        padding-right: 36px;
+        order: 2;
       }
     }
 
+    
     figure{ 
-      order: 2;
-       
+      padding: 0 36px;
+
       figcaption{
         display: none;
       }
@@ -84,58 +93,58 @@ $content_start : 50vh;
       }
 
       &.full{
-        margin-top: 1rem;
+        order: 0;
         width: 100%;
-        height: 75vh;
-      }
-
-      &.half{
-        width: 50%;
-        max-height: 75vh;
-        margin-left: auto;
+        height: 60vh;
 
         img{
           object-fit: cover;
-          height: fit-content;
-          object-position: center;
         }
       }
 
       &.thumb{
-        position: absolute;
-        right: calc(100% / 8);
-        top: 0;
-        width: calc(100% / 8 * 2);
-        height: 40vh;
-        text-align: right;
-
+        order: 2;
+        position: relative;
+        padding: 0;
+        width: calc(100% / 8);
+        
         img{
-          width: auto;
-          background-color: aqua;
+          top: calc(7vw / 2 * -1);
+          right: 36px;
+          position: absolute;
+          object-fit: contain;
         }
       }
     }
   }
 
   .toc{
-    position: absolute;
-    right:36px;
-    top: 0;
-    margin-top: 0;
-    width: calc(100% / 8);
-    // margin-left: 75%;
-    // margin-bottom: 10vh;
+    order: -1;
     height: fit-content;
-    font-size: 0.9rem;
-    text-align: right;
-    
+    min-width: calc(100% / 8);
+    width: fit-content;
+    font-size: 1rem;
+    color: rgba($secondary-color, 0.25);
+    font-weight: bold;
+    border-top: solid 1px rgba($secondary-color, 0.25);
+    padding: 0.5rem 0;
+    margin-left: 36px;
+    margin-right: calc(100% / 8 * 6);
+
     header{
-      display: none;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
     }
 
-    li{
-      &::before{
-        content: none;
+    header + ul{
+      li{
+        //padding: 0.25rem  0;
+        text-align: right;
+        padding-left: 2em;
+        //border-bottom: solid 1px $primary-color;
+        &::before{
+          left: 0;
+        }
       }
     }
   }
@@ -144,51 +153,27 @@ $content_start : 50vh;
     order: 1;
     font-size: 1rem;
     line-height: 1;
-    padding: 0 36px;
     display: inline-flex;
-    align-items: flex-end;
-    height: fit-content;
-    width: 50%;
-    margin-top: calc(7vw * 3);
+    flex-direction: column;
+    width: calc(100% / 8);
+    margin-left: 36px;
+    margin-right: auto;
+    padding: 0;
 
     strong{
-      display: block;
       line-height: 1;
-      font-size: 0.9rem;
     }
 
     ul{
       font-weight: 500;
       margin: 0;
-
-      li{
-        margin: 0;
-        text-transform: uppercase;
-        line-height: 1.2;
-      }
-    }
-
-    p,
-    > div{
-      margin-bottom: 0;
-      line-height: 1;
-      padding: 0 36px;
-    }
-
-    .year{
-      font-family: $serif;
-      font-style: italic;
-      font-weight: lighter;
-      line-height: 1;
-      font-size: 7vw;
-      padding: 0 36px 0 0;
-    }
-    
-    .page__taxonomy{
-      line-height: 1;
-
+      float: right;
+      text-align: right;
+      
       li{
         display: inline-block;
+        margin: 0;
+        text-transform: uppercase;
 
         &:not(:last-of-type)::after{
           content: "/";
@@ -196,14 +181,20 @@ $content_start : 50vh;
       }
     }
 
-    .work_date{
-      display: inline-block;
-
-      time:nth-of-type(2){
-        right: 1em;
-
-      }
+    p,
+    > div{
+      padding: .5rem 0;
+      margin-bottom: 0;
+      line-height: 1;
+      border-top: solid 1px rgba($secondary-color, 0.25);
     }
+
+    .year{
+      line-height: 1;
+      font-size: 3rem;
+      // padding: 0 36px;
+    }
+  
   }
   
   .page__header:has(figure.half) ~ .page__content > section:first-of-type{
@@ -214,11 +205,9 @@ $content_start : 50vh;
   .page__content{
     width: 100%;
     max-width: 100%;
-    min-height: 100vh;
     height: fit-content;
     letter-spacing: -0.015em;
     font-size: 1rem;
-    color: black;
     margin-bottom: 25vh;
 
     & > span:last-of-type{
@@ -258,23 +247,22 @@ $content_start : 50vh;
     // }
     
     &:first-of-type{
-      padding-right: 36px;
-  
-      h3,p{
-        padding-top: 0;
-        margin-left: calc(100% / 8 );
+      height: fit-content;
+      margin-top: -5vh;
+
+      h3{
+        width: calc(100% / 8);
+        margin: 0 0 0 calc(100% / 8 * 3);
       }
 
       p{
-        width: calc(100% / 8 * 3);
-        font-weight: 300;
-        max-height: 40vh;
+        width: calc(100% / 8 * 4);
+        padding: 0;
+        font-weight: 600;
         margin-bottom: 0;
-        //column-count: 2;
         letter-spacing: -0.025em;
       }
 
-      
       @include breakpoint($medium) {
       }
     }
@@ -284,18 +272,25 @@ $content_start : 50vh;
       position: relative;
       
       figure{
-        order: 1;
-        width: 100%;
-        height: 80vh;
-        margin: 0 auto 10vh;
+        width: calc(100% / 8 * 6);
+        padding: 0;
+        margin: 0 36px 30vh auto;
         text-align: right;
         vertical-align: bottom;
         overflow: hidden;
-        
+        display: flex;
+        justify-content: flex-end;
+        column-gap: calc(36px / 2);
+
         img{
-          object-fit: contain;
-          height: 100%;
+          border-radius: .5vh;
+          height: 20vh;
+          max-width: calc(100% / 6);
+          object-fit: cover;
+          object-position: top;
           padding: 0;
+          flex: 1;
+          filter: contrast(120%) brightness(90%) grayscale(45%) hue-rotate(20deg);
         }
 
         figcaption{
@@ -304,29 +299,33 @@ $content_start : 50vh;
       }
 
       h3{
-        width: calc((100% / 8) * 2);
-        margin-right: calc((100% / 8) * 5);
-        text-align: right;
-        margin-bottom: 5vh;
-        order: 0;
+        width: calc(100% / 8 * 2);
         padding-right: 0;
+        margin-bottom: 1rem;
+        margin-right: calc(100% / 8 * 6);
       }
 
-      div{
-        flex: 1;
-        max-width: calc((100% / 8) * 4);
-        font-size: 1.5rem;
-        margin-bottom: 10vh;
+      > div{
+        order: 1;
+        margin: 0 0 0 auto;
         padding-right: 36px;
-        order: 0;
-        margin-right: calc(100% / 8);
-        
-        p{
-          padding-left: 36px;
+        width: (100% / 8 * 5);
+
+        h4{
+          display: inline-block;
+          vertical-align: top;
+          width: calc(100% / 5);
+        }
+
+        h4 ~ *{
+          display: inline-block;
+          font-size: inherit;
+          float: right;
+          max-width: calc(100% / 5 * 3);
         }
 
         ul{
-          margin: 0;
+          margin-top: 0;
 
           li{
             position: relative;
@@ -335,11 +334,7 @@ $content_start : 50vh;
             &::before{
               position: absolute;
               left: 0;
-              font-family: $serif;
-              font-style: italic;
-              //content: "√";
-              //font-size: 0.95em;
-              // transform: rotateY(-180deg);
+              font-weight: 600;
               counter-increment: num;
               content: counter(num, decimal-leading-zero);
             }
@@ -351,53 +346,57 @@ $content_start : 50vh;
         font-size: 1em;
         display: inline-flex;
         flex-direction: column;
-        width: fit-content;
-        margin: 0 calc(100% / 8) 0;
+        column-gap: 36px;
+        width: calc(100% / 8);
+        margin: 0 auto 0 36px;
         padding: 0;
-        text-align: right;
-        
-        li{
-          width: 12.5vw;
-          list-style: none;
-        }
-        
+
         > li{
-          &:not(:last-of-type){
-            margin-bottom: 5vh;
-          }
+          padding: 0.5rem 0;
+          width: 100%;
+          list-style: none;
+          border-top: solid 1px rgba($secondary-color, 0.25);
+          display: inherit;
+          justify-content: space-between;
+          flex-wrap: wrap;
 
           ul {
             padding: 0;
-            
+            margin: 0;
+
             li{
-            padding: 0;
-            line-height: 1.2;
+              display: inline-block;
+              padding: 0;
+              line-height: 1.2;
             }
           }
         }
       }
 
       table{
-        align-self: flex-end;
-        order: 2;
-        width: calc((100% / 8) * 5);
+        order: 1;
+        width: calc(100% / 8 * 5);
         margin-bottom: 0;
+        padding-left: 0;
+        padding-right: 36px;
         margin-left: auto;
       }
 
       table.code_list{
         font-weight: 300;
+        font-size: 1rem;
         
         tr{
           border-bottom: 0;
         }
 
         td{
-          padding-top: .5em;
-          padding-bottom: .5em;
+          padding-top: .25em;
+          padding-bottom: .25em;
 
-          a{
-            font-size: 1em;
+          &:first-of-type{
+            font-size: 1.5rem;
+            vertical-align: center;
           }
         }
 
@@ -406,7 +405,7 @@ $content_start : 50vh;
 
     > h3{
       width: 100%;
-      padding: 2rem 36px 0;
+      padding: 0 36px;
       margin-bottom: 0;
     }
     
@@ -466,70 +465,69 @@ $content_start : 50vh;
       height: 100%;
     }
 
+    &:has(.gallery){
+      display: block;
 
-    figure.gallery{
-      display: flex;
-      overflow: unset;
-      height: 100vh;
-
-      div.active{
-        // flex: 1;
-        width: calc(100% / 8 * 5);
-        height: 100%;
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: right top;
-        display: block;
-        transition: all 0.5s;
-      }
-
-      ul{
-        order: 2;
+      figure.gallery{
+        width: 100%;
         padding: 0 36px;
-        margin-top: auto;
-        max-width: calc(100% / 8);
-        display: inline-flex;
-        row-gap: calc(36px / 2);
-        flex-wrap: wrap;
-        flex-direction: column;
-        align-self: flex-end;
+        height:  95vh;
+        position: relative;
 
-        li{
-          cursor: pointer;
-          position: relative;
-          max-width: 100%;
-          width: fit-content;
-          height: 10vh;
+        div, ul{
+          width: calc(100% / 8);
           padding: 0;
 
-          &::before{
-            counter-increment: num;
-            content: '(' counter( num ) ')';
-            position: absolute;
-            width: fit-content;
-            height: 100%;
-            text-align: left;
-            line-height: 10vh;
-            font-size: 2.5rem;
-            backdrop-filter: blur(2px);
-            display: block;
+          li{
+            margin-bottom: calc(36px / 2);
+            width: 100%;
+            text-align: right;
+            clear: both;
+            
+            img{
+              width: 70%;
+            }
+            div{
+              float: left;
+              display: inline-block;
+              width: fit-content;
+              p{
+                @include hidden;
+              }
+            }
+          }
+        }
+  
+        figcaption{
+          color: inherit;
+          position: absolute;
+          width: calc(100% / 8);
+          display: block;
+          top: 0;
+          margin-left: 36px;
+          padding: 0;
+  
+          h4{
+            display: none;
           }
 
-          img{
-            width: auto;
-            min-height: unset;
-            height: inherit;
-            padding: 0;
+          span{
+            position: absolute;
+            left: 0;
+            font-weight: 800;
+          }
+  
+          p{
+            position: relative;
+            padding-left: 2em;
+            margin-bottom: 5vh;
+            font-size: 1rem;
+            line-height: 1.2;
           }
         }
       }
-
-      figcaption{
-        display: inline-block;
-        margin-right: auto;
-        width: calc(100% / 8 * 2);
-      }
     }
+
   }
 
   main + footer{
@@ -551,7 +549,6 @@ $content_start : 50vh;
   
     .next{
       padding-top: 2rem;
-      color: black;
       text-align: center;
   
       

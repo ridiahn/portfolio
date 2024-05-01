@@ -3,7 +3,9 @@
    ========================================================================== */
 
 .masthead {
-  width: 100%;
+  width: 55%;
+  margin-left: auto;
+  text-align: right;
   -webkit-animation: $intro-transition;
   animation: $intro-transition;
   -webkit-animation-delay: 0.15s;
@@ -12,7 +14,6 @@
 }
 
 #site-nav {
-  width: 100%;
   font-size: 1.5rem;
 
   a {
@@ -20,30 +21,37 @@
   }
 
   h1{
-    font-size:  inherit;
+    float: left;
+    vertical-align: top;
+    font-size: 1.5rem;
     font-weight: 500;
     color: inherit;
     line-height: 1;
     margin-bottom: 0;
-    padding: 0;
+    padding: 0 36px;
     display: inline-block;
-    width: calc(100% / 8 * 3);
 
     a{
-      padding-left: 36px;
       color: inherit;
     }
 
-    span{
-      display: inline-block;
+    i{
+      font-style: normal
+    }
+
+    .years{
+      @include hidden;
     }
   }
 
   h2{
     color: inherit;
-    visibility: visible;
     font-size: inherit;
     font-weight: 500;
+    margin: 0;
+    display: inline-block;
+    line-height: inherit;
+    text-align: inherit;
   }
 
 
@@ -51,22 +59,17 @@
     color: inherit;
     
     .visible-links{
-      width: 12.5vw;
-      font-size: 0.9em;
+      vertical-align: top;
+      font-size: 0.825em;
       display: inline-block;
       width: fit-content;
       padding: 0 36px;
-      text-align: center;
 
       > ul{
         width: 100%;
         line-height: 1;
         margin: 0;
-        text-align: inherit;
-
-        h2{
-          margin: 0
-        }
+        text-align: right;
 
         > li{
           position: relative;
@@ -74,10 +77,10 @@
           letter-spacing: -0.08em;
           transition: opacity 0.25s;
           font-weight: 600;
-          padding: 0 .5em;
+          padding: 0 .25em;
           color: $light-gray;
-          display: block;
-          width: fit-content;
+          display: inline-block;
+          //width: fit-content;
 
           &.active{
             color: black;
@@ -89,6 +92,11 @@
             color: inherit;
             letter-spacing: inherit;
             vertical-align: text-top;
+
+            &::after{
+              content: ",";
+              float: right;
+            }
           }
         }
       } 

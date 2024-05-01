@@ -1,29 +1,28 @@
 
 window.onload = function(){
   categoryfilter();
-  addHoverModal();
 }
 
 function categoryfilter(){
   let tagitems = document.querySelectorAll(".filter li")
 
-  tagitems.forEach( el =>{
+  tagitems.forEach((el, index) =>{
     el.onclick = function(){
       let prevActive = document.querySelector(".filter li.active");
       prevActive.classList.remove('active');
       el.classList.add('active')
-      filterWord = this.innerText.replace(/\d+$/gi,'')
-      reset_list(filterWord)
+      filterWord = this.innerText.replace(/\d+$/gi,'').replace(/(\n|\s*)/g, ''); 
+      reset_list(filterWord, index)
     };
   })
 }
 
-function reset_list(key){
-  let lists = document.querySelectorAll(".tags")
+function reset_list(key, index){
+  let lists = document.querySelectorAll(".list .areas")
 
-  lists.forEach( (el, i) =>{
-    let tag = el.textContent; 
-    let match = ( key != '전체' && tag.indexOf(key) == -1) ? 'none' : '';
+  lists.forEach( el =>{
+    let tag = el.textContent.replace(/\n|\s*/g, ''); 
+    let match = ( index !== 0 && !tag.includes(key)) ? 'none' : '';
     el.closest('li').style.display = match;
     // activeListtitle(key)
   });

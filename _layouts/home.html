@@ -5,7 +5,7 @@ layout: default
 
 <body>
   {% include list_works.html %}
-  {% assign posts = site.posts | limit : 3 | reverse %}
+  {% assign posts = site.posts | limit : 4 | reverse %}
 
   <section class="works">
     <h3>{{ site.data.ui-text[site.locale].recent_works | default: "최근 작업" }}</h3>
@@ -16,16 +16,18 @@ layout: default
         </li>
       {% endfor %}
     </ul>
-    <ul class="recent_works">
-      <li>         
+    <div class="recent_works">
+      <ul>
         {% for post in posts %}
-          <a href="{{post.url | relative_url }}">
-            <img src="{{post.header.teaser | relative_url }}" alt="{{post.title}} 더보기">
-          </a>
+          <li>         
+            <a href="{{post.url | relative_url }}">
+              <img src="{{post.header.teaser | relative_url }}" alt="{{post.title}} 더보기">
+            </a>
+          </li>
         {% endfor %}
-      </li>
-      <!-- <li class="more"><a class="more" href="./works/">더보기</a></li> -->
-    </ul>
+        <!-- <li class="more"><a class="more" href="./works/">더보기</a></li> -->
+      </ul>
+    </div>
   </section>
 
   <section class="about">

@@ -1,10 +1,11 @@
 .layout--category{
   background-color: $background-color-dark;
   min-height: 100vh;
-
+  
   .archive{
     @include breakpoint($large){
       width: 100%;
+      // display: flex;
       padding: 0;
       margin: 0;
     }
@@ -19,138 +20,149 @@
   }
 
   .taxonomy__index{
-    width: fit-content;
     padding: 0 36px;
-    margin: 0;
+    margin: -1em 0 25vh;
+    width: calc(100% / 8 * 4);
+    letter-spacing: -0.035em;
+    line-height: 1;
+    font-size: 3rem;
+
+    >span{
+      color: $gray;
+
+      &::after{
+        content: "/";
+        color: $gray;
+        margin-left: 0.25em
+      } 
+    }
+
     ul{
       margin: 0;
-      font-size: 1.5rem;
-      line-height: 1.2;
-      font-weight: 400;
-      font-family: $serif;
+      color: $darker-gray;
+      display: inline-block;
+      line-height: 1;
+      position: relative;
+      padding-right: 1em;
+      
+      &::before{
+        content: ">";
+        position: absolute;
+        right: 0;
+        top: 0.1em;
+        font-size: 0.7em;
+        line-height: 0.7;
+        color: $gray;
+        padding: 0.2em 0.2em 0.2em 0.3em;
+        display: inline-block;
+        transform: rotate(90deg);
+        // border-radius: 50%;
+        // border: solid 3px $gray;
+      }
 
       li{
-        display: inline-block;
-        margin: 0;
+        display: block;
+        margin-bottom: 0;
         cursor: pointer;
         
-        &::before{
-          content: "/";
+        &:not(.active){
+          @include hidden;
         }
       }
 
       li.active{
-        color: black;
-        font-weight: 500;
+        font-size: inherit;
+        color: $gray;
       }
     }
   }
 
   section.list{
+    clear: both;
     width: 100%;
+    overflow: hidden;
 
-    .year[id]{
+    > ul{
+      width: 100%;
+      margin: 0;
       display: flex;
-      justify-content: space-between;
-      height: fit-content;
-      border-bottom: solid 1px $light-gray;
-      padding: 36px 0;
+      color: $light-gray;
+      font-size: 1.2rem;
+      gap: calc(36px / 2);
+      padding: 0 36px;
 
-      h3.year_name{
-        order: 1;
-        height: 100%;
-        width: fit-content;
-        font-family: $serif;
-        font-style: italic;
-        font-size: 2.5rem;
-        letter-spacing: -0.05em;
-        font-weight: lighter;
-        line-height: 1;
-        text-align: center;
-        width: calc(100% / 8);
+      $list-size : 4; 
+      > li{
+        //display: table-cell;
+        //vertical-align: bottom;
+        position: relative;
+        width: calc(100% / 4);
+        margin-bottom: 0;
+        position: relative;
+        padding: 0.8rem 0;
+        border-top: solid 3px $gray;
 
-        span{
-          border-left: solid 4px $black;
-          border-right: solid 4px $black;
-          border-radius: 1em;
-          padding: 0 0.5em 0 0.35em;
+        h3{
+          width: 80%;
+          text-align: right;
+          font-size: 2.5rem;
+          line-height: 1.2;
+          color: inherit;
+          font-weight: 500;
+          margin: 0 0 10vh auto;
+
+          a{
+            color: inherit;
+          }
         }
-      }
 
-      $list-size : 7; 
-      > ul{
-        width: calc(100% / 8 * #{$list-size});
-        margin: 0;
-        
-        > li{
-          //display: table-cell;
-          //vertical-align: bottom;
-          display: flex;
-          width: 100%;
-          margin-bottom: 0;
-          position: relative;
-
-          h3{
-            order: 1;
-            font-size: 2.5rem;
-            color: $black;
-            font-weight: 500;
-            padding: 0 36px;
-            margin-right:auto;
-            //width: calc(100% / #{$list-size} * 3);
-
-            a{
-              color: inherit;
-            }
-          }
-
-          h3 ~ ul{
+        h3 ~ ul{
+          margin: 0;
+          > li {
             margin: 0;
-            > li {
-              margin: 0;
-              line-height: 1.2;
-            }
+            line-height: 1.2;
           }
+        }
 
-          strong{
-            visibility: hidden;
-            color:transparent;
-            position: absolute;
-            z-index: -2;
+        strong{
+          visibility: hidden;
+          color:transparent;
+          position: absolute;
+          z-index: -2;
+        }
+
+        figure{
+          visibility: hidden;
+          text-align: center;
+          height: 10vh;
+          width: calc(100% / #{$list-size});
+          padding: 0;
+          transform-origin: center;
+
+          img{
+            height: 100%;
+            width: auto;
+            object-fit: contain;
           }
+        }
 
-          figure{
-            order: 1;
-            text-align: center;
-            height: 10vh;
-            width: calc(100% / #{$list-size});
-            padding: 0;
-            transform-origin: center;
-
-            img{
-              height: 100%;
-              width: auto;
-              object-fit: contain;
-            }
-          }
-
-          &:hover{
-            > figure{
-              height: 20vh;
-              transform: scale(1.5);
-            } 
-          }
-
-          .areas{
-            padding: 0 36px;
-            //text-align: right;
-            width: calc(100% / #{$list-size});
+        &:hover{
+          > figure{
+            height: 20vh;
+            transform: scale(1.5);
           } 
+        }
 
-          > *:not(h3, .areas, figure){
-            visibility: hidden;
-            position: absolute;
-          }
+        .proj_year{
+          line-height: 1;
+          position: absolute;
+          top: 1rem;
+          left: 0;
+        }
+
+        > *:not(h3, .areas, figure, .proj_year){
+          visibility: hidden;
+          position: absolute;
         }
       }
     }
