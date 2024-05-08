@@ -52,7 +52,7 @@ gallery:
 ### 소개
 2021년 본 사례연구는 기존 웹 페이지의 사례들의 디자인과 내용을 바탕으로 모방 구현한 작업으로, Html/Css 숙련도 향상과 JS/JQurey의 기초탐구 및 동작 구현을 목적으로 진행되었다.
 
-### **연구사례01<br>세움터**
+### 사례1.<br>세움터
 - #### 성격
   - 공공기관
 - #### 사용도구
@@ -80,7 +80,7 @@ gallery:
 {% include figure image_path="https://bn1304files.storage.live.com/y4mIrE3OaPUJfc0pjP5UvSOk0MLaUomxQiNAD8iSoLot6UmkqLVv0ph3zcjtzokEAgvyoOj1BIIaJk3nZgNfF-L9-N1E-cTUWRuzwXR4sGD18WQZjdwhy03xOOcaYtFWbkEco2WO3LOZ8vGUBvtTD87GYnzXM6hswhsc9WJe-S36mPPchh4njYr1vmVZSztmv_t?width=1519&height=3104&cropmode=none" alt="index.html 세움터 메인화면" caption="index.html 세움터 메인화면" class="left-bottom"%}
 
 
-### **연구사례02<br>테마1**
+### 사례2.<br>테마1
 - #### 성격
   - 원페이지
 - #### 사용도구
@@ -104,7 +104,7 @@ gallery:
 
 {% include figure image_path="https://bn1304files.storage.live.com/y4mHx5qItdEP2l92WNgjHDwJDEKRWEq6YgJhd3kfqBfP6jzr0asB2BqPnbyEi1V-TwxOrDUSLHFArpmvbvlWp6X0zqAglsDeyuR-8QPqHJzX26I5zRhF7QrbOWhS57EjnwzRZU9tFWvcTFGM04RvWLbPn7zIGdIQqXYYyj00ypBgHhRns_tEJG7ZywCghzA0kU-?width=1519&height=4602&cropmode=none" class ="right-top" %}
 
-### **연구사례03<br>테마2**
+### 사례3.<br>테마2
 - #### 성격
   - 원페이지
 - #### 사용도구
@@ -129,7 +129,7 @@ gallery:
 
 {% include figure image_path="https://bn1304files.storage.live.com/y4mPOejrhb_rgXIdyKngoCsL2U4slYS-v6HE1XDbvPiLZDf891Ka_fOtEkOQ_ZauuWYfN8Esgz4r39YMC9h0wOW5Et5QUgYCvzZWfXq8Tot2s7erdQfnVJoYgL3y88zVpCyJNchzV3J3xTfQVEUhzRj2NVqeXZBh_K4VT-MszGWbUMmyViztS7FuCQoK6sq0ZB0?width=1519&height=4551&cropmode=none" class="left-bottom"%}
 
-### **연구사례04<br>삼화페인팅**
+### 사례4.<br>삼화페인팅
 - #### 성격
   - 기업/회사
 - #### 사용도구

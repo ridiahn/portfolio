@@ -3,8 +3,6 @@
    ========================================================================== */
 
 footer {
-  margin-left: 0;
-  margin-right: 0;
   width: 100%;
   clear: both;
   color: $muted-text-color;
@@ -18,26 +16,44 @@ footer {
     max-width: 100%;
     line-height: 1.2;
     font-size: 1.1rem;
-
-    h4{
-      font-size: 0.9rem;
+    padding: 5vh 36px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    
+    p{
+      margin: 0;
+      font-size: inherit;
+    }
+    
+    .email{
+      width: 100%;
+      transform: translateY(1em);
     }
 
-    ul{
-      padding: 0;
-      margin: 0;
-
-      li {
-        display: block;
-        margin-bottom: 0;
+    .other_links{
+      list-style: none;
+      display: inline-flex;
+      column-gap: 1.5em;
+      margin: 0 auto;
+ 
+      li{
+        display: inline-block;
+        
+        &:not(:last-of-type)::after{
+          content: "/";
+        }
       }
     }
 
-
     p:last-of-type{
-      font-size: 0.9rem;
+      width: fit-content;
       display: inline-block;
-      a{
+      float: right;
+
+      span{
+        display: block;
         color: inherit;
       }
     }

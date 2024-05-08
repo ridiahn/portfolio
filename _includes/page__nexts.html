@@ -1,0 +1,24 @@
+{% assign postNexts = site.posts | where_exp: "post", "post.start_date > page.start_date" | limit : 5 | reverse %}
+
+<nav class="page__nav">
+  {% if postNexts.size > 0 %}
+  <h3>{{ site.data.ui-text[site.locale].pagination_next | default: "Next" }}</h3>
+    <ul class="pagination">
+      {% for next in postNexts %}
+        <li>
+          <a href="{{ next.url | relative_url }}" class="pagination--pager" title="{{ next.title | markdownify | strip_html }}">
+            <span>{{ next.start_date | date: '%y'}}</span>
+            <h4>{{next.title}}</h4>
+          </a>
+          {% if next.header.teaser %}
+            <img src="{{ next.header.teaser }}" alt="{{next.title}} 썸네일">
+          {% endif %}
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <a href="#" class="pagination--pager disabled">
+      <span>다음글이 없습니다</span>
+    </a>
+  {% endif %}
+</nav>

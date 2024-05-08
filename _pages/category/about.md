@@ -1,6 +1,6 @@
 ---
 title: "자기소개"
-excerpt: "아이디어의 목적에 의한, 사용자를 위한, 아름(나)다운 디자인을 추구 합니다"
+excerpt: "아이디어의 목적에 의한, 사용자를 위한, 아름다운 디자인을 추구 합니다"
 sitemap: false
 permalink: /about
 layout: about
@@ -9,50 +9,19 @@ after_footer_scripts:
 - /assets/js/about.js
 ---
 <section class="intro">
+  <h2>소개</h2>
   <article>
-    아이디어에 대한 공감에서 출발해 사용자 기획자 개발자 디자이너의 시선으로 아이디어를 다각적으로 바라보며 발전 시킵니다.
-    그리고 그 결과를 글과 그림 코드로 구체화하는 과정을 함께하고 있습니다
+    <p>
+    <em>UI/UX, GUI, BI/CI, Web publishing, Frontend</em> 하며 {{ site.author.location }}에 살고 있는 안희라 입니다.
+    </p>
+    <p> 
+      아이디어에 대한 공감에서 출발해 사용자 기획자 개발자 디자이너의 시선으로 아이디어를 다각적으로 바라보며 발전 시킵니다.
+      그리고 그 결과를 글과 그림 코드를 <em>통해 목적에 맞는 가장 그(아름) 다운 모습으로 구체화 하는 과정을 함께하고 있습니다.</em>
+    </p>
   </article>
-  <div class="service">
-    <h2>작업분야</h2>
-    <ul>
-      <li>
-        <h3>기획자</h3>
-        <ul>
-          <li>UI/UX </li>
-        </ul>
-      </li>
-      <li>
-        <h3>디자이너</h3>
-        <ul>
-          <li>GUI</li>
-          <li>CI/BI</li>
-        </ul>
-      </li>
-      <li>
-        <h3>개발자</h3>
-        <ul>
-          <li>웹퍼블리싱</li>
-          <li>프론트엔드</li>
-        </ul>
-      </li>
-    </ul>
-  </div>
-  <ul class="contact">
-    {% if site.author.email %}
-      <li>{{ site.author.email }}</li>
-    {% endif %}
-    {% if site.author.location %}
-    <li>
-      <address class="location" itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
-       {{ site.author.location }}
-      </address>
-    </li>
-    {% endif %}
-  </ul>
 </section>
 
-<section class="partner layout_table">
+<section class="career layout_table">
   <h2>경력사항</h2>
   <table>
     <thead>
@@ -106,8 +75,17 @@ after_footer_scripts:
     </li>
   </ul>
 </section>
-
-<section class="toolsCertification">
+<section class="sevrviceAndskills">
+  <!-- <div class="service">
+    <h2>작업분야</h2>
+    <ul>
+      <li>UI/UX</li>
+      <li>GUI</li>
+      <li>CI/BI</li>
+      <li>웹퍼블리싱</li>
+      <li>프론트엔드</li>
+    </ul>
+  </div> -->
   <div class="workTools">
     <h2>작업도구</h2>
     <ul>

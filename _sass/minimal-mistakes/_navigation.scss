@@ -152,15 +152,15 @@ $pageNav-height-lg : 54px;
 
 .page__share ul{
   position: absolute;
+  visibility: hidden;
   background: white;
-  border-radius: $border-radius;
-  overflow: hidden;
   border: solid 1px #efefef;
   margin-left: 1rem;
   margin-top: 0.5rem;
   top: -100px;
+  left: -100px;
   opacity: 0;
-  visibility: hidden;
+
 
   li{
     margin-bottom: 0;

@@ -15,25 +15,10 @@ layout: default
   {{ content }}
 </main>
 
-<footer class="page__nav">
-  <a href="#main" class="back-to-top hidden">다시보기</a>
-  {% comment %}
+<footer>
+  <aside>
+    <a href="#main" class="back-to-top">맨 위로</a>
     {% if page.share %}{% include social-share.html %}{% endif %}
-  {% endcomment %}
-  <div class="next">
-    {% if page.next %}
-      {{ site.data.ui-text[site.locale].pagination_next | default: "Next" }}
-      <a href="{{ page.next.url | relative_url }}" class="pagination--pager" title="{{ page.next.title | markdownify | strip_html }}">
-        {{page.next.title}}
-      </a>
-      {% if page.next.header.teaser %}
-      <img src="{{ page.next.header.teaser }}" alt="{{page.next.title}} 미리보기">
-      {% endif %}
-    {% else %}
-      {{ site.data.ui-text[site.locale].pagination_next | default: "Next" }}
-      <a href="#" class="pagination--pager disabled">
-        다음글이 없습니다
-      </a>
-    {% endif %}
-  </div>
+  </aside>
+  {% include page__nexts.html %}
 </footer>

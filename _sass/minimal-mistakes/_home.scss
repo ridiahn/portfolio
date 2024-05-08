@@ -6,6 +6,8 @@
   position: relative;
 
   .masthead{
+    position: unset;
+    margin-left: auto;
     #site-nav{      
       h1{
         position: absolute;
@@ -51,6 +53,8 @@
   #main{
     display: flex;
     height: 80vh;
+    width: 100%;
+
     h3{
       display: none;
     }
@@ -94,7 +98,7 @@
 
   .works{
     position: relative;
-    transform: translateY(calc(1.5rem * 3 * -1.2));
+    transform: translateY(-2rem);
     //margin-top: calc(1.5rem * 3 * -1.2);
     width: calc(50% + (25vh / 2));
     height: 100%;
@@ -132,7 +136,7 @@
     position: absolute;
     z-index: 1;
     right: 0;
-    top: calc(50% - (25vh / 2));
+    top: 25%;
     width: 25vh;
     height: 25vh;
     transform: translateY(calc(25vh / 2));
@@ -201,10 +205,5 @@
     font-family: $sans-serif;
     font-size: 1.1rem;
     letter-spacing: 0;
-  }
-
-  #footer{
-    max-width: 100%;
-    text-align: center;
   }
 }

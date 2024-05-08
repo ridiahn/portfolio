@@ -1,5 +1,13 @@
 <!-- start custom footer snippets -->
-<div class="other-links">
+  {% if site.author.email %}
+    <p class="email">{{ site.author.email }}</p>
+  {% endif %}
+  {% if site.author.location %}
+    <address class="location" itemprop="homeLocation" itemscope itemtype="https://schema.org/Place">
+      {{ site.author.location }}
+    </address>
+  {% endif %}
+  <ul class="other_links">
   {% if author.links %}
     {% for link in author.links %}
       {% if link.label and link.url %}
@@ -7,7 +15,7 @@
       {% endif %}
     {% endfor %}
   {% endif %}
-</div>
+  </ul>
 <p>{{ site.data.ui-text[site.locale].powered_by | default: "Powered by" }} <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> <span>&amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</span></p>
 
 <!-- {% unless site.atom_feed.hide %}

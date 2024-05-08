@@ -3,9 +3,8 @@
    ========================================================================== */
 
 .masthead {
-  width: 55%;
   margin-left: auto;
-  text-align: right;
+  width: 55%;
   -webkit-animation: $intro-transition;
   animation: $intro-transition;
   -webkit-animation-delay: 0.15s;
@@ -14,26 +13,22 @@
 }
 
 #site-nav {
-  font-size: 1.5rem;
+  font-size: 1.1rem;
 
   a {
     text-decoration: none;
   }
 
   h1{
-    float: left;
     vertical-align: top;
-    font-size: 1.5rem;
+    font-size: 2rem;
     font-weight: 500;
-    color: inherit;
+    mix-blend-mode: difference;
     line-height: 1;
     margin-bottom: 0;
     padding: 0 36px;
     display: inline-block;
 
-    a{
-      color: inherit;
-    }
 
     i{
       font-style: normal
@@ -60,16 +55,17 @@
     
     .visible-links{
       vertical-align: top;
-      font-size: 0.825em;
-      display: inline-block;
+      min-width: 12.5vw;
       width: fit-content;
-      padding: 0 36px;
+      margin-right: 36px;
+      float: right;
 
       > ul{
         width: 100%;
+        display: inline-flex;
+        justify-content: space-between;
         line-height: 1;
         margin: 0;
-        text-align: right;
 
         > li{
           position: relative;
@@ -83,7 +79,7 @@
           //width: fit-content;
 
           &.active{
-            color: black;
+            color: $secondary-color;
             position: relative;
           }
 
@@ -92,11 +88,11 @@
             color: inherit;
             letter-spacing: inherit;
             vertical-align: text-top;
+          }
 
-            &::after{
-              content: ",";
-              float: right;
-            }
+          &:not(:last-of-type)::after{
+            content: ",";
+            float: right;
           }
         }
       } 
