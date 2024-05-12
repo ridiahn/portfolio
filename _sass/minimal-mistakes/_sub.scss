@@ -190,7 +190,7 @@ $content_start : 50vh;
       line-height: 1;
       font-size: 2.5rem;
       position: absolute;
-      top: -2rem;
+      top: -1.5rem;
       left: 36px;
     }
   
@@ -285,7 +285,7 @@ $content_start : 50vh;
 
       h3{
         width: calc(100% / 8 * 2);
-        margin: 0 calc(100% / 8 * 5) -1rem 0;
+        margin: 0 auto 0 0;
         // text-align: right;
         // margin-right: 36px;
       }
@@ -323,7 +323,7 @@ $content_start : 50vh;
       
       > div{
         order: 1;
-        margin: 0 0 0 (100% / 8 * 4);
+        margin: 0 0 0 (100% / 8 * 2);
         width: (100% / 8 * 3);
 
         h4{

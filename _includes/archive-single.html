@@ -16,30 +16,26 @@
 {% endif %}
 
 <li class="{{ include.type | default: 'list' }}__item {{include.class()}}">
-    <h3 class="archive__item-title no_toc" itemprop="headline">
-      {% if post.link %}
-        <a href="{{ post.link }}">{{ title }}</a> <a href="{{ post.url | relative_url }}" rel="permalink"><i class="fas fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
-      {% else %}
-        <a href="{{ post.url | relative_url }}" rel="permalink">{{ title }}</a>
-      {% endif %}
-    </h3>
-  {% if post.areas.size > 0 %}
-    <ul class="areas">
-      {% for area in post.areas %}
-        <li>{{ area }}</li>
-      {% endfor %}
-    </ul>
-  {% endif %}
-  {% if post.tags.size > 0 %}
-    <span class="tags"><strong class="hidden">{{ site.data.ui-text[site.locale].tags_label | default: "Tags:" }}</strong>{{ post.tags | sort | join: ", " }}</span>
-  {% endif %}
-  {% if post.excerpt %}
-    <p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify | strip_html | truncate: 160 }}</p>
-  {% endif %}
-  <time class="proj_year" datetime="{{ document.start_date }}">{{ post.start_date | date: '%y' }}</time>
-  <figure>  
-    {% if teaser %}
-      <img class="teaser" src="{{ teaser | relative_url }}" alt="">
+  <a href="{{ post.url | relative_url }}" rel="permalink">
+    <h3 class="archive__item-title no_toc" itemprop="headline">{{ title }}</h3>
+    {% if post.areas.size > 0 %}
+      <ul class="areas">
+        {% for area in post.areas %}
+          <li>{{ area }}</li>
+        {% endfor %}
+      </ul>
     {% endif %}
-  </figure>
+    {% if post.tags.size > 0 %}
+      <span class="tags"><strong class="hidden">{{ site.data.ui-text[site.locale].tags_label | default: "Tags:" }}</strong>{{ post.tags | sort | join: ", " }}</span>
+    {% endif %}
+    {% if post.excerpt %}
+      <p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify | strip_html | truncate: 160 }}</p>
+    {% endif %}
+    <time class="proj_year" datetime="{{ document.start_date }}">{{ post.start_date | date: '%y' }}</time>
+    <figure>  
+      {% if teaser %}
+        <img class="teaser" src="{{ teaser | relative_url }}" alt="">
+      {% endif %}
+    </figure>
+  </a>
 </li>

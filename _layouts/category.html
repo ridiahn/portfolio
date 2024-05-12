@@ -17,11 +17,12 @@ layout: archive
     {% endfor %}
   </ul>
 </div>
+
+<!-- section calss .list.col 적용시, include부문에 class="bg_modal"추가 -->
 {% assign postsInYear = site.posts | where_exp: "item", "item.hidden != true" | group_by_exp: 'post', 'post.start_date | date: "%y"' | reverse %}
 <section class="list">
   <ul>
     {% for year in postsInYear %}
-    <!-- section calss .list.col 적용시, include부문에 class="bg_modal"추가 -->
       {% for post in year.items %}
         {% include archive-single.html type="grid" %}
       {% endfor %}

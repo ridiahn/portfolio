@@ -5,12 +5,11 @@
 footer {
   width: 100%;
   clear: both;
-  color: $muted-text-color;
+  color: inherit;
   -webkit-animation: $intro-transition;
   animation: $intro-transition;
   -webkit-animation-delay: 0.45s;
   animation-delay: 0.45s;
-  color: $lighter-gray;
 
   .page__footer {
     max-width: 100%;
@@ -25,6 +24,10 @@ footer {
     p{
       margin: 0;
       font-size: inherit;
+    }
+    
+    a{
+      color: inherit;
     }
     
     .email{

@@ -9,14 +9,17 @@ after_footer_scripts:
 - /assets/js/about.js
 ---
 <section class="intro">
+  <figure>
+    <img src="#"/>
+  </figure>
   <h2>소개</h2>
   <article>
     <p>
-    <em>UI/UX, GUI, BI/CI, Web publishing, Frontend</em> 하며 {{ site.author.location }}에 살고 있는 안희라 입니다.
+    <em>UI/UX, GUI, BI/CI, Web publishing, Frontend</em>를 통해 아이디어를 세상으로 연결해 나아가는 아이디어 커넥터 안희라 입니다.
     </p>
     <p> 
-      아이디어에 대한 공감에서 출발해 사용자 기획자 개발자 디자이너의 시선으로 아이디어를 다각적으로 바라보며 발전 시킵니다.
-      그리고 그 결과를 글과 그림 코드를 <em>통해 목적에 맞는 가장 그(아름) 다운 모습으로 구체화 하는 과정을 함께하고 있습니다.</em>
+      아이디어에 대한 공감에서 출발해 사용자 기획자, 디자이너, 개발자의 시선으로 아이디어를 다각적으로 바라 보며 발전 시킵니다.
+      그리고 그 결과를 글과 그림 코드를 통해 목적에 맞는 가장 그(아름) 다운 모습으로 구체화 하는 과정을 함께 하고 있습니다.
     </p>
   </article>
 </section>
@@ -61,31 +64,7 @@ after_footer_scripts:
   </table>
 </section>
 
-<section class="attitude">
-  <h2>작업태도</h2>
-  <ul>
-    <li>
-      상대방이 해결 하고자 하는 문제를 나에게로 끌어와 깊이 있게 공감합니다.
-    </li>
-    <li>
-      문제의 해결방안에 대해 의견을 적극 공유하여 작업 방향을 논의하며, 작업 중에도 충분한 의사소통을 통해 작업오류를 줄이고 만족도 높은 결과물을 만듭니다
-    </li>
-    <li>
-      다음 작업자, 이후 수정을 생각하며 작업물의 형식을 정리하고 설명을 남기는일에 노력하고 있습니다  
-    </li>
-  </ul>
-</section>
 <section class="sevrviceAndskills">
-  <!-- <div class="service">
-    <h2>작업분야</h2>
-    <ul>
-      <li>UI/UX</li>
-      <li>GUI</li>
-      <li>CI/BI</li>
-      <li>웹퍼블리싱</li>
-      <li>프론트엔드</li>
-    </ul>
-  </div> -->
   <div class="workTools">
     <h2>작업도구</h2>
     <ul>

@@ -1,17 +1,8 @@
 $background-color-light: rgb(235, 231, 217);
 
 .layout--about{
-  background: $background-color-light;
+  background: $light-gray;
   color: $primary-color;
-
-  @mixin bigletter{
-    color: black;
-    word-spacing: 1rem;
-    font-size: $title_lg;
-    line-height: 1.1;
-    font-weight: 400 !important;
-    letter-spacing: -0.025em;
-  }
 
   ul{
     margin: 0;
@@ -30,7 +21,10 @@ $background-color-light: rgb(235, 231, 217);
   }
 
   h2{
+    color: $primary-color;
     font-size: 1rem;
+    margin-bottom: 1rem;
+    min-width: fit-content;
   }
 
   h3{
@@ -42,18 +36,25 @@ $background-color-light: rgb(235, 231, 217);
     display: flex;
     flex-wrap: wrap;
     box-sizing: border-box;
-    overflow-x: hidden;
-    background: url(/assets/img/profile_img2.jpg) top 15vh right 10% no-repeat;
-    background-size: 35vw auto;
-    
-    h2{
-      @include hidden
+    margin-top: 36px;
+
+    figure{
+      margin-left: auto;
+      width: fit-content;
+      padding: 0 36px;
+
+      img{
+        width: 12.5vw;
+        height: 12.5vw;
+        background-color: $gray;
+        margin-left: 36px;
+      }
     }
-    
-    .contact{
-      display: inline;
-      font-size: 1.1rem;
-      color: black;
+
+    h2{
+      margin-top: 20vh;
+      margin-left: 36px;
+      width: 100%;
     }
 
     article{
@@ -62,10 +63,10 @@ $background-color-light: rgb(235, 231, 217);
       font-weight: 500;
       word-spacing: 0.15em;
       word-break: keep-all;
-      letter-spacing: -0.04em;
+      letter-spacing: -0.035em;
       line-height: 1.6;
       margin-bottom: 15vh;
-      color: $gray;
+      //color: $gray;
 
       em{
         font-style: normal;
@@ -74,26 +75,20 @@ $background-color-light: rgb(235, 231, 217);
 
       p:first-of-type{
         width: calc(100% / 8 * 5);
-        margin: 25vh 0 0;
+        margin: 0 0 0;
         word-spacing: 0.1em;
       }
 
       p:nth-of-type(2){
-        margin-left: calc(100% / 8);
-        width: calc(100% / 8 * 6);
+        padding: 0 36px;
+        font-size: 1.5rem;
+        margin-left: calc(100% / 8 * 2);
+        width: calc(100% / 8 * 4);
       }
     }
   }
 
   section:not(.intro){
-    //border-top: solid 1px $light-gray;
-
-    h2{
-      font-size: 1rem;
-      margin-bottom: 5vh;
-      min-width: fit-content;
-    }
-
     h2 ~ *{
       font-size: 1.2rem;
     }
@@ -123,18 +118,7 @@ $background-color-light: rgb(235, 231, 217);
     th, td{
       padding: 0;
       vertical-align: top;
-    }
-  }
-
-  .career{
-    ul{
-      font-size: 1.1rem;
-      li{
-        margin-bottom: 0;
-      }
-    }
-    span{
-      display: none;
+      color: $primary-color;
     }
   }
 
@@ -142,6 +126,7 @@ $background-color-light: rgb(235, 231, 217);
     display: flex;
     width: 100%;
     padding-left: 50%;
+
     >div{
       flex: 1;
     }
@@ -191,9 +176,22 @@ $background-color-light: rgb(235, 231, 217);
   }
 
   .certification{
+    li{
+      margin-bottom: 0.5rem
+    }
     span{
+      @include hidden;
       display: block;
-      font-size: 0.9rem
+      font-size: 0.9rem;
+      opacity: 0;
+    }
+
+    li:hover{
+      span{
+        position: unset;
+        visibility: visible;
+        opacity: 1;
+      }
     }
   }
 
@@ -222,6 +220,7 @@ $background-color-light: rgb(235, 231, 217);
       td:nth-of-type(1){
         flex: 3;
         padding-left: 36px;
+
       }
 
       th:nth-of-type(2),
@@ -235,12 +234,12 @@ $background-color-light: rgb(235, 231, 217);
       }
 
       tbody tr{
-        border-top: solid 1px $lighter-gray;
+        border-top: solid 1px $primary-color;
 
         td{
 
           &:first-of-type{
-            color: black;
+            color: $primary-color;
             font-weight: 500;
             font-size: 1.5rem;
           }
@@ -253,87 +252,17 @@ $background-color-light: rgb(235, 231, 217);
     }
   }
 
-  section.attitude{
-    order: 0;
-    width: 50%;
-    padding-right: 5%;
-    margin: 5vh 0 20vh;
-    float: right;
-    
-    > ul{
-      margin-top: 0;
-      letter-spacing: -0.05em;
-      color: black;
-      margin-left: 0.5em;
-      
-      > li{
-        padding-left: 1em;
-        margin-bottom: 2.5vh;
-        display:list-item;
-        list-style-position: outside;
-        //list-style: hangul-consonant;
+  footer {
+    .page__footer {
+      align-items: unset;
 
-        &::marker{
-          content: counter(list-item);
-          font-weight: 500;
-        }
-
-        h3{
-          position: relative;
-          font-size: inherit;
-          overflow: visible;
-        }
-
-        p{
-          display: inline;
-          text-align: justify;
-          letter-spacing: -0.025em;
-          word-spacing: -0.005em;
-        }
-      }
-    }
-  }
-
-  .attitude_row{
-    width: 75%;
-    ul{
-      display: flex;
-      flex: 1;
- 
-      li{
-        flex: 1;
-        padding-right: 2em;
-
-        &::before{
-          content: counter(list-item);
-          color: black;
-          font-weight: bold;
-          display: block;
-        }
-
-        &:not(:last-of-type) h3::after{
-          content: "";
-          display: inline-block;
-          width: 1px;
-          height: 2em;
-          background: $gray;
-          transform: skew(-35deg);
-          position: absolute;
-          right: 0;
-          top: -50%;
-        }
-        
-        h3{
-          position: relative;
-          font-size: inherit;
-          margin-bottom: 2em;
-          overflow: visible;
-        }
-
-        p{
-         letter-spacing: -0.025em;
-         word-spacing: -0.005em;
-        }
+      .email{
+        width: 100%;
+        transform: unset;
+        font-size: 20vh;
+        text-align: center;
+        letter-spacing: -0.035em;
+        color: $primary-color;
       }
     }
   }

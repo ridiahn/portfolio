@@ -21,12 +21,12 @@
 
   .taxonomy__index{
     padding: 0 36px;
-    margin: 0 0 25vh;
+    margin: 0;
     width: calc(100% / 8 * 4);
-    transform: translateY(-2rem);
+    transform: translateY(-1.5rem);
     letter-spacing: -0.035em;
     line-height: 1.2;
-    font-size: 2.5rem;
+    font-size: 1.5rem;
 
     >span{
       color: $gray;
@@ -38,7 +38,8 @@
     }
 
     ul{
-      margin: 0;
+      font-size: 7vw;
+      margin: 15vh 0;
       color: $darker-gray;
       display: inline-block;
       line-height: 1;
@@ -102,6 +103,18 @@
         padding: 0.8rem 0;
         border-top: solid 3px $gray;
 
+        a{
+          color: inherit;
+
+          
+          &:hover{
+            > figure{
+              visibility: visible;
+              opacity: 1;
+            } 
+          }
+        }
+
         h3{
           width: 80%;
           text-align: right;
@@ -110,10 +123,6 @@
           color: inherit;
           font-weight: 500;
           margin: 0 0 10vh auto;
-
-          a{
-            color: inherit;
-          }
         }
 
         h3 ~ ul{
@@ -132,10 +141,14 @@
         }
 
         figure{
+          position: absolute;
+          top: 10%;
+          left: 20%;
           visibility: hidden;
+          opacity: 0;
           text-align: center;
-          height: 10vh;
-          width: calc(100% / #{$list-size});
+          height: 80%;
+          width: 60%;
           padding: 0;
           transform-origin: center;
 
@@ -146,12 +159,6 @@
           }
         }
 
-        &:hover{
-          > figure{
-            height: 20vh;
-            transform: scale(1.5);
-          } 
-        }
 
         .proj_year{
           line-height: 1;
@@ -160,9 +167,9 @@
           left: 0;
         }
 
-        > *:not(h3, .areas, figure, .proj_year){
-          visibility: hidden;
-          position: absolute;
+        .archive__item-excerpt,
+        .tags{
+          @include hidden;
         }
       }
     }
