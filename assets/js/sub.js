@@ -59,7 +59,7 @@ function extendImg(obj){
 
 
 //서브페이지 목차 fixed 토글
-const vh100 = window.innerHeight;
+const endPoint_1sct = window.innerHeight * 0.9;
 const toc = document.getElementsByClassName("toc")[0];
 const pageAbsoluteY = (el) => {
   return window.pageYOffset + el.getBoundingClientRect().top
@@ -70,22 +70,22 @@ function classOnOff (condition, el, _class){
 }
 
 function scrollEvents(y){
-  classOnOff( y > vh100 && y < footerPoint, toc, 'fixed')
+  classOnOff( y > endPoint_1sct && y < footerPoint, toc, 'fixed')
 }
 
 //window scroll event
-let tick = false;
-window.addEventListener('scroll', function(){
-  let y = Math.floor(window.scrollY)
+// let tick = false;
+// window.addEventListener('scroll', function(){
+//   let y = Math.floor(window.scrollY)
 
-  if(!tick){
-    requestAnimationFrame(() => {
-      scrollEvents(y)
-      return tick = false
-    })
-  }
-  tick = true;
-},{passive: true})
+//   if(!tick){
+//     requestAnimationFrame(() => {
+//       scrollEvents(y)
+//       return tick = false
+//     })
+//   }
+//   tick = true;
+// },{passive: true})
 
 
 // window.addEventListener('wheel', function(e){

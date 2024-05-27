@@ -509,12 +509,7 @@ $pageNav-height-lg : 54px;
   // Scrollspy marks toc items as .active when they are in focus
   .active{
     //@include yiq-contrasted($active-color);
-    font-size: 1rem;
-    color: black;
     position: relative;
-    &::before{
-      border-color: black;
-    }
   }
 }
 

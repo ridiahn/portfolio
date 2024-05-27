@@ -5,6 +5,8 @@ $content_start : 50vh;
   color: $secondary-color;
   
   .masthead{
+    position: absolute;
+    right: 0;
     h1{
     }
   }
@@ -44,8 +46,8 @@ $content_start : 50vh;
       display: flex;
       flex-flow: wrap;
       position: relative;
-      min-height: 85vh;
-      margin-bottom: 25vh;
+      font-size: 1.1rem;
+      margin-bottom: 10vh;
 
       .fixed{
         position: fixed;
@@ -61,23 +63,21 @@ $content_start : 50vh;
       color: inherit;
 
       @include breakpoint($medium) {
-        order: 1;
         font-size: 7vw;
-        font-weight: 600;
-        max-width: calc(100% / 8 * 6);
+        font-weight: 400;
+        width: calc(100% / 8 * 6);
         max-height: calc(7vw * 3);
         overflow: hidden;
-        text-align: right;
-        padding-left: 36px;
-        margin: 0 auto 0 0;
+        padding: 0 36px;
         align-self: flex-end;
+        margin: 2em calc(100% / 8) 10vh 0;
+        z-index: 1;
       }
     }
-
     
-    figure{ 
-      padding: 0 36px;
-      align-self: flex-end;
+    figure{
+      order: 1;
+      width: 100%;
 
       figcaption{
         display: none;
@@ -85,28 +85,21 @@ $content_start : 50vh;
 
       img{
         width: 100%;
-        height: inherit;
-      }
-
-      &.full{
-        order: 1;
-        width: 100%;
-        height: 60vh;
-
-        img{
-          object-fit: cover;
-        }
+        height: auto;
+        object-fit: cover;
       }
 
       &.thumb{
-        padding: 0;
-        width: calc(100% / 8);
-        margin-top: 15vh;
-        margin-right: calc(100% / 8 * 7);
+        width: calc(100% / 8 * 4);
         height: fit-content;
-        position: relative;
-        
+        align-self: stretch;
+        background-color: rgba($secondary-color, 0.25);
+        text-align: center;
+        margin-left: calc(100% / 8 * 4);
+
         img{
+          width: auto;
+          height: 100%;
           object-fit: contain;
         }
       }
@@ -115,63 +108,77 @@ $content_start : 50vh;
 
   .toc{
     height: fit-content;
-    width: calc(100% / 8);
-    font-size: 1rem;
+    min-width: calc(100% / 8);
+    width: fit-content;
     color: rgba($secondary-color, 0.25);
-    font-weight: bold;
-    margin: 10vh 36px auto calc(100% / 8 * 7 - 36px);
+    margin: 0 auto 0 36px;
+    align-self: flex-end;
 
     header{
-      font-weight: bold;   
+      @include hidden;
     }
-
+    
     header + ul{
-      border-top: solid 1px rgba($secondary-color, 0.25);
+      //border-top: solid 1px rgba($secondary-color, 0.25);
       li{
-        //padding: 0.25rem  0;
-        padding-left: 2em;
-        //border-bottom: solid 1px $primary-color;
+
         &::before{
-          left: 0;
-          padding: 0;
+          content: none;
+        }
+
+        &.active{
+          color: $secondary-color;
         }
       }
     }
 
     &.fixed{
       top: 0;
-      right: 36px;
-      margin: 0;
+      left: 0;
+      width: calc(100% / 8 * 2);
+      transform: unset;
+
+      header{
+        display: none;
+      }
+
+      li{
+        &.active{
+          margin-top: 1em;
+        }
+        &:not(.active){
+          @include hidden;
+        }
+      }
     }
   }
 
   .summary{
-    order: 2;
-    align-self: flex-end;
-    font-size: 1rem;
+    order: 1;
     line-height: 1;
-    display: inline-flex;
-    flex-flow: column;
-    width: calc(100% / 8);
-    margin: 0 36px 0 0;
-    padding: 0;
-    //column-gap: 36px;
-    row-gap: 1rem;
-  
+    width: (100% / 8 * 4);
+    height: fit-content;
+    column-gap: 36px;
+    margin: 0 0 0 auto;
+    padding: 0 36px;
+    display: flex;
+    align-self: flex-end;
+
     strong{
       line-height: 1;
+      display: inline-block;
     }
 
     ul{
-      border-top: solid 1px rgba($secondary-color, 0.25);
+      width: 50%;
+      float: right;
       font-weight: 500;
       margin: 0;
 
       li{
-        display: inline-block;
         margin: 0;
         text-transform: uppercase;
-
+        display: inline-block;
         &:not(:last-of-type)::after{
           content: "/";
         }
@@ -180,20 +187,20 @@ $content_start : 50vh;
 
     p,
     > div{
-      padding: 0;
+      flex: 1;
       margin-bottom: 0;
       line-height: 1;
+      //border-bottom: solid 1px rgba($secondary-color, 0.25);
     }
 
     .year{
-      width: fit-content;
-      line-height: 1;
-      font-size: 2.5rem;
       position: absolute;
-      top: -1.5rem;
+      top: 0;
       left: 36px;
+      line-height: 1;
+      font-size: 1.5rem;
+      font-weight: 400;
     }
-  
   }
   
   .page__header:has(figure.half) ~ .page__content > section:first-of-type{
@@ -217,33 +224,21 @@ $content_start : 50vh;
 
   .page__content section{
     position: relative;
-    display: flex;
-    flex-wrap: wrap;
     clear: both;
     width: 100%;
     padding-bottom: 1rem;
-    align-content: flex-start;
     font-size: 1.1rem;
-    margin-bottom: 15vh;
+    margin-bottom: 5vh;
+    padding-top: 10vh;
     
     &:first-of-type{
-      position: absolute;
-      top: 10vh;
-      right: calc(100% / 8 + 36px); 
-      height: fit-content;
-      margin-bottom: 25vh;
-      width: calc(100% / 8 * 3);
-
-      h3{
-        @include hidden;
-      }
-
       p{
-        padding: 0;
+        width: calc(100% / 8 * 4);
+        padding: 0 36px;
         font-weight: 600;
-        margin-bottom: 0;
-        letter-spacing: -0.025em;
-        padding-right: 36px;
+        margin-bottom: 10vh;
+        letter-spacing: -0.035em;
+        margin-left: calc(100% / 8 * 4);
       }
 
       @include breakpoint($medium) {
@@ -255,10 +250,10 @@ $content_start : 50vh;
       position: relative;
       
       figure{
-        order: 2;
+        order: -1;
         width: 100%;
         padding: 0;
-        margin: 5vh auto 25vh;
+        margin: 5vh auto;
         text-align: right;
         vertical-align: bottom;
         overflow: hidden;
@@ -283,70 +278,36 @@ $content_start : 50vh;
         }
       }
 
-      h3{
-        width: calc(100% / 8 * 2);
-        margin: 0 auto 0 0;
-        // text-align: right;
-        // margin-right: 36px;
+      > h4{
+        width: 100%;
+        padding: 0 36px;
+        margin: 15vh 0 1rem;
       }
 
-      h3 + ul{
-        order: 2;
-        font-size: 1em;
-        display: inline-flex;
-        flex-direction: column;
-        column-gap: 36px;
-        width: calc(100% / 8);
-        margin: 0 36px 0 -36px;
-        padding: 0;
-
-        > li{
-          padding: 0.5rem 0;
-          width: 100%;
-          list-style: none;
-
-          h4{
-            border-bottom: solid 1px rgba($secondary-color, 0.25);
-          }
-          ul {
-            padding: 0;
-            margin: 0;
-
-            li{
-              display: inline-block;
-              padding: 0;
-              line-height: 1.2;
-            }
-          }
-        }
+      ul{
+        margin: 0;
       }
-      
+
       > div{
-        order: 1;
-        margin: 0 0 0 (100% / 8 * 2);
-        width: (100% / 8 * 3);
+        margin-left: auto;
+        width: calc(100% / 8 * 4);
+        margin-left: calc(100% / 8 * 4);
+        min-height: 30vh;
+        padding-left: 36px;
+        font-size: 1.5rem;
+        margin-bottom: 5vh;
 
-        h4{
-          display: inline-block;
-          vertical-align: top;
-          width: calc(100% / 4);
+        h4:not(:first-of-type){
+          margin-top: 5vh;
         }
 
-        h4 ~ *{
-          font-size: inherit;
-          width: calc(100% / 4 * 3);
-          // padding-left: 36px;
-          // float: right;
-          // display: inline-block;
-        }
-
-
-        ul{
+        ul.num{
           margin-top: 0;
+          margin-left: auto;
 
           li{
             position: relative;
-            padding-left: 3em;
+            padding-left: 2em;
 
             &::before{
               position: absolute;
@@ -359,24 +320,21 @@ $content_start : 50vh;
         }
       }
 
-      table{
-        order: 3;
-        width: calc(100% / 8 * 6);
-        margin: 15vh 0 0 calc(100% / 8 * 2);
-        padding-right: 36px;
-      }
-
       table.code_list{
+        width: calc(100% / 8 * 4);
+        padding: 0 36px;
         font-weight: 300;
         font-size: 1rem;
+        margin: 0 0 10vh;
+        float: left;
         
         tr{
           border-bottom: 0;
         }
 
         td{
-          padding-top: .25em;
-          padding-bottom: .25em;
+          padding-top: .25rem;
+          padding-bottom: .25rem;
 
           &:first-of-type{
             font-size: 1.5rem;
@@ -384,14 +342,24 @@ $content_start : 50vh;
           }
         }
       }
+
+      .tools{
+        margin-top: 0.5em;
+        li{
+          color: $darker-gray;
+          padding: 0.25em 0.5em;
+          display: inline-block;
+          border-radius: 1.5em;
+          background-color: $secondary-color;
+        }
+      }
     }
 
     > h3{
-      font-size: 2.5rem;
-      width: fit-content;
+      //@include hidden;
+      font-size: 1rem;
       padding: 0 36px;
-      margin-bottom: 0;
-      font-weight: 400;
+      float: left;
     }
     
     > ol,
@@ -443,10 +411,11 @@ $content_start : 50vh;
         position: relative;
         background-size: contain;
         background-repeat: no-repeat;
-        background-position: center;
+        background-position: calc(12.5vw * 2) top;
 
         span{
-          float: left;
+          display: inline-block;
+          width: 20%;
           vertical-align: top;
         }
 
@@ -456,58 +425,29 @@ $content_start : 50vh;
           width: 80%;
         }
 
-        div, ul{
+        ul{
           width: calc(100% / 8);
           padding: 0;
           overflow: hidden;
-          float: right;
+          float: left;
           margin: 0;
+          position: sticky;
+          top: 1rem;
 
           li{
             margin-bottom: calc(36px / 2);
             width: 100%;
-            text-align: right;
             clear: both;
 
             img{
-              width: 70%;
+              display: none;
             }
 
             div{
-              position: relative;
-              float: left;
-              display: inline-block;
-              width: fit-content;
-              overflow: hidden;
-
-              p{
-                @include hidden;
-                opacity: 0;
-              }
             }
           }
 
           li.active{
-            text-align: left;
-
-            img{
-              @include hidden;
-              transition: none;
-            }
-            div{
-              float: unset;
-            }
-            span{
-              display: block;
-              width: 100%;
-              border-bottom: solid 1px rgba($secondary-color, 0.25);
-            }
-            p{
-              opacity: 1;
-              transition: opacity 0.5s;
-              position: relative;
-              visibility: visible;
-            }
           }
         }
   
