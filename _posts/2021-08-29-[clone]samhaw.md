@@ -4,7 +4,7 @@ categories:
   - works
 
 ### 작업 제목 및 요약정보 ###
-title:  "2021 웹사이트 사례연구"
+title: "2021 웹사이트 사례연구"
 
 areas:
   #- UI/UX
@@ -27,7 +27,7 @@ header:
 
 ### toc(목차)설정 ###
 toc: true
-toc_label: "목차"
+toc_label: "2021 웹사이트 사례연구"
 
 gallery:
   - url: works/clone-samhaw/#section
@@ -54,11 +54,11 @@ gallery:
 
 ### 퍼블리싱
 
-<div markdown=1>
-
 - HTML구조 시멘틱 태그 강화
 - 회원가입 페이지 기획,디자인 및 구현
 {: .num}
+
+<div markdown=1 class="side">
 
 #### 사용도구
 - HTML 
@@ -69,7 +69,7 @@ gallery:
 
 </div>
 
-|    세움터     |
+|  세움터 화면보기    |
 |    화면명(링크)     |                                 이전단계                                 |    파일명      |
 |--------------------|--------------------------------------------------------------------------|---------------|
 |[첫화면](https://drv.tw/~hi.heera@hotmail.com/od/Web/seumteo/index.html)| - | index.html    |
@@ -79,7 +79,7 @@ gallery:
 |[가입하기](https://drv.tw/~hi.heera@hotmail.com/od/Web/seumteo/join.html)|메뉴>로그인| join.html     |
 {: .code_list}
 
-|    테마1, 테마2, 삼화페인팅     |
+| 테마1, 테마2, 삼화페인팅 화면보기 |
 |    화면명(링크)     |                                 이전단계                                 |    파일명      |
 |--------------------|--------------------------------------------------------------------------|---------------|
 |[테마1 첫화면](https://drv.tw/~hi.heera@hotmail.com/od/Web/template1/index.html)|-| index.html    |

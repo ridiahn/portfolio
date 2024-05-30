@@ -32,17 +32,6 @@ function makeSection(){
   }
 }
 
-//.gallery img title > fig안으로 caption 위치 변경
-function remakegalleryCaptions(){
-  let imgCaptions = document.querySelectorAll("figure.gallery img ~ p");
-  
-  if(imgCaptions){
-    Array.from(imgCaptions).forEach( (item, index) =>{
-      item.closest('figure').querySelector('figcaption').append(item);
-    })
-  }
-  return;
-}
 
 //gallery extend effect
 function extendImg(obj){
@@ -57,9 +46,22 @@ function extendImg(obj){
   }
 }
 
+//.gallery img title > fig안으로 caption 위치 변경
+function remakegalleryCaptions(){
+  let imgCaptions = document.querySelectorAll("figure.gallery img ~ p");
+  
+  if(imgCaptions){
+    Array.from(imgCaptions).forEach( (item, index) =>{
+      item.closest('figure').querySelector('figcaption').append(item);
+    })
+  }
+  return;
+}
 
 //서브페이지 목차 fixed 토글
-const endPoint_1sct = window.innerHeight * 0.9;
+const header = document.getElementsByClassName("page__header")[0];
+const header_img = document.querySelector(".page__header figure");
+const endPoint_header = header.offsetHeight * 0.9;
 const toc = document.getElementsByClassName("toc")[0];
 const pageAbsoluteY = (el) => {
   return window.pageYOffset + el.getBoundingClientRect().top
@@ -70,26 +72,42 @@ function classOnOff (condition, el, _class){
 }
 
 function scrollEvents(y){
-  classOnOff( y > endPoint_1sct && y < footerPoint, toc, 'fixed')
+  classOnOff( y > endPoint_header && y < footerPoint, toc, 'fixed');
+  classOnOff( y < endPoint_header, header_img, 'fixed')
 }
 
-//window scroll event
-// let tick = false;
-// window.addEventListener('scroll', function(){
-//   let y = Math.floor(window.scrollY)
 
-//   if(!tick){
-//     requestAnimationFrame(() => {
-//       scrollEvents(y)
-//       return tick = false
-//     })
+let tick = false;
+window.addEventListener('scroll', function(e){
+  let y = Math.floor(this.scrollY)
+
+  if(!tick){
+    requestAnimationFrame(() => {
+      scrollEvents(y)
+      return tick = false
+    })
+  }
+  tick = true;
+},{passive: true})
+
+// const scrollUnit = {
+//   unit : Math.floor(window.innerHeight) / 2,
+//   lastTimeStamp : 0,
+//   curTimeStamp : 0,
+//   time : function(){
+//     let calc =  this.curTimeStamp - this.lastTimeStamp
+//     return calc;
+//   },
+//   y : function(){
+//     return this.time() * this.unit;
 //   }
-//   tick = true;
-// },{passive: true})
-
+// }
 
 // window.addEventListener('wheel', function(e){
 //   e.preventDefault();
-//   const dir = e.deltaY > 0 ? 1 : -1; 
-//   window.scrollBy({left: 0, top:Math.floor(window.innerHeight * dir), behavior:"smooth"});
+//   let dir = e.deltaY > 0 ? 1 : -1;
+//   scrollUnit.lastTimeStamp = scrollUnit.curTimeStamp;
+//   scrollUnit.curTimeStamp = e.timeStamp;
+//   scrollEvents(e.pageY);
+//   window.scrollBy({left: 0, top:(scrollUnit.unit * dir), behavior:"smooth"});
 // }, {passive: false});

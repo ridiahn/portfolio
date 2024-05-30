@@ -33,7 +33,7 @@
     </nav>
   {% endif %}
   {% if page.header.image %}
-  <figure class="{{ page.header.image_layout }}">
+  <figure class="{{ page.header.image_layout }} fixed">
     <img src= '{{ page.header.image | relative_url }}' alt="{{ image_description }}"/>
     <figcaption>{{ image_description }}</figcaption>
   </figure>
