@@ -7,10 +7,13 @@ layout: about
 profile: /assets/img/heeraahn.png
 after_footer_scripts:
 - /assets/js/about.js
+
 ---
 <section class="intro">
   <figure>
-    <img src="#"/>
+    <img src="../../assets/img/heeraahn_part1.png"/>
+    <img src="../../assets/img/heeraahn_part2.png"/>
+    <img src="../../assets/img/heeraahn_part3.png"/>
   </figure>
   <h2>소개</h2>
   <article>

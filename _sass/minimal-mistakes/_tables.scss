@@ -29,7 +29,7 @@ tbody{
 }
 
 tr:not(thead tr){
-  border-top: solid 1px $border-color;
+  border-top: solid 1px rgba($secondary-color, 0.5);
 }
 
 th:not(:first-of-type),
@@ -48,32 +48,14 @@ th {
   position: relative;
   width: 100%;
 
-  &:hover{
-    tr:first-of-type{
-      & + tr{
-        opacity: 1;
-      }
-    }
-
-  }
-
   thead {
-    color: $gray;
-    table-layout:fixed;
     transition: opacity 0.25s;
     line-height: 1;
 
     tr:first-of-type{
       th{
-        //font-size: 2.5rem;
         font-weight: 400;
         padding-bottom: 0.5em;
-        color: $secondary-color;
-      }
-
-      & + tr{
-        opacity: 0;
-        transition: opacity 0.25s;
       }
     }
 
@@ -89,7 +71,6 @@ th {
   tbody{
     font-size: inherit;
     vertical-align: top;
-    table-layout:fixed;
     counter-reset: item_num;
 
     td{
@@ -109,7 +90,7 @@ th {
 
   th:nth-of-type(1),
   td:nth-of-type(1){
-    width: 45%;
+    width: 30%;
     
     a{
       color: inherit;
@@ -120,14 +101,12 @@ th {
   
   th:last-of-type,
   td:last-of-type{
-    width: 30%;
+    width: 25%;
   }
-
-  
 
   th:nth-of-type(2),
   td:nth-of-type(2){
-    width: 70%;
+    width: 45%;
   }
 }
 

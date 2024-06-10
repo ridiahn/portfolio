@@ -17,25 +17,25 @@
   <body class="layout--{{ page.layout | default: layout.layout }}{% if page.classes or layout.classes %}{{ page.classes | default: layout.classes | join: ' ' | prepend: ' ' }}{% endif %}">
     {% include_cached skip-links.html %}
     {% include_cached browser-upgrade.html %}
-    {% include_cached masthead.html %}
+    <div class="page__wrapper">
+      {% include_cached masthead.html %}
+      <main class="initial-content" id="main" role="main">
+        {{ content }}
+      </main>
 
-    <div class="initial-content" id="main" role="main">
-      {{ content }}
-    </div>
-
-    {% if site.search == true %}
-      <aside class="search-content">
+      {% if site.search == true %}
+      <div class="search-content">
         {% include_cached search/search_form.html %}
-      </aside>
-    {% endif %}
-
-    <footer id="footer">
-      <div class="page__footer">
-      {% include footer/custom.html %}
-      <!-- {% include_cached footer.html %} -->
       </div>
-    </footer>
-    
+      {% endif %}
+
+      <footer id="footer">
+        <div class="page__footer">
+        {% include footer/custom.html %}
+        <!-- {% include_cached footer.html %} -->
+        </div>
+      </footer>
+    </div>
     {% include scripts.html %}
   </body>
 </html>

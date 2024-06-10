@@ -70,16 +70,16 @@ $h-size-6: 1.125rem !default; // ~16px
    Colors
    ========================================================================== */
 
-$black: rgb(9, 12, 12)!default;
-$gray: rgb(125, 129, 133) !default;
+$black: rgb(26, 32, 28)!default;
+$gray: rgb(151, 158, 146) !default;
 $dark-gray: mix(#000, $gray, 40%) !default;
 $darker-gray: mix(#000, $gray, 60%) !default;
 $light-gray: mix(#fff, $gray, 30%) !default;
 $lighter-gray: mix(#fff, $gray, 5%) !default;
 
 
-$primary-color: rgb(57, 71, 71) !default;
-$secondary-color: rgb(198, 187, 194) !default;
+$primary-color: rgb(63, 77, 78) !default;
+$secondary-color: rgb(209, 120, 101) !default;
 $success-color: #3fa63f !default;
 $warning-color: #d67f05 !default;
 $danger-color: #ee5f5b !default;

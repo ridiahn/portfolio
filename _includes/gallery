@@ -18,12 +18,12 @@
 
 {% if gallery_layout  == 'gallery' %}
 {% assign galleryfirstImg = gallery[0].image_path %}
-<figure class="gallery" style="background-image:url('{{galleryfirstImg}}')">
+<figure class="gallery">
   <ul>
     {% for img in gallery %}
-      <li {% if forloop.index == 1 %} class="active" {% endif %} onclick='extendImg(this)'>
+      <li {% if forloop.index == 1 %} class="active" {% endif %} onclick="extendImg(this)">
         <img src="{{ img.image_path | relative_url }}" alt="{% if img.alt %}{{ img.alt }}{% endif %}">
-        {% if img.title %}<div><span>0{{forloop.index}}</span><p>{{ img.title }}</p></div>{% endif %}
+        {% if img.title %}<p {% if forloop.index == 1 %} class="active" {% endif %}><span>0{{forloop.index}}</span>{{ img.title }}</p>{% endif %}
       </li>
     {% endfor %}
   </ul>

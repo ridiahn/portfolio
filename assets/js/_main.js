@@ -53,14 +53,6 @@ $(document).ready(function() {
     }, 400);
   });
 
-  // Smooth scrolling
-  var scroll = new SmoothScroll('a[href*="#"]', {
-    offset: 20,
-    speed: 400,
-    speedAsDuration: true,
-    durationMax: 500
-  });
-
   // Gumshoe scroll spy init
   if($("nav.toc").length > 0) {
     var spy = new Gumshoe("nav.toc a", {
@@ -138,9 +130,4 @@ $(document).ready(function() {
   var currentCategory = $(location).attr('pathname').split('/')[1];
   $( `.visible-links ul li a[href != '${currentCategory}']` ).parent().removeClass('active');
   $( `.visible-links ul li a[href *= '${currentCategory}']` ).parent().addClass('active');
-
-  //SameSite setting
-  document.cookie = "safeCookie1=foo; SameSite=Lax"; 
-  document.cookie = "safeCookie2=foo"; 
-  document.cookie = "crossCookie=bar; SameSite=None; Secure";
 });
