@@ -28,7 +28,11 @@
     margin-bottom: 0;
     padding: 0 36px;
     display: inline-block;
+    color: $secondary-color;
 
+    a{
+      color: inherit;
+    }
 
     i{
       font-style: normal

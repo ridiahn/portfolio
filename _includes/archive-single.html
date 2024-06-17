@@ -31,7 +31,7 @@
     {% if post.excerpt %}
       <p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify | strip_html | truncate: 160 }}</p>
     {% endif %}
-    <time class="proj_year" datetime="{{ document.start_date }}">{{ post.start_date | date: '%y' }}</time>
+    <time class="proj_year" datetime="{{ document.start_date }}">{{ post.start_date | date: '%Y' }}</time>
     <figure>  
       {% if teaser %}
         <img class="teaser" src="{{ teaser | relative_url }}" alt="">

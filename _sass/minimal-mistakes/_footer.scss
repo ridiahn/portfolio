@@ -32,14 +32,14 @@ footer {
     
     .email{
       width: 100%;
-      transform: translateY(1em);
+      margin-bottom: -1em;
     }
 
     .other_links{
       list-style: none;
       display: inline-flex;
       column-gap: 1.5em;
-      margin: 0 auto;
+      margin: 0 0 0 1rem;
  
       li{
         display: inline-block;

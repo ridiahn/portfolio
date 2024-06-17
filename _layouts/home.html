@@ -9,15 +9,13 @@ layout: default
 
   <section class="works">
     <h3>{{ site.data.ui-text[site.locale].recent_works | default: "최근 작업" }}</h3>
-    <ul class="category_works">
+    <p class="category_works">
       {% for name in type_work %}
-        <li>
-          <h4>{{ name }}</h4>
-        </li>
+        {{ name }},
       {% endfor %}
-    </ul>
+    </p>
     <div class="recent_works">
-      <ul>
+      <ul class="cube">
         {% for post in posts %}
           <li>         
             <a href="{{post.url | relative_url }}">
@@ -35,8 +33,8 @@ layout: default
     {% for item in pageabout %}
       <h3>{{ item.title }}</h3>
       <p>{{ item.excerpt }}</p>
-      <img src={{item.profile}} alt="안희라 프로필" class="movingImg"/>
     {% endfor %}
   </section>
+  <span class="years">2011-{{site.time | date: '%y'}}</span>
 </body>
 

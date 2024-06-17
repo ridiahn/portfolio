@@ -1,6 +1,6 @@
 ---
-title: "자기소개"
-excerpt: "아이디어의 목적에 의한, 사용자를 위한, 아름다운 디자인을 추구 합니다"
+title: "안희라"
+excerpt: "아이디어의 목적에 의한, 사용자를 위한, 아름다운 디자인을 추구하는 아이디어 커넥터"
 sitemap: false
 permalink: /about
 layout: about

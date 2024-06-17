@@ -1,5 +1,6 @@
 .layout--category{
   background-color: $background-color-dark;
+  color: $secondary-color;
   min-height: 100vh;
   
   .archive{
@@ -22,25 +23,31 @@
   .taxonomy__index{
     padding: 0 36px;
     margin: 0;
-    width: calc(100% / 8 * 4);
-    transform: translateY(-1.5rem);
+    width: 100%;
     letter-spacing: -0.035em;
     line-height: 1.2;
     font-size: 1.5rem;
+    position: relative;
 
-    >span{
-      color: $gray;
-      display: block;
-      &::after{
-        color: $gray;
-        margin-left: 0.25em
-      } 
+    > p{
+      display: flex;
+      width: 100%;
+      
+      span{
+        flex: 1;
+        margin-left: 36px;
+        margin-right: 36px;
+        font-size: 0;
+        color: transparent;
+        height: 1px;
+        margin-top: calc((1.5rem / 2) + 1px);
+        background-color: $secondary-color;
+      }
     }
 
     ul{
       font-size: 7vw;
       margin: 15vh 0;
-      color: $darker-gray;
       display: inline-block;
       line-height: 1;
       position: relative;
@@ -53,7 +60,6 @@
         top: 0.1em;
         font-size: 0.7em;
         line-height: 0.7;
-        color: $gray;
         padding: 0.2em 0.2em 0.2em 0.3em;
         display: inline-block;
         transform: rotate(90deg);
@@ -73,12 +79,68 @@
 
       li.active{
         font-size: inherit;
-        color: $gray;
       }
     }
   }
 
   section.list{
+    clear: both;
+    width: 100%;
+    min-height: 50vh;
+    position: relative;
+
+    > ul{
+      width: inherit;
+      font-size: 1.2rem;
+      padding: 0 36px;
+
+      >li{
+        width: inherit;
+        border-bottom: solid 1px rgba($secondary-color, 0.25);
+
+        a{
+          display: flex;
+          color: inherit;
+          gap: 36px;
+          
+          figure{
+            position: absolute;
+            visibility: hidden;
+            opacity: 0;
+            text-align: center;
+            height: 80%;
+            width: 60%;
+            padding: 0;
+            transform-origin: center;
+          }
+
+          h3{
+            color: inherit;
+          }
+
+          :not(.proj_year){
+            order: 1;
+          }
+
+          .areas{
+            li{
+              display: inline;
+              &:not(:last-of-type)::after{
+                content: ",";
+              }
+            }
+          }
+          
+          .archive__item-excerpt,
+          .tags{
+            @include hidden;
+          }
+        }
+      }
+    }
+  }
+
+  section.card{
     clear: both;
     width: 100%;
     overflow: hidden;
@@ -87,25 +149,20 @@
       width: 100%;
       margin: 0;
       display: flex;
-      color: $light-gray;
       font-size: 1.2rem;
       gap: calc(36px / 2);
       padding: 0 36px;
 
-      $list-size : 4; 
       > li{
-        //display: table-cell;
-        //vertical-align: bottom;
         position: relative;
         width: calc(100% / 4);
         margin-bottom: 0;
         position: relative;
         padding: 0.8rem 0;
-        border-top: solid 3px $gray;
+        border-top: solid 3px $secondary-color;
 
         a{
           color: inherit;
-
           
           &:hover{
             > figure{
@@ -173,5 +230,17 @@
         }
       }
     }
+  }
+
+  .back-to-top{
+    width: fit-content;
+    color: inherit;
+    margin-left: auto;
+    margin-right: 36px;
+    font-size: 1rem;
+    border-radius: 1.5em;
+    padding: 0.25em 1em;
+    border-left: solid 2px $secondary-color;
+    border-right: solid 2px $secondary-color;
   }
 }

@@ -5,7 +5,6 @@ layout: archive
 
 <div class="taxonomy__index">
 <h3 class="hidden">필터</h3>
-  <span>2011-{{site.time | date: '%y'}}</span>
   <ul class="filter">
     <li class="active">
       모든 작업
@@ -16,6 +15,7 @@ layout: archive
     </li>
     {% endfor %}
   </ul>
+  <p>2011<span>-</span>{{site.time | date: '%y'}}</p>
 </div>
 
 <!-- section calss .list.col 적용시, include부문에 class="bg_modal"추가 -->
