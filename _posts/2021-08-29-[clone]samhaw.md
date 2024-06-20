@@ -27,7 +27,7 @@ header:
 
 ### toc(목차)설정 ###
 toc: true
-toc_label: "2021 웹사이트 사례연구"
+toc_label: "목차"
 
 gallery:
   - url: works/clone-samhaw/#section

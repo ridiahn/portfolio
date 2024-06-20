@@ -20,13 +20,4 @@ const Rotate = {
 
 setInterval(() => {Rotate.animation()}, 3500);
 
-function addMousemoveEvent(item){
-  const movingArea = item.parentElement;
-  movingArea.addEventListener("mousemove", (e)=>{
-    const x = e.offsetX;
-    const y = e.offsetY;
-    item.style.cssText = "left:"+x+"px;"+"top:"+y+"px;";
-  })
-}
-
 

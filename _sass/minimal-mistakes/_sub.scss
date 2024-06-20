@@ -13,12 +13,11 @@
   }
   
   .masthead{
+    margin-top: 0.5rem;
     position: fixed;
     top: 0;
     right: 0;
     z-index: 2;
-    h1{
-    }
   }
 
   h3{
@@ -78,7 +77,7 @@
         height: fit-content;
         overflow: hidden;
         padding: 0 36px;
-        margin: 20vh -36px 0 0;
+        margin: 20vh auto 0 0;
       }
     }
 
@@ -116,25 +115,44 @@
   }
 
   .toc{
+    margin-top: 20vh;
+    font-size: 1rem;
     height: fit-content;
     width: fit-content;
     min-width: calc(100% / 8);
-    color: rgba($secondary-color, 0.25);
-    padding: 36px 0 0 36px;
-    //text-align: right;
-    // align-self: flex-end;
-    // border-right: solid 1px rgba($secondary-color, 0.25);
+    color: rgba($secondary-color, 0.5);
+    padding: 0 36px 0 0;
     z-index: 2;
+    position: relative;
+
+    // &::before{
+    //   font-size: 10vh;
+    //   line-height: 1;
+    //   transform: translateX(-0.15em);
+    //   color: $secondary-color;
+    //   display: block;
+    //   content: "00"
+    // }
 
     header{
-      @include hidden;
+      width: fit-content;
+      text-align: center;
+      border-color: rgba($secondary-color, 0.5);
+      border-left: solid 2px;
+      border-right: solid 2px;
+      border-radius: 1.5em;
+      padding: 0.15em 0.5em;
+      margin-top: 0.5rem;
+      margin-bottom: 0.25em;
     }
     
     header + ul{
       display: inline-block;
       li{
+        padding-left: 2em;
+
         &::before{
-          content: none;
+          left: 0;
         }
 
         &.active{
@@ -142,35 +160,15 @@
         }
       }
     }
-
-    &.fixed{
-      top : 1rem;
-      left: 0;
-      z-index: 2;
-      margin: 0;
-      padding-top: 0;
-      text-align: left;
-      border-right: 0;
-
-      header{
-        visibility: visible;
-        position: relative;
-      }
-
-      li{
-        &:not(.active){
-          @include hidden;
-        }
-      }
-    }
   }
 
   .summary{
+    order: 1;
     line-height: 1;
     width: calc(100% / 8 * 5);
     height: fit-content;
     column-gap: 36px;
-    margin: 0;
+    margin: 1rem 0 0;
     display: flex;
     align-self: flex-end;
 
@@ -184,9 +182,9 @@
 
     ul{
       display: inline-block;
-      width: 50%;
       font-weight: 500;
       margin: 0;
+      max-width: 65%;
 
       li{
         margin: 0;
@@ -200,7 +198,8 @@
 
     p,
     > div{
-      width: calc(100% / 3);
+      flex: 1;
+      // width: calc(100% / 5 * 2);
       margin-bottom: 0;
       line-height: 1;
       padding: 0 36px;
@@ -211,6 +210,8 @@
       // position: absolute;
       // top: 20vh;
       // left: 36px;
+      padding-left: 36px;
+      flex: 1;
       line-height: 1;
       font-size: 1.2rem;
       font-weight: 400;
@@ -225,6 +226,7 @@
     letter-spacing: -0.015em;
     font-size: 1rem;
     margin-bottom: 25vh;
+    counter-reset: num;
 
     & > span:last-of-type{
       display: block;
@@ -240,7 +242,7 @@
     font-size: 1.1rem;
     padding-top: 20vh;
     background-color: $primary-color;
-    
+
     &:first-of-type{
       padding-top: 10vh;
 
@@ -432,11 +434,26 @@
     }
 
     > h3{
-      @include hidden;
-      top: -5vh;
-      // font-size: 1rem;
-      // padding: 0 36px;
-      // float: left;
+      max-width: calc(100% / 8);
+      width: fit-content;
+      text-align: center;
+      font-size: 1rem;
+      line-height: 1;
+      font-weight: 400;
+      letter-spacing: -0.025em;
+      padding: 0 36px;
+      margin: 0;
+      float: left;
+      color: rgba($secondary-color, 0.5);
+
+      &::before{
+        font-size: 10vh;
+        color: $secondary-color;
+        display: block;
+        width: 100%;
+        counter-increment : num;
+        content: counter(num, decimal-leading-zero);
+      }
     }
     
     > ol,
@@ -499,8 +516,8 @@
           position: relative;
           
           &::before{
-            counter-increment : num;
-            content: counter(num, decimal-leading-zero);
+            // counter-increment : num;
+            // content: counter(num, decimal-leading-zero);
             position: absolute;
             left: 8px;
             top: 8px;
@@ -519,10 +536,6 @@
             text-align: center;
             opacity: 1;
             filter: none;
-
-            // img{
-            //   object-fit: contain;
-            // }
           }
         }
       }
@@ -532,9 +545,9 @@
         width: calc(100% / 8);
         display: inline-flex;
         flex-direction: column;
-        justify-content: flex-end;
-        padding: 25vh 0 0 36px;
-        row-gap: 1rem;
+        // justify-content: flex-end;
+        padding: 5vh 0 0 36px;
+        row-gap: 0.5rem;
         color: inherit;
         margin-right: 36px;
 
@@ -543,16 +556,18 @@
         }
         
         span{
-          display: block;
+          display: none;
           margin-bottom: 0.5rem;
         }
   
         p{
+          padding-top: 0.5rem;
+          border-top: solid 1px transparent;
           font-size: 1rem;
           line-height: 1.2;
 
           &.active{
-            border-top: solid 1px rgba($secondary-color, 0.25);
+            border-color: $secondary-color;
           }
         }
       }
@@ -581,13 +596,24 @@
     }
   
     nav{
-      border-top: solid 1px $secondary-color;
       border-bottom: solid 1px $secondary-color;
       margin-top: 5vh;
 
       h3{
-        margin: 5vh 36px 0.5rem;
+        display: flex;
+        margin: 5vh 0;
         font-size: 1rem;
+        
+        &::after{
+          flex: 1;
+          margin-left: 36px;
+          width: 100%;
+          content: "";
+          display: inline-block;
+          height: 1px;
+          margin-top: calc((1em / 2) + 1px);
+          background-color: $secondary-color;
+        }
       }
 
       a{
@@ -597,7 +623,7 @@
         color: inherit;
         justify-content: space-between;
         text-align: left;
-        padding: 0 36px 10vh;
+        padding: 0 36px 5vh 0;
     
         &.disabled{
           color: inherit;

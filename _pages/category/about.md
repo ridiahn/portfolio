@@ -92,10 +92,15 @@ after_footer_scripts:
         </ul>
       </li>
       <li>
-        <h3>웹퍼블리싱/프론트엔드</h3>
+        <h3>웹퍼블리싱</h3>
         <ul>
           <li>HTML5/CSS3</li>
           <li>SCSS</li>
+        </ul>
+      </li>
+      <li>
+        <h3>프론트엔드</h3>
+        <ul>
           <li>jQury</li>
           <li>javascript</li>
           <li>git</li>
@@ -109,11 +114,9 @@ after_footer_scripts:
     <ul>
       <li>
         웹디자인 기능사
-        <span>21402012283O / 한국산업인력공단</span>
       </li>
       <li>
         컴퓨터그래픽스운용기능사
-        <span>21402013944G / 한국산업인력공단</span>
       </li>
     </ul>
   </div>

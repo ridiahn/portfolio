@@ -58,16 +58,15 @@ function remakegalleryCaptions(){
 }
 
 //서브페이지 목차 fixed 토글
-const header = document.getElementsByClassName("page__header")[0];
-const endPoint_header = header.offsetHeight * 0.9;
-const toc = document.getElementsByClassName("toc")[0];
-const pageAbsoluteY = (el) => {
-  return window.pageYOffset + el.getBoundingClientRect().top
-} 
-const footerPoint = pageAbsoluteY(document.querySelector("#main footer")) - window.innerHeight / 4;
-function classOnOff (condition, el, _class){
-  return condition ? el.classList.add(_class) : el.classList.remove(_class)
-}
+// const header = document.getElementsByClassName("page__header")[0];
+// const toc = document.getElementsByClassName("toc")[0];
+// const pageAbsoluteY = (el) => {
+//   return window.pageYOffset + el.getBoundingClientRect().top
+// } 
+// const footerPoint = pageAbsoluteY(document.querySelector("#main footer")) - window.innerHeight / 4;
+// function classOnOff (condition, el, _class){
+//   return condition ? el.classList.add(_class) : el.classList.remove(_class)
+// }
 
 const wrapper = document.querySelector(".page__wrapper");
 const pageHeight = document.body.scrollHeight;
@@ -76,7 +75,7 @@ function scrollEvents(y){
   if(y < (pageHeight - innerHeight - 5) / 2){
     wrapper.style.transform = `translateY(-${y}px)`;
   }
-  classOnOff( y > endPoint_header && y < footerPoint, toc, 'fixed');
+  // classOnOff( y > endPoint_header && y < footerPoint, toc, 'fixed');
 }
 
 

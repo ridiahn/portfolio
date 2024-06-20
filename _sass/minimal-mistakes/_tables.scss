@@ -81,7 +81,7 @@ th {
 
     tr{
       &:hover{
-        background-color: #efefef;
+        background-color: rgba($darker-gray, 0.5);
         transition: 0.4s;
       }
     }

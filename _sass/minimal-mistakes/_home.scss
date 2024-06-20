@@ -29,14 +29,15 @@
   }
 
   .about{
-    position: absolute;
-    top: calc(50vh - (250px / 2));
-    right: 0;
+    // position: absolute;
+    // top: calc(50vh - (250px / 2));
+    // right: 0;
     // margin-left: (100% / 8);
-    // float: right;
-    width: calc(100% / 8 * 3);
+    margin-top: -20vh;
+    padding-bottom: 5vh;
+    width: 100%;
     padding-right: 36px;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     text-align: right;
     display: inline-block;
 
@@ -51,9 +52,9 @@
     }
 
     p{
-      width: 100%;
+      width: calc(100% / 8 * 3);
       height: inherit;
-      display: table-cell;
+      margin-left: auto;
       vertical-align: bottom;
       letter-spacing: -0.025em;
     }
@@ -79,13 +80,11 @@
   }
 
   .works{
-    //margin-top: calc(1.5rem * 3 * -1.2);
-    //width: calc(50% + (25vh / 2));
     width: 100%;
     height: fit-content;
     padding-top: 36px;
     padding-left: 36px;
-    //margin-right: calc(100% / 8 * 2);
+    position: relative;
 
     h3{
       display: none;
@@ -93,17 +92,19 @@
   }
 
   .category_works{
+    position: relative;
     letter-spacing: -0.035em;
     line-height: 1;
     font-size: 18vh;
     margin: 0 36px 0 0;
     width: inherit;
+    padding-bottom: 5vh;
 
-    &::before{
+    &::after{
       content: "";
       width: calc(100% / 8 * 5);
-      height: 75vh;
-      shape-outside: inset(20vh 0 5vh 0);
+      height: 50vh;
+      shape-outside: inset(5vh 0 5vh 0);
       shape-margin: 10px;
       display: inline-block;
       float: right;
@@ -111,10 +112,12 @@
   }
 
   .recent_works{
-    position: absolute;
+    //position: absolute;
     z-index: 1;
-    top: calc(50vh - (250px / 2));
-    left: calc(50% - 25vh / 2);
+    margin-top: calc(25vh / 2 * -1);
+    margin-left: calc(50% - 25vh / 2);
+    // top: calc(50vh - (250px / 2));
+    // left: calc(50% - 25vh / 2);
     width: 25vh;
     height: 25vh;
     //transform: translateY(calc(25vh / 2)) translateX(calc(25vh / 2));
@@ -189,12 +192,24 @@
   
   .years{
     position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    display: inline-block;
-    font-size: 1.2rem;
-    line-height: 1em;
+    z-index: -1;
+    left: 0;
+    bottom: calc(25vh / 2 - 1em);
+    padding: 0 36px;
+    font-size: 1.5rem;
+    display: flex;
+    width: 100%;
+    
+    span{
+      flex: 1;
+      margin-left: 36px;
+      margin-right: 36px;
+      font-size: 0;
+      color: transparent;
+      height: 1px;
+      margin-top: calc((1.5rem / 2) + 1px);
+      background-color: $secondary-color;
+    }
   }
 
   .page__footer{

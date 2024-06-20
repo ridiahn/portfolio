@@ -7,7 +7,7 @@ layout: archive
 <h3 class="hidden">필터</h3>
   <ul class="filter">
     <li class="active">
-      모든 작업
+      선택해제
     </li>
     {% for name in type_work %}
     <li>
@@ -15,7 +15,7 @@ layout: archive
     </li>
     {% endfor %}
   </ul>
-  <p>2011<span>-</span>{{site.time | date: '%y'}}</p>
+  <p class="years">2011<span>-</span>{{site.time | date: '%y'}}</p>
 </div>
 
 <!-- section calss .list.col 적용시, include부문에 class="bg_modal"추가 -->
@@ -28,6 +28,6 @@ layout: archive
       {% endfor %}
     {% endfor %}
   </ul>
-  <a href="#page-title" class="back-to-top">{{ site.data.ui-text[site.locale].back_to_top | default: 'Back to Top' }} &uarr;</a>
+  <a href="#page-title" class="back-to-top">{{ site.data.ui-text[site.locale].back_to_top | default: 'Back to Top' }}</a>
 </section>
 
