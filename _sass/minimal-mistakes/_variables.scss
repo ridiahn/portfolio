@@ -1,25 +1,31 @@
 /* ==========================================================================
    Variables
    ========================================================================== */
+/*
+   Breakpoints
+   ========================================================================== */
+   $small: 600px !default;
+   $medium: 768px !default;
+   $medium-wide: 900px !default;
+   $large: 1024px !default;
+   $x-large: 1280px !default;
+   $max-width: 100% !default;
 
 /*
    Typography
    ========================================================================== */
 @import url('https://cdn.jsdelivr.net/gh/sun-typeface/SUIT/fonts/variable/woff2/SUIT-Variable.css');
-
 @font-face {
   font-family : 'Eulyoo1945';
   src : url(/assets/fonts/Eulyoo1945-Regular.woff2) format('woff2');
 	font-weight: normal;
 }
-
 @font-face {
   font-family : 'Eulyoo1945';
   src : url(/assets/fonts/Eulyoo1945-SemiBold.woff2) format('woff2');
 	font-weight: bold;
 }
 
-$doc-font-size: 1rem !default;
 
 /* paragraph indention */
 $paragraph-indent: false !default; // true, false (default)
@@ -30,41 +36,15 @@ $serif: 'Eulyoo1945', Georgia, Times, serif !default;
 $sans-serif: "SUIT Variable", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
 $monospace: Monaco, Consolas, "Lucida Console", monospace !default;
 
-/* sans serif typefaces */
-$sans-serif-narrow: $sans-serif !default;
-$helvetica: Helvetica, "Helvetica Neue", Arial, sans-serif !default;
-
-/* serif typefaces */
-$georgia: Georgia, serif !default;
-$times: Times, serif !default;
-$bodoni: "Bodoni MT", serif !default;
-$calisto: "Calisto MT", serif !default;
-$garamond: Garamond, serif !default;
-
-$global-font-family: $sans-serif !default;
-$header-font-family: $sans-serif !default;
-$caption-font-family: $serif !default;
-
 /* margin scale */
-$m-100: 6.25rem !default; //100px
-$m-54: 3.375rem !default; // 54px
-$m-36: 2.25rem !default; // 36px
-$m-24: 1.5rem !default; // 24px
+$mg: 36px !default;
 
 /* type scale */
-$type-size-1: 1.25rem !default; // 20px
-$type-size-2: 1rem !default; // 16px
-$type-size-3: 0.875rem !default; // 14px
-$type-size-4: 0.75rem !default; // 12px
-$type-size-5: 0.625rem !default; // 10px
-
-/* headline scale */
-$h-size-1: 2.75rem !default; // 38px
-$h-size-2: 2rem !default; // 32px
-$h-size-3: 1.75rem !default; // 28px
-$h-size-4: 1.5rem !default; // 24px
-$h-size-5: 1.25rem !default; // 18px
-$h-size-6: 1.125rem !default; // ~16px
+$doc-font-md: 20px !default;
+$doc-font-sm: 16px;
+$txt_lg_ko: 6.5rem;
+$txt_lg_en: 6.5rem;
+$txt_md: calc($txt_lg_ko / 2);
 
 /*
    Colors
@@ -76,7 +56,6 @@ $dark-gray: mix(#000, $gray, 40%) !default;
 $darker-gray: mix(#000, $gray, 60%) !default;
 $light-gray: mix(#fff, $gray, 30%) !default;
 $lighter-gray: mix(#fff, $gray, 5%) !default;
-
 
 $primary-color: rgb(63, 77, 78) !default;
 $secondary-color: rgb(195, 138, 119) !default;
@@ -158,16 +137,6 @@ $base0d: #82aaff !default;
 $base0e: #c792ea !default;
 $base0f: #ff5370 !default;
 
-/*
-   Breakpoints
-   ========================================================================== */
-
-$small: 600px !default;
-$medium: 768px !default;
-$medium-wide: 900px !default;
-$large: 1024px !default;
-$x-large: 1280px !default;
-$max-width: $x-large !default;
 
 /*
    Grid

@@ -2,17 +2,6 @@
   background-color: $background-color-dark;
   color: $secondary-color;
 
-  .masthead{
-    position: absolute;
-    right: 0;
-
-    #site-nav{      
-      h1{
-        @include hidden;
-      }
-    }
-  }
-
   ul{
     li{
       margin: 0;
@@ -24,27 +13,18 @@
     min-height: 90vh;
     width: 100%;
     position: relative;
-    // display: flex;
-    // flex-wrap: wrap;
   }
 
   .about{
-    // position: absolute;
-    // top: calc(50vh - (250px / 2));
-    // right: 0;
-    // margin-left: (100% / 8);
-    margin-top: -20vh;
-    padding-bottom: 5vh;
     width: 100%;
-    padding-right: 36px;
+    padding: 0 36px 5vh;
     font-size: 1.2rem;
     text-align: right;
     display: inline-block;
 
     h3{
-      letter-spacing: 0.05em;
-      color: inherit;
-      font-size: 20vh;
+      @include bigTypho_ko;
+      
       display: block;
       text-align: right;
       margin-bottom: 5vh;
@@ -52,11 +32,19 @@
     }
 
     p{
-      width: calc(100% / 8 * 3);
+      width: 100%;
       height: inherit;
-      margin-left: auto;
       vertical-align: bottom;
       letter-spacing: -0.025em;
+
+      @include breakpoint($medium){  
+        width: calc(100% / 8 * 4);
+        margin-left: auto;
+      }
+
+      @include breakpoint($large) {
+        width: calc(100% / 8 * 3);
+      }
     }
 
     &:hover{
@@ -81,8 +69,7 @@
 
   .works{
     width: 100%;
-    height: fit-content;
-    padding-top: 36px;
+    padding-top: 10vh;
     padding-left: 36px;
     position: relative;
 
@@ -91,39 +78,15 @@
     }
   }
 
-  .category_works{
-    position: relative;
-    letter-spacing: -0.035em;
-    line-height: 1;
-    font-size: 18vh;
-    margin: 0 36px 0 0;
-    width: inherit;
-    padding-bottom: 5vh;
-
-    &::after{
-      content: "";
-      width: calc(100% / 8 * 5);
-      height: 50vh;
-      shape-outside: inset(5vh 0 5vh 0);
-      shape-margin: 10px;
-      display: inline-block;
-      float: right;
-    }
-  }
-
+  $size: 15rem;
   .recent_works{
-    //position: absolute;
-    z-index: 1;
-    margin-top: calc(25vh / 2 * -1);
-    margin-left: calc(50% - 25vh / 2);
-    // top: calc(50vh - (250px / 2));
-    // left: calc(50% - 25vh / 2);
-    width: 25vh;
-    height: 25vh;
-    //transform: translateY(calc(25vh / 2)) translateX(calc(25vh / 2));
-    perspective: calc(250px);
-    
+    margin-left: calc(50% - #{$size} / 2);
+    // margin-top: calc( #{$size} / 2 * -1);
+    width: $size;
+    height: $size;
+
     .cube{
+      margin: 0;
       position: relative;
       width: 100%;
       height: 100%;
@@ -132,9 +95,9 @@
 
       &::after{
         content: "©";
-        font-size: 13vh;
+        font-size: calc(#{$size} / 2.5);
         text-align: center;
-        line-height: 25vh;
+        line-height: $size;
         position: absolute;
         display: block;
         width: inherit;
@@ -147,7 +110,7 @@
         display: block;
         width: inherit;
         height: inherit;
-        
+
         a{
           display: block;
           width: 100%;
@@ -157,30 +120,43 @@
             width: inherit;
             height: inherit;
             object-fit: cover;
-            background-color: rgba($background-color-light, 0.65); 
+            background-color: $primary-color;
           }
         }
       }
+
+      @mixin surface($rotate){
+        transform: rotateY($rotate) translateZ(calc(#{$size} / 2));
+      }
   
       li:nth-of-type(1){
-        transform: rotateY(0deg) translateZ(calc(25vh / 2));
+        @include surface(0deg)
+      }
+        
+      &::after{
+        @include surface(180deg)
       }
   
       li:nth-of-type(2),
+      li:nth-of-type(4){
+        @include surface(90deg)
+      }
+  
+      li:nth-of-type(3),
       li:nth-of-type(5){
-        transform: rotateY(90deg) translateZ(calc(25vh / 2));
-      }
-  
-      li:nth-of-type(3){
-        transform: rotateY(180deg) translateZ(calc(25vh / 2));
-      }
-  
-      li:nth-of-type(4),
-      &::after{
-        transform: rotateY(-90deg) translateZ(calc(25vh / 2));
+        @include surface(-90deg)
       }
     }
-    
+  }
+
+  .category_works{
+    @include bigTypho_en;
+
+    word-break: break-all;
+    position: relative;
+    padding-right: 36px;
+    width: inherit;
+    padding-bottom: 5vh;
   }
 
   .more{
@@ -194,7 +170,7 @@
     position: absolute;
     z-index: -1;
     left: 0;
-    bottom: calc(25vh / 2 - 1em);
+    bottom: calc(#{$size} / 2 - 1em);
     padding: 0 36px;
     font-size: 1.5rem;
     display: flex;

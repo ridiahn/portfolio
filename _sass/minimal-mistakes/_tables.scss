@@ -6,7 +6,6 @@ table {
   display: block;
   margin-bottom: 1em;
   width: 100%;
-  font-family: $global-font-family;
   border-collapse: collapse;
   overflow-x: auto;
   overflow: hidden;
@@ -20,7 +19,6 @@ thead {
   display: table;
   width: 100%;
 }
-
 
 tbody{
   display: table;

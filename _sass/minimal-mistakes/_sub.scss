@@ -13,7 +13,6 @@
   }
   
   .masthead{
-    margin-top: 0.5rem;
     position: fixed;
     top: 0;
     right: 0;
@@ -55,7 +54,6 @@
       display: flex;
       flex-flow: wrap;
       position: relative;
-      font-size: 1.1rem;
     }
 
     .fixed{
@@ -213,7 +211,6 @@
       padding-left: 36px;
       flex: 1;
       line-height: 1;
-      font-size: 1.2rem;
       font-weight: 400;
       margin-right: auto;
     }
@@ -666,11 +663,11 @@
       align-items: unset;
 
       .email{
+        @include bigTypho_en;
+        
         width: 100%;
         margin-bottom: unset;
-        font-size: 20vh;
         text-align: center;
-        letter-spacing: -0.035em;
       }
     }
   }

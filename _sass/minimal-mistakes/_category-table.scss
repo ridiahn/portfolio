@@ -218,8 +218,8 @@
 }
 
 div.item_info{
-  @include grid_12;
-
+  display: grid;
+  grid-template-columns: $grid-col-12;
   position: fixed;
   top: 0;
   left: 0;
@@ -241,13 +241,12 @@ div.item_info{
     grid-column: 1 / 5;
     grid-row: 4;
     align-self: center;
-    margin: 0 0 $m-54 $m-54;
     box-sizing: border-box;
   }
 
   figure{
-    @include grid_12;
-
+    display: grid;
+    grid-template-columns: $grid-col-12;
     position: absolute;
     top: 0;
     z-index: -1;

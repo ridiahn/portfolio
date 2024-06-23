@@ -44,15 +44,13 @@
     }
 
     ul{
+      @include bigTypho_en;
       width: 100%;
-      font-size: 18vh;
       margin: 10vh 0 5vh;
       display: flex;
       flex-wrap: wrap;
-      line-height: 1;
       position: relative;
-      letter-spacing: -0.035em;
-      line-height: 1.2;
+
       
       li{
         display: inline-block;

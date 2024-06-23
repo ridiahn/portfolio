@@ -6,13 +6,18 @@ html {
   /* sticky footer fix */
   position: relative;
   min-height: 100%;
+  font-size: $doc-font-sm;
+
+
+  @include breakpoint($medium){ 
+    font-size: $doc-font-md;
+  }
 }
 
 body {
   margin: 0;
   padding: 0;
   color: $black;
-  //font-family: $global-font-family;
   font-family: $sans-serif;
   line-height: 1.5;
 
@@ -31,7 +36,6 @@ h6 {
   margin: 0 0 0.5em;
   line-height: 1.2;
   color: #000;
-  font-family: $header-font-family;
   font-weight: bold;
   word-break: keep-all;
   word-wrap: break-word;
@@ -42,34 +46,8 @@ h6 {
   text-overflow:ellipsis;
 }
 
-h1 {
-  margin-top: 0;
-  font-size: $h-size-1;
-}
-
-h2 {
-  font-size: $h-size-2;
-}
-
-h3 {
-  font-size: $h-size-3;
-}
-
-h4 {
-  font-size: $h-size-4;
-}
-
-h5 {
-  font-size: $h-size-6;
-}
-
-h6 {
-  font-size: $h-size-6;
-}
-
-small,
 .small {
-  font-size: $h-size-3;
+  font-size: 1rem;
 }
 
 p {

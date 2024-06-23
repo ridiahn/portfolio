@@ -3,17 +3,23 @@
    ========================================================================== */
 
 .masthead {
+  padding-top: 0.5rem;
   margin-left: auto;
-  width: 55%;
+  width: 100%;
   -webkit-animation: $intro-transition;
   animation: $intro-transition;
   -webkit-animation-delay: 0.15s;
   animation-delay: 0.15s;
   z-index: 1;
+
+    
+  @include breakpoint($large) {
+    width: 55%;
+  }
 }
 
 #site-nav {
-  font-size: 1.1rem;
+  font-size: 1rem;
 
   a {
     text-decoration: none;
@@ -53,59 +59,58 @@
     text-align: inherit;
   }
 
+  .visible-links{
+    vertical-align: top;
+    min-width: 12.5vw;
+    width: fit-content;
+    margin-right: 36px;
+    float: right;
+    color: inherit;
+  
+
+    > ul{
+      // justify-content: space-between;
+      line-height: 1;
+      margin: 0 0 0 auto;
+      text-align: right;
+
+      > li{
+        position: relative;
+        list-style-type: none;
+        letter-spacing: -0.08em;
+        transition: opacity 0.25s;
+        font-weight: 600;
+        padding: 0 .25em;
+        display: inline-block;
+        //width: fit-content;
+
+        &.active{
+          //color: $secondary-color;
+          position: relative;
+        }
+
+        a{
+          font-weight: inherit;
+          color: inherit;
+          letter-spacing: inherit;
+          vertical-align: text-top;
+        }
+
+        &:not(:last-of-type)::after{
+          content: ",";
+          float: right;
+        }
+      }
+    } 
+  }
+  
+  .other-links{
+    width: 12.5vw;
+    line-height: 1.2;
+    padding: 0 36px;
+    display: inline-block;
+  }
 
   @include breakpoint($large) {
-    .visible-links{
-      vertical-align: top;
-      min-width: 12.5vw;
-      width: fit-content;
-      margin-right: 36px;
-      float: right;
-      color: inherit;
-    
-
-      > ul{
-        width: 100%;
-        display: inline-flex;
-        justify-content: space-between;
-        line-height: 1;
-        margin: 0;
-
-        > li{
-          position: relative;
-          list-style-type: none;
-          letter-spacing: -0.08em;
-          transition: opacity 0.25s;
-          font-weight: 600;
-          padding: 0 .25em;
-          display: inline-block;
-          //width: fit-content;
-
-          &.active{
-            //color: $secondary-color;
-            position: relative;
-          }
-
-          a{
-            font-weight: inherit;
-            color: inherit;
-            letter-spacing: inherit;
-            vertical-align: text-top;
-          }
-
-          &:not(:last-of-type)::after{
-            content: ",";
-            float: right;
-          }
-        }
-      } 
-    }
-    
-    .other-links{
-      width: 12.5vw;
-      line-height: 1.2;
-      padding: 0 36px;
-      display: inline-block;
-    }
   }
 }

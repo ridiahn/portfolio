@@ -94,13 +94,41 @@
 
 
 /*
-  grid
+  typogarph
   ========================================================================== */
+@mixin bigTypho_ko{
+  font-size: calc(#{$txt_lg_ko} / 2); 
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  line-height: 1;
+  color: inherit;
 
-@mixin grid_12{
-  display: grid !important;
-  grid-template-columns: $grid-col-12;
-  // gap: 20px;
+  @include breakpoint($medium){  
+    font-size:calc(#{$txt_lg_ko} / 1.5); 
+  }
+
+  @include breakpoint($large) {
+    font-size: $txt_lg_ko;
+  }
+}
+
+@mixin bigTypho_en{
+  font-size: calc(#{$txt_lg_en} / 2); 
+  letter-spacing: -0.035em;
+  word-spacing: -0.015em;
+  font-weight: 400;
+  line-height: 1;
+  color: inherit;
+      
+  @include breakpoint($medium){
+    word-spacing: unset;
+    font-size:calc(#{$txt_lg_en} / 1.5); 
+  }
+
+  @include breakpoint($large) {
+    font-size: $txt_lg_en; 
+    word-spacing: -0.15em;
+  }
 }
 
 @mixin hidden{

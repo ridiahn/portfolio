@@ -124,7 +124,6 @@
 
     h2 ~ *{
       display: inline-block;
-      font-size: 1.5rem;
     }
   }
 
@@ -253,12 +252,11 @@
       align-items: unset;
 
       .email{
+        @include bigTypho_en;
+
         width: 100%;
         margin-bottom: unset;
-        font-size: 20vh;
         text-align: center;
-        letter-spacing: -0.035em;
-        color: $primary-color;
       }
     }
   }
