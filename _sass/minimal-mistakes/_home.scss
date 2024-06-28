@@ -25,6 +25,7 @@
     h3{
       @include bigTypho_ko;
       
+      letter-spacing: 0.05em;
       display: block;
       text-align: right;
       margin-bottom: 5vh;
@@ -156,7 +157,6 @@
     position: relative;
     padding-right: 36px;
     width: inherit;
-    padding-bottom: 5vh;
   }
 
   .more{

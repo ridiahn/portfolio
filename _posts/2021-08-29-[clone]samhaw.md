@@ -14,7 +14,8 @@ areas:
   #- WebPublishing
 
 tags:
-  - 사례연구
+  - 웹
+  - 공부
   - 개인
 
 start_date: "2021-07-08"
@@ -50,13 +51,26 @@ gallery:
 ---
 
 ### 소개
-2021년 본 사례연구는 기존 웹 페이지의 사례들의 디자인과 내용을 바탕으로 모방 구현한 작업으로, Html/Css 숙련도 향상과 JS/JQurey의 기초탐구 및 동작 구현을 목적으로 진행되었다.
+본 사례연구는 기존 웹 페이지의 사례들의 디자인과 내용을 바탕으로 모방 구현한 작업으로, Html/Css 숙련도 향상과 JS/JQurey의 기초탐구 및 동작 구현을 목적으로 진행되었다.
 
 ### 퍼블리싱
 
 - HTML구조 시멘틱 태그 강화
 - 회원가입 페이지 기획,디자인 및 구현
 {: .num}
+
+|  세움터 화면보기    |
+|    화면명(링크)     |                                 이전단계                                 |    파일명      |
+|--------------------|--------------------------------------------------------------------------|---------------|
+|[세움터 첫화면](https://drv.tw/~hi.heera@hotmail.com/od/Web/seumteo/index.html)| - | index.html    |
+|[세움터 팝업](https://drv.tw/~hi.heera@hotmail.com/od/Web/seumteo/popup.html)|-| popup.html    |
+|[세움터소개](https://drv.tw/~hi.heera@hotmail.com/od/Web/seumteo/introduce.html)|메뉴>이용안내| introduce.html|
+|[세움터 로그인](https://drv.tw/~hi.heera@hotmail.com/od/Web/seumteo/login.html)|메뉴>로그인| login.html    |
+|[세움터 가입하기](https://drv.tw/~hi.heera@hotmail.com/od/Web/seumteo/join.html)|메뉴>로그인| join.html     |
+|[테마1 첫화면](https://drv.tw/~hi.heera@hotmail.com/od/Web/template1/index.html)|-| index.html    |
+|[테마2 첫화면](https://drv.tw/~hi.heera@hotmail.com/od/Web/template2/index.html)|-| index.html    |
+|[삼화페인팅 첫화면](https://drv.tw/~hi.heera@hotmail.com/od/Web/samhwa/index.html)|-| index.html    |
+{: .code_list }
 
 <div markdown=1 class="side">
 
@@ -66,26 +80,4 @@ gallery:
 - JS
 - JQUREY
 {: .tools}
-
 </div>
-
-|  세움터 화면보기    |
-|    화면명(링크)     |                                 이전단계                                 |    파일명      |
-|--------------------|--------------------------------------------------------------------------|---------------|
-|[첫화면](https://drv.tw/~hi.heera@hotmail.com/od/Web/seumteo/index.html)| - | index.html    |
-|[(팝업)](https://drv.tw/~hi.heera@hotmail.com/od/Web/seumteo/popup.html)|-| popup.html    |
-|[세움터소개](https://drv.tw/~hi.heera@hotmail.com/od/Web/seumteo/introduce.html)|메뉴>이용안내| introduce.html|
-|[로그인하기](https://drv.tw/~hi.heera@hotmail.com/od/Web/seumteo/login.html)|메뉴>로그인| login.html    |
-|[가입하기](https://drv.tw/~hi.heera@hotmail.com/od/Web/seumteo/join.html)|메뉴>로그인| join.html     |
-{: .code_list}
-
-| 테마1, 테마2, 삼화페인팅 화면보기 |
-|    화면명(링크)     |                                 이전단계                                 |    파일명      |
-|--------------------|--------------------------------------------------------------------------|---------------|
-|[테마1 첫화면](https://drv.tw/~hi.heera@hotmail.com/od/Web/template1/index.html)|-| index.html    |
-|[테마2 첫화면](https://drv.tw/~hi.heera@hotmail.com/od/Web/template2/index.html)|-| index.html    |
-|[삼화페인팅 첫화면](https://drv.tw/~hi.heera@hotmail.com/od/Web/samhwa/index.html)|-| index.html    |
-{: .code_list }
-
-
-

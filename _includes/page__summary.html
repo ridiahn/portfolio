@@ -1,7 +1,10 @@
 <article class="summary">
-  <span class="year">{{page.start_date | date: '%Y'}}</span>
+  <div class="year">
+    <h3>년도</h3>
+    <span>{{page.start_date | date: '%Y'}}</span>
+  </div>
   <div class="type_work">
-    <strong>분야</strong>
+    <h3>분야</h3>
     <ul>
       {% for area in page.areas %}
         <li>{{ area }}</li>
@@ -11,8 +14,8 @@
   {% include tag-list.html %}
   {% if page.header.show_overlay_excerpt != false and page.excerpt %}
   <div class="page__lead">
-      <h3>소개</h3>
-      <p>{{ page.excerpt | markdownify | remove: "<p>" | remove: "</p>" }}</p>
+    <h3>소개</h3>
+    <p>{{ page.excerpt | markdownify | remove: "<p>" | remove: "</p>" }}</p>
   </div>
   {% endif %}
 </article>

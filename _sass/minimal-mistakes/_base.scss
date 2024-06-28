@@ -6,11 +6,10 @@ html {
   /* sticky footer fix */
   position: relative;
   min-height: 100%;
-  font-size: $doc-font-sm;
-
+  font-size: 18px;
 
   @include breakpoint($medium){ 
-    font-size: $doc-font-md;
+    font-size: 20px;
   }
 }
 
@@ -33,7 +32,7 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 0 0 0.5em;
+  margin: 0;
   line-height: 1.2;
   color: #000;
   font-weight: bold;
@@ -200,18 +199,13 @@ ol li {
   margin-bottom: 0.5em;
 }
 
-li ul,
-li ol {
-  margin-top: 0.5em;
-}
-
 /*
    Media and embeds
    ========================================================================== */
 
 /* Figures and images */
 
-figure {
+figure{
   margin: 0;
 
   img {
@@ -230,63 +224,48 @@ figure {
     display: block;
   }
 
-  &.even,
-  &.odd{
-    display: flex;
-    flex-wrap: wrap;
+  &.gallery{
     width: 100%;
-    max-height: 100vh;
     height: fit-content;
+    display: table;
 
     figcaption {
+      display: table-caption;
       width: 100%;
+      margin-top: 36px;
+      margin-bottom: 0.5rem;
+      padding: 0 36px;
+      font-weight: 600;
     }
 
     > div{
-      order: 1;
-      padding-right: 36px;
-
-      p{
-        position: relative;
-        
-        span{
-          position: absolute;
-          top: -1.5em;
-          left: calc(50% - 1em / 2);
-          font-size: 2.5rem;
-          display: block;
-        }
-      }
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: space-between;
     }
   }
 
-  &.even{
-    > div {
-      @include breakpoint($small) {
-        width: 50%;
-        vertical-align: top;
-      }
+  img{
+    object-fit: cover;
+    vertical-align: top;
+    height: 100%;
+    width: auto;
+  }
+  
+  &.hlaf{
+    img {
+      max-width: calc((100% / 2) - 0.5rem);
     }
   }
 
-  &.odd {
-    > div {
-      width: calc(100% / 3);
+  &.flex{
+    img{
+      width: calc((100% / 2) - 0.5rem);
+      max-height: 70vh;
       flex: 1;
       transition: all 0.25s;
-      
-      img{
-        height: 80vh;
-        object-fit: cover;
-      }
-
-      &:first-of-type{
-        padding-left: 36px;
-      }
-      
-      p{
-        text-align: center;
-      }
     }
 
     &.expand_img{
@@ -304,82 +283,14 @@ figure {
       }
     }
   }
-
-  &.zigzag{
-    width: 100%;
-    overflow-x: hidden;
-    display: table;
-
-    figcaption {
-      display: table-caption;
-    }
-
-    div{
-      display: flex;
-      justify-content: center;
-      width: 100%;
-      text-align: center;
-      opacity: 0.2;
-      transform: translateY(calc(100vh / 3));
-      transition: all 0.5s;
-      
-      &:not(:last-of-type){
-        margin-bottom: 15vh;
-      }
-
-      img{
-        flex: 1;
-        vertical-align: top;
-        transform-origin: center top;
-        filter: blur(5px);
-        transform: scale(0.8);
-        transition: all 0.5s;
-      }
-      
-      p{
-        width: 25%;
-        text-align: left;
-        display: inline-block;
-        padding: 0 36px;
-
-        span{
-          display: block;
-          font-size: 2.5rem;
-          line-height: 1;
-        }
-      }
-      
-      &.extend{
-        opacity: 1;
-        transform: translateY(0);
-
-        img{
-          opacity: 1;
-          filter: blur(0) opacity(1);
-          transform: scale(1) translateY(0);
-        }
-      }
-
-      &:nth-of-type(odd){
-        img{
-          margin-right: auto;
-        }
-      }
-
-      &:nth-of-type(even){
-        flex-direction: row-reverse;
-        margin-left: auto;
-      }
-    }
-  }
 }
 
 /* Figure captions */
 
 figcaption {
-  color: black;
-  font-weight: 600;
-  font-size: 0.9rem;
+  font-weight: 500;
+  font-size: 1rem;
+  line-height: 1;
 
   a {
     -webkit-transition: $global-transition;

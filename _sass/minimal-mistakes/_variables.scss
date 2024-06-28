@@ -40,11 +40,11 @@ $monospace: Monaco, Consolas, "Lucida Console", monospace !default;
 $mg: 36px !default;
 
 /* type scale */
-$doc-font-md: 20px !default;
-$doc-font-sm: 16px;
-$txt_lg_ko: 6.5rem;
-$txt_lg_en: 6.5rem;
-$txt_md: calc($txt_lg_ko / 2);
+$txt_lg: 2.5rem;
+$txt_md: 1.5rem;
+$bigTypo_ko: 6.5rem;
+$bigTypo_en: 6.5rem;
+$mdTypo: calc(#{$bigTypo_ko} / 2);
 
 /*
    Colors

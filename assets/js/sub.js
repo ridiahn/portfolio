@@ -1,5 +1,5 @@
 makeSection();
-remakegalleryCaptions();
+// remakegalleryCaptions();
 
 //페이지 네비게이션 두줄 제목 한줄 처리하기 
 const editTxt = (txt) => {txt = txt.replace(/(<br>|<br\/>)/ig, "")}

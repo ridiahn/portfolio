@@ -6,24 +6,16 @@
 
 {% if include.layout %}
   {% assign gallery_layout = include.layout %}
-{% else %}
-  {% assign handle = gallery.size | modulo: 2 %}
-  {% if handle == 0 %}
-    {% assign gallery_layout = 'even' %}
-  {% else %}
-    {% assign gallery_layout = 'odd' %}
-  {% endif %}
 {% endif %}
 
 
-{% if gallery_layout  == 'gallery' %}
+{% if gallery_layout  == 'slides' %}
 {% assign galleryfirstImg = gallery[0].image_path %}
-<figure class="gallery">
+<figure class="gallery slides">
   <ul>
     {% for img in gallery %}
       <li {% if forloop.index == 1 %} class="active" {% endif %} onclick="extendImg(this)">
         <img src="{{ img.image_path | relative_url }}" alt="{% if img.alt %}{{ img.alt }}{% endif %}">
-        {% if img.title %}<p {% if forloop.index == 1 %} class="active" {% endif %}><span>0{{forloop.index}}</span>{{ img.title }}</p>{% endif %}
       </li>
     {% endfor %}
   </ul>
@@ -32,21 +24,20 @@
   {% endif %}
 </figure>
 {% else %}
-  <figure class="{{ gallery_layout }} {{ include.class }}">
+  <figure class="gallery {{ gallery_layout }}">
+    <div>
     {% for img in gallery %}
       {% if img.url %}
         <a href="{{ img.url | relative_url }}" title="{% if img.title %}{{ img.title }}{% endif %}">
           <img src="{{ img.image_path | relative_url }}" alt="{% if img.alt %}{{ img.alt }}{% endif %}">
         </a>
       {% elsif img.title %}
-        <div>
-          <img src="{{ img.image_path | relative_url }}" alt="{% if img.alt %}{{ img.alt }}{% endif %}">
-          {% if img.title %}<p><span>({{forloop.index}})</span> {{ img.title }}</p>{% endif %}
-        </div>
+        <img src="{{ img.image_path | relative_url }}" alt="{% if img.alt %}{{ img.alt }}{% endif %}">
       {% else %}
         <img src="{{ img.image_path | relative_url }}" alt="{% if img.alt %}{{ img.alt }}{% endif %}">
       {% endif %}
     {% endfor %}
+  </div>
     {% if include.caption %}
       <figcaption>{{ include.caption | markdownify | remove: "<p>" | remove: "</p>" }}</figcaption>
     {% endif %}
