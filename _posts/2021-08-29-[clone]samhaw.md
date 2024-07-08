@@ -15,7 +15,6 @@ areas:
 
 tags:
   - 웹
-  - 공부
   - 개인
 
 start_date: "2021-07-08"
@@ -27,7 +26,7 @@ header:
   show_overlay_excerpt: false
 
 ### toc(목차)설정 ###
-toc: true
+toc: false
 toc_label: "목차"
 
 gallery:
@@ -55,11 +54,6 @@ gallery:
 
 ### 퍼블리싱
 
-- HTML구조 시멘틱 태그 강화
-- 회원가입 페이지 기획,디자인 및 구현
-{: .num}
-
-|  세움터 화면보기    |
 |    화면명(링크)     |                                 이전단계                                 |    파일명      |
 |--------------------|--------------------------------------------------------------------------|---------------|
 |[세움터 첫화면](https://drv.tw/~hi.heera@hotmail.com/od/Web/seumteo/index.html)| - | index.html    |
@@ -72,7 +66,14 @@ gallery:
 |[삼화페인팅 첫화면](https://drv.tw/~hi.heera@hotmail.com/od/Web/samhwa/index.html)|-| index.html    |
 {: .code_list }
 
-<div markdown=1 class="side">
+<div markdown=1 class="detail">
+
+#### 구현사항
+- HTML구조 시멘틱 태그 강화
+- 회원가입 페이지 기획,디자인 및 구현
+{: .num}
+
+---
 
 #### 사용도구
 - HTML 

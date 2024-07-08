@@ -3,10 +3,9 @@
   <h3>{{ site.data.ui-text[site.locale].pagination_next | default: "Next" }}</h3>
   {% if postNext %}
     <a href="{{ postNext.url | relative_url }}" class="pagination--pager" title="{{ postNext.title | markdownify | strip_html }}">
-      <span>{{ postNext.start_date | date: '%y'}}</span>
-      <h4>{{postNext.title}}</h4>
+      <span>{{ postNext.start_date | date: '%Y'}}</span>
+      <h4 style="--img-url: url({{postNext.header.teaser}})">{{postNext.title}}</h4>
       {% if postNext.header.teaser %}
-        <img src="{{ postNext.header.teaser }}" alt="{{postNext.title}} 썸네일">
       {% endif %}
     </a>
   {% else %}

@@ -26,8 +26,8 @@ tbody{
   color: inherit;
 }
 
-tr:not(thead tr){
-  border-top: solid 1px rgba($secondary-color, 0.5);
+tr:not(thead tr,:last-of-type){
+  border-bottom: solid 1px rgba($secondary-color, 0.5);
 }
 
 th:not(:first-of-type),
