@@ -4,7 +4,8 @@
   {% if postNext %}
     <a href="{{ postNext.url | relative_url }}" class="pagination--pager" title="{{ postNext.title | markdownify | strip_html }}">
       <span>{{ postNext.start_date | date: '%Y'}}</span>
-      <h4 style="--img-url: url({{postNext.header.teaser}})">{{postNext.title}}</h4>
+      <h4>{{postNext.title}}</h4>
+      <img src="{{postNext.header.teaser}}" alt="{{postNext.title}}" />
       {% if postNext.header.teaser %}
       {% endif %}
     </a>
@@ -13,4 +14,6 @@
       <span>다음글이 없습니다</span>
     </a>
   {% endif %}
+  <a href="/works/">작업목록</a>
+  <a href="/about/">자기소개</a>
 </nav>

@@ -42,22 +42,7 @@
     display: flex;
     flex-flow: wrap;
     position: relative;
-
-    // &::before{
-    //   content: "00";
-    //   display: inline-block;
-    //   font-size: $mdTypo;
-    //   margin-top: 8rem;
-    //   margin-left: 36px;
-    //   line-height: 1;
-
-    //   @include breakpoint($large){
-    //     position: absolute;
-    //     top: 20vh;
-    //     margin-top: 0;
-    //   }
-    // }
-
+    
     .page__title{
       @include bigTypho_ko;
 
@@ -550,86 +535,97 @@
   .page__content + footer{
     width: 100%;
     padding: 0 36px;
-    margin-bottom: 10vh;
+    vertical-align: bottom;
+    position: relative;
 
     aside{
-      text-align: right;
-      padding: 0 36px;
+      padding: 0;
+
+      @include breakpoint($large) {
+        width: 100%;
+        display: inline-block;
+      }  
+
+      .back-to-top, 
+      .page__share{
+        font-size: 1rem;
+        font-weight: 600;
+        line-height: 1.5;
+        color: inherit;
+        text-align: left;
+      }
+
+      .page__share{
+        border-left: solid 1px;
+        border-right: solid 1px;
+        border-radius: 1.5em;
+        width: fit-content;
+        padding: 0 1em;
+        float: right;
+      }
+
+      .back-to-top{
+        width: calc(100% / 8);
+      }
     }
 
-    .back-to-top, 
-    .page__share{
-      font-size: 1rem;
-      font-weight: 600;
-      line-height: 1.5;
-      text-align: center;
-      display: inline-block;
-      width: calc((100% / 8) / 2);
-      color: inherit;
-    }
-  
     nav{
-      margin-top: 5vh;
+      @include breakpoint($large) {
+        margin-bottom: -0.8rem;
+      } 
 
       h3{
-        display: flex;
-        margin-top: 36px;
         font-size: 1rem;
         color: inherit;
-        
-        &::after{
-          flex: 1;
-          margin-left: 36px;
-          width: 100%;
-          content: "";
-          display: inline-block;
-          height: 1px;
-          margin-top: calc((1em / 2) + 1px);
-          background-color: $secondary-color;
-        }
+        min-width: calc(100% / 8 * 0.5);
+        width: fit-content;
+        display: inline-block;
+        padding-left: 0;
+        float: left;
       }
 
       a{
-        width: 100%;
+        width: calc(100% / 6);
+        font-size: 1rem;
+        padding: 0;
         color: inherit;
-        font-size: $mdTypo;
-        padding: 1rem 0 0;
-        border-bottom: solid 1px $secondary-color;
-        height: fit-content;
 
-        &.disabled{
-          text-align: center;
-          font-size: $txt_md;
-          padding-bottom: 1rem;
-
-          span{
-            width: 100%;
-          }
-        }
-
-        span,
         h4{
-          line-height: 1;
-          font-size: inherit;
           display: inline;
-          vertical-align: top;
         }
 
-        h4{
-          &::before{
-            content: "";
-            width: calc(100% / 8);
-            height: 1.5em;
-            background-image: var(--img-url);
-            background-size: contain;
-            background-position: center top;
-            background-repeat: no-repeat;
-            display: inline-block;
-            margin-right: 1rem;
-            vertical-align: top;
+        &:first-of-type{
+          display: inline-block;
+          font-size: $mdTypo;
+          text-align: left;
+          margin-bottom: 8rem;
+          line-height: 1;
+          width: calc(100% / 8 * 5);
+
+          h4{
+            font-size: inherit;
+            float: right;
           }
+        }
+        
+        &:not(:first-of-type){
+          width: calc(100% / 8);
+          display: block;
+          text-align: center;
+          margin: 0 auto;
         }
       }
+
+      img{
+        margin-top: 1rem;
+        display: block;
+        width: calc(100% / 5);
+      }
     }
+  }
+
+  .page__footer{
+    padding-top: 0;
+    padding-bottom: 0;
   }
 }
