@@ -1,19 +1,21 @@
 {% assign postNext = (site.posts | where_exp: 'post', 'post.start_date > page.start_date' | sort: 'post.start_date' | first ) %}
 <nav class="page__nav">
-  <h3>{{ site.data.ui-text[site.locale].pagination_next | default: "Next" }}</h3>
-  {% if postNext %}
-    <a href="{{ postNext.url | relative_url }}" class="pagination--pager" title="{{ postNext.title | markdownify | strip_html }}">
-      <span>{{ postNext.start_date | date: '%Y'}}</span>
-      <h4>{{postNext.title}}</h4>
-      <img src="{{postNext.header.teaser}}" alt="{{postNext.title}}" />
-      {% if postNext.header.teaser %}
-      {% endif %}
-    </a>
-  {% else %}
-    <a href="#" class="pagination--pager disabled">
-      <span>다음글이 없습니다</span>
-    </a>
-  {% endif %}
+  <div>
+    <h3>{{ site.data.ui-text[site.locale].pagination_next | default: "Next" }}</h3>
+    {% if postNext %}
+      <a href="{{ postNext.url | relative_url }}" class="pagination--pager" title="{{ postNext.title | markdownify | strip_html }}">
+        <span>{{ postNext.start_date | date: '%Y'}}</span>
+        <h4>{{postNext.title}}</h4>
+        <img src="{{postNext.header.teaser}}" alt="{{postNext.title}}" />
+        {% if postNext.header.teaser %}
+        {% endif %}
+      </a>
+    {% else %}
+      <a href="#" class="pagination--pager disabled">
+        <span>다음글이 없습니다</span>
+      </a>
+    {% endif %}
+  </div>
   <a href="/works/">작업목록</a>
   <a href="/about/">자기소개</a>
 </nav>

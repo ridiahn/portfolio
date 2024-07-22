@@ -73,7 +73,7 @@ const pageHeight = document.body.scrollHeight;
 
 function scrollEvents(y){
   if(y < (pageHeight - innerHeight - 5) / 2){
-    wrapper.style.transform = `translateY(-${y}px)`;
+    //wrapper.style.transform = `translateY(-${y}px)`;
   }
   // classOnOff( y > endPoint_header && y < footerPoint, toc, 'fixed');
 }

@@ -1,21 +1,28 @@
 ---
+### 게시여부/게시글위치 ###
 published: true
 categories:
   - works
 
 ### 작업 제목 및 요약정보 ###
 title: "2021 웹사이트 사례연구"
-
-areas:
+areas: 
   #- UI/UX
   #- GUI
   #- BI/CI
   - FrontEnd
   #- WebPublishing
-
 tags:
   - 웹
   - 개인
+
+specifications: #
+
+tools:
+  - HTML 
+  - CSS 
+  - JS
+  - JQUREY
 
 start_date: "2021-07-08"
 due_date: "2021-07-29"
@@ -23,11 +30,6 @@ due_date: "2021-07-29"
 ### header 설정 ###
 header:
   teaser: https://bn1304files.storage.live.com/y4mJDYwuBzlS6nD0Ha9JX29ny9jxze800mHvFQIbnJ8FCA23FGi_Thyi7iZCx99tKDssM_oam5YECHgjek7_8QWHUlRAjENCTa7vhrEm31QaIIpldmMV-jKTQ9o0SlGXYxYLBgpzkbuUPAh8bNhLnvHQCDhmRvNkp-p2MRMrqBJHyk_V_3jgbEqI5IE7N-D-VAb?width=600&height=300&cropmode=none
-  show_overlay_excerpt: false
-
-### toc(목차)설정 ###
-toc: false
-toc_label: "목차"
 
 gallery:
   - url: works/clone-samhaw/#section
@@ -49,10 +51,13 @@ gallery:
 
 ---
 
-### 소개
-본 사례연구는 기존 웹 페이지의 사례들의 디자인과 내용을 바탕으로 모방 구현한 작업으로, Html/Css 숙련도 향상과 JS/JQurey의 기초탐구 및 동작 구현을 목적으로 진행되었다.
+### 화면구현
 
-### 퍼블리싱
+- HTML구조 시멘틱 태그 강화
+- 회원가입 페이지 기획,디자인 및 구현
+{: .num}
+
+<hr/>
 
 |    화면명(링크)     |                                 이전단계                                 |    파일명      |
 |--------------------|--------------------------------------------------------------------------|---------------|
@@ -65,20 +70,3 @@ gallery:
 |[테마2 첫화면](https://drv.tw/~hi.heera@hotmail.com/od/Web/template2/index.html)|-| index.html    |
 |[삼화페인팅 첫화면](https://drv.tw/~hi.heera@hotmail.com/od/Web/samhwa/index.html)|-| index.html    |
 {: .code_list }
-
-<div markdown=1 class="detail">
-
-#### 구현사항
-- HTML구조 시멘틱 태그 강화
-- 회원가입 페이지 기획,디자인 및 구현
-{: .num}
-
----
-
-#### 사용도구
-- HTML 
-- CSS 
-- JS
-- JQUREY
-{: .tools}
-</div>

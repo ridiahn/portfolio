@@ -5,18 +5,21 @@
     {% assign path_type = nil %}
 {% endcase %}
 
-{% if site.tag_archive.path %}
-  {% assign tags_sorted = page.tags | sort_natural %}
-
-  <div class="page__taxonomy">
-    <h3><i class="fas fa-fw fa-tags" aria-hidden="true"></i>분류</h3>
-    <ul>
-      {% for tag_word in page.tags %}
-      <li itemprop="keywords">
-        <!-- <a href="{{ tag_word | slugify | prepend: path_type | prepend: site.tag_archive.path | relative_url }}" class="page__taxonomy-item" rel="tag">{{ tag_word }}</a> -->
-        {{ tag_word }}
-      </li>
-      {% endfor %}
-    </ul>
-  </div>
-{% endif %}
+{% assign tags_sorted = page.tags | sort_natural %}
+<div class="page__taxonomy">
+  <h3><i class="fas fa-fw fa-tags" aria-hidden="true"></i>분류</h3>
+  <ul>
+    {% for area in page.areas %}
+    <li itemprop="keywords">
+      <!-- <a href="{{ tag_word | slugify | prepend: path_type | prepend: site.tag_archive.path | relative_url }}" class="page__taxonomy-item" rel="tag">{{ tag_word }}</a> -->
+      {{ area }}
+    </li>
+    {% endfor %}
+    {% for tag in page.tags %}
+    <li itemprop="keywords">
+      <!-- <a href="{{ tag_word | slugify | prepend: path_type | prepend: site.tag_archive.path | relative_url }}" class="page__taxonomy-item" rel="tag">{{ tag_word }}</a> -->
+      {{ tag }}
+    </li>
+    {% endfor %}
+  </ul>
+</div>

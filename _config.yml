@@ -264,9 +264,6 @@ category_archive:
 tag_archive:
   type: liquid
   path: /tags/
-areas_archive:
-  type: liquid
-  path: /areas/
   
 # https://github.com/jekyll/jekyll-archives
 # jekyll-archives:
