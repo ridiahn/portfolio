@@ -242,9 +242,15 @@ figure{
       width: 100%;
       display: flex;
       flex-wrap: wrap;
-      gap: 0.5rem;
-      justify-content: space-between;
+      gap: 36px;
     }
+
+    img{
+      height: fit-content;
+      min-width: calc((100vw - 16px) / 8 * 2 - 36px);
+      transition: all 0.25s;
+    }
+
   }
 
   img{
@@ -261,12 +267,6 @@ figure{
   }
 
   &.flex{
-    img{
-      width: calc((100% / 2) - 0.5rem);
-      max-height: 70vh;
-      flex: 1;
-      transition: all 0.25s;
-    }
 
     &.expand_img{
       img{

@@ -16,7 +16,7 @@ function online_title(){
 //markdown > html로 렌더링된 요소들 section 그룹핑 
 function makeSection(){
   const contentWapper = document.querySelector(".page__content");
-  let title = document.querySelectorAll(".page__content  h3[id]");
+  let title = document.querySelectorAll(".page__content h3[id]");
   let countSection = title.length - 1;
   
   for( i = 0; i <= countSection; i++ ){
@@ -27,7 +27,7 @@ function makeSection(){
       if( el.tagName === 'H3' || el.tagName === 'SECTION' ) return true;
       section.append(el);
     })
-
+    //i === 0 ? section.classList.add('intro') : 0;
     contentWapper.append(section);
   }
 }
@@ -57,38 +57,32 @@ function remakegalleryCaptions(){
   return;
 }
 
-//서브페이지 목차 fixed 토글
-// const header = document.getElementsByClassName("page__header")[0];
-// const toc = document.getElementsByClassName("toc")[0];
-// const pageAbsoluteY = (el) => {
-//   return window.pageYOffset + el.getBoundingClientRect().top
-// } 
-// const footerPoint = pageAbsoluteY(document.querySelector("#main footer")) - window.innerHeight / 4;
-// function classOnOff (condition, el, _class){
-//   return condition ? el.classList.add(_class) : el.classList.remove(_class)
-// }
+//section 확장 효과
+const sections = document.querySelectorAll(".page__content section");
+const gap = window.innerHeight / 3;
+let extendSection = 0;
 
-const wrapper = document.querySelector(".page__wrapper");
-const pageHeight = document.body.scrollHeight;
-
-function scrollEvents(y){
-  if(y < (pageHeight - innerHeight - 5) / 2){
-    //wrapper.style.transform = `translateY(-${y}px)`;
-  }
-  // classOnOff( y > endPoint_header && y < footerPoint, toc, 'fixed');
+function extendPoint(index){
+  return Math.floor(sections[index].offsetTop + sections[index].offsetHeight - gap)
 }
 
+//function scrollEvents(y){
+  // if( y > extendPoint(extendSection) && extendSection < sections.length-1){
+  //   sections[extendSection + 1].classList.remove('fold')
+  //   extendSection ++;
+  // }
+//}
 
-let tick = false;
-window.addEventListener('scroll', function(){
-  let y = Math.floor(this.scrollY)
+// let tick = false;
+// window.addEventListener('scroll', function(){
+//   let y = Math.floor(this.scrollY)
 
-  if(!tick){
-    requestAnimationFrame(() => {
-      scrollEvents(y)
-      return tick = false
-    })
-  }
-},{passive: true})
+//   if(!tick){
+//     requestAnimationFrame(() => {
+//       scrollEvents(y)
+//       return tick = false
+//     })
+//   }
+// },{passive: true})
 
 
