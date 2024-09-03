@@ -19,7 +19,7 @@ layout: archive
 </div>
 
 <!-- section calss .list.col 적용시, include부문에 class="bg_modal"추가 -->
-{% assign posts = site.posts | sort: "post.start_date" | reverse %}
+{% assign posts = site.posts | sort: "start_date" | reverse %}
 <section class="list">
   <ul>
     {% for post in posts %}

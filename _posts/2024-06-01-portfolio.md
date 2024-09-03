@@ -4,14 +4,14 @@ categories:
   - works
 
 ### 작업 제목 및 요약정보 ###
-title: "철구조물/철물공사 명함"
-excerpt: "공간의 철골구조를 작업하는 두 부자의 개인명함 디자인"
+title: "2024포트폴리오"
+excerpt: "포트폴리오사잍 제작일지"
 areas: 
   - BI/CI
-  #- UI/UX
-  #- GUI
+  - UI/UX
+  - GUI
   #- FrontEnd
-  #- WebPublishing
+  - WebPublishing
 
 tags:
   - 인쇄물
@@ -25,8 +25,8 @@ specifications:
  - 90*50mm
  - 스타드림(실버) / 도무송
 
-start_date: "2024-06-16"
-due_date: "2024-06-17"
+start_date: "2024-06-01"
+due_date: "2018-08-30"
 
 ### header 설정 ###
 header:

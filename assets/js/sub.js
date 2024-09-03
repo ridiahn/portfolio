@@ -57,32 +57,29 @@ function remakegalleryCaptions(){
   return;
 }
 
-//section 확장 효과
-const sections = document.querySelectorAll(".page__content section");
-const gap = window.innerHeight / 3;
-let extendSection = 0;
+//parallax 효과
+const palaxItems = document.querySelectorAll(".parallax");
+const gap = window.innerHeight * 0.1;
+const startPoints =  Array.from(palaxItems).map(el =>el.offsetTop - gap);
 
-function extendPoint(index){
-  return Math.floor(sections[index].offsetTop + sections[index].offsetHeight - gap)
+function scrollEvents(y){
+  const selectItem = startPoints.findIndex(e => e > y);
+  if(!selectItem){
+    let scrolled = window.pageYOffset;
+    palaxItems[selectItem].style.transform = `translateY(${scrolled * -0.8}px)`; 
+  }
 }
 
-//function scrollEvents(y){
-  // if( y > extendPoint(extendSection) && extendSection < sections.length-1){
-  //   sections[extendSection + 1].classList.remove('fold')
-  //   extendSection ++;
-  // }
-//}
+let tick = false;
+window.addEventListener('scroll', function(){
+  let y = Math.floor(this.scrollY)
 
-// let tick = false;
-// window.addEventListener('scroll', function(){
-//   let y = Math.floor(this.scrollY)
-
-//   if(!tick){
-//     requestAnimationFrame(() => {
-//       scrollEvents(y)
-//       return tick = false
-//     })
-//   }
-// },{passive: true})
+  if(!tick){
+    requestAnimationFrame(() => {
+      scrollEvents(y)
+      return tick = false
+    })
+  }
+},{passive: true})
 
 

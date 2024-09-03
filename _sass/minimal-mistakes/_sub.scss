@@ -5,18 +5,30 @@
   position: relative;
 
   .page__wrapper{
-
     background: $primary-color;
   }
   
-  .masthead{
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: 2;
+  .masthead{    
+    @include breakpoint($large){
+      z-index: 2;
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
   }
 
-  h3,
+  h3{
+    font-size: 1rem;
+    font-weight: 600;
+    width: fit-content;
+    line-height: 1;
+    display: inline-block;
+    vertical-align: top;
+    padding: 0 36px;
+    color: inherit;
+    letter-spacing: -0.025em;
+  }
+
   h4{
     color: inherit;
     font-size: 1rem;
@@ -41,8 +53,7 @@
     position: relative;
 
     @include breakpoint($large){
-      min-height: 120vh;
-      perspective: 100px;
+ 
     }
           
     .page__title{
@@ -51,88 +62,45 @@
       // font-size: $mdTypo;
       // font-weight: 400;
       display: unset;
-      width: calc(100% / 8 * 6);
-      text-align: right;
+      width: 100%;
       line-height: 1;
       color: inherit;
       padding: 0 36px;
-      margin-left: auto;
-      margin-top: 8rem;
+      margin: 36px 0 0 0;
+      text-align: right;
       
       @include breakpoint($large){
         height: fit-content;
         font-size: $bigTypo-ko;
         position: relative;
         mix-blend-mode: difference;
-        margin-left: 0;
-        width: calc(100% / 8 * 5);
         text-align: left;
-        margin-top: 3rem;
-        margin-right: calc(100% / 8 * 3);
+        margin: 2em calc(100% / 8 * 2) 0 0;
       }
     }
 
-    .intro{
-      order: 1;
-      position: absolute;
-      right: 0;
-      top: 100vh;
-      width: calc(100% / 8 * 6);
-      //border-top: solid 1px;
 
-      h3{
-        width: calc(100% / 6 * 2);
-        line-height: 1;
-        display: inline-block;
-        vertical-align: top;
-        float: left;
-        padding-right: 36px;
-
-        &::before{
-          content: "00";
-          font-size: $txt_md;
-          font-style: italic;
-          margin-right: 1rem;
-        }
-      }
-
-      p{
-        font-size: 1.5rem;
-        padding-right: 36px;
-        // text-indent: 3em;
-        width: fit-content;
-        max-width: calc(100% / 6 * 4);
-        display: inline-block;
-      }
-
-    }
-
-    &:has(figure.thumb){
-      .page__title{
-        @include breakpoint($large){
-          margin-top: 0;
-        }
-      }
-    }
- 
     figure{
-      position: absolute;
       z-index: -2;
-      top: 8rem;
-      left: calc(50% - (100% / 8 * 3));
-      transform: translateZ(-1px);
-      padding-left: 36px;
       margin-bottom: 36px;
       height: fit-content;
       text-align: center;
-      width: calc(100% / 8 * 6);
+      width: fit-content;
+
+      @include breakpoint($large){
+        min-width: calc(100% / 8 * 4);
+        position: absolute;
+        right: 0;
+        text-align: right;
+      }
 
       img{
-        width: fit-content;
+        width: 100%;
+        max-height: 100vh;
+        object-fit: contain;
         height: fit-content;
-        max-height: 90vh;
         object-position: top;
-        background-color: rgba($secondary-color, 0.5);
+        // background-color: rgba($secondary-color, 0.5);
       }
       
       div{
@@ -203,29 +171,26 @@
 
   .summary{
     line-height: 1;
-    width: 50%;
-    margin-left: auto;
-    padding-right: 36px;
-    align-self: flex-end;
+    width: 100%;
+    padding: 0 36px;
+    order: 2;
 
     @include breakpoint($large){
       width: calc(100% / 8 * 2);
       padding: 0 36px;
-      margin-top: 5rem;
       margin-left: 0;
+      margin-top: 0.5rem;
       mix-blend-mode: difference;
       align-self: unset;
+      font-size: 1rem;
+      align-self: flex-end;
+      order: -1;
     } 
 
     h3{
-      line-height: 1;
-      font-size: 1rem;
       word-break: keep-all;
       word-wrap: unset;
-      padding-right: 36px;
-      color: inherit;
-      display: inline-block;
-      float: left;
+      padding-left: 0;
     }
 
     ul{
@@ -249,44 +214,30 @@
 
     > div{
       width: 100%;
-      padding: 0;
+      padding: 0.5rem 0;
       line-height: 1;
       border-bottom: solid 1px rgba($secondary-color, 0.25);
-      font-size: 1.2rem;
+      font-size: inherit;
       vertical-align: top;
 
       @include breakpoint($large){
         border-bottom: 0;
+        padding: 0 0 1rem;
         display: inline-block;
 
         &:first-of-type{
           line-height: 1;
           max-width: unset;
-          // padding: 0 0.5em;
-          // border-left: solid 2px;
-          // border-right: solid 2px;
           width: fit-content;
-          position: absolute;
-          top: 0.5rem;
+          margin-top: 0.5rem;
+          font-size: 1.5rem;
 
           h3{
             @include hidden;
           }
         }
-
-        &:not(:first-of-type){
-          padding: 0 0 1rem;
-          //border-top: solid 1px;
-          // margin: 0 calc(36px / 2);
-          // width: calc(100% / 3 - 36px);
-          // min-height: 12.5vw;
-          // float: right;
-        }
       }
     }
-  }
-
-  &:has(figure.thumb){
   }
 
   .page__content{
@@ -295,7 +246,6 @@
     height: fit-content;
     letter-spacing: -0.015em;
     font-size: 1rem;
-    margin-bottom: 25vh;
     counter-reset: num;
   }
 
@@ -307,65 +257,20 @@
     padding-top: 36px;
     //background-color: $primary-color;
     
-    @include breakpoint($large) {
+    @include breakpoint($large){
       position: relative;
       transition: all 0.5s;
+      padding-top: 36px;
       text-align: right;
+      margin-bottom: 5rem;
     }
 
-
-
-    &:not(.intro){
-      border-top: solid 1px;
-      width: calc(100% / 8 * 6 - 36px);
-      margin-left: auto;
-      margin-right: 36px;
-      padding-top: 36px;
-      
-      h3{  
-        width: calc(100% / 6);
-
-        &::before{
-          font-size: $txt_md;
-          font-style: italic;
-          margin-right: 1rem;
-          vertical-align: bottom;
-          counter-increment: num;
-          content: counter(num, decimal-leading-zero);
-        }
-      }
-
-      > ol,
-      > ul,
-      > p{
-        width: calc(100% / 6 * 4);
-      }
-      // &.fold{
-      //   h3 {
-      //     padding-left: 0;
-
-      //     ~ * {
-      //       @include hidden;
-      //     }
-      //   }
-      // }  
+    h3{
+      text-align: left;
+      display: block;
+      padding-top: 0.3rem;
     }
   
-    > h3{
-      min-width: calc(100% / 8);
-      width: fit-content;
-      display: inline-block;
-      font-size: 1rem;
-      position: relative;
-      line-height: 1;
-      font-weight: 600;
-      letter-spacing: -0.025em;
-      color: inherit;
-      padding: 0 0.5rem 0 0;
-      float: left;
-      text-align: left;
-    }
-
     h4{
       margin: 0 36px;
     }
@@ -373,14 +278,26 @@
     > ol,
     > ul,
     > p{
-      font-size: 1.5rem;
+      font-size: 1.2rem;
       font-weight: 500;
       letter-spacing: -0.035em;
       margin-top: 0;
       margin-bottom: 36px;
-      display: inline-block;
+      margin-left: auto;
       vertical-align: top;
       text-align: left;
+      margin-top: -1rem;
+      width: calc(100% / 4 * 3);
+      padding: 0 36px;
+     
+      @include breakpoint($large){
+        width: calc(100% / 8 * 3);
+        margin-right: calc(100% / 8);  
+        margin-left: 0;
+        padding: 0;
+        display: inline-block;
+      }
+
     }
 
     ul,
@@ -416,66 +333,165 @@
         }
       }
     }
-
-    > img {
-      object-fit: cover;
-      object-position: top;
-      width: 100%;
-      height: 100%;
-    }
-
-          
+     
     hr{
       width: 100%;
       border: 0;
       margin: 36px 0;
     }
 
-    .detail{
-      font-size: 1rem;
-      position: relative;
+    figure{
+      width: 100%;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      padding: 0 36px;
+      row-gap: calc(36px / 2);
 
       @include breakpoint($large){
-        display: flex;
-        flex-wrap: wrap;
-        width: calc(100% / 8 * 2);
-        order: 0;
-        margin-right: auto;
+        justify-content: flex-start;
       }
 
-      hr{
-        width: 100%;
-        border: 0;
-        margin: 0;
+      &.half{
+        img{
+          width: 50%;
+          max-width: unset;
+        }
       }
 
-      h4, 
-      strong{
-        font-size: 1rem;
-        max-width: calc(12.5vw - 16px);
-        min-width: calc((12.5vw - 16px) * 0.5);
-        width: fit-content;
-        display: inline-block;
-        word-wrap: unset;
+      &.quad{
+        img{
+          width: calc(100% / 4);
+        }
       }
 
-      > ul,
-      > p{
-        //border-top: solid 1px;
-        //padding: 0.5rem 0;
-        margin: 0;
-        flex: 1;
+      figcaption{
+        width: calc(12.5vw * 4 - 16px);
+        margin-left: auto;
+        text-align: left;
+      }
+
+      > *:not(figcaption){
+        order: 1;
+      }
+
+      img{
+        width: 50%;
+
+        @include breakpoint($large){
+          padding-right: calc(36px / 2);
+          width: fit-content;
+          //max-width: calc(100% / 4 * 3);
+        }
+        
+        &.thumb{
+          height: calc(100vh/ 4);
+          object-fit: contain;
+          object-position: left top;
+          flex: unset;
+        }
       }
     }
-    
-    .tools{
+
+
+    figure.font{
+      width: 100%;
+      display: block;
+      text-align: right;
+      padding: 0 36px;
+
+      @include breakpoint($large){
+        padding-right: 36px;
+      }
+
+      img{
+        height: auto;
+        max-width: unset;
+        object-fit: contain;
+        display: block;
+        width: 100%;
+
+        @include breakpoint($large){
+          width: 50%;
+          margin: 0;
+          display: inline-block;
+        }
+
+        &.title{
+          float: left;
+        }
+
+        &:not(.title){
+          border-bottom: solid 1px;
+        }
+
+      }
+    }
+
+    .color{
+      width: 100%;
+      padding-left: 36px;
+      margin: 0;
+      font-size: 1rem;
+      margin-top: 0;
+  
       li{
-        display: inline;
-        &:not(:last-of-type){
-          &::after{
-            content: "/";
-            margin-left: 0.25rem;
+        vertical-align: bottom; 
+        display: block;
+        height: fit-content;
+        min-width: calc(12.5vw - 16px);
+        width: 100%;
+        position: relative;
+
+        @include breakpoint($large){
+          float: left;
+          width: fit-content;
+          display: inline-block;
+        }
+        
+        &:has(img){
+          margin-top: 36px;
+          text-align: right;
+
+          @include breakpoint($large){
+            margin-top: 0;
+            margin-left: calc(12.5vw - 16px);
           }
+        }
+ 
+        &:not(:has(img)){
+          padding: 1rem 0 1rem calc(6rem + 36px);
+          min-height: 5rem;
+          border-bottom: solid 1px rgba($secondary-color, 0.25);
+          
+          @include breakpoint($large){
+            border-bottom: none;
+            padding-left: 0;
+          }
+
+          &::before{
+            content: "";
+            display: inline-block;
+            width: 6rem;
+            height: 100%;
+            background-color: var(--color);
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            @include breakpoint($large){
+              display: block;
+              position: relative;
+              top: unset;
+              left: unset;
+              width: calc(12.5vw - 16px);
+              height: calc(12.5vw - 16px);
+            }
+          }
+        }
+
+        img{
+          max-height: 100vh;
         }
       }
     }
@@ -577,17 +593,17 @@
       }
 
       table{
-        width: 100%;
         padding: 0 36px;
         font-weight: 300;
         font-size: 1rem;
         position: relative;
         overflow: visible;
-        margin-top: 2rem;
+        margin-top: 36px;
 
         @include breakpoint($large) {
           padding-left: 0;
           margin-left: auto;
+          width: calc(100% / 8 * 4);
         }
 
         thead{
@@ -609,100 +625,168 @@
     width: 100%;
     padding: 0 36px;
     vertical-align: bottom;
-    position: relative;
 
     aside{
       padding: 0;
 
       @include breakpoint($large) {
-        width: 100%;
-        display: inline-block;
+        z-index: 2;
+        margin-left: auto;
+        width: calc(100% / 8 * 2);
       }  
 
       .back-to-top, 
       .page__share{
         font-size: 1rem;
         font-weight: 600;
-        line-height: 1.5;
         color: inherit;
+        display: block;
         text-align: left;
-      }
+        border-bottom: solid 1px;
+        padding: 0.5rem 0;
+        position: relative;
 
-      .page__share{
-        border-left: solid 1px;
-        border-right: solid 1px;
-        border-radius: 1.5em;
-        width: fit-content;
-        padding: 0 1em;
-        float: right;
-      }
-
-      .back-to-top{
-        width: calc(100% / 8);
+        i{
+          display: inline;
+          visibility: visible;
+          color: inherit;
+          right: 0;
+          top: calc(50% - 1em / 2);
+          position: absolute;
+        }
       }
     }
 
     nav{
-      a{
-        vertical-align: top;
+      > a{
         font-size: 1rem;
-        padding: 0;
+        padding: 0 0 0 1em;
         color: inherit;
         display: block;
-        width: calc(100% / 8);
+        text-align: center;
+        margin: 0 auto;
+        width: fit-content;
+        transform: translateY(0.8rem);
+
+        i{
+          margin-left: 0.25rem;
+          float: right;
+          transform: rotate(-45deg);
+        }
       }
 
       div{
-        margin-top: -1.2em;
-        width: calc(100% / 8 * 6);
-        float: right;
+        display: block;
 
         h3{
           font-size: 1rem;
+          padding: 0;
           color: inherit;
-          min-width: calc(100% / 6 * 0.5);
           width: fit-content;
-          display: inline-block;
+          display: inline-flex;
+          flex-direction: column-reverse;
+          text-align: center;
           padding-left: 0;
           line-height: 1;
-          margin-bottom: -1.5em;
+          margin-top: 0.5rem;
         }
   
         a{
-          display: inline-block;
-          width: 100%;
+          color: inherit;
+          padding-top: 0;
           font-size: $mdTypo;
-          text-align: right;
           line-height: 1;
-          margin-left: auto;
-          
-          h4{
-            font-size: inherit;
-            display: inline;
+          text-align: left;
+
+          &:not(.disabled){
+            display: flex;
+            flex-direction: column;
+            
+            span, h4{
+              order: 1;
+            }
+          }
+
+          img{
+            margin-top: 36px;
+            margin-bottom: -36px;
+            object-position: bottom;
+            object-fit: contain;
+            z-index: -1;
+            position: relative;
+            display: block;
+            height: fit-content;
+            width: fit-content;
+            max-width: 50%;
+            margin-left: auto;
+
+            @include breakpoint($large) {
+              margin: 0 auto;
+              min-height: 20rem;
+              max-width: calc(12.5vw * 2 - 16px);
+              padding: 0 36px;
+            }
           }
 
           span{
-            margin-left: calc(100% / 6 * 1.5);
+            font-family: $serif;
+            font-style: italic;
+          }
+
+          h4{
+            font-size: inherit;
+            //width: fit-content;
+            
+            i{
+              display: inline;
+              position: relative;
+              margin-left: 0.5em;
+              float: right;
+            }
+          }
+        }
+
+        a.disabled{
+          width: calc(100% / 8 * 5);
+          margin: 8rem 0 0;
+          padding: 0 36px 2.5em;
+          line-height: 1.2;
+          font-size: $txt_lg;
+          position: relative;
+          text-indent: 2em;
+
+          span{
+            position: absolute;
+            left: -1em;
+            top: -1em;
+          }
+
+          i{
+            width: calc(12.5vw * 2 - 16px);
+            display: inline-block;
+            color: transparent;
+            font-size: 0;
+            border-bottom: solid 3px $secondary-color;
           }
         }
       }
 
-      img{
-        margin-top: 1rem;
-        display: block;
-        max-width: calc(100% / 6 * 2);
-        height: calc((12.5vw - 16px) * 2);
-        width: fit-content;
-        padding: 36px;
-        background-color: $secondary-color;
-        object-fit: contain;
-        transform: translateX(-100%);
-      }
     }
+  }
+
+  .page__wrapper:has(footer nav a.disabled) .page__footer .email{
+    @include bigTypho_en;
+    
+    top: calc(-1em - 3rem);
+    width: 100%;
+    right: 0;
+    text-align: center;
+    margin-bottom: unset;
+    z-index: -1;
+    font-family: $serif;
   }
 
   .page__footer{
     padding-top: 0;
-    padding-bottom: 0;
   }
 }

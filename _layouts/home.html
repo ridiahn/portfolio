@@ -5,7 +5,6 @@ layout: default
 
 <body>
   {% include list_works.html %}
-  {% assign posts = site.posts | limit : 4 | reverse %}
 
   <section class="works">
     <h3>{{ site.data.ui-text[site.locale].recent_works | default: "최근 작업" }}</h3>
@@ -16,7 +15,7 @@ layout: default
     </p>
     <div class="recent_works">
       <ul class="cube">
-        {% for post in posts %}
+        {% for post in site.posts reversed limit:5%}
           <li>         
             <a href="{{post.url | relative_url }}">
               <img src="{{post.header.teaser | relative_url }}" alt="{{post.title}} 더보기">

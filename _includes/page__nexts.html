@@ -1,21 +1,22 @@
-{% assign postNext = (site.posts | where_exp: 'post', 'post.start_date > page.start_date' | sort: 'post.start_date' | first ) %}
+{% assign postNext = site.posts | where_exp: 'post', 'post.start_date > page.start_date' | sort: "start_date" | first %}
 <nav class="page__nav">
   <div>
-    <h3>{{ site.data.ui-text[site.locale].pagination_next | default: "Next" }}</h3>
     {% if postNext %}
-      <a href="{{ postNext.url | relative_url }}" class="pagination--pager" title="{{ postNext.title | markdownify | strip_html }}">
-        <span>{{ postNext.start_date | date: '%Y'}}</span>
-        <h4>{{postNext.title}}</h4>
+    <h3>{{ site.data.ui-text[site.locale].pagination_next | default: "Next" }}</h3>
+    <a href="{{ postNext.url | relative_url }}" class="pagination--pager" title="{{ postNext.title | markdownify | strip_html }}">
+      <span>{{ postNext.start_date | date: '%Y'}}</span>
+      <h4><i class="fas fa-arrow-right"></i>{{postNext.title}}</h4>
+      {% if postNext.header.teaser %}
         <img src="{{postNext.header.teaser}}" alt="{{postNext.title}}" />
-        {% if postNext.header.teaser %}
-        {% endif %}
-      </a>
+      {% endif %}
+    </a>
     {% else %}
-      <a href="#" class="pagination--pager disabled">
-        <span>다음글이 없습니다</span>
-      </a>
+    <a href="#" class="pagination--pager disabled">
+      <span>{{site.time | date: '%Y'}}</span>
+      다음<i>( )</i>작업 함께하기
+    </a>
     {% endif %}
   </div>
-  <a href="/works/">작업목록</a>
-  <a href="/about/">자기소개</a>
+  <a href="/works/"><i class="fas fa-arrow-right"></i>작업목록</a>
+  <a href="/about/"><i class="fas fa-arrow-right"></i>자기소개</a>
 </nav>

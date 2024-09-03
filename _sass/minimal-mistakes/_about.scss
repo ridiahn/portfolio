@@ -126,21 +126,18 @@
   .sevrviceAndskills{
     width: 100%;
     margin-left: auto;
-    margin-bottom: 20vh;
-
-    @include breakpoint($large){
-      width: calc(100% / 8 * 5);
-    }
+    margin-bottom: 15rem;
 
     h2{
       width: fit-content;
-      margin: 0 36px;
+      margin: 0 auto 0 36px;
       display: inline-block;
       vertical-align: top;
     }
 
-    h2 ~ *{
-      display: inline-block;
+    div > ul{
+      width: calc(100% / 8 * 4);
+      margin-left: auto;
     }
     
   }
@@ -150,15 +147,7 @@
     letter-spacing: -0.035em;
     margin: 10vh 0;
 
-    ul{
-      margin-top: 0; 
-      li{
-        font-size: inherit;
-      }
-    }
-
     > ul{
-      flex: 1;
 
       >li{
         font-size: inherit;
@@ -174,7 +163,11 @@
         }
 
         ul{  
+          display: inline-block;
+          margin-top: 0; 
+    
           li{
+            font-size: inherit;
             width: 100%;
             display: block;
             margin: 0
@@ -185,6 +178,7 @@
   }
 
   .certification{
+
     li{
       font-weight: 600;
       margin-bottom: 0.5rem
@@ -313,14 +307,15 @@
 
   footer{
     .page__footer {
-      align-items: unset;
-
       .email{
         @include bigTypho_en;
 
         width: 100%;
-        margin-bottom: unset;
+        top: -1em;
+        font-family: $serif;
+        left: 0;
         text-align: center;
+        margin-bottom: unset;
       }
     }
   }

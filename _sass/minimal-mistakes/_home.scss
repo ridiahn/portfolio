@@ -121,32 +121,39 @@
             width: inherit;
             height: inherit;
             object-fit: cover;
-            background-color: $primary-color;
+            background-color: $secondary-color;
           }
         }
       }
 
-      @mixin surface($rotate){
-        transform: rotateY($rotate) translateZ(calc(#{$size} / 2));
+      @mixin surface($x,$y){
+        transform: rotateX($x) rotateY($y) translateZ(calc(#{$size} / 2));
       }
   
       li:nth-of-type(1){
-        @include surface(0deg)
+        @include surface(0,0deg)
       }
         
-      &::after{
-        @include surface(180deg)
+      li:nth-of-type(2){
+        @include surface(0,90deg)
       }
-  
-      li:nth-of-type(2),
+
+      li:nth-of-type(3){
+        @include surface(0,180deg)
+      }
+
       li:nth-of-type(4){
-        @include surface(90deg)
+        @include surface(0,-90deg)
+      }
+
+      li:nth-of-type(5){
+        @include surface(90deg, 0)
+      }
+
+      &::after{
+        @include surface(-90deg,0)
       }
   
-      li:nth-of-type(3),
-      li:nth-of-type(5){
-        @include surface(-90deg)
-      }
     }
   }
 

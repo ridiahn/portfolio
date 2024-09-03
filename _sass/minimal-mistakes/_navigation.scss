@@ -136,17 +136,8 @@ $pageNav-height-lg : 54px;
 
 .page__share-title {
   font-size: 1rem;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
   cursor: pointer;
   box-sizing: border-box;
-
-  i{
-    color: transparent;
-    visibility: hidden;
-    position: absolute;
-  }
 }
 
 .page__share ul{

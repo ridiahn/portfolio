@@ -33,18 +33,12 @@ header:
   teaser: https://bn1304files.storage.live.com/y4mJDYwuBzlS6nD0Ha9JX29ny9jxze800mHvFQIbnJ8FCA23FGi_Thyi7iZCx99tKDssM_oam5YECHgjek7_8QWHUlRAjENCTa7vhrEm31QaIIpldmMV-jKTQ9o0SlGXYxYLBgpzkbuUPAh8bNhLnvHQCDhmRvNkp-p2MRMrqBJHyk_V_3jgbEqI5IE7N-D-VAb?width=600&height=300&cropmode=none
 
 gallery:
-  - image_path: https://bn1304files.storage.live.com/y4mm0QAbwLfDCHDkesUeoOhvpqO53PG68w3ZusOJETh0mJBjfE4m8aLc-9OW5_E7GiF3vJhK1jA4xcZnafpDaq7nm_mL7MYdKHDShqjs-bWNb-dh3UbCJlY05Ao4_PQDTd2PKouQjqXcUEAmp7OPpPnkrIBtmCU9q0nomtkbmsPu3abT7Jcx6cWvVdWKUZ9h2-E?width=1899&height=11161&cropmode=none
-    alt: "삼화 페인트 인덱스 페이지"
-    title: "삼화 페인트 인덱스 페이지"
   - image_path: https://bn1304files.storage.live.com/y4mHx5qItdEP2l92WNgjHDwJDEKRWEq6YgJhd3kfqBfP6jzr0asB2BqPnbyEi1V-TwxOrDUSLHFArpmvbvlWp6X0zqAglsDeyuR-8QPqHJzX26I5zRhF7QrbOWhS57EjnwzRZU9tFWvcTFGM04RvWLbPn7zIGdIQqXYYyj00ypBgHhRns_tEJG7ZywCghzA0kU-?width=1519&height=4602&cropmode=none
     alt: "부트스트렙 원페이지 테마1"
     title: "부트스트렙 원페이지 테마1"  
   - image_path: https://bn1304files.storage.live.com/y4mPOejrhb_rgXIdyKngoCsL2U4slYS-v6HE1XDbvPiLZDf891Ka_fOtEkOQ_ZauuWYfN8Esgz4r39YMC9h0wOW5Et5QUgYCvzZWfXq8Tot2s7erdQfnVJoYgL3y88zVpCyJNchzV3J3xTfQVEUhzRj2NVqeXZBh_K4VT-MszGWbUMmyViztS7FuCQoK6sq0ZB0?width=1519&height=4551&cropmode=none
     alt: "부트스트렙 원페이지 테마2"
     title: "부트스트렙 원페이지 테마2"
-  - image_path: https://bn1304files.storage.live.com/y4mIrE3OaPUJfc0pjP5UvSOk0MLaUomxQiNAD8iSoLot6UmkqLVv0ph3zcjtzokEAgvyoOj1BIIaJk3nZgNfF-L9-N1E-cTUWRuzwXR4sGD18WQZjdwhy03xOOcaYtFWbkEco2WO3LOZ8vGUBvtTD87GYnzXM6hswhsc9WJe-S36mPPchh4njYr1vmVZSztmv_t?width=1519&height=3104&cropmode=none
-    alt: "세움터 인덱스 페이지"
-    title: "세움터 인덱스 페이지"
 
 ---
 
@@ -54,7 +48,6 @@ gallery:
 - 회원가입 페이지 기획,디자인 및 구현
 {: .num}
 
-<hr/>
 
 |    화면명(링크)     |                                 이전단계                                 |    파일명      |
 |--------------------|--------------------------------------------------------------------------|---------------|

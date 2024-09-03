@@ -20,12 +20,15 @@
       {{ page.title | default: site.title | markdownify | remove: "<p>" | remove: "</p>" }}
     {% endif %}
   </h2>
+
+  {%comment%}
   {% if page.excerpt %}
   <div class="intro">
     <h3>소개</h3>
     <p>{{ page.excerpt | markdownify | remove: "<p>" | remove: "</p>" }}</p>
   </div>
   {% endif %}
+  {%endcomment%}
   {% include page__summary.html %}
   {% if page.toc %}
     <nav class="toc {% if page.toc_sticky %}sticky{% endif %}">
@@ -33,15 +36,10 @@
       {% include toc.html sanitize=true html=content h_min=1 h_max=3 class="toc__menu" skip_no_ids=true %}
     </nav>
   {% endif %}
-  {%comment%}
-  {%if page.gallery %}
-    {% include gallery %}
-  {% endif %}
-  {%endcomment%}
-
   {% if page.header.image %}
   <figure class="{{ page.header.image_layout }}">
     <img src= '{{ page.header.image | relative_url }}' alt="{{ image_description }}"/>
   </figure>
   {% endif %}
 </header>
+
