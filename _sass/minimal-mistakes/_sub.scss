@@ -299,7 +299,16 @@
       }
 
     }
-
+    
+    .btn{
+      margin-top: 0.5em;
+      color: $secondary-color;
+      display: block;
+      width: fit-content;
+      border: solid 1px;
+      border-radius: 2em;
+    }
+    
     ul,
     table{
       counter-reset: num;
